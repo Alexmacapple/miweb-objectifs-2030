@@ -1,4 +1,4 @@
-# Alternatives textuelles - Objectifs 2030 - Accessibilité numérique
+# Alternatives textuelles - Objectifs 2030 - accessibilité numérique
 
 MiWeb - Juin 2026 - Version 1 - Juin 2026
 

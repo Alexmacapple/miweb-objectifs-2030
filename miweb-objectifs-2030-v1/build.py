@@ -18,10 +18,10 @@ DOWNLOADS_DIR = ROOT / "assets" / "downloads"
 ZIP_NAME = "miweb-objectifs-2030-v1-slides.zip"
 ZIP_PATH = DOWNLOADS_DIR / ZIP_NAME
 
-SITE_TITLE = "Objectifs 2030 - Accessibilité numérique"
+SITE_TITLE = "Objectifs 2030 - accessibilité numérique"
 BASELINE = "MiWeb - Juin 2026"
 VERSION_LABEL = "Version 1 - Juin 2026"
-SITE_DESCRIPTION = "Version web accessible des slides Objectifs 2030 - Accessibilité numérique, avec navigation clavier et alternatives textuelles."
+SITE_DESCRIPTION = "Version web accessible des slides Objectifs 2030 - accessibilité numérique, avec navigation clavier et alternatives textuelles."
 DSFR_VERSION = "1.14.4"
 
 DSFR_CSS = f"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@{DSFR_VERSION}/dist/dsfr/dsfr.min.css"

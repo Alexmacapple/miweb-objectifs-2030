@@ -1,6 +1,6 @@
 # miweb-objectifs-2030-v1
 
-Site statique GitHub Pages pour les slides accessibles « Objectifs 2030 - Accessibilité numérique ».
+Site statique GitHub Pages pour les slides accessibles « Objectifs 2030 - accessibilité numérique ».
 
 ## Génération
 
