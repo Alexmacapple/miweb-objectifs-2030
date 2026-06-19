@@ -1,0 +1,171 @@
+[
+  {
+    "numero": 1,
+    "titre": "Faire de l’accessibilité une qualité durable",
+    "image": "assets/slides/slide-01.png",
+    "alt": "Trajectoire montrant un service numérique accessible aux usagers et aux agents vers l’horizon 2030.",
+    "description": "La slide montre, à gauche, des services numériques dispersés qui créent des incompréhensions pour plusieurs usagers. Au centre, un guichet numérique public commun est utilisé par des usagers et des agents avec différents modes d’accès. À droite, une trajectoire mène vers l’horizon 2030.",
+    "textes_visibles": [
+      "Faire de l’accessibilité une qualité durable",
+      "Services numériques",
+      "Usagers",
+      "Agents",
+      "Horizon 2030",
+      "Une trajectoire de qualité, pas une promesse générale"
+    ],
+    "message": "L’accessibilité doit devenir une qualité durable des services numériques, pas une promesse générale."
+  },
+  {
+    "numero": 2,
+    "titre": "Arrêter de corriger trop tard",
+    "image": "assets/slides/slide-02.png",
+    "alt": "Chaîne de livraison montrant l’audit final, la refonte, la régression puis la correction priorisée.",
+    "description": "La slide représente une chaîne de livraison numérique. Une équipe prépare une interface, puis un audit final intervient, une refonte modifie le service, une régression apparaît en rouge, et une correction priorisée clôt la séquence avec un retour en pointillés vers les étapes précédentes.",
+    "textes_visibles": [
+      "Arrêter de corriger trop tard",
+      "Audit final",
+      "Refonte",
+      "Régression",
+      "Correction priorisée",
+      "Le risque : une dette qui se reconstitue"
+    ],
+    "message": "Corriger en bout de chaîne expose à une dette d’accessibilité qui revient après les évolutions."
+  },
+  {
+    "numero": 3,
+    "titre": "Articuler la contribution SNUM avec les leviers MEF",
+    "image": "assets/slides/slide-03.png",
+    "alt": "Table de coordination reliant la contribution SNUM aux leviers MEF projets, achats, contenus, recette et run.",
+    "description": "La slide montre deux personnes autour d’une table de coordination. Un dossier central est relié à cinq leviers : projets, achats, contenus, recette et run. La scène indique que la contribution SNUM doit être articulée avec un périmètre ministériel plus large.",
+    "textes_visibles": [
+      "Articuler la contribution SNUM avec les leviers MEF",
+      "Projets",
+      "Achats",
+      "Contenus",
+      "Recette",
+      "Run",
+      "Le périmètre reste à clarifier avant engagement ministériel"
+    ],
+    "message": "La contribution SNUM doit s’inscrire dans des leviers MEF à clarifier avant engagement ministériel."
+  },
+  {
+    "numero": 4,
+    "titre": "Prioriser les parcours critiques",
+    "image": "assets/slides/slide-04.png",
+    "alt": "Carte de services où des parcours critiques sont sélectionnés pour alimenter priorités, déclarations, rôles et indicateurs.",
+    "description": "La slide présente une carte de services numériques. Plusieurs chemins se croisent, certains sont surlignés en bleu et mènent vers des priorités. Les priorités sont ensuite reliées aux déclarations, aux rôles et aux indicateurs.",
+    "textes_visibles": [
+      "Prioriser les parcours critiques",
+      "Services",
+      "Priorités",
+      "Déclarations",
+      "Rôles",
+      "Indicateurs",
+      "Rendre visible avant de généraliser"
+    ],
+    "message": "Il faut rendre visibles les parcours critiques avant de généraliser l’action."
+  },
+  {
+    "numero": 5,
+    "titre": "Intégrer l’accessibilité en amont",
+    "image": "assets/slides/slide-05.png",
+    "alt": "Chaîne projet intégrant l’accessibilité du cadrage à la livraison.",
+    "description": "La slide montre cinq étapes alignées : cadrage, achat, maquette, recette et livraison. Des personnes, des documents, une maquette et des icônes d’accessibilité illustrent l’intégration progressive de l’accessibilité avant la mise en production.",
+    "textes_visibles": [
+      "Intégrer l’accessibilité en amont",
+      "Cadrage",
+      "Achat",
+      "Maquette",
+      "Recette",
+      "Livraison",
+      "Les outils aident, ils ne remplacent pas l’expertise"
+    ],
+    "message": "L’accessibilité doit être intégrée en amont, avec des outils qui soutiennent l’expertise sans la remplacer."
+  },
+  {
+    "numero": 6,
+    "titre": "Maintenir les parcours dans le temps",
+    "image": "assets/slides/slide-06.png",
+    "alt": "Boucle de maintien montrant test, détection, correction, actualisation et réinjection.",
+    "description": "La slide représente un service numérique au centre d’une boucle de suivi. Les étapes tester, détecter, corriger, actualiser et réinjecter entourent le service, avec des équipes aux deux extrémités pour illustrer le maintien dans la durée.",
+    "textes_visibles": [
+      "Maintenir les parcours dans le temps",
+      "Tester",
+      "Détecter",
+      "Corriger",
+      "Actualiser",
+      "Réinjecter",
+      "Le run évite que la dette revienne"
+    ],
+    "message": "Le run et l’amélioration continue permettent d’éviter que la dette d’accessibilité revienne."
+  },
+  {
+    "numero": 7,
+    "titre": "Lire les appuis et les risques ensemble",
+    "image": "assets/slides/slide-07.png",
+    "alt": "Balance d’arbitrage comparant appuis existants et risques à traiter.",
+    "description": "La slide montre une balance d’arbitrage observée par un décideur. À gauche figurent les appuis RGAA, DSFR et compétences. À droite figurent les risques liés au parc hétérogène, aux responsabilités et aux moyens.",
+    "textes_visibles": [
+      "Lire les appuis et les risques ensemble",
+      "RGAA",
+      "DSFR",
+      "Compétences",
+      "Parc hétérogène",
+      "Responsabilités",
+      "Moyens",
+      "Les risques encadrent l’ambition"
+    ],
+    "message": "L’ambition doit être lue avec les appuis disponibles et les risques à traiter."
+  },
+  {
+    "numero": 8,
+    "titre": "Rendre la trajectoire tenable",
+    "image": "assets/slides/slide-08.png",
+    "alt": "Quatre portes de réussite conduisant vers 2030.",
+    "description": "La slide montre quatre portes successives ouvertes sur une trajectoire vers 2030. Elles représentent l’usage prioritaire, les processus ordinaires, la gouvernance explicite, puis les outils et compétences. Un groupe de personnes observe le parcours.",
+    "textes_visibles": [
+      "Rendre la trajectoire tenable",
+      "Usage prioritaire",
+      "Processus ordinaires",
+      "Gouvernance explicite",
+      "Outils et compétences",
+      "2030",
+      "Les outils aident, la montée en compétence reste centrale"
+    ],
+    "message": "La trajectoire 2030 devient tenable si les conditions d’usage, de processus, de gouvernance et de compétences sont réunies."
+  },
+  {
+    "numero": 9,
+    "titre": "Clarifier avant d’engager",
+    "image": "assets/slides/slide-09.png",
+    "alt": "Table de décision listant périmètre, responsabilités, moyens et ambition avant engagement.",
+    "description": "La slide montre un décideur devant quatre dossiers ouverts : périmètre, responsabilités, moyens et ambition. Une trajectoire en pointillés part vers un horizon, avec une icône de balance et un point d’interrogation pour signaler les arbitrages à confirmer.",
+    "textes_visibles": [
+      "Clarifier avant d’engager",
+      "Périmètre",
+      "Responsabilités",
+      "Moyens",
+      "Ambition",
+      "Le niveau SNUM/MEF reste à confirmer"
+    ],
+    "message": "L’engagement doit rester conditionné à la clarification du niveau SNUM ou MEF."
+  },
+  {
+    "numero": 10,
+    "titre": "Suivre sans figer trop tôt",
+    "image": "assets/slides/slide-10.png",
+    "alt": "Tableau de bord progressif regroupant six familles d’indicateurs.",
+    "description": "La slide montre un tableau de bord en construction entouré de deux personnes en réflexion. Six blocs y regroupent les familles d’indicateurs : parcours critiques, déclarations, dette, projets-achats, compétences, tests et signalements.",
+    "textes_visibles": [
+      "Suivre sans figer trop tôt",
+      "Parcours critiques",
+      "Déclarations/SPAN/PAN",
+      "Dette",
+      "Projets-achats",
+      "Compétences",
+      "Tests et signalements",
+      "Mesurer dépend du périmètre confirmé"
+    ],
+    "message": "Le suivi doit rester progressif et dépendre du périmètre confirmé."
+  }
+]
