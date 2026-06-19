@@ -70,8 +70,10 @@ class SiteContractsTest(unittest.TestCase):
         self.assertIn('http-equiv="Content-Security-Policy"', self.index_html)
         self.assertIn("default-src", self.index_html)
         self.assertIn("https://cdn.jsdelivr.net", self.index_html)
+        self.assertIn("nonce-miweb-static", self.index_html)
         self.assertIn("sha256-", self.index_html)
         self.assertIn("object-src", self.index_html)
+        self.assertIn('<style nonce="miweb-static">', self.index_html)
         self.assertNotIn("unsafe-inline", self.index_html)
 
     def test_slide_figures_have_rgaa_caption_relationship(self):
@@ -83,7 +85,7 @@ class SiteContractsTest(unittest.TestCase):
             caption = figure["figcaption"]
             attrs = figure["attrs"]
             self.assertTrue(caption)
-            self.assertEqual("group", attrs.get("role"))
+            self.assertEqual("figure", attrs.get("role"))
             self.assertEqual(caption, attrs.get("aria-label"))
 
     def test_slide_alt_texts_are_short(self):

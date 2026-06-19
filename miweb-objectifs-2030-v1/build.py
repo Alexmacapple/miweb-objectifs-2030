@@ -309,7 +309,7 @@ def csp_hash(value: str) -> str:
 
 
 def content_security_policy(extra_script: str = "") -> str:
-    script_sources = ["'self'", f"'nonce-{SCRIPT_NONCE}'", "'strict-dynamic'"]
+    script_sources = ["'self'", f"'nonce-{SCRIPT_NONCE}'", "'strict-dynamic'", "https://cdn.jsdelivr.net"]
     if extra_script:
         script_sources.append(csp_hash(extra_script))
     directives = [
@@ -317,7 +317,7 @@ def content_security_policy(extra_script: str = "") -> str:
         ("base-uri", ["'self'"]),
         ("object-src", ["'none'"]),
         ("script-src", script_sources),
-        ("style-src", ["'self'", "https://cdn.jsdelivr.net", csp_hash(CUSTOM_CSS)]),
+        ("style-src", ["'self'", "https://cdn.jsdelivr.net", f"'nonce-{SCRIPT_NONCE}'", csp_hash(CUSTOM_CSS)]),
         ("img-src", ["'self'", "data:", "https://cdn.jsdelivr.net"]),
         ("font-src", ["'self'", "https://cdn.jsdelivr.net", "data:"]),
         ("connect-src", ["'self'"]),
@@ -452,7 +452,7 @@ def page(title: str, body: str, skip_links: list[tuple[str, str]], version_conte
   <link rel="icon" href="{esc(FAVICON_HREF)}" type="image/svg+xml">
   <title>{esc(full_title)}</title>
   {dsfr_assets()}
-  <style>{CUSTOM_CSS}</style>
+  <style nonce="{SCRIPT_NONCE}">{CUSTOM_CSS}</style>
 </head>
 <body>
   {skiplinks(skip_links)}
@@ -510,7 +510,7 @@ def render_slide(slide: dict, total: int) -> str:
     button_id = ' id="alternative-active"' if number == 1 else ""
     return f"""      <section class="miweb-slide-section" id="{sid}" data-slide-section aria-labelledby="{sid}-title">
         <h3 class="miweb-slide-title" id="{sid}-title" data-slide-title tabindex="-1">Slide {number} - {esc(slide["titre"])}</h3>
-        <figure class="miweb-slide-frame" role="group" aria-label="{esc(caption)}">
+        <figure class="miweb-slide-frame" role="figure" aria-label="{esc(caption)}">
           <img src="{esc(slide["image"])}" alt="{esc(slide["alt"])}" width="1672" height="941">
           <figcaption class="miweb-slide-caption">{esc(caption)}</figcaption>
         </figure>
