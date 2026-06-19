@@ -74,6 +74,7 @@ class SiteContractsTest(unittest.TestCase):
         self.assertIn("sha256-", self.index_html)
         self.assertIn("object-src", self.index_html)
         self.assertIn('<style nonce="miweb-static">', self.index_html)
+        self.assertNotIn("strict-dynamic", self.index_html)
         self.assertNotIn("unsafe-inline", self.index_html)
 
     def test_slide_figures_have_rgaa_caption_relationship(self):

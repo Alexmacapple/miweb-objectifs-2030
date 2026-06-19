@@ -309,7 +309,7 @@ def csp_hash(value: str) -> str:
 
 
 def content_security_policy(extra_script: str = "") -> str:
-    script_sources = ["'self'", f"'nonce-{SCRIPT_NONCE}'", "'strict-dynamic'", "https://cdn.jsdelivr.net"]
+    script_sources = ["'self'", f"'nonce-{SCRIPT_NONCE}'", "https://cdn.jsdelivr.net"]
     if extra_script:
         script_sources.append(csp_hash(extra_script))
     directives = [
