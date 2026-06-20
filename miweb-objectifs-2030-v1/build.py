@@ -7,7 +7,6 @@ import base64
 import hashlib
 import zipfile
 from pathlib import Path
-from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parent
@@ -30,8 +29,8 @@ DSFR_MODULE_JS = f"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@{DSFR_VERSION}/dist
 DSFR_NOMODULE_JS = f"https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@{DSFR_VERSION}/dist/dsfr/dsfr.nomodule.min.js"
 SCRIPT_NONCE = "miweb-static"
 
-FAVICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#000091"/><path fill="#fff" d="M14 16h36v32H14z"/><path fill="#e1000f" d="M38 16h12v32H38z"/></svg>'
-FAVICON_HREF = f"data:image/svg+xml,{quote(FAVICON_SVG)}"
+FAVICON_REL_PATH = "assets/favicons/favicon.ico"
+FAVICON_TYPE = "image/vnd.microsoft.icon"
 
 
 CUSTOM_CSS = """
@@ -54,6 +53,10 @@ CUSTOM_CSS = """
   gap: 0.75rem;
   justify-content: center;
   margin: 1.5rem 0;
+}
+
+.miweb-projection-controls {
+  display: none;
 }
 
 .miweb-slide-status {
@@ -101,23 +104,76 @@ CUSTOM_CSS = """
   margin-top: 0.75rem;
 }
 
+#footer {
+  box-shadow: inset 0 2px 0 0 var(--border-action-high-blue-france);
+}
+
 #diaporama:fullscreen {
   background: var(--background-default-grey);
   box-sizing: border-box;
   overflow: auto;
-  padding: 2rem;
+  padding: clamp(0.75rem, 2vw, 2rem);
 }
 
 #diaporama:fullscreen .miweb-slide-controls {
+  display: none;
+}
+
+#diaporama:fullscreen .miweb-projection-controls {
+  align-items: center;
   background: var(--background-default-grey);
-  padding: 0.75rem 0;
+  border: 1px solid var(--border-default-grey);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  max-width: min(100%, 56rem);
+  padding: 0.5rem;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
+}
+
+#diaporama:fullscreen #diaporama-title,
+#diaporama:fullscreen .miweb-slide-title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#diaporama:fullscreen .miweb-slide-section {
+  margin-bottom: 0;
 }
 
 #diaporama:fullscreen .miweb-slide-frame {
   max-width: min(96vw, 1600px);
+}
+
+#diaporama:fullscreen .fr-accordions-group {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: min(96vw, 1600px);
+  width: 100%;
+}
+
+@media (max-width: 36em) {
+  #diaporama:fullscreen .miweb-projection-controls {
+    align-items: stretch;
+  }
+
+  #diaporama:fullscreen .miweb-projection-controls .fr-btn {
+    flex: 1 1 9rem;
+    justify-content: center;
+  }
 }
 
 @media print {
@@ -151,6 +207,8 @@ MAIN_JS = """
 (() => {
   const slides = Array.from(document.querySelectorAll("[data-slide-section]"));
   const summaryLinks = Array.from(document.querySelectorAll("[data-slide-link]"));
+  const projectionLinks = Array.from(document.querySelectorAll("[data-projection-link]"));
+  const showAllLinks = Array.from(document.querySelectorAll("[data-show-all-link]"));
   const alternativeButtons = Array.from(document.querySelectorAll("[data-alternative-button]"));
   const previousButton = document.querySelector("[data-slide-previous]");
   const nextButton = document.querySelector("[data-slide-next]");
@@ -158,9 +216,16 @@ MAIN_JS = """
   const fullscreenButton = document.querySelector("[data-slide-fullscreen]");
   const fullscreenTarget = document.querySelector("#diaporama");
   const status = document.querySelector("[data-slide-status]");
+  const projectionPreviousButton = document.querySelector("[data-projection-previous]");
+  const projectionNextButton = document.querySelector("[data-projection-next]");
+  const projectionExitButton = document.querySelector("[data-projection-exit]");
+  const projectionStatus = document.querySelector("[data-projection-status]");
   const total = slides.length;
   let currentIndex = getIndexFromHash();
   let allMode = false;
+  let wasProjectionActive = false;
+  const projectionRequested = isProjectionRequested();
+  const allSlidesRequested = isAllSlidesRequested();
 
   function getIndexFromHash() {
     const match = window.location.hash.match(/^#slide-(\\d{2})$/);
@@ -173,6 +238,26 @@ MAIN_JS = """
     return `#slide-${String(index + 1).padStart(2, "0")}`;
   }
 
+  function isProjectionRequested() {
+    const params = new URLSearchParams(window.location.search);
+    return ["1", "true"].includes(params.get("projection"));
+  }
+
+  function isAllSlidesRequested() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("slides") === "all";
+  }
+
+  function isProjectionActive() {
+    return document.fullscreenElement === fullscreenTarget;
+  }
+
+  function currentSlideTitle() {
+    const title = slides[currentIndex].querySelector("[data-slide-title]");
+    if (!title) return "";
+    return title.textContent.replace(/^Slide \\d+\\s+-\\s+/, "").trim();
+  }
+
   function updateAlternativeAnchor() {
     alternativeButtons.forEach((button) => {
       if (button.id === "alternative-active") button.removeAttribute("id");
@@ -183,19 +268,54 @@ MAIN_JS = """
   function updateButtons() {
     previousButton.disabled = currentIndex === 0;
     nextButton.disabled = currentIndex === total - 1;
+    if (projectionPreviousButton) projectionPreviousButton.disabled = currentIndex === 0;
+    if (projectionNextButton) projectionNextButton.disabled = currentIndex === total - 1;
     allButton.setAttribute("aria-pressed", allMode ? "true" : "false");
     allButton.textContent = allMode ? "Revenir au mode diaporama" : "Afficher toutes les slides";
+    moveFocusFromUnavailableProjectionTarget();
+  }
+
+  function moveFocusFromUnavailableProjectionTarget() {
+    if (!isProjectionActive()) return;
+    const active = document.activeElement;
+    const activeSlide = active && active.closest ? active.closest("[data-slide-section]") : null;
+    if (activeSlide && activeSlide.hidden && projectionExitButton) {
+      projectionExitButton.focus({ preventScroll: true });
+      return;
+    }
+    if (active === projectionPreviousButton && projectionPreviousButton.disabled) {
+      const target = projectionNextButton && !projectionNextButton.disabled ? projectionNextButton : projectionExitButton;
+      if (target) target.focus({ preventScroll: true });
+    } else if (active === projectionNextButton && projectionNextButton.disabled) {
+      const target = projectionPreviousButton && !projectionPreviousButton.disabled ? projectionPreviousButton : projectionExitButton;
+      if (target) target.focus({ preventScroll: true });
+    }
   }
 
   function updateStatus() {
     status.textContent = allMode ? `Toutes les slides affichées (${total})` : `Slide ${currentIndex + 1} sur ${total}`;
+    if (projectionStatus) projectionStatus.textContent = `Slide ${currentIndex + 1} sur ${total} - ${currentSlideTitle()}`;
   }
 
   function updateFullscreenButton() {
     if (!fullscreenButton) return;
-    const active = document.fullscreenElement === fullscreenTarget;
+    const active = isProjectionActive();
     fullscreenButton.setAttribute("aria-pressed", active ? "true" : "false");
-    fullscreenButton.textContent = active ? "Quitter le plein écran" : "Plein écran";
+    fullscreenButton.textContent = active ? "Mode projection actif" : "Activer le plein écran";
+    updateHeaderFullscreenButtons(active);
+    if (active && !wasProjectionActive && projectionExitButton) {
+      projectionExitButton.focus({ preventScroll: true });
+    } else if (!active && wasProjectionActive) {
+      fullscreenButton.focus({ preventScroll: true });
+    }
+    wasProjectionActive = active;
+  }
+
+  function updateHeaderFullscreenButtons(active) {
+    document.querySelectorAll("[data-header-fullscreen]").forEach((button) => {
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+      button.textContent = active ? "Mode projection actif" : "Présentation plein écran";
+    });
   }
 
   async function toggleFullscreen() {
@@ -203,9 +323,55 @@ MAIN_JS = """
     if (document.fullscreenElement) {
       await document.exitFullscreen();
     } else {
+      if (allMode) showSlide(currentIndex, { replace: true });
       await fullscreenTarget.requestFullscreen();
     }
     updateFullscreenButton();
+  }
+
+  function prepareProjectionFromUrl() {
+    if (!projectionRequested) return;
+    if (!fullscreenButton || fullscreenButton.disabled || !fullscreenTarget) return;
+    const prepare = () => {
+      fullscreenTarget.scrollIntoView({ block: "start" });
+      fullscreenButton.focus({ preventScroll: true });
+    };
+    if (document.readyState === "complete") {
+      prepare();
+    } else {
+      window.addEventListener("load", prepare, { once: true });
+    }
+  }
+
+  function prepareAllSlidesFromUrl() {
+    if (!allSlidesRequested) return;
+    showAllSlides();
+    const prepare = () => {
+      fullscreenTarget.scrollIntoView({ block: "start" });
+      allButton.focus({ preventScroll: true });
+    };
+    if (document.readyState === "complete") {
+      prepare();
+    } else {
+      window.addEventListener("load", prepare, { once: true });
+    }
+  }
+
+  function activateProjectionFromLink(event, link) {
+    if (!fullscreenButton || fullscreenButton.disabled || !fullscreenTarget) return;
+    event.preventDefault();
+    window.history.pushState(null, "", link.getAttribute("href"));
+    showSlide(0, { replace: true });
+    toggleFullscreen().catch(() => updateFullscreenButton());
+  }
+
+  function showAllSlidesFromLink(event, link) {
+    if (!allButton || !fullscreenTarget) return;
+    event.preventDefault();
+    window.history.pushState(null, "", link.getAttribute("href"));
+    showAllSlides();
+    fullscreenTarget.scrollIntoView({ block: "start" });
+    allButton.focus({ preventScroll: true });
   }
 
   function applyVisibility() {
@@ -218,7 +384,8 @@ MAIN_JS = """
     const hash = slideHash(index);
     if (window.location.hash === hash) return;
     const method = replace ? "replaceState" : "pushState";
-    window.history[method](null, "", hash);
+    const url = `${window.location.pathname}${window.location.search}${hash}`;
+    window.history[method](null, "", url);
   }
 
   function focusCurrentTitle() {
@@ -233,8 +400,9 @@ MAIN_JS = """
     updateAlternativeAnchor();
     updateButtons();
     updateStatus();
-    setUrl(currentIndex, options.replace === true);
-    if (options.focus === true) focusCurrentTitle();
+    if (options.updateUrl !== false) setUrl(currentIndex, options.replace === true);
+    if (options.focus === true && !isProjectionActive()) focusCurrentTitle();
+    moveFocusFromUnavailableProjectionTarget();
   }
 
   function showAllSlides() {
@@ -251,11 +419,26 @@ MAIN_JS = """
     if (allMode) showSlide(currentIndex, { focus: true });
     else showAllSlides();
   });
+  if (projectionPreviousButton) {
+    projectionPreviousButton.addEventListener("click", () => showSlide(currentIndex - 1, { focus: true }));
+  }
+  if (projectionNextButton) {
+    projectionNextButton.addEventListener("click", () => showSlide(currentIndex + 1, { focus: true }));
+  }
+  if (projectionExitButton) {
+    projectionExitButton.addEventListener("click", () => {
+      if (document.fullscreenElement) document.exitFullscreen().catch(() => updateFullscreenButton());
+    });
+  }
 
   if (fullscreenButton) {
     if (!document.fullscreenEnabled || !fullscreenTarget || !fullscreenTarget.requestFullscreen) {
       fullscreenButton.disabled = true;
       fullscreenButton.textContent = "Plein écran indisponible";
+      document.querySelectorAll("[data-header-fullscreen]").forEach((button) => {
+        button.disabled = true;
+        button.textContent = "Plein écran indisponible";
+      });
     } else {
       fullscreenButton.addEventListener("click", () => {
         toggleFullscreen().catch(() => updateFullscreenButton());
@@ -264,6 +447,21 @@ MAIN_JS = """
     }
     updateFullscreenButton();
   }
+
+  document.addEventListener("click", (event) => {
+    const headerFullscreenButton = event.target.closest("[data-header-fullscreen]");
+    if (!headerFullscreenButton) return;
+    event.preventDefault();
+    toggleFullscreen().catch(() => updateFullscreenButton());
+  });
+
+  projectionLinks.forEach((link) => {
+    link.addEventListener("click", (event) => activateProjectionFromLink(event, link));
+  });
+
+  showAllLinks.forEach((link) => {
+    link.addEventListener("click", (event) => showAllSlidesFromLink(event, link));
+  });
 
   summaryLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -294,7 +492,16 @@ MAIN_JS = """
     }
   });
 
-  showSlide(currentIndex, { replace: true });
+  function initializeSlideshow() {
+    showSlide(currentIndex, { replace: true, updateUrl: !allSlidesRequested });
+    if (allSlidesRequested) {
+      prepareAllSlidesFromUrl();
+      return;
+    }
+    prepareProjectionFromUrl();
+  }
+
+  initializeSlideshow();
 })();
 """
 
@@ -359,6 +566,10 @@ def dsfr_scripts(extra_script: str = "") -> str:
     return script
 
 
+def favicon_href(version_context: bool) -> str:
+    return FAVICON_REL_PATH if version_context else f"{ROOT.name}/{FAVICON_REL_PATH}"
+
+
 def skiplinks(links: list[tuple[str, str]]) -> str:
     items = "\n".join(
         f'        <li><a class="fr-link" href="{esc(href)}">{esc(label)}</a></li>' for label, href in links
@@ -372,8 +583,44 @@ def skiplinks(links: list[tuple[str, str]]) -> str:
   </div>"""
 
 
-def header(home_href: str) -> str:
-    return f"""<header class="fr-header">
+def header(home_href: str, version_context: bool, slideshow_context: bool = False) -> str:
+    tools = ""
+    navbar = ""
+    menu = ""
+    if version_context:
+        projection_item = (
+            '<button type="button" class="fr-btn fr-icon-expand-left-right-line fr-btn--icon-left" data-header-fullscreen>Présentation plein écran</button>'
+            if slideshow_context
+            else '<a href="./?projection=1#slide-01" class="fr-btn fr-icon-expand-left-right-line fr-btn--icon-left">Présentation plein écran</a>'
+        )
+        navbar = """              <div class="fr-header__navbar">
+                <button data-fr-opened="false" aria-controls="modal-menu" title="Menu" type="button" id="button-menu" class="fr-btn--menu fr-btn">Menu</button>
+              </div>
+"""
+        tools = f"""          <div class="fr-header__tools">
+            <div class="fr-header__tools-links">
+              <ul class="fr-btns-group">
+                <li>
+                  {projection_item}
+                </li>
+                <li>
+                  <a href="alternatives.html" class="fr-btn fr-icon-accessibility-line fr-btn--icon-left">Alternatives textuelles</a>
+                </li>
+                <li>
+                  <a href="assets/downloads/{ZIP_NAME}" class="fr-btn fr-icon-download-line fr-btn--icon-left" download>Télécharger les slides</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+"""
+        menu = """    <div class="fr-header__menu fr-modal" id="modal-menu">
+      <div class="fr-container">
+        <button aria-controls="modal-menu" title="Fermer" type="button" class="fr-btn--close fr-btn">Fermer</button>
+        <div class="fr-header__menu-links"></div>
+      </div>
+    </div>
+"""
+    return f"""<header role="banner" class="fr-header">
     <div class="fr-header__body">
       <div class="fr-container">
         <div class="fr-header__body-row">
@@ -382,6 +629,7 @@ def header(home_href: str) -> str:
               <div class="fr-header__logo">
                 <p class="fr-logo">République<br>Française</p>
               </div>
+{navbar.rstrip()}
             </div>
             <div class="fr-header__service">
               <a href="{esc(home_href)}" title="Accueil - {esc(SITE_TITLE)}">
@@ -390,23 +638,30 @@ def header(home_href: str) -> str:
               <p class="fr-header__service-tagline">{esc(BASELINE)}</p>
             </div>
           </div>
+{tools.rstrip()}
         </div>
       </div>
     </div>
+{menu.rstrip()}
   </header>"""
 
 
 def footer(version_context: bool) -> str:
     links = {
-        "Présentation": "./" if version_context else "miweb-objectifs-2030-v1/",
+        "Présentation plein écran": "./?projection=1#slide-01" if version_context else "miweb-objectifs-2030-v1/?projection=1#slide-01",
+        "Afficher toutes les slides": "./?slides=all#diaporama" if version_context else "miweb-objectifs-2030-v1/?slides=all#diaporama",
         "Alternatives textuelles": "alternatives.html" if version_context else "miweb-objectifs-2030-v1/alternatives.html",
         "Télécharger les slides": f"assets/downloads/{ZIP_NAME}" if version_context else f"miweb-objectifs-2030-v1/assets/downloads/{ZIP_NAME}",
     }
     items = "\n".join(
-        f'              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="{esc(href)}">{esc(label)}</a></li>'
+        (
+            f'              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="{esc(href)}"'
+            f'{" data-projection-link" if version_context and label == "Présentation plein écran" else ""}'
+            f'{" data-show-all-link" if version_context and label == "Afficher toutes les slides" else ""}>{esc(label)}</a></li>'
+        )
         for label, href in links.items()
     )
-    return f"""<footer class="fr-footer" id="footer">
+    return f"""<footer role="contentinfo" class="fr-footer" id="footer">
     <div class="fr-container">
       <div class="fr-footer__body">
         <div class="fr-footer__brand">
@@ -418,9 +673,6 @@ def footer(version_context: bool) -> str:
 {items}
           </ul>
         </div>
-      </div>
-      <div class="fr-footer__bottom">
-        <p class="fr-footer__bottom-copy">{esc(VERSION_LABEL)}</p>
       </div>
     </div>
   </footer>"""
@@ -439,7 +691,14 @@ def breadcrumb(current: str) -> str:
   </nav>"""
 
 
-def page(title: str, body: str, skip_links: list[tuple[str, str]], version_context: bool, extra_script: str = "") -> str:
+def page(
+    title: str,
+    body: str,
+    skip_links: list[tuple[str, str]],
+    version_context: bool,
+    extra_script: str = "",
+    slideshow_context: bool = False,
+) -> str:
     home_href = "./" if version_context else "./"
     full_title = SITE_TITLE if title == SITE_TITLE else f"{title} - {SITE_TITLE}"
     return f"""<!DOCTYPE html>
@@ -449,14 +708,14 @@ def page(title: str, body: str, skip_links: list[tuple[str, str]], version_conte
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="{html.escape(content_security_policy(extra_script), quote=False)}">
   <meta name="description" content="{esc(SITE_DESCRIPTION)}">
-  <link rel="icon" href="{esc(FAVICON_HREF)}" type="image/svg+xml">
+  <link rel="icon" href="{esc(favicon_href(version_context))}" type="{FAVICON_TYPE}">
   <title>{esc(full_title)}</title>
   {dsfr_assets()}
   <style nonce="{SCRIPT_NONCE}">{CUSTOM_CSS}</style>
 </head>
 <body>
   {skiplinks(skip_links)}
-  {header(home_href)}
+  {header(home_href, version_context, slideshow_context)}
   {body}
   {footer(version_context)}
   {dsfr_scripts(extra_script)}
@@ -505,7 +764,8 @@ def render_summary(slides: list[dict]) -> str:
 def render_slide(slide: dict, total: int) -> str:
     number = int(slide["numero"])
     sid = slide_id(slide)
-    caption = f"Slide {number} sur {total} - {slide['titre']}"
+    caption = f"Slide {number} sur {total}"
+    alternative_label = f"Lire l’alternative textuelle de la slide {number} - {slide['titre']}"
     texts = "\n".join(f"              <li>{esc(text)}</li>" for text in slide["textes_visibles"])
     button_id = ' id="alternative-active"' if number == 1 else ""
     return f"""      <section class="miweb-slide-section" id="{sid}" data-slide-section aria-labelledby="{sid}-title">
@@ -517,7 +777,7 @@ def render_slide(slide: dict, total: int) -> str:
         <div class="fr-accordions-group" data-fr-group="false">
           <section class="fr-accordion">
             <h4 class="fr-accordion__title">
-              <button{button_id} type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="alternative-{sid}" data-alternative-button>Lire l’alternative textuelle de la slide {number}</button>
+              <button{button_id} type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="alternative-{sid}" data-alternative-button>{esc(alternative_label)}</button>
             </h4>
             <div id="alternative-{sid}" class="fr-collapse">
               <p>{esc(slide["description"])}</p>
@@ -538,7 +798,6 @@ def render_v1_index(slides: list[dict]) -> str:
     body = f"""<main id="contenu" class="fr-container fr-py-4w">
     <div class="miweb-page-header">
       <h1>{esc(SITE_TITLE)}</h1>
-      <p><a class="fr-link" href="alternatives.html">Consulter toutes les alternatives textuelles</a></p>
     </div>
     <div class="miweb-summary-zone">
 {render_summary(slides)}
@@ -549,10 +808,16 @@ def render_v1_index(slides: list[dict]) -> str:
         <button type="button" class="fr-btn fr-btn--secondary fr-icon-arrow-left-line fr-btn--icon-left" data-slide-previous>Précédente</button>
         <p class="miweb-slide-status" aria-live="polite" data-slide-status>Slide 1 sur {len(slides)}</p>
         <button type="button" class="fr-btn fr-icon-arrow-right-line fr-btn--icon-right" data-slide-next>Suivante</button>
-        <button type="button" class="fr-btn fr-btn--secondary" aria-pressed="false" data-slide-fullscreen>Plein écran</button>
-        <button type="button" class="fr-btn fr-btn--tertiary" aria-pressed="false" data-slide-all>Afficher toutes les slides</button>
+        <button type="button" class="fr-btn fr-btn--secondary" aria-pressed="false" data-slide-fullscreen>Activer le plein écran</button>
+        <button type="button" class="fr-btn fr-btn--secondary" aria-pressed="false" data-slide-all>Afficher toutes les slides</button>
         <a class="fr-btn fr-btn--secondary fr-icon-download-line fr-btn--icon-left" href="assets/downloads/{ZIP_NAME}" download>Télécharger les slides au format ZIP</a>
       </nav>
+      <div class="miweb-projection-controls" role="group" aria-label="Contrôles de projection" data-projection-controls>
+        <button type="button" class="fr-btn fr-btn--secondary fr-icon-arrow-left-line fr-btn--icon-left" aria-label="Slide précédente" data-projection-previous>Précédente</button>
+        <button type="button" class="fr-btn fr-icon-arrow-right-line fr-btn--icon-right" aria-label="Slide suivante" data-projection-next>Suivante</button>
+        <button type="button" class="fr-btn fr-btn--secondary" data-projection-exit>Quitter le plein écran</button>
+        <p class="fr-sr-only" role="status" aria-live="polite" aria-atomic="true" data-projection-status>Slide 1 sur {len(slides)} - {esc(slides[0]["titre"])}</p>
+      </div>
       <div>
 {rendered_slides}
       </div>
@@ -565,7 +830,7 @@ def render_v1_index(slides: list[dict]) -> str:
         ("Accéder aux alternatives", "#alternative-active"),
         ("Accéder au pied de page", "#footer"),
     ]
-    return page(SITE_TITLE, body, skip, True, MAIN_JS)
+    return page(SITE_TITLE, body, skip, True, MAIN_JS, slideshow_context=True)
 
 
 def render_alternatives(slides: list[dict]) -> str:
