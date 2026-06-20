@@ -1,0 +1,146 @@
+{
+  "captured_at": "2026-06-19T21:45:25+00:00",
+  "collection_path": "/Users/alex/miweb-objectifs-2030/audits/rgaa-2026-06-19-4aee697/captures/alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-accessibilite-html-axe-core-collection.json",
+  "inspection_limits": [
+    "axe-core analyse l'état DOM courant dans Chromium headless.",
+    "axe-core ne couvre pas tous les critères RGAA et ne remplace pas les tests manuels."
+  ],
+  "kind": "ay11_tool_evidence_collection",
+  "mapping_limits": [
+    "Les règles axe-core sont des signaux WCAG/outils ; le rattachement RGAA est indicatif et révisable.",
+    "Une violation axe-core ne vaut pas non-conformité RGAA sans validation humaine.",
+    "Les règles sans mapping RGAA explicite restent visibles comme signaux non mappés."
+  ],
+  "page_url_final": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/accessibilite.html",
+  "produces_audit": false,
+  "produces_conformity": false,
+  "produces_decision": false,
+  "raw_artifact_path": "/Users/alex/miweb-objectifs-2030/audits/rgaa-2026-06-19-4aee697/captures/alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-accessibilite-html-axe-core-raw.json",
+  "result_counts": {
+    "inapplicable": 57,
+    "incomplete": 1,
+    "passes": 32,
+    "violations": 0
+  },
+  "rules": [
+    {
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "help_url": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+      "impact": "serious",
+      "mapping_limit": "Règle reconnue mais non mappée : RGAA 3.2 exige taille, graisse, arrière-plan, cas particuliers et mécanisme éventuel.",
+      "mapping_status": "held",
+      "outcome": "incomplete",
+      "rgaa_mappings": [],
+      "rule_id": "color-contrast",
+      "severity": "warn",
+      "target_count": 7,
+      "targets": [
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-breadcrumb__link\" href=\"../\">Versions</a>",
+          "target": [
+            "a[href=\"../\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-breadcrumb__link\" href=\"./\">Objectifs 2030 - Accessibilité numérique</a>",
+          "target": [
+            ".fr-breadcrumb__link[href=\"./\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+          "html": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Accessibilité</a>",
+          "target": [
+            "a[aria-current=\"page\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-link\" href=\"./\">Retour vers la présentation</a>",
+          "target": [
+            ".fr-link[href=\"./\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-footer__content-link\" href=\"./\">Présentation</a>",
+          "target": [
+            ".fr-footer__content-link[href=\"./\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-footer__content-link\" href=\"alternatives.html\">Alternatives textuelles</a>",
+          "target": [
+            "a[href$=\"alternatives.html\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-footer__content-link\" href=\"assets/downloads/miweb-objectifs-2030-v1-slides.zip\">Télécharger les slides</a>",
+          "target": [
+            ".fr-footer__content-item:nth-child(3) > .fr-footer__content-link"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "source_url": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/accessibilite.html",
+  "targets": [
+    {
+      "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+      "html": "<a class=\"fr-breadcrumb__link\" href=\"../\">Versions</a>",
+      "target": [
+        "a[href=\"../\"]"
+      ]
+    },
+    {
+      "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+      "html": "<a class=\"fr-breadcrumb__link\" href=\"./\">Objectifs 2030 - Accessibilité numérique</a>",
+      "target": [
+        ".fr-breadcrumb__link[href=\"./\"]"
+      ]
+    },
+    {
+      "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+      "html": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Accessibilité</a>",
+      "target": [
+        "a[aria-current=\"page\"]"
+      ]
+    },
+    {
+      "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+      "html": "<a class=\"fr-link\" href=\"./\">Retour vers la présentation</a>",
+      "target": [
+        ".fr-link[href=\"./\"]"
+      ]
+    },
+    {
+      "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+      "html": "<a class=\"fr-footer__content-link\" href=\"./\">Présentation</a>",
+      "target": [
+        ".fr-footer__content-link[href=\"./\"]"
+      ]
+    },
+    {
+      "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+      "html": "<a class=\"fr-footer__content-link\" href=\"alternatives.html\">Alternatives textuelles</a>",
+      "target": [
+        "a[href$=\"alternatives.html\"]"
+      ]
+    },
+    {
+      "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+      "html": "<a class=\"fr-footer__content-link\" href=\"assets/downloads/miweb-objectifs-2030-v1-slides.zip\">Télécharger les slides</a>",
+      "target": [
+        ".fr-footer__content-item:nth-child(3) > .fr-footer__content-link"
+      ]
+    }
+  ],
+  "tool_name": "axe-core",
+  "tool_version": "4.12.1"
+}

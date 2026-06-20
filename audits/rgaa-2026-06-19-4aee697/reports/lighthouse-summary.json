@@ -1,0 +1,294 @@
+[
+  {
+    "file": "https-alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-accessibilite-html.report.json",
+    "finalUrl": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/accessibilite.html",
+    "categories": {
+      "performance": 90,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "audits": {
+      "inspector-issues": {
+        "score": 1,
+        "title": "No issues in the `Issues` panel in Chrome Devtools",
+        "displayValue": null
+      },
+      "errors-in-console": {
+        "score": 1,
+        "title": "No browser errors logged to the console",
+        "displayValue": null
+      },
+      "image-alt": {
+        "score": null,
+        "title": "Image elements have `[alt]` attributes",
+        "displayValue": null
+      },
+      "document-title": {
+        "score": 1,
+        "title": "Document has a `<title>` element",
+        "displayValue": null
+      },
+      "html-has-lang": {
+        "score": 1,
+        "title": "`<html>` element has a `[lang]` attribute",
+        "displayValue": null
+      },
+      "color-contrast": {
+        "score": 1,
+        "title": "Background and foreground colors have a sufficient contrast ratio",
+        "displayValue": null
+      },
+      "button-name": {
+        "score": 1,
+        "title": "Buttons have an accessible name",
+        "displayValue": null
+      },
+      "link-name": {
+        "score": 1,
+        "title": "Links have a discernible name",
+        "displayValue": null
+      },
+      "heading-order": {
+        "score": 1,
+        "title": "Heading elements appear in a sequentially-descending order",
+        "displayValue": null
+      },
+      "aria-allowed-attr": {
+        "score": 1,
+        "title": "`[aria-*]` attributes match their roles",
+        "displayValue": null
+      },
+      "aria-prohibited-attr": {
+        "score": 1,
+        "title": "Elements use only permitted ARIA attributes",
+        "displayValue": null
+      },
+      "aria-valid-attr-value": {
+        "score": 1,
+        "title": "`[aria-*]` attributes have valid values",
+        "displayValue": null
+      }
+    }
+  },
+  {
+    "file": "https-alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-alternatives-html.report.json",
+    "finalUrl": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/alternatives.html",
+    "categories": {
+      "performance": 90,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "audits": {
+      "inspector-issues": {
+        "score": 1,
+        "title": "No issues in the `Issues` panel in Chrome Devtools",
+        "displayValue": null
+      },
+      "errors-in-console": {
+        "score": 1,
+        "title": "No browser errors logged to the console",
+        "displayValue": null
+      },
+      "image-alt": {
+        "score": null,
+        "title": "Image elements have `[alt]` attributes",
+        "displayValue": null
+      },
+      "document-title": {
+        "score": 1,
+        "title": "Document has a `<title>` element",
+        "displayValue": null
+      },
+      "html-has-lang": {
+        "score": 1,
+        "title": "`<html>` element has a `[lang]` attribute",
+        "displayValue": null
+      },
+      "color-contrast": {
+        "score": 1,
+        "title": "Background and foreground colors have a sufficient contrast ratio",
+        "displayValue": null
+      },
+      "button-name": {
+        "score": 1,
+        "title": "Buttons have an accessible name",
+        "displayValue": null
+      },
+      "link-name": {
+        "score": 1,
+        "title": "Links have a discernible name",
+        "displayValue": null
+      },
+      "heading-order": {
+        "score": 1,
+        "title": "Heading elements appear in a sequentially-descending order",
+        "displayValue": null
+      },
+      "aria-allowed-attr": {
+        "score": 1,
+        "title": "`[aria-*]` attributes match their roles",
+        "displayValue": null
+      },
+      "aria-prohibited-attr": {
+        "score": 1,
+        "title": "Elements use only permitted ARIA attributes",
+        "displayValue": null
+      },
+      "aria-valid-attr-value": {
+        "score": 1,
+        "title": "`[aria-*]` attributes have valid values",
+        "displayValue": null
+      }
+    }
+  },
+  {
+    "file": "https-alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1.report.json",
+    "finalUrl": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+    "categories": {
+      "performance": 81,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "audits": {
+      "inspector-issues": {
+        "score": 1,
+        "title": "No issues in the `Issues` panel in Chrome Devtools",
+        "displayValue": null
+      },
+      "errors-in-console": {
+        "score": 1,
+        "title": "No browser errors logged to the console",
+        "displayValue": null
+      },
+      "image-alt": {
+        "score": 1,
+        "title": "Image elements have `[alt]` attributes",
+        "displayValue": null
+      },
+      "document-title": {
+        "score": 1,
+        "title": "Document has a `<title>` element",
+        "displayValue": null
+      },
+      "html-has-lang": {
+        "score": 1,
+        "title": "`<html>` element has a `[lang]` attribute",
+        "displayValue": null
+      },
+      "color-contrast": {
+        "score": 1,
+        "title": "Background and foreground colors have a sufficient contrast ratio",
+        "displayValue": null
+      },
+      "button-name": {
+        "score": 1,
+        "title": "Buttons have an accessible name",
+        "displayValue": null
+      },
+      "link-name": {
+        "score": 1,
+        "title": "Links have a discernible name",
+        "displayValue": null
+      },
+      "heading-order": {
+        "score": 1,
+        "title": "Heading elements appear in a sequentially-descending order",
+        "displayValue": null
+      },
+      "aria-allowed-attr": {
+        "score": 1,
+        "title": "`[aria-*]` attributes match their roles",
+        "displayValue": null
+      },
+      "aria-prohibited-attr": {
+        "score": 1,
+        "title": "Elements use only permitted ARIA attributes",
+        "displayValue": null
+      },
+      "aria-valid-attr-value": {
+        "score": 1,
+        "title": "`[aria-*]` attributes have valid values",
+        "displayValue": null
+      }
+    }
+  },
+  {
+    "file": "https-alexmacapple-github-io-miweb-objectifs-2030.report.json",
+    "finalUrl": "https://alexmacapple.github.io/miweb-objectifs-2030/",
+    "categories": {
+      "performance": 91,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "agentic-browsing": 100
+    },
+    "audits": {
+      "inspector-issues": {
+        "score": 1,
+        "title": "No issues in the `Issues` panel in Chrome Devtools",
+        "displayValue": null
+      },
+      "errors-in-console": {
+        "score": 1,
+        "title": "No browser errors logged to the console",
+        "displayValue": null
+      },
+      "image-alt": {
+        "score": null,
+        "title": "Image elements have `[alt]` attributes",
+        "displayValue": null
+      },
+      "document-title": {
+        "score": 1,
+        "title": "Document has a `<title>` element",
+        "displayValue": null
+      },
+      "html-has-lang": {
+        "score": 1,
+        "title": "`<html>` element has a `[lang]` attribute",
+        "displayValue": null
+      },
+      "color-contrast": {
+        "score": 1,
+        "title": "Background and foreground colors have a sufficient contrast ratio",
+        "displayValue": null
+      },
+      "button-name": {
+        "score": null,
+        "title": "Buttons have an accessible name",
+        "displayValue": null
+      },
+      "link-name": {
+        "score": 1,
+        "title": "Links have a discernible name",
+        "displayValue": null
+      },
+      "heading-order": {
+        "score": 1,
+        "title": "Heading elements appear in a sequentially-descending order",
+        "displayValue": null
+      },
+      "aria-allowed-attr": {
+        "score": 1,
+        "title": "`[aria-*]` attributes match their roles",
+        "displayValue": null
+      },
+      "aria-prohibited-attr": {
+        "score": 1,
+        "title": "Elements use only permitted ARIA attributes",
+        "displayValue": null
+      },
+      "aria-valid-attr-value": {
+        "score": 1,
+        "title": "`[aria-*]` attributes have valid values",
+        "displayValue": null
+      }
+    }
+  }
+]

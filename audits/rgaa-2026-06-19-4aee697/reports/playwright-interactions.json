@@ -1,0 +1,55 @@
+{
+  "url": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-04",
+  "checks": [
+    {
+      "name": "titre diaporama",
+      "status": "ok",
+      "value": "Présentation MiWeb"
+    },
+    {
+      "name": "slide 4 visible",
+      "status": "ok",
+      "value": "Slide 4 - Prioriser les parcours critiques"
+    },
+    {
+      "name": "slides visibles après init",
+      "status": "ok",
+      "value": 1
+    },
+    {
+      "name": "bouton plein écran",
+      "status": "ok",
+      "value": "Plein écran"
+    },
+    {
+      "name": "aria pressed plein écran initial",
+      "status": "ok",
+      "value": "false"
+    },
+    {
+      "name": "url après suivante",
+      "status": "ok",
+      "value": "#slide-05"
+    },
+    {
+      "name": "focus après suivante",
+      "status": "ok",
+      "value": "slide-05-title"
+    },
+    {
+      "name": "toutes slides visibles",
+      "status": "ok",
+      "value": 10
+    },
+    {
+      "name": "aria pressed toutes slides",
+      "status": "ok",
+      "value": "true"
+    },
+    {
+      "name": "accordéon slide 5 ouvert",
+      "status": "ok",
+      "value": "true"
+    }
+  ]
+}

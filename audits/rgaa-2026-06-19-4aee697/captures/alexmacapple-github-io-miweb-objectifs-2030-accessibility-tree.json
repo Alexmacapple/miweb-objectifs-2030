@@ -1,0 +1,3213 @@
+{
+  "kind": "chromium_accessibility_tree",
+  "schema_version": 1,
+  "tree": {
+    "nodes": [
+      {
+        "backendDOMNodeId": 2,
+        "childIds": [
+          "36"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 144
+        },
+        "frameId": "1D0316FC11F61E1E4E51A503F0B79182",
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "aria-label",
+              "superseded": true,
+              "type": "attribute"
+            },
+            {
+              "nativeSource": "title",
+              "type": "relatedElement",
+              "value": {
+                "type": "computedString",
+                "value": "Objectifs 2030 - Accessibilité numérique"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique"
+        },
+        "nodeId": "2",
+        "properties": [
+          {
+            "name": "focusable",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "focused",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "url",
+            "value": {
+              "type": "string",
+              "value": "https://alexmacapple.github.io/miweb-objectifs-2030/"
+            }
+          }
+        ],
+        "role": {
+          "type": "internalRole",
+          "value": "RootWebArea"
+        }
+      },
+      {
+        "backendDOMNodeId": 36,
+        "childIds": [
+          "47"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "36",
+        "parentId": "2",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 47,
+        "childIds": [
+          "48",
+          "55",
+          "18",
+          "77"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "47",
+        "parentId": "36",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 48,
+        "childIds": [
+          "49"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "48",
+        "parentId": "47",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "backendDOMNodeId": 55,
+        "childIds": [
+          "56"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 94
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "55",
+        "parentId": "47",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "banner"
+        }
+      },
+      {
+        "backendDOMNodeId": 18,
+        "childIds": [
+          "66",
+          "69"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 118
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "18",
+        "parentId": "47",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "main"
+        }
+      },
+      {
+        "backendDOMNodeId": 77,
+        "childIds": [
+          "78"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 85
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "77",
+        "parentId": "47",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "contentinfo"
+        }
+      },
+      {
+        "backendDOMNodeId": 49,
+        "childIds": [
+          "50"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 130
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "attributeValue": {
+                "type": "string",
+                "value": "Accès rapide"
+              },
+              "type": "attribute",
+              "value": {
+                "type": "computedString",
+                "value": "Accès rapide"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Accès rapide"
+        },
+        "nodeId": "49",
+        "parentId": "48",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "navigation"
+        }
+      },
+      {
+        "backendDOMNodeId": 56,
+        "childIds": [
+          "57"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "56",
+        "parentId": "55",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 57,
+        "childIds": [
+          "58"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "57",
+        "parentId": "56",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 58,
+        "childIds": [
+          "59"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "58",
+        "parentId": "57",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 59,
+        "childIds": [
+          "60",
+          "19"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "59",
+        "parentId": "58",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "backendDOMNodeId": 66,
+        "childIds": [
+          "67",
+          "68"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "66",
+        "parentId": "18",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 67,
+        "childIds": [
+          "22"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 96
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Objectifs 2030 - Accessibilité numérique"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique"
+        },
+        "nodeId": "67",
+        "parentId": "66",
+        "properties": [
+          {
+            "name": "level",
+            "value": {
+              "type": "integer",
+              "value": 1
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "heading"
+        }
+      },
+      {
+        "backendDOMNodeId": 68,
+        "childIds": [
+          "13"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 133
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "68",
+        "parentId": "66",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "paragraph"
+        }
+      },
+      {
+        "backendDOMNodeId": 69,
+        "childIds": [
+          "70",
+          "17",
+          "76"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 143
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "attributeValue": {
+                "relatedNodes": [
+                  {
+                    "backendDOMNodeId": 70,
+                    "idref": "versions-title",
+                    "text": "Versions disponibles"
+                  }
+                ],
+                "type": "idrefList",
+                "value": "versions-title"
+              },
+              "type": "relatedElement",
+              "value": {
+                "type": "computedString",
+                "value": "Versions disponibles"
+              }
+            },
+            {
+              "attribute": "aria-label",
+              "superseded": true,
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Versions disponibles"
+        },
+        "nodeId": "69",
+        "parentId": "18",
+        "properties": [
+          {
+            "name": "labelledby",
+            "value": {
+              "relatedNodes": [
+                {
+                  "backendDOMNodeId": 70,
+                  "idref": "versions-title",
+                  "text": "Versions disponibles"
+                }
+              ],
+              "type": "nodeList"
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "region"
+        }
+      },
+      {
+        "backendDOMNodeId": 78,
+        "childIds": [
+          "79",
+          "92"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "78",
+        "parentId": "77",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 79,
+        "childIds": [
+          "80",
+          "83"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "79",
+        "parentId": "78",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 80,
+        "childIds": [
+          "81"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "80",
+        "parentId": "79",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 81,
+        "childIds": [
+          "102",
+          "82",
+          "103"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "81",
+        "parentId": "80",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 102,
+        "childIds": [
+          "-1000000015"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "RÉPUBLIQUE"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "RÉPUBLIQUE"
+        },
+        "nodeId": "102",
+        "parentId": "81",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 82,
+        "childIds": [
+          "-1000000016"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 109
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "\n"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "\n"
+        },
+        "nodeId": "82",
+        "parentId": "81",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "LineBreak"
+        }
+      },
+      {
+        "backendDOMNodeId": 103,
+        "childIds": [
+          "-1000000017"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "FRANÇAISE"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "FRANÇAISE"
+        },
+        "nodeId": "103",
+        "parentId": "81",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 83,
+        "childIds": [
+          "84",
+          "85"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "83",
+        "parentId": "79",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 84,
+        "childIds": [
+          "16"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 133
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "84",
+        "parentId": "83",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "paragraph"
+        }
+      },
+      {
+        "backendDOMNodeId": 85,
+        "childIds": [
+          "86",
+          "88",
+          "90"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 111
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "85",
+        "parentId": "83",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "list"
+        }
+      },
+      {
+        "backendDOMNodeId": 92,
+        "childIds": [
+          "93"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "92",
+        "parentId": "78",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 93,
+        "childIds": [
+          "107"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 133
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "93",
+        "parentId": "92",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "paragraph"
+        }
+      },
+      {
+        "backendDOMNodeId": 50,
+        "childIds": [
+          "51",
+          "53"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 111
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "50",
+        "parentId": "49",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "list"
+        }
+      },
+      {
+        "backendDOMNodeId": 60,
+        "childIds": [
+          "61"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "60",
+        "parentId": "59",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 61,
+        "childIds": [
+          "62"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "61",
+        "parentId": "60",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "backendDOMNodeId": 19,
+        "childIds": [
+          "64",
+          "65"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "19",
+        "parentId": "59",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 64,
+        "childIds": [
+          "101",
+          "20"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 110
+        },
+        "description": {
+          "type": "computedString",
+          "value": "Accueil - Objectifs 2030 - Accessibilité numérique"
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Objectifs 2030 - Accessibilité numérique"
+              }
+            },
+            {
+              "attribute": "title",
+              "attributeValue": {
+                "type": "string",
+                "value": "Accueil - Objectifs 2030 - Accessibilité numérique"
+              },
+              "superseded": true,
+              "type": "attribute",
+              "value": {
+                "type": "computedString",
+                "value": "Accueil - Objectifs 2030 - Accessibilité numérique"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique"
+        },
+        "nodeId": "64",
+        "parentId": "19",
+        "properties": [
+          {
+            "name": "focusable",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "url",
+            "value": {
+              "type": "string",
+              "value": "https://alexmacapple.github.io/miweb-objectifs-2030/"
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "link"
+        }
+      },
+      {
+        "backendDOMNodeId": 65,
+        "childIds": [
+          "12"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 133
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "65",
+        "parentId": "19",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "paragraph"
+        }
+      },
+      {
+        "backendDOMNodeId": 22,
+        "childIds": [
+          "-1000000009"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Objectifs 2030 - Accessibilité numérique"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique"
+        },
+        "nodeId": "22",
+        "parentId": "67",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 13,
+        "childIds": [
+          "-1000000010"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "MiWeb - Juin 2026"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "MiWeb - Juin 2026"
+        },
+        "nodeId": "13",
+        "parentId": "68",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 70,
+        "childIds": [
+          "23"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 96
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Versions disponibles"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Versions disponibles"
+        },
+        "nodeId": "70",
+        "parentId": "69",
+        "properties": [
+          {
+            "name": "level",
+            "value": {
+              "type": "integer",
+              "value": 2
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "heading"
+        }
+      },
+      {
+        "backendDOMNodeId": 17,
+        "childIds": [
+          "71"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "17",
+        "parentId": "69",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 71,
+        "childIds": [
+          "6"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "71",
+        "parentId": "17",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 6,
+        "childIds": [
+          "72"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "6",
+        "parentId": "71",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "backendDOMNodeId": 76,
+        "childIds": [
+          "15"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 133
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "76",
+        "parentId": "69",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "paragraph"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "RÉPUBLIQUE"
+        },
+        "nodeId": "-1000000015",
+        "parentId": "102",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "\n"
+        },
+        "nodeId": "-1000000016",
+        "parentId": "82",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "FRANÇAISE"
+        },
+        "nodeId": "-1000000017",
+        "parentId": "103",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "backendDOMNodeId": 16,
+        "childIds": [
+          "-1000000018"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Objectifs 2030 - Accessibilité numérique - MiWeb - Juin 2026."
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique - MiWeb - Juin 2026."
+        },
+        "nodeId": "16",
+        "parentId": "84",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 86,
+        "childIds": [
+          "87"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 115
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "86",
+        "parentId": "85",
+        "properties": [
+          {
+            "name": "level",
+            "value": {
+              "type": "integer",
+              "value": 1
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "listitem"
+        }
+      },
+      {
+        "backendDOMNodeId": 88,
+        "childIds": [
+          "89"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 115
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "88",
+        "parentId": "85",
+        "properties": [
+          {
+            "name": "level",
+            "value": {
+              "type": "integer",
+              "value": 1
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "listitem"
+        }
+      },
+      {
+        "backendDOMNodeId": 90,
+        "childIds": [
+          "91"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 115
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "90",
+        "parentId": "85",
+        "properties": [
+          {
+            "name": "level",
+            "value": {
+              "type": "integer",
+              "value": 1
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "listitem"
+        }
+      },
+      {
+        "backendDOMNodeId": 107,
+        "childIds": [
+          "-1000000022"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Version 1 - Juin 2026"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Version 1 - Juin 2026"
+        },
+        "nodeId": "107",
+        "parentId": "93",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 51,
+        "childIds": [
+          "52"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 115
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "51",
+        "parentId": "50",
+        "properties": [
+          {
+            "name": "level",
+            "value": {
+              "type": "integer",
+              "value": 1
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "listitem"
+        }
+      },
+      {
+        "backendDOMNodeId": 53,
+        "childIds": [
+          "54"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 115
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "attribute": "title",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "53",
+        "parentId": "50",
+        "properties": [
+          {
+            "name": "level",
+            "value": {
+              "type": "integer",
+              "value": 1
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "listitem"
+        }
+      },
+      {
+        "backendDOMNodeId": 62,
+        "childIds": [
+          "98",
+          "99",
+          "63",
+          "100",
+          "9"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "62",
+        "parentId": "61",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 98,
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "98",
+        "parentId": "62",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "backendDOMNodeId": 99,
+        "childIds": [
+          "-1000000004"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "RÉPUBLIQUE"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "RÉPUBLIQUE"
+        },
+        "nodeId": "99",
+        "parentId": "62",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 63,
+        "childIds": [
+          "-1000000005"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 109
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "\n"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "\n"
+        },
+        "nodeId": "63",
+        "parentId": "62",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "LineBreak"
+        }
+      },
+      {
+        "backendDOMNodeId": 100,
+        "childIds": [
+          "-1000000006"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "FRANÇAISE"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "FRANÇAISE"
+        },
+        "nodeId": "100",
+        "parentId": "62",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 9,
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "9",
+        "parentId": "62",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "backendDOMNodeId": 101,
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "101",
+        "parentId": "64",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "backendDOMNodeId": 20,
+        "childIds": [
+          "21"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 133
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "20",
+        "parentId": "64",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "paragraph"
+        }
+      },
+      {
+        "backendDOMNodeId": 12,
+        "childIds": [
+          "-1000000008"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "MiWeb - Juin 2026"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "MiWeb - Juin 2026"
+        },
+        "nodeId": "12",
+        "parentId": "65",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique"
+        },
+        "nodeId": "-1000000009",
+        "parentId": "22",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "MiWeb - Juin 2026"
+        },
+        "nodeId": "-1000000010",
+        "parentId": "13",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "backendDOMNodeId": 23,
+        "childIds": [
+          "-1000000011"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Versions disponibles"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Versions disponibles"
+        },
+        "nodeId": "23",
+        "parentId": "70",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 72,
+        "childIds": [
+          "73",
+          "75"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 0
+        },
+        "ignored": true,
+        "ignoredReasons": [
+          {
+            "name": "uninteresting",
+            "value": {
+              "type": "boolean",
+              "value": true
+            }
+          }
+        ],
+        "nodeId": "72",
+        "parentId": "6",
+        "role": {
+          "type": "role",
+          "value": "none"
+        }
+      },
+      {
+        "backendDOMNodeId": 73,
+        "childIds": [
+          "74"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 96
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Version 1 - Juin 2026"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Version 1 - Juin 2026"
+        },
+        "nodeId": "73",
+        "parentId": "72",
+        "properties": [
+          {
+            "name": "level",
+            "value": {
+              "type": "integer",
+              "value": 3
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "heading"
+        }
+      },
+      {
+        "backendDOMNodeId": 75,
+        "childIds": [
+          "14"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 133
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "75",
+        "parentId": "72",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "paragraph"
+        }
+      },
+      {
+        "backendDOMNodeId": 15,
+        "childIds": [
+          "-1000000014"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "D’autres versions pourront être ajoutées ultérieurement."
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "D’autres versions pourront être ajoutées ultérieurement."
+        },
+        "nodeId": "15",
+        "parentId": "76",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique - MiWeb - Juin 2026."
+        },
+        "nodeId": "-1000000018",
+        "parentId": "16",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "backendDOMNodeId": 87,
+        "childIds": [
+          "104"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 110
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Présentation"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Présentation"
+        },
+        "nodeId": "87",
+        "parentId": "86",
+        "properties": [
+          {
+            "name": "focusable",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "url",
+            "value": {
+              "type": "string",
+              "value": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/"
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "link"
+        }
+      },
+      {
+        "backendDOMNodeId": 89,
+        "childIds": [
+          "105"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 110
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Alternatives textuelles"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Alternatives textuelles"
+        },
+        "nodeId": "89",
+        "parentId": "88",
+        "properties": [
+          {
+            "name": "focusable",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "url",
+            "value": {
+              "type": "string",
+              "value": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/alternatives.html"
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "link"
+        }
+      },
+      {
+        "backendDOMNodeId": 91,
+        "childIds": [
+          "106"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 110
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Télécharger les slides"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Télécharger les slides"
+        },
+        "nodeId": "91",
+        "parentId": "90",
+        "properties": [
+          {
+            "name": "focusable",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "url",
+            "value": {
+              "type": "string",
+              "value": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/assets/downloads/miweb-objectifs-2030-v1-slides.zip"
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "link"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Version 1 - Juin 2026"
+        },
+        "nodeId": "-1000000022",
+        "parentId": "107",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "backendDOMNodeId": 52,
+        "childIds": [
+          "96"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 110
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Accéder au contenu"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Accéder au contenu"
+        },
+        "nodeId": "52",
+        "parentId": "51",
+        "properties": [
+          {
+            "name": "focusable",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "url",
+            "value": {
+              "type": "string",
+              "value": "https://alexmacapple.github.io/miweb-objectifs-2030/#contenu"
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "link"
+        }
+      },
+      {
+        "backendDOMNodeId": 54,
+        "childIds": [
+          "97"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 110
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Accéder au pied de page"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Accéder au pied de page"
+        },
+        "nodeId": "54",
+        "parentId": "53",
+        "properties": [
+          {
+            "name": "focusable",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "url",
+            "value": {
+              "type": "string",
+              "value": "https://alexmacapple.github.io/miweb-objectifs-2030/#footer"
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "link"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "RÉPUBLIQUE"
+        },
+        "nodeId": "-1000000004",
+        "parentId": "99",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "\n"
+        },
+        "nodeId": "-1000000005",
+        "parentId": "63",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "FRANÇAISE"
+        },
+        "nodeId": "-1000000006",
+        "parentId": "100",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "backendDOMNodeId": 21,
+        "childIds": [
+          "-1000000007"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Objectifs 2030 - Accessibilité numérique"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique"
+        },
+        "nodeId": "21",
+        "parentId": "20",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "MiWeb - Juin 2026"
+        },
+        "nodeId": "-1000000008",
+        "parentId": "12",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Versions disponibles"
+        },
+        "nodeId": "-1000000011",
+        "parentId": "23",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "backendDOMNodeId": 74,
+        "childIds": [
+          "8",
+          "24",
+          "11"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 110
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            },
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Version 1 - Juin 2026"
+              }
+            },
+            {
+              "attribute": "title",
+              "superseded": true,
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": "Version 1 - Juin 2026"
+        },
+        "nodeId": "74",
+        "parentId": "73",
+        "properties": [
+          {
+            "name": "focusable",
+            "value": {
+              "type": "booleanOrUndefined",
+              "value": true
+            }
+          },
+          {
+            "name": "url",
+            "value": {
+              "type": "string",
+              "value": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/"
+            }
+          }
+        ],
+        "role": {
+          "type": "role",
+          "value": "link"
+        }
+      },
+      {
+        "backendDOMNodeId": 14,
+        "childIds": [
+          "-1000000013"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Slides accessibles au format web."
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Slides accessibles au format web."
+        },
+        "nodeId": "14",
+        "parentId": "75",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "D’autres versions pourront être ajoutées ultérieurement."
+        },
+        "nodeId": "-1000000014",
+        "parentId": "15",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "backendDOMNodeId": 104,
+        "childIds": [
+          "-1000000019"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Présentation"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Présentation"
+        },
+        "nodeId": "104",
+        "parentId": "87",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 105,
+        "childIds": [
+          "-1000000020"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Alternatives textuelles"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Alternatives textuelles"
+        },
+        "nodeId": "105",
+        "parentId": "89",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 106,
+        "childIds": [
+          "-1000000021"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Télécharger les slides"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Télécharger les slides"
+        },
+        "nodeId": "106",
+        "parentId": "91",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 96,
+        "childIds": [
+          "-1000000002"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Accéder au contenu"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Accéder au contenu"
+        },
+        "nodeId": "96",
+        "parentId": "52",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 97,
+        "childIds": [
+          "-1000000003"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Accéder au pied de page"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Accéder au pied de page"
+        },
+        "nodeId": "97",
+        "parentId": "54",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Objectifs 2030 - Accessibilité numérique"
+        },
+        "nodeId": "-1000000007",
+        "parentId": "21",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "backendDOMNodeId": 8,
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "8",
+        "parentId": "74",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "backendDOMNodeId": 24,
+        "childIds": [
+          "-1000000012"
+        ],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 158
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "type": "contents",
+              "value": {
+                "type": "computedString",
+                "value": "Version 1 - Juin 2026"
+              }
+            }
+          ],
+          "type": "computedString",
+          "value": "Version 1 - Juin 2026"
+        },
+        "nodeId": "24",
+        "parentId": "74",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "StaticText"
+        }
+      },
+      {
+        "backendDOMNodeId": 11,
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 88
+        },
+        "ignored": false,
+        "name": {
+          "sources": [
+            {
+              "attribute": "aria-labelledby",
+              "type": "relatedElement"
+            },
+            {
+              "attribute": "aria-label",
+              "type": "attribute"
+            }
+          ],
+          "type": "computedString",
+          "value": ""
+        },
+        "nodeId": "11",
+        "parentId": "74",
+        "properties": [],
+        "role": {
+          "type": "role",
+          "value": "generic"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Slides accessibles au format web."
+        },
+        "nodeId": "-1000000013",
+        "parentId": "14",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Présentation"
+        },
+        "nodeId": "-1000000019",
+        "parentId": "104",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Alternatives textuelles"
+        },
+        "nodeId": "-1000000020",
+        "parentId": "105",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Télécharger les slides"
+        },
+        "nodeId": "-1000000021",
+        "parentId": "106",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Accéder au contenu"
+        },
+        "nodeId": "-1000000002",
+        "parentId": "96",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Accéder au pied de page"
+        },
+        "nodeId": "-1000000003",
+        "parentId": "97",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      },
+      {
+        "childIds": [],
+        "chromeRole": {
+          "type": "internalRole",
+          "value": 101
+        },
+        "ignored": false,
+        "name": {
+          "type": "computedString",
+          "value": "Version 1 - Juin 2026"
+        },
+        "nodeId": "-1000000012",
+        "parentId": "24",
+        "properties": [],
+        "role": {
+          "type": "internalRole",
+          "value": "InlineTextBox"
+        }
+      }
+    ]
+  }
+}

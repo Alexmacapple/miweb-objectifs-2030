@@ -1,0 +1,2626 @@
+{
+  "accessibility_tree_path": "/Users/alex/miweb-objectifs-2030/audits/rgaa-2026-06-19-4aee697/captures/alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-accessibility-tree.json",
+  "advanced_interaction_evidence": {
+    "aria_mutations": [
+      {
+        "attribute_name": "aria-expanded",
+        "live_region_aria_live": "",
+        "live_region_role": "",
+        "live_region_selector": null,
+        "live_region_text": "",
+        "observed_at": "2026-06-19T21:45:20.779Z",
+        "old_value": "false",
+        "target_selector": "button#alternative-active",
+        "text": "Lire l’alternative textuelle de la slide 1",
+        "type": "attributes"
+      },
+      {
+        "attribute_name": "aria-expanded",
+        "live_region_aria_live": "",
+        "live_region_role": "",
+        "live_region_selector": null,
+        "live_region_text": "",
+        "observed_at": "2026-06-19T21:45:21.099Z",
+        "old_value": "true",
+        "target_selector": "button#alternative-active",
+        "text": "Lire l’alternative textuelle de la slide 1",
+        "type": "attributes"
+      },
+      {
+        "attribute_name": "aria-expanded",
+        "live_region_aria_live": "",
+        "live_region_role": "",
+        "live_region_selector": null,
+        "live_region_text": "",
+        "observed_at": "2026-06-19T21:45:21.399Z",
+        "old_value": "false",
+        "target_selector": "button#alternative-active",
+        "text": "Lire l’alternative textuelle de la slide 1",
+        "type": "attributes"
+      },
+      {
+        "attribute_name": "aria-expanded",
+        "live_region_aria_live": "",
+        "live_region_role": "",
+        "live_region_selector": null,
+        "live_region_text": "",
+        "observed_at": "2026-06-19T21:45:21.719Z",
+        "old_value": "true",
+        "target_selector": "button#alternative-active",
+        "text": "Lire l’alternative textuelle de la slide 1",
+        "type": "attributes"
+      },
+      {
+        "attribute_name": "aria-expanded",
+        "live_region_aria_live": "",
+        "live_region_role": "",
+        "live_region_selector": null,
+        "live_region_text": "",
+        "observed_at": "2026-06-19T21:45:22.019Z",
+        "old_value": "false",
+        "target_selector": "button#alternative-active",
+        "text": "Lire l’alternative textuelle de la slide 1",
+        "type": "attributes"
+      }
+    ],
+    "completed_at": "2026-06-19T21:45:22+00:00",
+    "inspection_limits": [
+      "Scénarios clavier bornés aux premiers widgets ARIA détectés ; aucun parcours métier complet n'est exécuté.",
+      "Shadow DOM ouvert inventorié via le DOM ; shadow DOM fermé seulement signalé quand attachShadow a été observé pendant le chargement.",
+      "Les iframes cross-origin ne sont pas explorées par cette preuve."
+    ],
+    "keyboard_widget_trace_count": 5,
+    "keyboard_widget_traces": [
+      {
+        "candidate": {
+          "accessible_name": "Lire l’alternative textuelle de la slide 1",
+          "aria_activedescendant": "",
+          "aria_controls": "alternative-slide-01",
+          "aria_expanded": "false",
+          "aria_haspopup": "",
+          "aria_pressed": null,
+          "aria_selected": null,
+          "role": "button",
+          "selector": "button#alternative-active",
+          "source_criterion_ids": [
+            "7.1",
+            "12.8",
+            "12.9"
+          ],
+          "suggested_keys": [
+            "Enter",
+            "Escape"
+          ],
+          "tag_name": "button"
+        },
+        "completed_at": "2026-06-19T21:45:21+00:00",
+        "error": null,
+        "inspection_limits": [
+          "Trace clavier Chromium headless ; elle ne prouve pas l'utilisation réelle avec technologie d'assistance.",
+          "Les touches sont limitées à un scénario générique par rôle afin d'éviter les parcours métier destructifs."
+        ],
+        "kind": "ay11_keyboard_widget_trace",
+        "produces_audit": false,
+        "produces_conformity": false,
+        "produces_decision": false,
+        "scenario_id": "widget-keyboard-1",
+        "scenario_kind": "keyboard_widget",
+        "scenario_status": "captured",
+        "schema_version": 1,
+        "started_at": "2026-06-19T21:45:20+00:00",
+        "state_count": 3,
+        "states": [
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-01",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-01",
+                "role": "",
+                "selector": "div#alternative-slide-01",
+                "text": "La slide montre, à gauche, des services numériques dispersés qui créent des incompréhensions pour plusieurs usagers. Au centre, un guichet numérique public commun est utilisé par des usagers et des agents avec différents modes d’accès. À droite, une trajectoire mène vers l’horizon 2030. Textes visib"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "button#alternative-active",
+            "state_id": "initial_focus"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-01",
+            "aria_expanded": "true",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-01",
+                "role": "",
+                "selector": "div#alternative-slide-01",
+                "text": "La slide montre, à gauche, des services numériques dispersés qui créent des incompréhensions pour plusieurs usagers. Au centre, un guichet numérique public commun est utilisé par des usagers et des agents avec différents modes d’accès. À droite, une trajectoire mène vers l’horizon 2030. Textes visib"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "button#alternative-active",
+            "state_id": "after_enter"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-01",
+            "aria_expanded": "true",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-01",
+                "role": "",
+                "selector": "div#alternative-slide-01",
+                "text": "La slide montre, à gauche, des services numériques dispersés qui créent des incompréhensions pour plusieurs usagers. Au centre, un guichet numérique public commun est utilisé par des usagers et des agents avec différents modes d’accès. À droite, une trajectoire mène vers l’horizon 2030. Textes visib"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "button#alternative-active",
+            "state_id": "after_escape"
+          }
+        ],
+        "steps": [
+          {
+            "action": "press_key",
+            "key": "Enter",
+            "result": "captured"
+          },
+          {
+            "action": "press_key",
+            "key": "Escape",
+            "result": "captured"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "accessible_name": "Lire l’alternative textuelle de la slide 2",
+          "aria_activedescendant": "",
+          "aria_controls": "alternative-slide-02",
+          "aria_expanded": "false",
+          "aria_haspopup": "",
+          "aria_pressed": null,
+          "aria_selected": null,
+          "role": "button",
+          "selector": "section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+          "source_criterion_ids": [
+            "7.1",
+            "12.8",
+            "12.9"
+          ],
+          "suggested_keys": [
+            "Enter",
+            "Escape"
+          ],
+          "tag_name": "button"
+        },
+        "completed_at": "2026-06-19T21:45:21+00:00",
+        "error": null,
+        "inspection_limits": [
+          "Trace clavier Chromium headless ; elle ne prouve pas l'utilisation réelle avec technologie d'assistance.",
+          "Les touches sont limitées à un scénario générique par rôle afin d'éviter les parcours métier destructifs."
+        ],
+        "kind": "ay11_keyboard_widget_trace",
+        "produces_audit": false,
+        "produces_conformity": false,
+        "produces_decision": false,
+        "scenario_id": "widget-keyboard-2",
+        "scenario_kind": "keyboard_widget",
+        "scenario_status": "captured",
+        "schema_version": 1,
+        "started_at": "2026-06-19T21:45:21+00:00",
+        "state_count": 3,
+        "states": [
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 2",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-02",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-02",
+                "role": "",
+                "selector": "div#alternative-slide-02",
+                "text": "La slide représente une chaîne de livraison numérique. Une équipe prépare une interface, puis un audit final intervient, une refonte modifie le service, une régression apparaît en rouge, et une correction priorisée clôt la séquence avec un retour en pointillés vers les étapes précédentes. Textes vis"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "initial_focus"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 2",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-02",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-02",
+                "role": "",
+                "selector": "div#alternative-slide-02",
+                "text": "La slide représente une chaîne de livraison numérique. Une équipe prépare une interface, puis un audit final intervient, une refonte modifie le service, une régression apparaît en rouge, et une correction priorisée clôt la séquence avec un retour en pointillés vers les étapes précédentes. Textes vis"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "after_enter"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 2",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-02",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-02",
+                "role": "",
+                "selector": "div#alternative-slide-02",
+                "text": "La slide représente une chaîne de livraison numérique. Une équipe prépare une interface, puis un audit final intervient, une refonte modifie le service, une régression apparaît en rouge, et une correction priorisée clôt la séquence avec un retour en pointillés vers les étapes précédentes. Textes vis"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "after_escape"
+          }
+        ],
+        "steps": [
+          {
+            "action": "press_key",
+            "key": "Enter",
+            "result": "captured"
+          },
+          {
+            "action": "press_key",
+            "key": "Escape",
+            "result": "captured"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "accessible_name": "Lire l’alternative textuelle de la slide 3",
+          "aria_activedescendant": "",
+          "aria_controls": "alternative-slide-03",
+          "aria_expanded": "false",
+          "aria_haspopup": "",
+          "aria_pressed": null,
+          "aria_selected": null,
+          "role": "button",
+          "selector": "section:nth-of-type(3) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+          "source_criterion_ids": [
+            "7.1",
+            "12.8",
+            "12.9"
+          ],
+          "suggested_keys": [
+            "Enter",
+            "Escape"
+          ],
+          "tag_name": "button"
+        },
+        "completed_at": "2026-06-19T21:45:21+00:00",
+        "error": null,
+        "inspection_limits": [
+          "Trace clavier Chromium headless ; elle ne prouve pas l'utilisation réelle avec technologie d'assistance.",
+          "Les touches sont limitées à un scénario générique par rôle afin d'éviter les parcours métier destructifs."
+        ],
+        "kind": "ay11_keyboard_widget_trace",
+        "produces_audit": false,
+        "produces_conformity": false,
+        "produces_decision": false,
+        "scenario_id": "widget-keyboard-3",
+        "scenario_kind": "keyboard_widget",
+        "scenario_status": "captured",
+        "schema_version": 1,
+        "started_at": "2026-06-19T21:45:21+00:00",
+        "state_count": 3,
+        "states": [
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 3",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-03",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-03",
+                "role": "",
+                "selector": "div#alternative-slide-03",
+                "text": "La slide montre deux personnes autour d’une table de coordination. Un dossier central est relié à cinq leviers : projets, achats, contenus, recette et run. La scène indique que la contribution SNUM doit être articulée avec un périmètre ministériel plus large. Textes visibles Articuler la contributio"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(3) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "initial_focus"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 3",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-03",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-03",
+                "role": "",
+                "selector": "div#alternative-slide-03",
+                "text": "La slide montre deux personnes autour d’une table de coordination. Un dossier central est relié à cinq leviers : projets, achats, contenus, recette et run. La scène indique que la contribution SNUM doit être articulée avec un périmètre ministériel plus large. Textes visibles Articuler la contributio"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(3) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "after_enter"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 3",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-03",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-03",
+                "role": "",
+                "selector": "div#alternative-slide-03",
+                "text": "La slide montre deux personnes autour d’une table de coordination. Un dossier central est relié à cinq leviers : projets, achats, contenus, recette et run. La scène indique que la contribution SNUM doit être articulée avec un périmètre ministériel plus large. Textes visibles Articuler la contributio"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(3) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "after_escape"
+          }
+        ],
+        "steps": [
+          {
+            "action": "press_key",
+            "key": "Enter",
+            "result": "captured"
+          },
+          {
+            "action": "press_key",
+            "key": "Escape",
+            "result": "captured"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "accessible_name": "Lire l’alternative textuelle de la slide 4",
+          "aria_activedescendant": "",
+          "aria_controls": "alternative-slide-04",
+          "aria_expanded": "false",
+          "aria_haspopup": "",
+          "aria_pressed": null,
+          "aria_selected": null,
+          "role": "button",
+          "selector": "section:nth-of-type(4) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+          "source_criterion_ids": [
+            "7.1",
+            "12.8",
+            "12.9"
+          ],
+          "suggested_keys": [
+            "Enter",
+            "Escape"
+          ],
+          "tag_name": "button"
+        },
+        "completed_at": "2026-06-19T21:45:21+00:00",
+        "error": null,
+        "inspection_limits": [
+          "Trace clavier Chromium headless ; elle ne prouve pas l'utilisation réelle avec technologie d'assistance.",
+          "Les touches sont limitées à un scénario générique par rôle afin d'éviter les parcours métier destructifs."
+        ],
+        "kind": "ay11_keyboard_widget_trace",
+        "produces_audit": false,
+        "produces_conformity": false,
+        "produces_decision": false,
+        "scenario_id": "widget-keyboard-4",
+        "scenario_kind": "keyboard_widget",
+        "scenario_status": "captured",
+        "schema_version": 1,
+        "started_at": "2026-06-19T21:45:21+00:00",
+        "state_count": 3,
+        "states": [
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 4",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-04",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-04",
+                "role": "",
+                "selector": "div#alternative-slide-04",
+                "text": "La slide présente une carte de services numériques. Plusieurs chemins se croisent, certains sont surlignés en bleu et mènent vers des priorités. Les priorités sont ensuite reliées aux déclarations, aux rôles et aux indicateurs. Textes visibles Prioriser les parcours critiques Services Priorités Décl"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(4) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "initial_focus"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 4",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-04",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-04",
+                "role": "",
+                "selector": "div#alternative-slide-04",
+                "text": "La slide présente une carte de services numériques. Plusieurs chemins se croisent, certains sont surlignés en bleu et mènent vers des priorités. Les priorités sont ensuite reliées aux déclarations, aux rôles et aux indicateurs. Textes visibles Prioriser les parcours critiques Services Priorités Décl"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(4) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "after_enter"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 4",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-04",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-04",
+                "role": "",
+                "selector": "div#alternative-slide-04",
+                "text": "La slide présente une carte de services numériques. Plusieurs chemins se croisent, certains sont surlignés en bleu et mènent vers des priorités. Les priorités sont ensuite reliées aux déclarations, aux rôles et aux indicateurs. Textes visibles Prioriser les parcours critiques Services Priorités Décl"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(4) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "after_escape"
+          }
+        ],
+        "steps": [
+          {
+            "action": "press_key",
+            "key": "Enter",
+            "result": "captured"
+          },
+          {
+            "action": "press_key",
+            "key": "Escape",
+            "result": "captured"
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "accessible_name": "Lire l’alternative textuelle de la slide 5",
+          "aria_activedescendant": "",
+          "aria_controls": "alternative-slide-05",
+          "aria_expanded": "false",
+          "aria_haspopup": "",
+          "aria_pressed": null,
+          "aria_selected": null,
+          "role": "button",
+          "selector": "section:nth-of-type(5) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+          "source_criterion_ids": [
+            "7.1",
+            "12.8",
+            "12.9"
+          ],
+          "suggested_keys": [
+            "Enter",
+            "Escape"
+          ],
+          "tag_name": "button"
+        },
+        "completed_at": "2026-06-19T21:45:22+00:00",
+        "error": null,
+        "inspection_limits": [
+          "Trace clavier Chromium headless ; elle ne prouve pas l'utilisation réelle avec technologie d'assistance.",
+          "Les touches sont limitées à un scénario générique par rôle afin d'éviter les parcours métier destructifs."
+        ],
+        "kind": "ay11_keyboard_widget_trace",
+        "produces_audit": false,
+        "produces_conformity": false,
+        "produces_decision": false,
+        "scenario_id": "widget-keyboard-5",
+        "scenario_kind": "keyboard_widget",
+        "scenario_status": "captured",
+        "schema_version": 1,
+        "started_at": "2026-06-19T21:45:21+00:00",
+        "state_count": 3,
+        "states": [
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 5",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-05",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-05",
+                "role": "",
+                "selector": "div#alternative-slide-05",
+                "text": "La slide montre cinq étapes alignées : cadrage, achat, maquette, recette et livraison. Des personnes, des documents, une maquette et des icônes d’accessibilité illustrent l’intégration progressive de l’accessibilité avant la mise en production. Textes visibles Intégrer l’accessibilité en amont Cadra"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(5) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "initial_focus"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 5",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-05",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-05",
+                "role": "",
+                "selector": "div#alternative-slide-05",
+                "text": "La slide montre cinq étapes alignées : cadrage, achat, maquette, recette et livraison. Des personnes, des documents, une maquette et des icônes d’accessibilité illustrent l’intégration progressive de l’accessibilité avant la mise en production. Textes visibles Intégrer l’accessibilité en amont Cadra"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(5) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "after_enter"
+          },
+          {
+            "accessible_name": "Lire l’alternative textuelle de la slide 5",
+            "active_accessible_name": "Lire l’alternative textuelle de la slide 1",
+            "active_role": "button",
+            "active_selector": "button#alternative-active",
+            "aria_activedescendant": null,
+            "aria_controls": "alternative-slide-05",
+            "aria_expanded": "false",
+            "aria_pressed": null,
+            "aria_selected": null,
+            "controlled_states": [
+              {
+                "aria_hidden": null,
+                "hidden": false,
+                "id": "alternative-slide-05",
+                "role": "",
+                "selector": "div#alternative-slide-05",
+                "text": "La slide montre cinq étapes alignées : cadrage, achat, maquette, recette et livraison. Des personnes, des documents, une maquette et des icônes d’accessibilité illustrent l’intégration progressive de l’accessibilité avant la mise en production. Textes visibles Intégrer l’accessibilité en amont Cadra"
+              }
+            ],
+            "found": true,
+            "location_hash": "#slide-01",
+            "location_href": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+            "role": "button",
+            "selector": "section:nth-of-type(5) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+            "state_id": "after_escape"
+          }
+        ],
+        "steps": [
+          {
+            "action": "press_key",
+            "key": "Enter",
+            "result": "captured"
+          },
+          {
+            "action": "press_key",
+            "key": "Escape",
+            "result": "captured"
+          }
+        ]
+      }
+    ],
+    "kind": "ay11_advanced_interaction_evidence",
+    "live_region_count": 1,
+    "live_region_mutation_count": 0,
+    "live_region_mutations": [],
+    "live_regions": [
+      {
+        "aria_atomic": "",
+        "aria_live": "polite",
+        "aria_relevant": "",
+        "is_hidden": false,
+        "role": "",
+        "selector": "body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > nav:nth-of-type(1) > p:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "13.8"
+        ],
+        "text": "Slide 1 sur 10"
+      }
+    ],
+    "produces_audit": false,
+    "produces_conformity": false,
+    "produces_decision": false,
+    "schema_version": 1,
+    "screen_reader_limits": [
+      "Chromium headless observe le DOM, le focus et l'arbre d'accessibilité, mais ne prouve pas l'annonce réelle par lecteur d'écran.",
+      "Les régions live sont conservées comme candidates ; la perception, l'ordre et le moment d'annonce restent à vérifier humainement."
+    ],
+    "shadow_dom": {
+      "closed_shadow_root_count": 0,
+      "guardrails": [
+        "Shadow DOM ouvert inventorié quand il est accessible au DOM.",
+        "Shadow DOM fermé signalé seulement si attachShadow a été observé ; son contenu n'est pas inspecté."
+      ],
+      "observed_attach_shadow_count": 0,
+      "observed_shadow_roots": [],
+      "open_shadow_root_count": 0,
+      "open_shadow_roots": []
+    },
+    "started_at": "2026-06-19T21:45:20+00:00",
+    "widget_candidate_count": 10,
+    "widget_candidates": [
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 1",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-01",
+        "aria_expanded": "true",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "button#alternative-active",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 2",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-02",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 3",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-03",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(3) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 4",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-04",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(4) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 5",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-05",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(5) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 6",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-06",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(6) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 7",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-07",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(7) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 8",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-08",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(8) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 9",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-09",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(9) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      },
+      {
+        "accessible_name": "Lire l’alternative textuelle de la slide 10",
+        "aria_activedescendant": "",
+        "aria_controls": "alternative-slide-10",
+        "aria_expanded": "false",
+        "aria_haspopup": "",
+        "aria_pressed": null,
+        "aria_selected": null,
+        "role": "button",
+        "selector": "section:nth-of-type(10) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+        "source_criterion_ids": [
+          "7.1",
+          "12.8",
+          "12.9"
+        ],
+        "suggested_keys": [
+          "Enter",
+          "Escape"
+        ],
+        "tag_name": "button"
+      }
+    ]
+  },
+  "browser_context": {
+    "accept_language": "fr-FR,fr;q=0.9,en;q=0.8",
+    "locale": "fr-FR"
+  },
+  "captured_at": "2026-06-19T21:45:18+00:00",
+  "collection_path": "/Users/alex/miweb-objectifs-2030/audits/rgaa-2026-06-19-4aee697/captures/alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-browser-collection.json",
+  "console_errors": [],
+  "inspection_limits": [
+    "Capture Chromium headless locale : elle ne prouve ni conformité ni non-conformité RGAA.",
+    "Les parcours authentifiés, interactions métier complexes, iframes cross-origin et shadow DOM fermés restent à vérifier humainement.",
+    "Quand axe-core est activé, la CSP est contournée localement pour injecter l'outil ; cela ne modifie pas le statut non décisionnel."
+  ],
+  "interaction_runs": [],
+  "kind": "ay11_browser_collection",
+  "navigation_keyboard_trace": {
+    "activated_candidate": {
+      "accessible_name": "Présentation",
+      "bounding_box": {
+        "height": 21,
+        "width": 86.234375,
+        "x": 652,
+        "y": 600.78125
+      },
+      "focus_style": {
+        "box_shadow": "none",
+        "outline_style": "solid",
+        "outline_width": "2px",
+        "visibility_state": "visible"
+      },
+      "href": "./",
+      "is_same_page_anchor": true,
+      "is_skip_or_reach_candidate": true,
+      "location_hash": "#slide-01",
+      "reason": "after_tab_1",
+      "role": "link",
+      "scroll_x": 0,
+      "scroll_y": 1686,
+      "selector": "div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
+      "tab_index": 1,
+      "tag_name": "a",
+      "target_bounding_box": {
+        "height": 1219.203125,
+        "width": 1200,
+        "x": 40,
+        "y": -789.5
+      },
+      "target_exists": true,
+      "target_id": "slide-01",
+      "target_in_viewport": true,
+      "target_selector": "section#slide-01",
+      "target_text": "Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 La slide montre, à g",
+      "visible_text": "Présentation"
+    },
+    "activation": {
+      "after": {
+        "accessible_name": "Accéder au contenu Accéder au sommaire Accéder au diaporama Accéder aux alternatives Accéder au pied de page RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique MiWeb - Juin 2026 Objectifs 2030 - Accessibilité numérique Consulter toutes les alternatives textuelles SOMMAIRE Slide 1 - Faire de l’accessibilité une qualité durable Slide 2 - Arrêter de corriger trop tard Slide 3 - Articuler la contribution SNUM avec les leviers MEF Slide 4 - Prioriser les parcours critiques Slide 5 - Intégrer l’accessibilité en amont Slide 6 - Maintenir les parcours dans le temps Slide 7 - Lire les appuis et les risques ensemble Slide 8 - Rendre la trajectoire tenable Slide 9 - Clarifier avant d’engager Slide 10 - Suivre sans figer trop tôt Présentation MiWeb Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique - MiWeb - Juin 2026. Présentation Alternatives textuelles Télécharger les slides Version 1 - Juin 2026",
+        "bounding_box": {
+          "height": 1965.859375,
+          "width": 1280,
+          "x": 0,
+          "y": -897
+        },
+        "focus_style": {
+          "box_shadow": "none",
+          "outline_style": "none",
+          "outline_width": "3px",
+          "visibility_state": "visible"
+        },
+        "href": "",
+        "is_same_page_anchor": true,
+        "is_skip_or_reach_candidate": true,
+        "location_hash": "#slide-01",
+        "reason": "after_activation",
+        "role": "body",
+        "scroll_x": 0,
+        "scroll_y": 897,
+        "selector": "body:nth-of-type(1)",
+        "tab_index": 1,
+        "tag_name": "body",
+        "target_bounding_box": {
+          "height": 779.203125,
+          "width": 1200,
+          "x": 40,
+          "y": -0.5
+        },
+        "target_exists": true,
+        "target_id": "slide-01",
+        "target_in_viewport": true,
+        "target_selector": "section#slide-01",
+        "target_text": "Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1",
+        "visible_text": "Accéder au contenu Accéder au sommaire Accéder au diaporama Accéder aux alternatives Accéder au pied de page RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique MiWeb - Juin 2026 Objectifs 2030 - Accessibilité numérique Consulter toutes les alternatives textuelles SOMMAIRE Slide 1 - Faire de l’accessibilité une qualité durable Slide 2 - Arrêter de corriger trop tard Slide 3 - Articuler la contribution SNUM avec les leviers MEF Slide 4 - Prioriser les parcours critiques Slide 5 - Intégrer l’accessibilité en amont Slide 6 - Maintenir les parcours dans le temps Slide 7 - Lire les appuis et les risques ensemble Slide 8 - Rendre la trajectoire tenable Slide 9 - Clarifier avant d’engager Slide 10 - Suivre sans figer trop tôt Présentation MiWeb Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique - MiWeb - Juin 2026. Présentation Alternatives textuelles Télécharger les slides Version 1 - Juin 2026"
+      },
+      "before": {
+        "accessible_name": "Présentation",
+        "bounding_box": {
+          "height": 21,
+          "width": 86.234375,
+          "x": 652,
+          "y": 600.78125
+        },
+        "focus_style": {
+          "box_shadow": "none",
+          "outline_style": "solid",
+          "outline_width": "2px",
+          "visibility_state": "visible"
+        },
+        "href": "./",
+        "is_same_page_anchor": true,
+        "is_skip_or_reach_candidate": true,
+        "location_hash": "#slide-01",
+        "reason": "before_activation",
+        "role": "link",
+        "scroll_x": 0,
+        "scroll_y": 1686,
+        "selector": "div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
+        "tab_index": 1,
+        "tag_name": "a",
+        "target_bounding_box": {
+          "height": 1219.203125,
+          "width": 1200,
+          "x": 40,
+          "y": -789.5
+        },
+        "target_exists": true,
+        "target_id": "slide-01",
+        "target_in_viewport": true,
+        "target_selector": "section#slide-01",
+        "target_text": "Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 La slide montre, à g",
+        "visible_text": "Présentation"
+      },
+      "hash_changed": false,
+      "scroll_changed": true,
+      "target_reached": true,
+      "trigger_tab_index": 1
+    },
+    "candidate_focus_count": 2,
+    "completed_at": "2026-06-19T21:45:22+00:00",
+    "focus_trace": [
+      {
+        "accessible_name": "Accéder au contenu Accéder au sommaire Accéder au diaporama Accéder aux alternatives Accéder au pied de page RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique MiWeb - Juin 2026 Objectifs 2030 - Accessibilité numérique Consulter toutes les alternatives textuelles SOMMAIRE Slide 1 - Faire de l’accessibilité une qualité durable Slide 2 - Arrêter de corriger trop tard Slide 3 - Articuler la contribution SNUM avec les leviers MEF Slide 4 - Prioriser les parcours critiques Slide 5 - Intégrer l’accessibilité en amont Slide 6 - Maintenir les parcours dans le temps Slide 7 - Lire les appuis et les risques ensemble Slide 8 - Rendre la trajectoire tenable Slide 9 - Clarifier avant d’engager Slide 10 - Suivre sans figer trop tôt Présentation MiWeb Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 La slide montre, à gauche, des services numériques dispersés qui créent des incompréhensions pour plusieurs usagers. Au centre, un guichet numérique public commun est utilisé par des usagers et des agents avec différents modes d’accès. À droite, une trajectoire mène vers l’horizon 2030. Textes visibles Faire de l’accessibilité une qualité durable Services numériques Usagers Agents Horizon 2030 Une trajectoire de qualité, pas une promesse générale Message à retenir L’accessibilité doit devenir une qualité durable des services numériques, pas une promesse générale. RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique - MiWeb - Juin 2026. Présentation Alternatives textuelles Télécharger les slides Version 1 - Juin 2026",
+        "bounding_box": {
+          "height": 2405.859375,
+          "width": 1280,
+          "x": 0,
+          "y": 0
+        },
+        "focus_style": {
+          "box_shadow": "none",
+          "outline_style": "none",
+          "outline_width": "3px",
+          "visibility_state": "visible"
+        },
+        "href": "",
+        "is_same_page_anchor": true,
+        "is_skip_or_reach_candidate": true,
+        "location_hash": "#slide-01",
+        "reason": "initial",
+        "role": "body",
+        "scroll_x": 0,
+        "scroll_y": 0,
+        "selector": "body:nth-of-type(1)",
+        "tab_index": 0,
+        "tag_name": "body",
+        "target_bounding_box": {
+          "height": 1219.203125,
+          "width": 1200,
+          "x": 40,
+          "y": 896.5
+        },
+        "target_exists": true,
+        "target_id": "slide-01",
+        "target_in_viewport": false,
+        "target_selector": "section#slide-01",
+        "target_text": "Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 La slide montre, à g",
+        "visible_text": "Accéder au contenu Accéder au sommaire Accéder au diaporama Accéder aux alternatives Accéder au pied de page RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique MiWeb - Juin 2026 Objectifs 2030 - Accessibilité numérique Consulter toutes les alternatives textuelles SOMMAIRE Slide 1 - Faire de l’accessibilité une qualité durable Slide 2 - Arrêter de corriger trop tard Slide 3 - Articuler la contribution SNUM avec les leviers MEF Slide 4 - Prioriser les parcours critiques Slide 5 - Intégrer l’accessibilité en amont Slide 6 - Maintenir les parcours dans le temps Slide 7 - Lire les appuis et les risques ensemble Slide 8 - Rendre la trajectoire tenable Slide 9 - Clarifier avant d’engager Slide 10 - Suivre sans figer trop tôt Présentation MiWeb Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 La slide montre, à gauche, des services numériques dispersés qui créent des incompréhensions pour plusieurs usagers. Au centre, un guichet numérique public commun est utilisé par des usagers et des agents avec différents modes d’accès. À droite, une trajectoire mène vers l’horizon 2030. Textes visibles Faire de l’accessibilité une qualité durable Services numériques Usagers Agents Horizon 2030 Une trajectoire de qualité, pas une promesse générale Message à retenir L’accessibilité doit devenir une qualité durable des services numériques, pas une promesse générale. RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique - MiWeb - Juin 2026. Présentation Alternatives textuelles Télécharger les slides Version 1 - Juin 2026"
+      },
+      {
+        "accessible_name": "Présentation",
+        "bounding_box": {
+          "height": 21,
+          "width": 86.234375,
+          "x": 652,
+          "y": 600.78125
+        },
+        "focus_style": {
+          "box_shadow": "none",
+          "outline_style": "solid",
+          "outline_width": "2px",
+          "visibility_state": "visible"
+        },
+        "href": "./",
+        "is_same_page_anchor": true,
+        "is_skip_or_reach_candidate": true,
+        "location_hash": "#slide-01",
+        "reason": "after_tab_1",
+        "role": "link",
+        "scroll_x": 0,
+        "scroll_y": 1686,
+        "selector": "div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
+        "tab_index": 1,
+        "tag_name": "a",
+        "target_bounding_box": {
+          "height": 1219.203125,
+          "width": 1200,
+          "x": 40,
+          "y": -789.5
+        },
+        "target_exists": true,
+        "target_id": "slide-01",
+        "target_in_viewport": true,
+        "target_selector": "section#slide-01",
+        "target_text": "Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 La slide montre, à g",
+        "visible_text": "Présentation"
+      }
+    ],
+    "focus_trace_count": 2,
+    "inspection_limits": [
+      "Trace clavier Chromium headless : elle ne prouve pas l'expérience réelle avec lecteur d'écran.",
+      "Seuls les premiers éléments focusables du parcours Tab sont inspectés.",
+      "L'activation est limitée aux liens internes de type ancre afin de ne pas changer de page auditée."
+    ],
+    "keyboard_trace_status": "captured_with_activation",
+    "kind": "ay11_navigation_keyboard_trace",
+    "produces_audit": false,
+    "produces_conformity": false,
+    "produces_decision": false,
+    "scenario_id": "navigation-keyboard-12-6",
+    "scenario_kind": "navigation_bypass",
+    "schema_version": 1,
+    "started_at": "2026-06-19T21:45:22+00:00",
+    "tab_limit": 12
+  },
+  "network_errors": [],
+  "page_url_final": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+  "page_url_initial": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/",
+  "produces_audit": false,
+  "produces_conformity": false,
+  "produces_decision": false,
+  "rendered_html_path": "/Users/alex/miweb-objectifs-2030/audits/rgaa-2026-06-19-4aee697/captures/alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-rendered.html",
+  "response_headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "age": "0",
+    "cache-control": "max-age=600",
+    "content-encoding": "gzip",
+    "content-length": "7059",
+    "content-type": "text/html; charset=utf-8",
+    "date": "Fri, 19 Jun 2026 21:45:19 GMT",
+    "etag": "W/\"6a35b838-8407\"",
+    "expires": "Fri, 19 Jun 2026 21:54:47 GMT",
+    "last-modified": "Fri, 19 Jun 2026 21:44:24 GMT",
+    "server": "GitHub.com",
+    "vary": "Accept-Encoding",
+    "via": "1.1 varnish",
+    "x-cache": "HIT",
+    "x-cache-hits": "1",
+    "x-fastly-request-id": "cffee8a5581624e0021999ce0c6f7f6febae4cf9",
+    "x-github-request-id": "821E:22CC5D:4AFFB2:4BB78C:6A35B84F",
+    "x-proxy-cache": "MISS",
+    "x-served-by": "cache-par-lfpg1960042-PAR",
+    "x-timer": "S1781905519.893913,VS0,VE112"
+  },
+  "schema_version": 1,
+  "screenshot_path": "/Users/alex/miweb-objectifs-2030/audits/rgaa-2026-06-19-4aee697/captures/alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1.png",
+  "status_code": 200,
+  "targets": [
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 0,
+      "is_focusable": false,
+      "is_in_viewport": true,
+      "name": "Objectifs 2030 - Accessibilité numérique",
+      "nearby_text": "Accéder au contenu Accéder au sommaire Accéder au diaporama Accéder aux alternatives Accéder au pied de page RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique MiWeb - Juin 2026 Objectifs 2030 - Accessibilité numérique Consulter toutes les alternatives textuelles SOMMAIRE Slide 1 - Faire de l’accessibilité une qualité durable Slide 2 - Arrêter de corriger trop tard Slide 3 - Articuler la contribution SNUM avec les leviers MEF Slide 4 - Prioriser les parcours critiques Slide 5 - Intégr",
+      "qualification_limits": [],
+      "role": "document",
+      "selector": "html",
+      "source_criterion_ids": [
+        "8.3",
+        "8.4"
+      ],
+      "tabindex": null,
+      "visibility_state": "visible",
+      "visible_text": "Accéder au contenu Accéder au sommaire Accéder au diaporama Accéder aux alternatives Accéder au pied de page RÉPUBLIQUE FRANÇAISE Objectifs 2030 - Accessibilité numérique MiWeb - Juin 2026 Objectifs 2030 - Accessibilité numérique Consulter toutes les alternatives textuelles SOMMAIRE Slide 1 - Faire de l’accessibilité une qualité durable Slide 2 - Arrêter de corriger trop tard Slide 3 - Articuler la contribution SNUM avec les leviers MEF Slide 4 - Prioriser les parcours critiques Slide 5 - Intégr"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 24,
+        "width": 156.078125,
+        "x": 16,
+        "y": -933
+      },
+      "disabled": false,
+      "dom_order": 1,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Accéder au contenu",
+      "nearby_text": "Accéder au contenu",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > nav:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Accéder au contenu"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 24,
+        "width": 167.671875,
+        "x": 188.078125,
+        "y": -933
+      },
+      "disabled": false,
+      "dom_order": 2,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Accéder au sommaire",
+      "nearby_text": "Accéder au sommaire",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > nav:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Accéder au sommaire"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 24,
+        "width": 175.5625,
+        "x": 371.75,
+        "y": -933
+      },
+      "disabled": false,
+      "dom_order": 3,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Accéder au diaporama",
+      "nearby_text": "Accéder au diaporama",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > nav:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Accéder au diaporama"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 24,
+        "width": 190.21875,
+        "x": 563.3125,
+        "y": -933
+      },
+      "disabled": false,
+      "dom_order": 4,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Accéder aux alternatives",
+      "nearby_text": "Accéder aux alternatives",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > nav:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Accéder aux alternatives"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 24,
+        "width": 192.140625,
+        "x": 769.53125,
+        "y": -933
+      },
+      "disabled": false,
+      "dom_order": 5,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Accéder au pied de page",
+      "nearby_text": "Accéder au pied de page",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > nav:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Accéder au pied de page"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 28,
+        "width": 388.890625,
+        "x": 149.875,
+        "y": -864.75
+      },
+      "disabled": false,
+      "dom_order": 6,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Objectifs 2030 - Accessibilité numérique",
+      "nearby_text": "MiWeb - Juin 2026 Objectifs 2030 - Accessibilité numérique MiWeb - Juin 2026",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Objectifs 2030 - Accessibilité numérique"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 24,
+        "width": 327.1875,
+        "x": 40,
+        "y": -676.5
+      },
+      "disabled": false,
+      "dom_order": 7,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Consulter toutes les alternatives textuelles",
+      "nearby_text": "Consulter toutes les alternatives textuelles",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Consulter toutes les alternatives textuelles"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 287.078125,
+        "x": 96,
+        "y": -551.5
+      },
+      "disabled": false,
+      "dom_order": 8,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 1 - Faire de l’accessibilité une qualité durable",
+      "nearby_text": "Slide 1 - Faire de l’accessibilité une qualité durable",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 1 - Faire de l’accessibilité une qualité durable"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 212.25,
+        "x": 96,
+        "y": -515.5
+      },
+      "disabled": false,
+      "dom_order": 9,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 2 - Arrêter de corriger trop tard",
+      "nearby_text": "Slide 2 - Arrêter de corriger trop tard",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(2) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 2 - Arrêter de corriger trop tard"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 344.421875,
+        "x": 96,
+        "y": -479.5
+      },
+      "disabled": false,
+      "dom_order": 10,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 3 - Articuler la contribution SNUM avec les leviers MEF",
+      "nearby_text": "Slide 3 - Articuler la contribution SNUM avec les leviers MEF",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(3) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 3 - Articuler la contribution SNUM avec les leviers MEF"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 221.640625,
+        "x": 96,
+        "y": -443.5
+      },
+      "disabled": false,
+      "dom_order": 11,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 4 - Prioriser les parcours critiques",
+      "nearby_text": "Slide 4 - Prioriser les parcours critiques",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(4) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 4 - Prioriser les parcours critiques"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 232.5,
+        "x": 96,
+        "y": -407.5
+      },
+      "disabled": false,
+      "dom_order": 12,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 5 - Intégrer l’accessibilité en amont",
+      "nearby_text": "Slide 5 - Intégrer l’accessibilité en amont",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(5) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 5 - Intégrer l’accessibilité en amont"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 259.65625,
+        "x": 96,
+        "y": -371.5
+      },
+      "disabled": false,
+      "dom_order": 13,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 6 - Maintenir les parcours dans le temps",
+      "nearby_text": "Slide 6 - Maintenir les parcours dans le temps",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(6) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 6 - Maintenir les parcours dans le temps"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 266.578125,
+        "x": 96,
+        "y": -335.5
+      },
+      "disabled": false,
+      "dom_order": 14,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 7 - Lire les appuis et les risques ensemble",
+      "nearby_text": "Slide 7 - Lire les appuis et les risques ensemble",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(7) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 7 - Lire les appuis et les risques ensemble"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 213.84375,
+        "x": 96,
+        "y": -299.5
+      },
+      "disabled": false,
+      "dom_order": 15,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 8 - Rendre la trajectoire tenable",
+      "nearby_text": "Slide 8 - Rendre la trajectoire tenable",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(8) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 8 - Rendre la trajectoire tenable"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 189.859375,
+        "x": 96,
+        "y": -263.5
+      },
+      "disabled": false,
+      "dom_order": 16,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 9 - Clarifier avant d’engager",
+      "nearby_text": "Slide 9 - Clarifier avant d’engager",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(9) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 9 - Clarifier avant d’engager"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 18,
+        "width": 195.578125,
+        "x": 96,
+        "y": -227.5
+      },
+      "disabled": false,
+      "dom_order": 17,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Slide 10 - Suivre sans figer trop tôt",
+      "nearby_text": "Slide 10 - Suivre sans figer trop tôt",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(2) > nav:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(10) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Slide 10 - Suivre sans figer trop tôt"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 40,
+        "width": 326.703125,
+        "x": 856.53125,
+        "y": -64.5
+      },
+      "disabled": false,
+      "dom_order": 18,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Télécharger les slides au format ZIP",
+      "nearby_text": "Afficher toutes les slides Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Télécharger les slides au format ZIP"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 21,
+        "width": 86.234375,
+        "x": 652,
+        "y": 949.78125
+      },
+      "disabled": false,
+      "dom_order": 19,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Présentation",
+      "nearby_text": "Présentation",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Présentation"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 21,
+        "width": 152.6875,
+        "x": 762.234375,
+        "y": 949.78125
+      },
+      "disabled": false,
+      "dom_order": 20,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Alternatives textuelles",
+      "nearby_text": "Alternatives textuelles",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Alternatives textuelles"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 21,
+        "width": 142.703125,
+        "x": 938.921875,
+        "y": 949.78125
+      },
+      "disabled": false,
+      "dom_order": 21,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Télécharger les slides",
+      "nearby_text": "Télécharger les slides",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "link",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3) > a:nth-of-type(1)",
+      "source_criterion_ids": [
+        "6.1",
+        "6.2"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Télécharger les slides"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 40,
+        "width": 141.984375,
+        "x": 96.75,
+        "y": -64.5
+      },
+      "disabled": true,
+      "dom_order": 22,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Précédente",
+      "nearby_text": "Slide 1 sur 10 Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > nav:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Précédente"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 40,
+        "width": 120.59375,
+        "x": 361.609375,
+        "y": -64.5
+      },
+      "disabled": false,
+      "dom_order": 23,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Suivante",
+      "nearby_text": "Slide 1 sur 10 Plein écran Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > nav:nth-of-type(1) > button:nth-of-type(2)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Suivante"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 40,
+        "width": 116.703125,
+        "x": 494.203125,
+        "y": -64.5
+      },
+      "disabled": false,
+      "dom_order": 24,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Plein écran",
+      "nearby_text": "Suivante Afficher toutes les slides Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > nav:nth-of-type(1) > button:nth-of-type(3)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Plein écran"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 40,
+        "width": 221.625,
+        "x": 622.90625,
+        "y": -64.5
+      },
+      "disabled": false,
+      "dom_order": 25,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Afficher toutes les slides",
+      "nearby_text": "Plein écran Télécharger les slides au format ZIP Précédente Slide 1 sur 10 Suivante Plein écran Afficher toutes les slides Télécharger les slides au format ZIP",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > nav:nth-of-type(1) > button:nth-of-type(4)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Afficher toutes les slides"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 48,
+        "width": 1200,
+        "x": 40,
+        "y": 730.703125
+      },
+      "disabled": false,
+      "dom_order": 26,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 1",
+      "nearby_text": "Lire l’alternative textuelle de la slide 1",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "button#alternative-active",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "offscreen",
+      "visible_text": "Lire l’alternative textuelle de la slide 1"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 27,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 2",
+      "nearby_text": "Lire l’alternative textuelle de la slide 2",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 2"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 28,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 3",
+      "nearby_text": "Lire l’alternative textuelle de la slide 3",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(3) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 3"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 29,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 4",
+      "nearby_text": "Lire l’alternative textuelle de la slide 4",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(4) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 4"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 30,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 5",
+      "nearby_text": "Lire l’alternative textuelle de la slide 5",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(5) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 5"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 31,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 6",
+      "nearby_text": "Lire l’alternative textuelle de la slide 6",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(6) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 6"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 32,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 7",
+      "nearby_text": "Lire l’alternative textuelle de la slide 7",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(7) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 7"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 33,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 8",
+      "nearby_text": "Lire l’alternative textuelle de la slide 8",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(8) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 8"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 34,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 9",
+      "nearby_text": "Lire l’alternative textuelle de la slide 9",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(9) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 9"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 35,
+      "is_focusable": true,
+      "is_in_viewport": false,
+      "name": "Lire l’alternative textuelle de la slide 10",
+      "nearby_text": "Lire l’alternative textuelle de la slide 10",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "button",
+      "selector": "section:nth-of-type(10) > div:nth-of-type(1) > section:nth-of-type(1) > h4:nth-of-type(1) > button:nth-of-type(1)",
+      "source_criterion_ids": [
+        "11.9"
+      ],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Lire l’alternative textuelle de la slide 10"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": {
+        "height": 663.203125,
+        "width": 1120,
+        "x": 80,
+        "y": 51.5
+      },
+      "disabled": false,
+      "dom_order": 36,
+      "is_focusable": false,
+      "is_in_viewport": true,
+      "name": "Slide 1 sur 10 - Faire de l’accessibilité une qualité durable",
+      "nearby_text": "Slide 1 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1 Slide 1 - Faire de l’accessibilité une qualité durable Slide 1 sur 10 - Faire de l’accessibilité une qualité durable Lire l’alternative textuelle de la slide 1",
+      "qualification_limits": [],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(1) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "visible",
+      "visible_text": "Slide 1 sur 10 - Faire de l’accessibilité une qualité durable"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 37,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 2 sur 10 - Arrêter de corriger trop tard",
+      "nearby_text": "Slide 2 - Arrêter de corriger trop tard Lire l’alternative textuelle de la slide 2 La slide représente une chaîne de livraison numérique. Une équipe prépare une interface, puis un audit final intervient, une refonte modifie le service, une régression apparaît en rouge, et une correction priorisée clôt la séquence avec un retour en pointillés vers les étapes précédentes. Textes visibles Arrêter de corriger trop tard Audit final Refonte Régression Correction priorisée Le risque : une dette qui se ",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(2) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 2 sur 10 - Arrêter de corriger trop tard"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 38,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 3 sur 10 - Articuler la contribution SNUM avec les leviers MEF",
+      "nearby_text": "Slide 3 - Articuler la contribution SNUM avec les leviers MEF Lire l’alternative textuelle de la slide 3 La slide montre deux personnes autour d’une table de coordination. Un dossier central est relié à cinq leviers : projets, achats, contenus, recette et run. La scène indique que la contribution SNUM doit être articulée avec un périmètre ministériel plus large. Textes visibles Articuler la contribution SNUM avec les leviers MEF Projets Achats Contenus Recette Run Le périmètre reste à clarifier ",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(3) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 3 sur 10 - Articuler la contribution SNUM avec les leviers MEF"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 39,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 4 sur 10 - Prioriser les parcours critiques",
+      "nearby_text": "Slide 4 - Prioriser les parcours critiques Lire l’alternative textuelle de la slide 4 La slide présente une carte de services numériques. Plusieurs chemins se croisent, certains sont surlignés en bleu et mènent vers des priorités. Les priorités sont ensuite reliées aux déclarations, aux rôles et aux indicateurs. Textes visibles Prioriser les parcours critiques Services Priorités Déclarations Rôles Indicateurs Rendre visible avant de généraliser Message à retenir Il faut rendre visibles les parco",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(4) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 4 sur 10 - Prioriser les parcours critiques"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 40,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 5 sur 10 - Intégrer l’accessibilité en amont",
+      "nearby_text": "Slide 5 - Intégrer l’accessibilité en amont Lire l’alternative textuelle de la slide 5 La slide montre cinq étapes alignées : cadrage, achat, maquette, recette et livraison. Des personnes, des documents, une maquette et des icônes d’accessibilité illustrent l’intégration progressive de l’accessibilité avant la mise en production. Textes visibles Intégrer l’accessibilité en amont Cadrage Achat Maquette Recette Livraison Les outils aident, ils ne remplacent pas l’expertise Message à retenir L’acce",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(5) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 5 sur 10 - Intégrer l’accessibilité en amont"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 41,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 6 sur 10 - Maintenir les parcours dans le temps",
+      "nearby_text": "Slide 6 - Maintenir les parcours dans le temps Lire l’alternative textuelle de la slide 6 La slide représente un service numérique au centre d’une boucle de suivi. Les étapes tester, détecter, corriger, actualiser et réinjecter entourent le service, avec des équipes aux deux extrémités pour illustrer le maintien dans la durée. Textes visibles Maintenir les parcours dans le temps Tester Détecter Corriger Actualiser Réinjecter Le run évite que la dette revienne Message à retenir Le run et l’amélio",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(6) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 6 sur 10 - Maintenir les parcours dans le temps"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 42,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 7 sur 10 - Lire les appuis et les risques ensemble",
+      "nearby_text": "Slide 7 - Lire les appuis et les risques ensemble Lire l’alternative textuelle de la slide 7 La slide montre une balance d’arbitrage observée par un décideur. À gauche figurent les appuis RGAA, DSFR et compétences. À droite figurent les risques liés au parc hétérogène, aux responsabilités et aux moyens. Textes visibles Lire les appuis et les risques ensemble RGAA DSFR Compétences Parc hétérogène Responsabilités Moyens Les risques encadrent l’ambition Message à retenir L’ambition doit être lue av",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(7) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 7 sur 10 - Lire les appuis et les risques ensemble"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 43,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 8 sur 10 - Rendre la trajectoire tenable",
+      "nearby_text": "Slide 8 - Rendre la trajectoire tenable Lire l’alternative textuelle de la slide 8 La slide montre quatre portes successives ouvertes sur une trajectoire vers 2030. Elles représentent l’usage prioritaire, les processus ordinaires, la gouvernance explicite, puis les outils et compétences. Un groupe de personnes observe le parcours. Textes visibles Rendre la trajectoire tenable Usage prioritaire Processus ordinaires Gouvernance explicite Outils et compétences 2030 Les outils aident, la montée en c",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(8) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 8 sur 10 - Rendre la trajectoire tenable"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 44,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 9 sur 10 - Clarifier avant d’engager",
+      "nearby_text": "Slide 9 - Clarifier avant d’engager Lire l’alternative textuelle de la slide 9 La slide montre un décideur devant quatre dossiers ouverts : périmètre, responsabilités, moyens et ambition. Une trajectoire en pointillés part vers un horizon, avec une icône de balance et un point d’interrogation pour signaler les arbitrages à confirmer. Textes visibles Clarifier avant d’engager Périmètre Responsabilités Moyens Ambition Le niveau SNUM/MEF reste à confirmer Message à retenir L’engagement doit rester ",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(9) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 9 sur 10 - Clarifier avant d’engager"
+    },
+    {
+      "aria_hidden": false,
+      "bounding_box": null,
+      "disabled": false,
+      "dom_order": 45,
+      "is_focusable": false,
+      "is_in_viewport": false,
+      "name": "Slide 10 sur 10 - Suivre sans figer trop tôt",
+      "nearby_text": "Slide 10 - Suivre sans figer trop tôt Lire l’alternative textuelle de la slide 10 La slide montre un tableau de bord en construction entouré de deux personnes en réflexion. Six blocs y regroupent les familles d’indicateurs : parcours critiques, déclarations, dette, projets-achats, compétences, tests et signalements. Textes visibles Suivre sans figer trop tôt Parcours critiques Déclarations/SPAN/PAN Dette Projets-achats Compétences Tests et signalements Mesurer dépend du périmètre confirmé Messag",
+      "qualification_limits": [
+        "Cible non visible dans le viewport initial."
+      ],
+      "role": "group",
+      "selector": "main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(10) > figure:nth-of-type(1)",
+      "source_criterion_ids": [],
+      "tabindex": null,
+      "visibility_state": "zero_size",
+      "visible_text": "Slide 10 sur 10 - Suivre sans figer trop tôt"
+    }
+  ],
+  "title": "Objectifs 2030 - Accessibilité numérique",
+  "tool_evidence_collections": [
+    {
+      "captured_at": "2026-06-19T21:45:18+00:00",
+      "collection_path": "/Users/alex/miweb-objectifs-2030/audits/rgaa-2026-06-19-4aee697/captures/alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-axe-core-collection.json",
+      "inspection_limits": [
+        "axe-core analyse l'état DOM courant dans Chromium headless.",
+        "axe-core ne couvre pas tous les critères RGAA et ne remplace pas les tests manuels."
+      ],
+      "kind": "ay11_tool_evidence_collection",
+      "mapping_limits": [
+        "Les règles axe-core sont des signaux WCAG/outils ; le rattachement RGAA est indicatif et révisable.",
+        "Une violation axe-core ne vaut pas non-conformité RGAA sans validation humaine.",
+        "Les règles sans mapping RGAA explicite restent visibles comme signaux non mappés."
+      ],
+      "page_url_final": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/#slide-01",
+      "produces_audit": false,
+      "produces_conformity": false,
+      "produces_decision": false,
+      "raw_artifact_path": "/Users/alex/miweb-objectifs-2030/audits/rgaa-2026-06-19-4aee697/captures/alexmacapple-github-io-miweb-objectifs-2030-miweb-objectifs-2030-v1-axe-core-raw.json",
+      "result_counts": {
+        "inapplicable": 49,
+        "incomplete": 1,
+        "passes": 40,
+        "violations": 0
+      },
+      "rules": [
+        {
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "impact": "serious",
+          "mapping_limit": "Règle reconnue mais non mappée : RGAA 3.2 exige taille, graisse, arrière-plan, cas particuliers et mécanisme éventuel.",
+          "mapping_status": "held",
+          "outcome": "incomplete",
+          "rgaa_mappings": [],
+          "rule_id": "color-contrast",
+          "severity": "warn",
+          "target_count": 15,
+          "targets": [
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-link\" href=\"alternatives.html\">Consulter toutes les alternatives textuelles</a>",
+              "target": [
+                ".fr-link[href$=\"alternatives.html\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-01\">Slide 1 - Faire de l’accessibilité une qualité durable</a>",
+              "target": [
+                "a[href$=\"#slide-01\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-02\">Slide 2 - Arrêter de corriger trop tard</a>",
+              "target": [
+                "a[href$=\"#slide-02\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-03\">Slide 3 - Articuler la contribution SNUM avec les leviers MEF</a>",
+              "target": [
+                "a[href$=\"#slide-03\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-04\">Slide 4 - Prioriser les parcours critiques</a>",
+              "target": [
+                "a[href$=\"#slide-04\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-05\">Slide 5 - Intégrer l’accessibilité en amont</a>",
+              "target": [
+                "a[href$=\"#slide-05\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-06\">Slide 6 - Maintenir les parcours dans le temps</a>",
+              "target": [
+                "a[href$=\"#slide-06\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-07\">Slide 7 - Lire les appuis et les risques ensemble</a>",
+              "target": [
+                "a[href$=\"#slide-07\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-08\">Slide 8 - Rendre la trajectoire tenable</a>",
+              "target": [
+                "a[href$=\"#slide-08\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-09\">Slide 9 - Clarifier avant d’engager</a>",
+              "target": [
+                "a[href$=\"#slide-09\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-10\">Slide 10 - Suivre sans figer trop tôt</a>",
+              "target": [
+                "a[href$=\"#slide-10\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<a class=\"fr-btn fr-btn--secondary fr-icon-download-line fr-btn--icon-left\" href=\"assets/downloads/miweb-objectifs-2030-v1-slides.zip\" download=\"\">Télécharger les slides au format ZIP</a>",
+              "target": [
+                ".fr-icon-download-line"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-footer__content-link\" href=\"./\">Présentation</a>",
+              "target": [
+                ".fr-footer__content-link[href=\"./\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-footer__content-link\" href=\"alternatives.html\">Alternatives textuelles</a>",
+              "target": [
+                ".fr-footer__content-link[href$=\"alternatives.html\"]"
+              ]
+            },
+            {
+              "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"fr-footer__content-link\" href=\"assets/downloads/miweb-objectifs-2030-v1-slides.zip\">Télécharger les slides</a>",
+              "target": [
+                ".fr-footer__content-item:nth-child(3) > .fr-footer__content-link"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema_version": 1,
+      "source_url": "https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v1/",
+      "targets": [
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-link\" href=\"alternatives.html\">Consulter toutes les alternatives textuelles</a>",
+          "target": [
+            ".fr-link[href$=\"alternatives.html\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-01\">Slide 1 - Faire de l’accessibilité une qualité durable</a>",
+          "target": [
+            "a[href$=\"#slide-01\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-02\">Slide 2 - Arrêter de corriger trop tard</a>",
+          "target": [
+            "a[href$=\"#slide-02\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-03\">Slide 3 - Articuler la contribution SNUM avec les leviers MEF</a>",
+          "target": [
+            "a[href$=\"#slide-03\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-04\">Slide 4 - Prioriser les parcours critiques</a>",
+          "target": [
+            "a[href$=\"#slide-04\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-05\">Slide 5 - Intégrer l’accessibilité en amont</a>",
+          "target": [
+            "a[href$=\"#slide-05\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-06\">Slide 6 - Maintenir les parcours dans le temps</a>",
+          "target": [
+            "a[href$=\"#slide-06\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-07\">Slide 7 - Lire les appuis et les risques ensemble</a>",
+          "target": [
+            "a[href$=\"#slide-07\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-08\">Slide 8 - Rendre la trajectoire tenable</a>",
+          "target": [
+            "a[href$=\"#slide-08\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-09\">Slide 9 - Clarifier avant d’engager</a>",
+          "target": [
+            "a[href$=\"#slide-09\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-summary__link\" data-slide-link=\"\" href=\"#slide-10\">Slide 10 - Suivre sans figer trop tôt</a>",
+          "target": [
+            "a[href$=\"#slide-10\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+          "html": "<a class=\"fr-btn fr-btn--secondary fr-icon-download-line fr-btn--icon-left\" href=\"assets/downloads/miweb-objectifs-2030-v1-slides.zip\" download=\"\">Télécharger les slides au format ZIP</a>",
+          "target": [
+            ".fr-icon-download-line"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-footer__content-link\" href=\"./\">Présentation</a>",
+          "target": [
+            ".fr-footer__content-link[href=\"./\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-footer__content-link\" href=\"alternatives.html\">Alternatives textuelles</a>",
+          "target": [
+            ".fr-footer__content-link[href$=\"alternatives.html\"]"
+          ]
+        },
+        {
+          "failure_summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+          "html": "<a class=\"fr-footer__content-link\" href=\"assets/downloads/miweb-objectifs-2030-v1-slides.zip\">Télécharger les slides</a>",
+          "target": [
+            ".fr-footer__content-item:nth-child(3) > .fr-footer__content-link"
+          ]
+        }
+      ],
+      "tool_name": "axe-core",
+      "tool_version": "4.12.1"
+    }
+  ],
+  "tool_name": "playwright"
+}
