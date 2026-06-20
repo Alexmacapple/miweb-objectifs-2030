@@ -11,7 +11,7 @@ Cette procédure sert à publier une nouvelle variante `miweb-objectifs-2030-vN`
 ## Étapes
 
 1. Créer le dossier de variante à partir de la dernière version publiée.
-2. Copier les 10 images `slide-01.png` à `slide-10.png` dans `assets/slides/`.
+2. Copier les images validées `slide-01.png` à `slide-NN.png` dans `assets/slides/`, selon le nombre réel de slides de la variante.
 3. Copier le storyboard de génération dans `source/storyboard-vN.md`.
 4. Mettre à jour `slides.json` : titre, alternative courte, description, textes visibles et message.
 5. Adapter `build.py` si la nouvelle version n’est pas encore listée dans `PUBLISHED_VERSIONS`.
@@ -25,6 +25,12 @@ Cette procédure sert à publier une nouvelle variante `miweb-objectifs-2030-vN`
    - `miweb-objectifs-2030-vN/?projection=1#slide-01` ;
    - `miweb-objectifs-2030-vN/alternatives.html`.
 9. Mettre à jour le README racine et pousser sur GitHub Pages.
+
+## Variantes publiées
+
+- V1 : variante initiale de 10 slides.
+- V2 : variante de 10 slides centrée sur la chaîne qualité durable.
+- V3 : variante de 8 slides centrée sur la dette visible, les portes qualité, le run, la mutualisation et les arbitrages.
 
 ## Points de vigilance
 

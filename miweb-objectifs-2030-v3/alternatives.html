@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'nonce-miweb-static' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'nonce-miweb-static' 'sha256-ChIb9MlZGu3weUVCZ0EfO2VbowkWQCvNFNt/rIZMHQ0='; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net data:; connect-src 'self' https://cdn.jsdelivr.net; form-action 'self'; upgrade-insecure-requests">
+  <meta name="description" content="Version web accessible des slides Objectifs 2030 - accessibilité numérique, avec navigation clavier et alternatives textuelles.">
+  <link rel="icon" href="assets/favicons/favicon.ico" type="image/vnd.microsoft.icon">
+  <title>Alternatives textuelles - Objectifs 2030 - accessibilité numérique</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr/dsfr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/utility/utility.min.css">
+  <style nonce="miweb-static">
+.miweb-page-header {
+  margin-bottom: 2rem;
+}
+
+.miweb-version {
+  color: var(--text-mention-grey);
+}
+
+.miweb-summary-zone {
+  margin-bottom: 2rem;
+}
+
+.miweb-slide-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.miweb-projection-controls {
+  display: none;
+}
+
+.miweb-slide-status {
+  font-weight: 700;
+  margin: 0;
+}
+
+.miweb-slide-section {
+  margin-bottom: 2.5rem;
+}
+
+.miweb-slide-section[hidden] {
+  display: none;
+}
+
+.miweb-slide-title {
+  margin-bottom: 1rem;
+}
+
+.miweb-slide-frame {
+  margin: 0 auto 1rem;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.miweb-slide-frame img {
+  border: 1px solid var(--border-default-grey);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.miweb-slide-caption {
+  color: var(--text-mention-grey);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.miweb-text-page {
+  max-width: 48rem;
+}
+
+.miweb-download-link {
+  margin-top: 0.75rem;
+}
+
+#footer {
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 0 0 var(--border-action-high-blue-france);
+  color: #3a3a3a;
+}
+
+#footer .fr-footer__content-link {
+  background-color: #ffffff;
+  color: #3a3a3a;
+}
+
+#diaporama:fullscreen {
+  background: var(--background-default-grey);
+  box-sizing: border-box;
+  overflow: auto;
+  padding: clamp(0.75rem, 2vw, 2rem);
+}
+
+#diaporama:fullscreen .miweb-slide-controls {
+  display: none;
+}
+
+#diaporama:fullscreen .miweb-projection-controls {
+  align-items: center;
+  background: var(--background-default-grey);
+  border: 1px solid var(--border-default-grey);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  max-width: min(100%, 56rem);
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#diaporama:fullscreen #diaporama-title,
+#diaporama:fullscreen .miweb-slide-title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#diaporama:fullscreen .miweb-slide-section {
+  margin-bottom: 0;
+}
+
+#diaporama:fullscreen .miweb-slide-frame {
+  max-width: min(96vw, 1600px);
+}
+
+#diaporama:fullscreen .fr-accordions-group {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: min(96vw, 1600px);
+  width: 100%;
+}
+
+@media (max-width: 36em) {
+  #diaporama:fullscreen .miweb-projection-controls {
+    align-items: stretch;
+  }
+
+  #diaporama:fullscreen .miweb-projection-controls .fr-btn {
+    flex: 1 1 9rem;
+    justify-content: center;
+  }
+}
+
+@media print {
+  .fr-skiplinks,
+  .fr-header,
+  .fr-summary,
+  .miweb-slide-controls,
+  .fr-footer {
+    display: none !important;
+  }
+
+  .miweb-slide-section[hidden] {
+    display: block !important;
+  }
+
+  .miweb-slide-section,
+  .miweb-alt-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="fr-skiplinks">
+    <nav aria-label="Accès rapide" class="fr-container">
+      <ul class="fr-skiplinks__list">
+        <li><a class="fr-link" href="#contenu">Accéder au contenu</a></li>
+        <li><a class="fr-link" href="#footer">Accéder au pied de page</a></li>
+      </ul>
+    </nav>
+  </div>
+  <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+      <div class="fr-container">
+        <div class="fr-header__body-row">
+          <div class="fr-header__brand fr-enlarge-link">
+            <div class="fr-header__brand-top">
+              <div class="fr-header__logo">
+                <p class="fr-logo">République<br>Française</p>
+              </div>
+              <div class="fr-header__navbar">
+                <button data-fr-opened="false" aria-controls="modal-menu" title="Menu" type="button" id="button-menu" class="fr-btn--menu fr-btn">Menu</button>
+              </div>
+            </div>
+            <div class="fr-header__service">
+              <a href="./" title="Accueil - Objectifs 2030 - accessibilité numérique">
+                <p class="fr-header__service-title">Objectifs 2030 - accessibilité numérique</p>
+              </a>
+              <p class="fr-header__service-tagline">MiWeb - Juin 2026</p>
+            </div>
+          </div>
+          <div class="fr-header__tools">
+            <div class="fr-header__tools-links">
+              <ul class="fr-btns-group">
+                <li>
+                  <a href="./?projection=1#slide-01" class="fr-btn fr-icon-expand-left-right-line fr-btn--icon-left">Présentation plein écran</a>
+                </li>
+                <li>
+                  <a href="alternatives.html" class="fr-btn fr-icon-accessibility-line fr-btn--icon-left">Alternatives textuelles</a>
+                </li>
+                <li>
+                  <a href="assets/downloads/miweb-objectifs-2030-v3-slides.zip" class="fr-btn fr-icon-download-line fr-btn--icon-left" download>Télécharger les slides</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fr-header__menu fr-modal" id="modal-menu">
+      <div class="fr-container">
+        <button aria-controls="modal-menu" title="Fermer" type="button" class="fr-btn--close fr-btn">Fermer</button>
+        <div class="fr-header__menu-links"></div>
+      </div>
+    </div>
+  </header>
+  <main id="contenu" class="fr-container fr-py-4w miweb-text-page">
+    <nav class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb">
+      <ol class="fr-breadcrumb__list">
+        <li><a class="fr-breadcrumb__link" href="../">Versions</a></li>
+        <li><a class="fr-breadcrumb__link" href="./">Objectifs 2030 - accessibilité numérique</a></li>
+        <li><a class="fr-breadcrumb__link" aria-current="page">Alternatives textuelles</a></li>
+      </ol>
+    </div>
+  </nav>
+    <h1>Alternatives textuelles</h1>
+    <p class="fr-text--lead">Objectifs 2030 - accessibilité numérique - Version 3 - Juin 2026</p>
+      <section class="miweb-alt-section" id="alternative-slide-01">
+        <h2>Slide 1 - Faire de l’accessibilité un niveau de service</h2>
+        <p><a class="fr-link" href="./#slide-01">Voir la slide 1 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide présente une tour de contrôle de la qualité numérique. Des services numériques sont reliés à un cadran 2030 intitulé Accès réel, avec des indicateurs pour les parcours critiques, la qualité durable et le suivi.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>Faire de l’accessibilité un niveau de service</li>
+          <li>Service A</li>
+          <li>Service B</li>
+          <li>Service C</li>
+          <li>Service D</li>
+          <li>2030</li>
+          <li>Accès réel</li>
+          <li>Parcours critiques</li>
+          <li>Qualité durable</li>
+          <li>Suivi</li>
+          <li>La cible n’est pas une promesse de conformité totale.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>L’accessibilité doit devenir un niveau de service durable, piloté dans le temps sans promettre une conformité totale de tout le parc.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-02">
+        <h2>Slide 2 - Voir la dette avant qu’elle ne revienne</h2>
+        <p><a class="fr-link" href="./#slide-02">Voir la slide 2 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide montre un audit, un registre de dette d’accessibilité et un poste de priorisation. Refonte et mise à jour peuvent faire réapparaître des régressions, qui doivent être rendues visibles et priorisées.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>Voir la dette avant qu’elle ne revienne</li>
+          <li>Audit</li>
+          <li>Refonte</li>
+          <li>Mise à jour</li>
+          <li>Dette accessibilité</li>
+          <li>Régression</li>
+          <li>Anomalie</li>
+          <li>Image sans texte alternatif</li>
+          <li>Contraste insuffisant</li>
+          <li>Navigation clavier</li>
+          <li>Priorité</li>
+          <li>Ce qui n’est pas suivi se reconstitue.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>La dette d’accessibilité revient après les évolutions si elle n’est pas rendue visible, suivie et priorisée.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-03">
+        <h2>Slide 3 - Protéger d’abord les parcours critiques</h2>
+        <p><a class="fr-link" href="./#slide-03">Voir la slide 3 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide représente une carte de circulation des démarches essentielles. Usagers et agents sont reliés à des parcours où les blocages majeurs sont repérés, puis orientés vers des corrections et un suivi.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>Protéger d’abord les parcours critiques</li>
+          <li>Usagers</li>
+          <li>Agents</li>
+          <li>Démarches essentielles</li>
+          <li>Blocage majeur</li>
+          <li>Corrections</li>
+          <li>Prioriser rend l’effort pilotable.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>La priorisation par les parcours critiques rend l’effort pilotable et concentre l’action sur les blocages majeurs des usages essentiels.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-04">
+        <h2>Slide 4 - Installer des portes qualité avant livraison</h2>
+        <p><a class="fr-link" href="./#slide-04">Voir la slide 4 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide montre un projet numérique qui traverse cinq portes qualité avant de devenir un service prêt à publier. Les portes portent sur le cadrage, le marché, la maquette, la recette et la livraison.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>Installer des portes qualité avant livraison</li>
+          <li>Projet numérique</li>
+          <li>Cadrage</li>
+          <li>Marché</li>
+          <li>Maquette</li>
+          <li>Recette</li>
+          <li>Livraison</li>
+          <li>Service prêt à publier</li>
+          <li>Le contrôle final arrive trop tard s’il est seul.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>L’accessibilité doit entrer dans les étapes ordinaires du projet avant la livraison, car le contrôle final isolé arrive trop tard.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-05">
+        <h2>Slide 5 - Croiser les contrôles avant de décider</h2>
+        <p><a class="fr-link" href="./#slide-05">Voir la slide 5 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide présente trois sources de preuve : tests automatisés, audit manuel et retour terrain. Elles convergent vers une décision, puis vers une liste d’anomalies à traiter.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>Croiser les contrôles avant de décider</li>
+          <li>Tests automatisés</li>
+          <li>Audit manuel</li>
+          <li>Retour terrain</li>
+          <li>Décision</li>
+          <li>Anomalies</li>
+          <li>Aucun outil ne remplace le jugement de gouvernance.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>Les outils, l’expertise humaine et les retours terrain doivent être croisés avant les décisions de correction.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-06">
+        <h2>Slide 6 - Maintenir l’accessibilité en run</h2>
+        <p><a class="fr-link" href="./#slide-06">Voir la slide 6 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide montre un service numérique suivi par un carnet central et une boucle de run. Signalement, évolution, régression, correction, déclaration et SPAN/PAN structurent le maintien dans le temps.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>Maintenir l’accessibilité en run</li>
+          <li>Signalement</li>
+          <li>Évolution</li>
+          <li>Régression</li>
+          <li>Correction</li>
+          <li>Déclaration</li>
+          <li>SPAN/PAN</li>
+          <li>Un service accessible peut redevenir bloquant.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>Un service accessible peut redevenir bloquant après publication ; le run doit donc intégrer signalements, corrections et actualisations.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-07">
+        <h2>Slide 7 - Mutualiser ce qui tient dans le temps</h2>
+        <p><a class="fr-link" href="./#slide-07">Voir la slide 7 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide montre une bibliothèque commune où sont rangés les éléments réutilisables : RGAA, DSFR, clauses, formations, retours terrain et preuves. Des projets réutilisent ensuite ces éléments.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>Mutualiser ce qui tient dans le temps</li>
+          <li>RGAA</li>
+          <li>DSFR</li>
+          <li>Clauses</li>
+          <li>Formations</li>
+          <li>Retours terrain</li>
+          <li>Preuves</li>
+          <li>La capitalisation réduit la fragilité.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>La mutualisation des preuves et pratiques validées réduit la fragilité de l’effort et facilite la réutilisation entre projets.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-08">
+        <h2>Slide 8 - Décider ce qui engage vraiment</h2>
+        <p><a class="fr-link" href="./#slide-08">Voir la slide 8 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide montre une table d’arbitrage avec quatre leviers réglables : périmètre, responsabilités, moyens et ambition. Un tableau d’indicateurs sans chiffres figés rappelle que la mesure dépend d’un périmètre confirmé.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>Décider ce qui engage vraiment</li>
+          <li>Périmètre</li>
+          <li>Responsabilités</li>
+          <li>Moyens</li>
+          <li>Ambition</li>
+          <li>Indicateurs</li>
+          <li>Mesurer suppose un périmètre confirmé.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>La trajectoire 2030 doit rester conditionnée à des arbitrages explicites sur le périmètre, les responsabilités, les moyens et les indicateurs.</p>
+      </section>
+  </main>
+  <footer role="contentinfo" class="fr-footer" id="footer">
+    <div class="fr-container">
+      <div class="fr-footer__body">
+        <div class="fr-footer__brand">
+          <p class="fr-logo">République<br>Française</p>
+        </div>
+        <div class="fr-footer__content">
+          <p class="fr-footer__content-desc">Objectifs 2030 - accessibilité numérique - MiWeb - Juin 2026.</p>
+          <ul class="fr-footer__content-list">
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="./?projection=1#slide-01" data-projection-link>Présentation plein écran</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="./?slides=all#diaporama" data-show-all-link>Afficher toutes les slides</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="alternatives.html">Alternatives textuelles</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="assets/downloads/miweb-objectifs-2030-v3-slides.zip">Télécharger les slides</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script nonce="miweb-static" type="module" src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr/dsfr.module.min.js"></script>
+  <script nonce="miweb-static" nomodule src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr/dsfr.nomodule.min.js"></script>
+</body>
+</html>
