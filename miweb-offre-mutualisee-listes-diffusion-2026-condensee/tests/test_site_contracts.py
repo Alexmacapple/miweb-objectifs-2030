@@ -77,6 +77,9 @@ class SiteContractsTest(unittest.TestCase):
         self.assertIn("data-projection-controls", self.index_html)
         self.assertIn("requestFullscreen", self.index_html)
         self.assertIn("exitFullscreen", self.index_html)
+        self.assertIn('addEventListener("touchstart"', self.index_html)
+        self.assertIn('addEventListener("touchend"', self.index_html)
+        self.assertIn("swipeMinDistance", self.index_html)
         self.assertIn("?projection=1#slide-01", self.index_html)
         self.assertIn("?slides=all#diaporama", self.index_html)
 

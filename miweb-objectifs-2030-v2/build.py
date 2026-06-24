@@ -94,6 +94,7 @@ CUSTOM_CSS = """
   border: 1px solid var(--border-default-grey);
   display: block;
   height: auto;
+  touch-action: pan-y;
   width: 100%;
 }
 
@@ -241,6 +242,13 @@ MAIN_JS = """
   let wasProjectionActive = false;
   const projectionRequested = isProjectionRequested();
   const allSlidesRequested = isAllSlidesRequested();
+  let touchTracking = false;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchLastX = 0;
+  let touchLastY = 0;
+  const swipeMinDistance = 48;
+  const swipeDirectionRatio = 1.4;
 
   function getIndexFromHash() {
     const match = window.location.hash.match(/^#slide-(\\d{2})$/);
@@ -428,6 +436,46 @@ MAIN_JS = """
     updateStatus();
   }
 
+  function isInteractiveSwipeTarget(target) {
+    if (!target || !target.closest) return false;
+    return Boolean(target.closest("a, button, input, textarea, select, summary, [role='button'], .fr-accordion"));
+  }
+
+  function canStartSwipe(event) {
+    return !allMode
+      && event.touches.length === 1
+      && fullscreenTarget.contains(event.target)
+      && !isInteractiveSwipeTarget(event.target);
+  }
+
+  function startSwipe(event) {
+    if (!canStartSwipe(event)) return;
+    const touch = event.touches[0];
+    touchTracking = true;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    touchLastX = touch.clientX;
+    touchLastY = touch.clientY;
+  }
+
+  function trackSwipe(event) {
+    if (!touchTracking || event.touches.length !== 1) return;
+    const touch = event.touches[0];
+    touchLastX = touch.clientX;
+    touchLastY = touch.clientY;
+  }
+
+  function endSwipe() {
+    if (!touchTracking) return;
+    touchTracking = false;
+    const deltaX = touchLastX - touchStartX;
+    const deltaY = touchLastY - touchStartY;
+    const horizontal = Math.abs(deltaX);
+    const vertical = Math.abs(deltaY);
+    if (horizontal < swipeMinDistance || horizontal < vertical * swipeDirectionRatio) return;
+    showSlide(currentIndex + (deltaX < 0 ? 1 : -1), { focus: false });
+  }
+
   previousButton.addEventListener("click", () => showSlide(currentIndex - 1, { focus: true }));
   nextButton.addEventListener("click", () => showSlide(currentIndex + 1, { focus: true }));
   allButton.addEventListener("click", () => {
@@ -485,6 +533,13 @@ MAIN_JS = """
       event.preventDefault();
       showSlide(targetIndex, { focus: true });
     });
+  });
+
+  fullscreenTarget.addEventListener("touchstart", startSwipe, { passive: true });
+  fullscreenTarget.addEventListener("touchmove", trackSwipe, { passive: true });
+  fullscreenTarget.addEventListener("touchend", endSwipe);
+  fullscreenTarget.addEventListener("touchcancel", () => {
+    touchTracking = false;
   });
 
   window.addEventListener("popstate", () => showSlide(getIndexFromHash(), { replace: true }));

@@ -223,8 +223,9 @@ Vérifier manuellement :
 - le mode projection reste accessible ;
 - chaque slide dispose d’un accordéon d’alternative ;
 - `alternatives.html` liste toutes les slides ;
+- la navigation par swipe horizontal fonctionne et reste couverte par les tests de contrat ;
 - le ZIP est téléchargeable ;
-- aucune version V1 à V4 n’a changé.
+- aucune version publiée ne change hors décision explicite.
 
 ## Prévisualisation depuis un autre Mac du réseau local
 
@@ -312,12 +313,19 @@ curl -L --max-time 30 -s -o /tmp/preview-longue.html -w '%{http_code} %{size_dow
 
 Les deux commandes doivent répondre `200` avec une taille non nulle. Vérifier aussi que le serveur Python local reçoit les requêtes.
 
-URL publique validée pour la prévisualisation du 24 juin 2026 :
+Exemple historique de tunnel temporaire utilisé pour la prévisualisation du 24 juin 2026 :
 
 ```text
 https://forty-flies-cross.loca.lt/miweb-offre-mutualisee-listes-diffusion-2026-condensee/
 https://forty-flies-cross.loca.lt/miweb-offre-mutualisee-listes-diffusion-2026-longue/
 ```
+
+Validation iPhone hors réseau local du 25 juin 2026 :
+
+- serveur local : `python3 -m http.server 8010 --bind 127.0.0.1` ;
+- tunnel public temporaire : `npx --yes localtunnel --port 8010 --local-host 127.0.0.1` ;
+- chemins validés sur iPhone : `miweb-offre-mutualisee-listes-diffusion-2026-condensee/#slide-06` et `miweb-offre-mutualisee-listes-diffusion-2026-longue/#slide-06` ;
+- objectif du test : vérifier la navigation par swipe horizontal des jeux 5 et 6 avant généralisation aux variantes 1 à 4 et push.
 
 Points de vigilance :
 

@@ -19,8 +19,8 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 
 ## Supports thématiques
 
-- Offre mutualisée de listes de diffusion - version condensée : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-condensee/>
-- Offre mutualisée de listes de diffusion - version longue : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/>
+- Jeu 5 - Offre mutualisée de listes de diffusion, version condensée : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-condensee/>
+- Jeu 6 - Offre mutualisée de listes de diffusion, version longue : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/>
 
 ## Accès directs V4
 
@@ -63,6 +63,17 @@ URL locale de la dernière variante publiée :
 ```text
 http://127.0.0.1:8000/miweb-offre-mutualisee-listes-diffusion-2026-longue/
 ```
+
+## Navigation tactile commune
+
+Depuis le 25 juin 2026, les variantes 1 à 4 et les jeux 5 et 6 prennent en charge le swipe horizontal dans le diaporama sur iPhone et écrans tactiles :
+
+- glisser vers la gauche affiche la slide suivante ;
+- glisser vers la droite affiche la slide précédente ;
+- les liens, boutons, accordéons et contrôles DSFR restent prioritaires et ne déclenchent pas de changement de slide ;
+- le défilement vertical reste possible grâce à `touch-action: pan-y`.
+
+Tout futur jeu de slides doit conserver ce comportement dans son `build.py`, ses pages générées et ses tests de contrat. Le comportement a été validé sur iPhone hors réseau local avec un serveur local lié à `127.0.0.1:8010`, exposé temporairement par `localtunnel`, puis testé sur `#slide-06` pour les jeux 5 et 6. Les URL `loca.lt` ne sont pas conservées comme liens durables : elles expirent avec le tunnel.
 
 ## Vérifier avant publication
 

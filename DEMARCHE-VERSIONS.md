@@ -26,7 +26,8 @@ Les variantes déjà publiées `miweb-objectifs-2030-v1` à `miweb-objectifs-203
    - `<dossier-variante>/#slide-01` ;
    - `<dossier-variante>/?projection=1#slide-01` ;
    - `<dossier-variante>/alternatives.html`.
-9. Mettre à jour le README racine et pousser sur GitHub Pages.
+9. Vérifier que la navigation par swipe horizontal est conservée dans le diaporama, dans les pages générées et dans les tests de contrat.
+10. Mettre à jour le README racine et pousser sur GitHub Pages.
 
 ## Variantes thématiques nommées
 
@@ -47,6 +48,20 @@ Pour une variante thématique :
 - V2 : variante de 10 slides centrée sur la chaîne qualité durable.
 - V3 : variante de 8 slides centrée sur la dette visible, les portes qualité, le run, la mutualisation et les arbitrages.
 - V4 : variante de 8 slides centrée sur la chaîne de preuve de l’accès réel, avec cadrage, contrôles croisés, run, mutualisation, arbitrages et indicateurs consolidables.
+- Jeu 5 : support thématique « Offre mutualisée de listes de diffusion », version condensée.
+- Jeu 6 : support thématique « Offre mutualisée de listes de diffusion », version longue.
+
+## Comportement tactile commun
+
+Les variantes 1 à 4 et les jeux 5 et 6 partagent une navigation par swipe horizontal dans le diaporama. Toute future variante ou tout futur jeu de slides doit conserver ce comportement dans son `build.py`, ses pages générées et ses tests de contrat :
+
+- swipe vers la gauche : slide suivante ;
+- swipe vers la droite : slide précédente ;
+- seuil minimal : 48 pixels horizontaux ;
+- protection du scroll vertical : le geste horizontal doit dominer le mouvement vertical ;
+- exclusion des cibles interactives : liens, boutons, champs, accordéons et contrôles DSFR.
+
+Validation réalisée avant publication des jeux 5 et 6 : test iPhone hors réseau local via serveur local `127.0.0.1:8010` exposé temporairement avec `localtunnel`, puis contrôle des deux jeux sur `#slide-06`.
 
 ## Points de vigilance
 
