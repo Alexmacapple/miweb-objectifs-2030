@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'nonce-miweb-static' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'nonce-miweb-static' 'sha256-ChIb9MlZGu3weUVCZ0EfO2VbowkWQCvNFNt/rIZMHQ0='; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net data:; connect-src 'self' https://cdn.jsdelivr.net; form-action 'self'; upgrade-insecure-requests">
+  <meta name="description" content="Version web accessible de l’étude d’opportunité sur l’offre mutualisée de gestion des listes de diffusion et d’envois de masse.">
+  <link rel="icon" href="assets/favicons/favicon.ico" type="image/vnd.microsoft.icon">
+  <title>Alternatives textuelles - Offre mutualisée de listes de diffusion</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr/dsfr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/utility/utility.min.css">
+  <style nonce="miweb-static">
+.miweb-page-header {
+  margin-bottom: 2rem;
+}
+
+.miweb-version {
+  color: var(--text-mention-grey);
+}
+
+.miweb-summary-zone {
+  margin-bottom: 2rem;
+}
+
+.miweb-slide-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.miweb-projection-controls {
+  display: none;
+}
+
+.miweb-slide-status {
+  font-weight: 700;
+  margin: 0;
+}
+
+.miweb-slide-section {
+  margin-bottom: 2.5rem;
+}
+
+.miweb-slide-section[hidden] {
+  display: none;
+}
+
+.miweb-slide-title {
+  margin-bottom: 1rem;
+}
+
+.miweb-slide-frame {
+  margin: 0 auto 1rem;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.miweb-slide-frame img {
+  border: 1px solid var(--border-default-grey);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.miweb-slide-caption {
+  color: var(--text-mention-grey);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.miweb-text-page {
+  max-width: 48rem;
+}
+
+.miweb-download-link {
+  margin-top: 0.75rem;
+}
+
+#footer {
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 0 0 var(--border-action-high-blue-france);
+  color: #3a3a3a;
+}
+
+#footer .fr-footer__content-link {
+  background-color: #ffffff;
+  color: #3a3a3a;
+}
+
+#diaporama:fullscreen {
+  background: var(--background-default-grey);
+  box-sizing: border-box;
+  overflow: auto;
+  padding: clamp(0.75rem, 2vw, 2rem);
+}
+
+#diaporama:fullscreen .miweb-slide-controls {
+  display: none;
+}
+
+#diaporama:fullscreen .miweb-projection-controls {
+  align-items: center;
+  background: var(--background-default-grey);
+  border: 1px solid var(--border-default-grey);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  max-width: min(100%, 56rem);
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#diaporama:fullscreen #diaporama-title,
+#diaporama:fullscreen .miweb-slide-title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#diaporama:fullscreen .miweb-slide-section {
+  margin-bottom: 0;
+}
+
+#diaporama:fullscreen .miweb-slide-frame {
+  max-width: min(96vw, 1600px);
+}
+
+#diaporama:fullscreen .fr-accordions-group {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: min(96vw, 1600px);
+  width: 100%;
+}
+
+@media (max-width: 36em) {
+  #diaporama:fullscreen .miweb-projection-controls {
+    align-items: stretch;
+  }
+
+  #diaporama:fullscreen .miweb-projection-controls .fr-btn {
+    flex: 1 1 9rem;
+    justify-content: center;
+  }
+}
+
+@media print {
+  .fr-skiplinks,
+  .fr-header,
+  .fr-summary,
+  .miweb-slide-controls,
+  .fr-footer {
+    display: none !important;
+  }
+
+  .miweb-slide-section[hidden] {
+    display: block !important;
+  }
+
+  .miweb-slide-section,
+  .miweb-alt-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="fr-skiplinks">
+    <nav aria-label="Accès rapide" class="fr-container">
+      <ul class="fr-skiplinks__list">
+        <li><a class="fr-link" href="#contenu">Accéder au contenu</a></li>
+        <li><a class="fr-link" href="#footer">Accéder au pied de page</a></li>
+      </ul>
+    </nav>
+  </div>
+  <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+      <div class="fr-container">
+        <div class="fr-header__body-row">
+          <div class="fr-header__brand fr-enlarge-link">
+            <div class="fr-header__brand-top">
+              <div class="fr-header__logo">
+                <p class="fr-logo">République<br>Française</p>
+              </div>
+              <div class="fr-header__navbar">
+                <button data-fr-opened="false" aria-controls="modal-menu" title="Menu" type="button" id="button-menu" class="fr-btn--menu fr-btn">Menu</button>
+              </div>
+            </div>
+            <div class="fr-header__service">
+              <a href="./" title="Accueil - Offre mutualisée de listes de diffusion">
+                <p class="fr-header__service-title">Offre mutualisée de listes de diffusion</p>
+              </a>
+              <p class="fr-header__service-tagline">Étude d’opportunité - 2026</p>
+            </div>
+          </div>
+          <div class="fr-header__tools">
+            <div class="fr-header__tools-links">
+              <ul class="fr-btns-group">
+                <li>
+                  <a href="./?projection=1#slide-01" class="fr-btn fr-icon-expand-left-right-line fr-btn--icon-left">Présentation plein écran</a>
+                </li>
+                <li>
+                  <a href="alternatives.html" class="fr-btn fr-icon-accessibility-line fr-btn--icon-left">Alternatives textuelles</a>
+                </li>
+                <li>
+                  <a href="assets/downloads/miweb-offre-mutualisee-listes-diffusion-2026-longue-slides.zip" class="fr-btn fr-icon-download-line fr-btn--icon-left" download>Télécharger les slides</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fr-header__menu fr-modal" id="modal-menu">
+      <div class="fr-container">
+        <button aria-controls="modal-menu" title="Fermer" type="button" class="fr-btn--close fr-btn">Fermer</button>
+        <div class="fr-header__menu-links"></div>
+      </div>
+    </div>
+  </header>
+  <main id="contenu" class="fr-container fr-py-4w miweb-text-page">
+    <nav class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb">
+      <ol class="fr-breadcrumb__list">
+        <li><a class="fr-breadcrumb__link" href="../">Versions</a></li>
+        <li><a class="fr-breadcrumb__link" href="./">Offre mutualisée de listes de diffusion</a></li>
+        <li><a class="fr-breadcrumb__link" aria-current="page">Alternatives textuelles</a></li>
+      </ol>
+    </div>
+  </nav>
+    <h1>Alternatives textuelles</h1>
+    <p class="fr-text--lead">Offre mutualisée de listes de diffusion - Version longue</p>
+      <section class="miweb-alt-section" id="alternative-slide-01">
+        <h2>Slide 1 - Contexte &amp; constat</h2>
+        <p><a class="fr-link" href="./#slide-01">Voir la slide 1 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide reprend le contexte : les directions BCI, BDA, DAJ, DGCCRF, DGE et BGS partagent deux besoins, la gestion de listes de diffusion et les envois de masse. Elle détaille aussi la situation actuelle : absence d’offre interne unifiée, solutions externes multiples, dispersion et dépenses recensées.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>1/6</li>
+          <li>Contexte &amp; constat</li>
+          <li>Un besoin partagé par l’ensemble des directions interrogées</li>
+          <li>BCI, BDA, DAJ, DGCCRF, DGE et BGS</li>
+          <li>1. Gestion de listes de diffusion</li>
+          <li>Communications récurrentes</li>
+          <li>Communautés d’utilisateurs</li>
+          <li>Listes internes</li>
+          <li>2. Envois de masse et campagnes de communication</li>
+          <li>Newsletters</li>
+          <li>Communications institutionnelles</li>
+          <li>Suivi statistique des diffusions</li>
+          <li>Situation actuelle</li>
+          <li>Absence d’une offre interne unifiée</li>
+          <li>Solutions externes multiples : DoList, Sarbacane…</li>
+          <li>Dispersion : outils, marchés, budgets, pratiques</li>
+          <li>Dépenses recensées : minimum 150 K€ / an</li>
+          <li>Sur les seules directions interrogées</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>Les directions interrogées partagent les mêmes besoins, mais les réponses restent dispersées et reposent sur plusieurs solutions externes.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-02">
+        <h2>Slide 2 - Enjeux d’une offre mutualisée</h2>
+        <p><a class="fr-link" href="./#slide-02">Voir la slide 2 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide détaille les bénéfices attendus d’une solution commune : offre ministérielle homogène, harmonisation des usages, rationalisation des contrats et des coûts, simplification fournisseur et maîtrise sécurité. Elle précise les limites des solutions externes au regard des contraintes PSSI, des données, des domaines et des infrastructures.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>2/6</li>
+          <li>Enjeux d’une offre mutualisée</li>
+          <li>La mise en place d’une solution commune permettrait :</li>
+          <li>Proposer une offre de service ministérielle homogène</li>
+          <li>Harmoniser les usages et les pratiques</li>
+          <li>Rationaliser les contrats et les coûts</li>
+          <li>Simplifier la relation fournisseur</li>
+          <li>Renforcer la maîtrise sécurité et conformité</li>
+          <li>Enjeux PSSI / sécurité</li>
+          <li>Les solutions externes actuelles peuvent présenter des limites au regard :</li>
+          <li>des contraintes de sécurité ministérielles</li>
+          <li>de la maîtrise des données</li>
+          <li>de la gestion des domaines et infrastructures</li>
+          <li>Une solution portée par la DIAN faciliterait l’intégration de ces exigences.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>Une offre mutualisée permettrait d’homogénéiser le service et de mieux intégrer les exigences de sécurité, de données, de domaines et d’infrastructures.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-03">
+        <h2>Slide 3 - Scénario 1 : solution externalisée mutualisée</h2>
+        <p><a class="fr-link" href="./#slide-03">Voir la slide 3 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide présente le principe du scénario externalisé mutualisé : la DIAN porte un marché commun avec un prestataire unique pour toutes les directions. Elle distingue les impacts attendus et les points à arbitrer.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>3/6</li>
+          <li>Scénario 1 : solution externalisée mutualisée</li>
+          <li>Principe</li>
+          <li>La DIAN porte un marché commun avec un prestataire unique pour l’ensemble des directions.</li>
+          <li>Impacts</li>
+          <li>Mutualisation budgétaire</li>
+          <li>Rationalisation des contrats existants</li>
+          <li>Prestataire et gouvernance centralisés</li>
+          <li>Harmonisation des pratiques</li>
+          <li>Points à arbitrer</li>
+          <li>Portage financier du marché</li>
+          <li>Gouvernance de l’offre</li>
+          <li>Modalités d’accompagnement des directions</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>Ce scénario mutualise le marché et le prestataire, tout en laissant à décider le portage financier, la gouvernance et l’accompagnement.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-04">
+        <h2>Slide 4 - Scénario 2 : solution internalisée DIAN</h2>
+        <p><a class="fr-link" href="./#slide-04">Voir la slide 4 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide présente le scénario internalisé : construire une offre interne permettant une meilleure maîtrise technique, sécurité et financière. Les bénéfices attendus sont listés, ainsi que les ressources nécessaires côté BPAN, BITS et MiWeb.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>4/6</li>
+          <li>Scénario 2 : solution internalisée DIAN</li>
+          <li>Principe</li>
+          <li>Construire une offre interne permettant une meilleure maîtrise technique, sécurité et financière.</li>
+          <li>Bénéfices attendus</li>
+          <li>Maîtrise complète de la solution</li>
+          <li>Meilleure intégration PSSI</li>
+          <li>Réduction potentielle des coûts externes</li>
+          <li>Ressources nécessaires</li>
+          <li>BPAN</li>
+          <li>Maintenance applicative</li>
+          <li>Maintien en condition opérationnelle</li>
+          <li>BITS</li>
+          <li>Hébergement</li>
+          <li>Infrastructure</li>
+          <li>Exploitation</li>
+          <li>MiWeb</li>
+          <li>Offre de service</li>
+          <li>Formation</li>
+          <li>Accompagnement utilisateurs</li>
+          <li>Support fonctionnel</li>
+          <li>Point d’attention</li>
+          <li>Nécessite un engagement durable de la DIAN en ressources et en gouvernance.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>Ce scénario maximise la maîtrise, mais il demande une organisation durable et des ressources clairement portées par la DIAN.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-05">
+        <h2>Slide 5 - Scénario 3 : maintien du fonctionnement actuel</h2>
+        <p><a class="fr-link" href="./#slide-05">Voir la slide 5 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide présente le maintien du fonctionnement actuel : chaque direction conserve son autonomie sur ses outils et marchés. Les avantages et les limites sont séparés pour ne pas masquer les conséquences du choix.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>5/6</li>
+          <li>Scénario 3 : maintien du fonctionnement actuel</li>
+          <li>Principe</li>
+          <li>Chaque direction conserve son autonomie sur ses outils et marchés.</li>
+          <li>Avantages</li>
+          <li>Pas de nouvelle charge de portage DIAN</li>
+          <li>Maintien des organisations existantes</li>
+          <li>Gestion directe par les directions</li>
+          <li>Limites</li>
+          <li>Multiplication des solutions</li>
+          <li>Absence de mutualisation financière</li>
+          <li>Dispersion des compétences</li>
+          <li>Gestion individuelle de la conformité sécurité/PSSI</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>Ce scénario évite un nouveau portage DIAN, mais maintient la dispersion des solutions, des coûts, des compétences et de la conformité sécurité/PSSI.</p>
+      </section>
+      <section class="miweb-alt-section" id="alternative-slide-06">
+        <h2>Slide 6 - Arbitrage attendu</h2>
+        <p><a class="fr-link" href="./#slide-06">Voir la slide 6 dans le diaporama</a></p>
+        <h3>Description</h3>
+        <p>La slide conclut que le besoin métier est confirmé et présente les trois options à arbitrer : offre mutualisée avec prestataire unique, solution interne maîtrisée par la DIAN ou maintien de l’autonomie actuelle des directions. La décision attendue porte sur le rôle de la DIAN.</p>
+        <h3>Textes visibles</h3>
+        <ul>
+          <li>6/6</li>
+          <li>Arbitrage attendu</li>
+          <li>Le besoin métier est confirmé</li>
+          <li>L’étude doit désormais permettre de définir le positionnement attendu pour la DIAN.</li>
+          <li>Option 1</li>
+          <li>Porter une offre mutualisée avec un prestataire unique</li>
+          <li>Option 2</li>
+          <li>Construire une solution interne maîtrisée par la DIAN</li>
+          <li>Option 3</li>
+          <li>Maintenir l’autonomie actuelle des directions</li>
+          <li>Décision attendue</li>
+          <li>Déterminer si la DIAN souhaite devenir opérateur d’une offre ministérielle commune ou maintenir un modèle décentralisé.</li>
+        </ul>
+        <h3>Message à retenir</h3>
+        <p>L’arbitrage attendu consiste à déterminer si la DIAN porte une offre ministérielle commune ou maintient un modèle décentralisé.</p>
+      </section>
+  </main>
+  <footer role="contentinfo" class="fr-footer" id="footer">
+    <div class="fr-container">
+      <div class="fr-footer__body">
+        <div class="fr-footer__brand">
+          <p class="fr-logo">République<br>Française</p>
+        </div>
+        <div class="fr-footer__content">
+          <p class="fr-footer__content-desc">Offre mutualisée de listes de diffusion - Étude d’opportunité - 2026.</p>
+          <ul class="fr-footer__content-list">
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="./?projection=1#slide-01" data-projection-link>Présentation plein écran</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="./?slides=all#diaporama" data-show-all-link>Afficher toutes les slides</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="alternatives.html">Alternatives textuelles</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="assets/downloads/miweb-offre-mutualisee-listes-diffusion-2026-longue-slides.zip">Télécharger les slides</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script nonce="miweb-static" type="module" src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr/dsfr.module.min.js"></script>
+  <script nonce="miweb-static" nomodule src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr/dsfr.nomodule.min.js"></script>
+</body>
+</html>

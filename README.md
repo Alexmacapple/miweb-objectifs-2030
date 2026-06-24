@@ -2,7 +2,7 @@
 
 Site public : <https://alexmacapple.github.io/miweb-objectifs-2030/>
 
-Ce dépôt publie des variantes web DSFR, statiques et accessibles des slides MiWeb « Objectifs 2030 - accessibilité numérique ».
+Ce dépôt publie des variantes web DSFR, statiques et accessibles des slides MiWeb « Objectifs 2030 - accessibilité numérique », ainsi que des supports thématiques produits avec le même modèle de publication.
 
 ## Pourquoi
 
@@ -16,6 +16,11 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 - Version 2 : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v2/>
 - Version 3 : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v3/>
 - Version 4 : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v4/>
+
+## Supports thématiques
+
+- Offre mutualisée de listes de diffusion - version condensée : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-condensee/>
+- Offre mutualisée de listes de diffusion - version longue : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/>
 
 ## Accès directs V4
 
@@ -31,6 +36,8 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 - `miweb-objectifs-2030-v2/` : diaporama V2, alternatives, page accessibilité et sources.
 - `miweb-objectifs-2030-v3/` : diaporama V3, alternatives, page accessibilité et sources.
 - `miweb-objectifs-2030-v4/` : diaporama V4, alternatives, page accessibilité et sources.
+- `miweb-offre-mutualisee-listes-diffusion-2026-condensee/` : support thématique condensé, alternatives, page accessibilité et sources.
+- `miweb-offre-mutualisee-listes-diffusion-2026-longue/` : support thématique long, alternatives, page accessibilité et sources.
 - `miweb-objectifs-2030-v1/source/storyboard-slides-accessibilite-2030.md` : storyboard source V1.
 - `miweb-objectifs-2030-v2/source/storyboard-v2.md` : storyboard source V2.
 - `miweb-objectifs-2030-v3/source/storyboard-v3.md` : storyboard source V3.
@@ -42,7 +49,7 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 ## Générer la dernière version
 
 ```bash
-python3 miweb-objectifs-2030-v4/build.py
+python3 miweb-offre-mutualisee-listes-diffusion-2026-longue/build.py
 ```
 
 ## Tester localement
@@ -51,18 +58,19 @@ python3 miweb-objectifs-2030-v4/build.py
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-URL locale V4 :
+URL locale de la dernière variante publiée :
 
 ```text
-http://127.0.0.1:8000/miweb-objectifs-2030-v4/
+http://127.0.0.1:8000/miweb-offre-mutualisee-listes-diffusion-2026-longue/
 ```
 
 ## Vérifier avant publication
 
 ```bash
-python3 -m unittest discover -s miweb-objectifs-2030-v4/tests
-npx --yes html-validate miweb-objectifs-2030-v4/index.html miweb-objectifs-2030-v4/alternatives.html miweb-objectifs-2030-v4/accessibilite.html index.html
-npx --yes vnu-jar --errors-only miweb-objectifs-2030-v4/index.html miweb-objectifs-2030-v4/alternatives.html miweb-objectifs-2030-v4/accessibilite.html index.html
+python3 -m unittest discover -s miweb-offre-mutualisee-listes-diffusion-2026-condensee/tests
+python3 -m unittest discover -s miweb-offre-mutualisee-listes-diffusion-2026-longue/tests
+npx --yes html-validate miweb-offre-mutualisee-listes-diffusion-2026-condensee/index.html miweb-offre-mutualisee-listes-diffusion-2026-condensee/alternatives.html miweb-offre-mutualisee-listes-diffusion-2026-condensee/accessibilite.html miweb-offre-mutualisee-listes-diffusion-2026-longue/index.html miweb-offre-mutualisee-listes-diffusion-2026-longue/alternatives.html miweb-offre-mutualisee-listes-diffusion-2026-longue/accessibilite.html index.html
+npx --yes vnu-jar --errors-only miweb-offre-mutualisee-listes-diffusion-2026-condensee/index.html miweb-offre-mutualisee-listes-diffusion-2026-condensee/alternatives.html miweb-offre-mutualisee-listes-diffusion-2026-condensee/accessibilite.html miweb-offre-mutualisee-listes-diffusion-2026-longue/index.html miweb-offre-mutualisee-listes-diffusion-2026-longue/alternatives.html miweb-offre-mutualisee-listes-diffusion-2026-longue/accessibilite.html index.html
 ```
 
 Pour une vérification complète après modification commune V1/V2/V3/V4 :
