@@ -2,9 +2,24 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
+## État actuel - 2026-06-25
+
+Ce plan est désormais une trace d’implémentation. Les tâches 1 à 5 ont été réalisées dans le dépôt courant :
+
+- `matrice-slide-ai/build.py` existe et génère seulement le dossier du jeu ;
+- `matrice-slide-ai/create_variant.py` crée un jeu autonome sans publier ;
+- `matrice-slide-ai/publish_variant.py` publie explicitement un jeu vérifié sur l’accueil racine ;
+- `matrice-slide-ai/published-versions.example.json` documente le catalogue racine ;
+- `matrice-slide-ai/README.md` et `matrice-slide-ai/MODE-OPERATOIRE.md` documentent le workflow ;
+- `matrice-slide-ai/tests/` couvre création, build, publication séparée et contrats de site.
+
+Source opérationnelle actuelle : `matrice-slide-ai/README.md`, `matrice-slide-ai/MODE-OPERATOIRE.md`, `DEMARCHE-VERSIONS.md` et `GUIDE-REGENERATION-SITES-SLIDES.md`.
+
+Les cases non cochées conservées ci-dessous appartiennent au plan initial et ne doivent plus être utilisées comme suivi d’avancement courant.
+
 **But :** créer `matrice-slide-ai/`, matrice canonique permettant de générer puis publier séparément de nouveaux jeux de slides autonomes.
 
-**Architecture :** `matrice-slide-ai/` contient un générateur copiable, un script de création de variante et un script de publication racine. Les jeux générés restent autonomes : ils embarquent leur propre `build.py`, leurs tests et, si retenu, leur propre sous-dossier `generator/`.
+**Architecture actuelle :** `matrice-slide-ai/` contient un générateur copiable, un script de création de variante et un script de publication racine. Les jeux générés restent autonomes : ils embarquent leur propre `build.py` et leurs tests. Le sous-dossier `generator/` envisagé dans le plan initial n’a pas été retenu à date.
 
 **Socle technique :** Python 3.12 standard library, HTML statique DSFR, `unittest`, `html-validate`, `vnu-jar`, GitHub Pages.
 
@@ -18,7 +33,7 @@
 - Créer : `matrice-slide-ai/publish_variant.py` — publie un jeu validé sur l’accueil racine.
 - Créer : `matrice-slide-ai/published-versions.example.json` — exemple de catalogue racine.
 - Créer : `matrice-slide-ai/slides.example.json` — exemple de schéma `slides.json`.
-- Créer : `matrice-slide-ai/generator/` — code commun copié dans les jeux générés si factorisé.
+- Non retenu à date : `matrice-slide-ai/generator/` — la matrice garde actuellement un `build.py` autonome copié dans les jeux.
 - Créer : `matrice-slide-ai/tests/test_matrix_workflow.py` — tests de création/publication.
 - Copier puis adapter : `matrice-slide-ai/build.py` depuis `miweb-offre-mutualisee-listes-diffusion-2026-longue/build.py`.
 - Copier : `matrice-slide-ai/assets/favicons/favicon.ico`.

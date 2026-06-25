@@ -35,7 +35,6 @@ class SiteContractsTest(unittest.TestCase):
     def setUpClass(cls):
         cls.build = load_build_module()
         cls.slides = cls.build.load_slides()
-        cls.root_html = cls.build.render_root()
         cls.index_html = cls.build.render_v1_index(cls.slides)
         cls.alternatives_html = cls.build.render_alternatives(cls.slides)
         cls.accessibilite_html = cls.build.render_accessibility()
@@ -43,10 +42,12 @@ class SiteContractsTest(unittest.TestCase):
 
     def test_slides_json_matches_images(self):
         self.assertEqual(6, len(self.slides))
+        requires_local_images = (ROOT / "slides.json").is_file()
         for slide in self.slides:
             image_path = ROOT / slide["image"]
-            self.assertTrue(image_path.is_file(), image_path)
-            self.assertGreater(image_path.stat().st_size, 1000)
+            if requires_local_images:
+                self.assertTrue(image_path.is_file(), image_path)
+                self.assertGreater(image_path.stat().st_size, 1000)
             self.assertLessEqual(len(slide["alt"]), 80)
             self.assertTrue(slide["description"])
             self.assertTrue(slide["textes_visibles"])
@@ -91,13 +92,6 @@ class SiteContractsTest(unittest.TestCase):
         self.assertEqual({("1672", "941")}, {(image.get("width"), image.get("height")) for image in slide_images})
         for image in slide_images:
             self.assertTrue(image.get("alt"))
-
-    def test_root_lists_all_published_versions(self):
-        self.assertIn("Versions disponibles", self.root_html)
-        for slug, label in self.build.PUBLISHED_VERSIONS:
-            self.assertIn(f'href="{slug}/"', self.root_html)
-            self.assertIn(label, self.root_html)
-        self.assertIn(f"{self.build.LATEST_VERSION_SLUG}/alternatives.html", self.root_html)
 
     def test_security_and_assets_contracts(self):
         self.assertIn('http-equiv="Content-Security-Policy"', self.index_html)

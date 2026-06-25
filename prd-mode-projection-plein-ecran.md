@@ -1,11 +1,17 @@
 # PRD : Mode projection plein écran du diaporama
 
-**Statut** : Cadré pour implémentation
+**Statut** : Implémenté, conservé comme archive de cadrage
 **Date** : 2026-06-20
 **Auteur** : Alex + Codex
 **Source** : échange de cadrage du 20 juin 2026, projet `miweb-objectifs-2030`
 
 ---
+
+## État actuel - 2026-06-25
+
+Le mode projection plein écran est intégré au générateur de matrice et couvert par les tests de contrat : contrôles de projection, `requestFullscreen`, `exitFullscreen`, statut de projection, maintien des alternatives et absence de `href="#"`.
+
+Pour un nouveau jeu, ne modifier ni les HTML générés ni une ancienne variante publiée : créer le dossier avec `matrice-slide-ai/create_variant.py`, générer avec son `build.py`, puis publier avec `matrice-slide-ai/publish_variant.py`.
 
 ## Vision
 

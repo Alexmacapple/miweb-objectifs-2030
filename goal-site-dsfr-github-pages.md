@@ -1,5 +1,20 @@
 # Goal - Site DSFR GitHub Pages slides accessibles
 
+## Statut actuel - 2026-06-25
+
+Ce fichier est une archive du goal initial de création de la V1. Il ne décrit plus la procédure active du dépôt.
+
+État courant :
+
+- dépôt actif : `/Users/alex/Claude/projets-heberges/miweb-objectifs-2030` ;
+- variantes publiées : V1 à V4, jeu 5 condensé, jeu 6 long ;
+- matrice active : `matrice-slide-ai/` ;
+- création d’un nouveau jeu : `python3 matrice-slide-ai/create_variant.py ...` ;
+- génération : `python3 <dossier-jeu>/build.py` ;
+- publication racine : `python3 matrice-slide-ai/publish_variant.py --slug <dossier-jeu>`.
+
+Conserver la suite comme historique de cadrage V1, pas comme consigne opérationnelle actuelle.
+
 Contexte : cwd `/Users/alex/miweb-objectifs-2030`, branche `main` à vérifier.
 Périmètre : modifier uniquement `/Users/alex/miweb-objectifs-2030` | Interdit : modifier `/Users/alex/Claude`, copier la contact sheet ou des essais, créer un backend, utiliser Git HTTPS.
 

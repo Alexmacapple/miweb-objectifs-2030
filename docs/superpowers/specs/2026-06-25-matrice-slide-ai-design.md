@@ -1,8 +1,23 @@
 # Design - matrice slide IA
 
+## État actuel - 2026-06-25
+
+La matrice décrite dans ce document existe dans `matrice-slide-ai/`.
+
+État opérationnel :
+
+- `create_variant.py` crée un dossier de jeu autonome sans publier ;
+- `build.py` génère les pages et le ZIP du jeu sans écrire l’accueil racine ;
+- `publish_variant.py` vérifie le jeu, met à jour `published-versions.json`, puis régénère `index.html` racine ;
+- `tests/test_matrix_workflow.py` couvre création, build et publication séparée dans un dépôt temporaire ;
+- `tests/test_site_contracts.py` couvre les contrats de rendu, projection, swipe, CSP et assets ;
+- la documentation active est dans `matrice-slide-ai/README.md`, `matrice-slide-ai/MODE-OPERATOIRE.md`, `DEMARCHE-VERSIONS.md` et `GUIDE-REGENERATION-SITES-SLIDES.md`.
+
+Le reste du document garde la décision de conception et les critères d’acceptation initiaux.
+
 ## Décision
 
-Créer à la racine du dépôt un futur répertoire `matrice-slide-ai/` servant de matrice canonique pour les prochains jeux de slides générés avec IA.
+Créer à la racine du dépôt un répertoire `matrice-slide-ai/` servant de matrice canonique pour les prochains jeux de slides générés avec IA.
 
 La matrice doit être à la fois :
 
@@ -44,26 +59,24 @@ Limites LLM à verrouiller : ne pas confondre générer et publier, template et 
 - Les générateurs existants font environ 1000 lignes chacun : recopier ce format dans la matrice créerait un nouveau bloc difficile à faire évoluer.
 - Les variantes récentes savent réécrire l’accueil racine via une liste `PUBLISHED_VERSIONS`, mais cette liste est dupliquée dans les `build.py`.
 - Les tests existants ne vérifient pas seulement le swipe : ils protègent aussi les alternatives, la CSP, les favicons, le plein écran, les liens sans `href="#"`, le ZIP et la structure DSFR.
-- Le futur modèle doit donc séparer le point d’entrée simple, la logique commune et le catalogue de publication.
+- Le modèle sépare donc le point d’entrée simple, le générateur copiable et le catalogue de publication.
 
 ## Périmètre proposé
 
-Le futur dossier `matrice-slide-ai/` contiendra au minimum :
+Le dossier `matrice-slide-ai/` contient au minimum :
 
 ```text
 matrice-slide-ai/
   README.md
   MODE-OPERATOIRE.md
+  __init__.py
   build.py
   create_variant.py
   publish_variant.py
   slides.example.json
   published-versions.example.json
-  generator/
-    render.py
-    validate.py
-    assets.py
   tests/
+    test_matrix_workflow.py
     test_site_contracts.py
   assets/
     favicons/
@@ -71,15 +84,15 @@ matrice-slide-ai/
     storyboard.example.md
 ```
 
-`build.py` doit rester le point d’entrée générique complet pour l’utilisateur, mais il ne doit pas forcément contenir toute la logique en un seul fichier. La logique commune peut vivre dans `generator/` pour éviter de recréer un fichier monolithique.
+`build.py` reste le point d’entrée générique complet pour l’utilisateur. L’implémentation actuelle garde un générateur monolithique copié dans chaque jeu pour préserver l’autonomie ; une factorisation future ne devra pas créer de dépendance runtime vers `matrice-slide-ai/`.
 
 Le générateur doit produire : page principale, alternatives, page accessibilité, Markdown des alternatives, ZIP de slides, CSP, favicons, mode projection, affichage toutes slides, navigation clavier et swipe tactile.
 
 `create_variant.py` doit créer un dossier autonome de nouveau jeu à partir de la matrice. Le dossier généré doit pouvoir être publié sans dépendance d’exécution vers `matrice-slide-ai/`.
 
-Pour lever la tension entre factorisation et autonomie, `create_variant.py` doit copier dans le dossier généré le code de génération nécessaire, y compris un sous-dossier local `generator/` si cette factorisation est retenue. Un jeu publié ne doit pas importer du code depuis `../matrice-slide-ai/`.
+Pour lever la tension entre factorisation et autonomie, `create_variant.py` copie dans le dossier généré le code de génération nécessaire. L’option d’un sous-dossier local `generator/` n’est pas retenue à date ; si elle l’était plus tard, elle devrait être copiée dans chaque jeu. Un jeu publié ne doit pas importer du code depuis `../matrice-slide-ai/`.
 
-`published-versions.example.json` propose une source de vérité explicite pour l’accueil racine. Le choix retenu est de préparer un futur catalogue racine versionné au lieu de recopier `PUBLISHED_VERSIONS` dans chaque nouveau `build.py`.
+`published-versions.example.json` propose une source de vérité explicite pour l’accueil racine. Le choix retenu est d’utiliser un catalogue racine versionné au lieu de recopier `PUBLISHED_VERSIONS` dans chaque nouveau `build.py`.
 
 Concrètement, ce catalogue dirait une seule fois :
 
@@ -92,7 +105,7 @@ Concrètement, ce catalogue dirait une seule fois :
 ]
 ```
 
-Le bénéfice attendu est simple : pour publier un nouveau jeu sur l’accueil, on ajoute une entrée au catalogue, puis l’accueil se régénère depuis cette liste unique.
+Le bénéfice attendu est simple : pour publier un nouveau jeu sur l’accueil, `publish_variant.py` ajoute ou met à jour une entrée au catalogue, puis l’accueil se régénère depuis cette liste unique.
 
 ## Interface cible
 
@@ -175,7 +188,7 @@ Contrôle : auto-vérification PDG, pas une revue indépendante.
 
 Connus connus : les variantes 1 à 4 et les jeux 5 et 6 sont autonomes ; le swipe est commun aux six diaporamas ; GitHub Pages publie des fichiers statiques ; les sorties HTML et ZIP viennent des `build.py`.
 
-Connus inconnus : l’interface finale de `create_variant.py`, le niveau de factorisation, les contrôles exacts de `publish_variant.py` et la stratégie de rétroportage restent à décider avant implémentation.
+Connus inconnus : la stratégie de rétroportage des futures améliorations de matrice vers des jeux déjà publiés reste à décider au cas par cas.
 
 Inconnus connus : « matrice » ne signifie pas moteur central obligatoire ; « générer » ne signifie pas publier ; remplacer les anciens dossiers ou les faire dépendre d’un moteur central est interdit hors décision explicite.
 

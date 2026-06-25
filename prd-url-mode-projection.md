@@ -1,11 +1,17 @@
 # PRD : URL de lancement du mode projection
 
-**Statut** : Brouillon à valider
+**Statut** : Implémenté, conservé comme archive de cadrage
 **Date** : 2026-06-20
 **Auteur** : Alex + Codex
 **Source** : échanges de cadrage du 20 juin 2026, projet `miweb-objectifs-2030`
 
 ---
+
+## État actuel - 2026-06-25
+
+Les URL `?projection=1#slide-XX` et `?slides=all#diaporama` sont intégrées au générateur de matrice et vérifiées par les tests de contrat. Le plein écran réel reste déclenché par une action utilisateur, conformément à la contrainte navigateur.
+
+La procédure active pour les futurs jeux passe par `matrice-slide-ai/create_variant.py`, le `build.py` du jeu généré, puis `matrice-slide-ai/publish_variant.py` pour l’accueil racine.
 
 ## Vision
 

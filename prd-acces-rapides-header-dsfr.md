@@ -1,8 +1,14 @@
 # PRD - Accès rapides du header DSFR
 
-**Statut** : Brouillon
+**Statut** : Implémenté, conservé comme archive de cadrage
 **Date** : 2026-06-20
 **Auteur** : Alex + Codex
+
+## État actuel - 2026-06-25
+
+Le contrat est repris dans la matrice `matrice-slide-ai/build.py` et dans les tests de contrat. Les futurs jeux doivent être créés avec `create_variant.py`, puis publiés avec `publish_variant.py` après vérification.
+
+Ce PRD reste utile pour comprendre la décision sur les accès rapides du header, mais il ne remplace pas `matrice-slide-ai/README.md`, `matrice-slide-ai/MODE-OPERATOIRE.md` ni `DEMARCHE-VERSIONS.md`.
 
 ## Prompt amélioré
 

@@ -33,7 +33,7 @@ Chaque variante publiée doit produire un dossier autonome contenant :
 - `build.py` : générateur autonome de la variante ;
 - `tests/` : tests de contrat du site.
 
-La variante doit être listée sur l’accueil racine seulement après génération et vérification.
+La variante doit être listée sur l’accueil racine seulement après génération, vérification et passage explicite par `matrice-slide-ai/publish_variant.py`.
 
 ## Invariants
 
@@ -64,30 +64,19 @@ miweb-offre-mutualisee-listes-diffusion-2026-condensee
 miweb-offre-mutualisee-listes-diffusion-2026-longue
 ```
 
-## Préparation du dossier
+## Préparation du dossier avec la matrice
 
-Créer ou initialiser le dossier de variante depuis le modèle MiWeb le plus récent, sans écraser une variante publiée :
-
-```bash
-mkdir -p <dossier>/assets/slides <dossier>/assets/downloads <dossier>/assets/favicons <dossier>/source <dossier>/tests
-cp miweb-objectifs-2030-v4/build.py <dossier>/build.py
-cp miweb-objectifs-2030-v4/tests/test_site_contracts.py <dossier>/tests/test_site_contracts.py
-cp miweb-objectifs-2030-v4/assets/favicons/favicon.ico <dossier>/assets/favicons/favicon.ico
-```
-
-Copier les images validées :
+Créer le dossier de variante depuis la matrice, sans écraser une variante publiée :
 
 ```bash
-cp /chemin/vers/images/slide-*.png <dossier>/assets/slides/
+python3 matrice-slide-ai/create_variant.py \
+  --slug <dossier> \
+  --title "Titre public" \
+  --storyboard /chemin/vers/storyboard.md \
+  --slides-dir /chemin/vers/images
 ```
 
-Copier les sources :
-
-```bash
-cp /chemin/vers/source.md <dossier>/source/source.md
-cp /chemin/vers/storyboard.md <dossier>/source/storyboard.md
-cp /chemin/vers/contact-sheet.png <dossier>/source/contact-sheet.png
-```
+La commande copie `build.py`, les tests, le favicon, le storyboard, `slides.json` et les images `slide-*.png`. Elle ne modifie ni `index.html` racine ni `published-versions.json`.
 
 ## `slides.json`
 
@@ -119,14 +108,11 @@ Règles :
 - `textes_visibles` reprend les textes de la slide, sans corriger silencieusement le sens ;
 - `message` formule l’idée à retenir sans inventer de conclusion.
 
-## Adaptation de `build.py`
+## Métadonnées du jeu
 
-Adapter uniquement les constantes nécessaires :
+La création écrit `variant.json` avec les libellés publics du jeu. Adapter ce fichier seulement si le titre, la description ou le libellé de source doivent changer.
 
-- `PUBLISHED_VERSIONS` : ajouter le nouveau dossier et son libellé public ;
-- `LATEST_VERSION_SLUG` : pointer vers la variante à mettre en avant sur l’accueil ;
-- `SITE_TITLE`, `BASELINE`, `VERSION_LABEL` et `SITE_DESCRIPTION` si le sujet n’est pas `Objectifs 2030` ;
-- les libellés internes si le titre `Présentation MiWeb V...` ne convient pas à une variante thématique.
+Ne plus modifier `PUBLISHED_VERSIONS`, `LATEST_VERSION_SLUG` ou `ROOT_CATALOG_BOOTSTRAP` dans un `build.py` de variante pour publier l’accueil racine. Le catalogue racine appartient à `published-versions.json` et se met à jour avec `publish_variant.py`. Dans la matrice, `ROOT_CATALOG_BOOTSTRAP` sert seulement de graine de compatibilité si le catalogue racine n’existe pas encore.
 
 Conserver le comportement existant :
 
@@ -154,8 +140,19 @@ Le script doit générer :
 - `<dossier>/accessibilite.html` ;
 - `<dossier>/alternatives.md` ;
 - `<dossier>/README.md` ;
-- `<dossier>/assets/downloads/<dossier>-slides.zip` ;
-- `index.html` racine.
+- `<dossier>/assets/downloads/<dossier>-slides.zip`.
+
+Le build ordinaire ne doit pas écrire `index.html` racine.
+
+## Publication racine
+
+Après génération, tests et validation HTML :
+
+```bash
+python3 matrice-slide-ai/publish_variant.py --slug <dossier>
+```
+
+La commande vérifie le jeu, met à jour `published-versions.json`, puis régénère uniquement `index.html` racine.
 
 ## Vérifications obligatoires
 
@@ -340,7 +337,7 @@ Avant commit :
 ```bash
 git status --short
 git diff --stat
-git diff -- DEMARCHE-VERSIONS.md README.md index.html <dossier>/slides.json <dossier>/build.py
+git diff -- DEMARCHE-VERSIONS.md README.md GUIDE-REGENERATION-SITES-SLIDES.md index.html published-versions.json <dossier>/slides.json <dossier>/build.py
 ```
 
 Ne pas ajouter :
@@ -365,11 +362,14 @@ https://alexmacapple.github.io/miweb-objectifs-2030/<dossier>/alternatives.html
 - [ ] `slides.json` contient une entrée par slide.
 - [ ] Chaque image a un `alt`, une `description`, des `textes_visibles` et un `message`.
 - [ ] `build.py` a été lancé.
+- [ ] Le build ordinaire n’a pas publié l’accueil racine.
 - [ ] `alternatives.html` et `alternatives.md` existent.
 - [ ] Le ZIP contient les images et `alternatives.md`.
 - [ ] Les tests unitaires passent.
 - [ ] `html-validate` passe.
 - [ ] `vnu-jar` passe ou l’écart est documenté.
+- [ ] `publish_variant.py` a été lancé après les vérifications.
+- [ ] `published-versions.json` contient la nouvelle variante.
 - [ ] L’accueil racine liste la nouvelle variante.
 - [ ] V1, V2, V3 et V4 n’ont pas été modifiées.
 - [ ] Les Markdown modifiés passent `check-accents.sh`.

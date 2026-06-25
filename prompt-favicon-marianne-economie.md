@@ -1,5 +1,11 @@
 # Prompt optimisé — Remplacement de favicon par celle d’economie.gouv.fr
 
+## Statut actuel - 2026-06-25
+
+Ce fichier est un prompt historique de traitement favicon. Le dépôt utilise désormais un favicon local copié dans chaque jeu autonome et dans `matrice-slide-ai/assets/favicons/favicon.ico`.
+
+Pour les futurs jeux, ne pas télécharger ni référencer une favicon distante : créer le jeu avec `matrice-slide-ai/create_variant.py`, qui copie le favicon local, puis vérifier les pages générées. Toute reprise d’un signe graphique officiel reste conditionnée à une autorisation ou une légitimité explicite.
+
 ## Rôle
 
 Agis comme un développeur front-end senior spécialisé en sites statiques GitHub Pages, HTML, Python, DSFR et gestion propre des favicons.

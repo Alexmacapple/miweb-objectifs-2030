@@ -22,12 +22,12 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 - Jeu 5 - Offre mutualisée de listes de diffusion, version condensée : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-condensee/>
 - Jeu 6 - Offre mutualisée de listes de diffusion, version longue : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/>
 
-## Accès directs V4
+## Accès directs dernière version publiée
 
-- Présentation plein écran : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v4/?projection=1#slide-01>
-- Toutes les slides : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v4/?slides=all#diaporama>
-- Alternatives textuelles : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v4/alternatives.html>
-- Page accessibilité : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-objectifs-2030-v4/accessibilite.html>
+- Présentation plein écran : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/?projection=1#slide-01>
+- Toutes les slides : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/?slides=all#diaporama>
+- Alternatives textuelles : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/alternatives.html>
+- Page accessibilité : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/accessibilite.html>
 
 ## Organisation
 
@@ -38,15 +38,50 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 - `miweb-objectifs-2030-v4/` : diaporama V4, alternatives, page accessibilité et sources.
 - `miweb-offre-mutualisee-listes-diffusion-2026-condensee/` : support thématique condensé, alternatives, page accessibilité et sources.
 - `miweb-offre-mutualisee-listes-diffusion-2026-longue/` : support thématique long, alternatives, page accessibilité et sources.
+- `matrice-slide-ai/` : matrice de création des futurs jeux autonomes.
 - `miweb-objectifs-2030-v1/source/storyboard-slides-accessibilite-2030.md` : storyboard source V1.
 - `miweb-objectifs-2030-v2/source/storyboard-v2.md` : storyboard source V2.
 - `miweb-objectifs-2030-v3/source/storyboard-v3.md` : storyboard source V3.
 - `miweb-objectifs-2030-v4/source/storyboard-v4.md` : storyboard source V4.
 - `slides.json` dans chaque version : titres, alternatives textuelles, descriptions et messages.
 - `build.py` dans chaque version : génération HTML, Markdown et ZIP.
-- `DEMARCHE-VERSIONS.md` : procédure pour publier V5, V6, etc.
+- `DEMARCHE-VERSIONS.md` : procédure pour publier les futurs jeux.
 
-## Générer la dernière version
+## Créer un nouveau jeu
+
+La voie recommandée passe par la matrice :
+
+```bash
+python3 matrice-slide-ai/create_variant.py \
+  --slug nouveau-jeu \
+  --title "Titre public" \
+  --storyboard chemin/storyboard.md \
+  --slides-dir chemin/assets/slides
+```
+
+Ensuite :
+
+```bash
+python3 nouveau-jeu/build.py
+python3 -m unittest discover -s nouveau-jeu/tests
+```
+
+`build.py` génère seulement le dossier du jeu. La publication sur l’accueil racine est séparée :
+
+```bash
+python3 matrice-slide-ai/publish_variant.py --slug nouveau-jeu
+```
+
+Seul `publish_variant.py` est autorisé à modifier `published-versions.json` et `index.html` racine.
+
+## État courant
+
+- Dernière version publiée : `miweb-offre-mutualisee-listes-diffusion-2026-longue/`.
+- Matrice active : `matrice-slide-ai/`.
+- Publication racine : `publish_variant.py` écrit `published-versions.json` puis `index.html`.
+- `build.py` d’un jeu ne doit générer que le dossier du jeu.
+
+## Régénérer la dernière version publiée
 
 ```bash
 python3 miweb-offre-mutualisee-listes-diffusion-2026-longue/build.py
@@ -78,6 +113,7 @@ Tout futur jeu de slides doit conserver ce comportement dans son `build.py`, ses
 ## Vérifier avant publication
 
 ```bash
+python3 -m unittest discover -s matrice-slide-ai/tests
 python3 -m unittest discover -s miweb-offre-mutualisee-listes-diffusion-2026-condensee/tests
 python3 -m unittest discover -s miweb-offre-mutualisee-listes-diffusion-2026-longue/tests
 npx --yes html-validate miweb-offre-mutualisee-listes-diffusion-2026-condensee/index.html miweb-offre-mutualisee-listes-diffusion-2026-condensee/alternatives.html miweb-offre-mutualisee-listes-diffusion-2026-condensee/accessibilite.html miweb-offre-mutualisee-listes-diffusion-2026-longue/index.html miweb-offre-mutualisee-listes-diffusion-2026-longue/alternatives.html miweb-offre-mutualisee-listes-diffusion-2026-longue/accessibilite.html index.html
@@ -87,6 +123,7 @@ npx --yes vnu-jar --errors-only miweb-offre-mutualisee-listes-diffusion-2026-con
 Pour une vérification complète après modification commune V1/V2/V3/V4 :
 
 ```bash
+python3 -m unittest discover -s matrice-slide-ai/tests
 python3 -m unittest discover -s miweb-objectifs-2030-v1/tests
 python3 -m unittest discover -s miweb-objectifs-2030-v2/tests
 python3 -m unittest discover -s miweb-objectifs-2030-v3/tests

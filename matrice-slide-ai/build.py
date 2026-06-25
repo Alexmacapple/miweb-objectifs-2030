@@ -13,13 +13,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 REPO_ROOT = ROOT.parent
 SLIDES_PATH = ROOT / "slides.json"
+SLIDES_EXAMPLE_PATH = ROOT / "slides.example.json"
 SLIDES_DIR = ROOT / "assets" / "slides"
 DOWNLOADS_DIR = ROOT / "assets" / "downloads"
+VARIANT_METADATA_PATH = ROOT / "variant.json"
 VERSION_SLUG = ROOT.name
 ZIP_NAME = f"{VERSION_SLUG}-slides.zip"
 ZIP_PATH = DOWNLOADS_DIR / ZIP_NAME
-LATEST_VERSION_SLUG = "miweb-offre-mutualisee-listes-diffusion-2026-longue"
-PUBLISHED_VERSIONS = [
+ROOT_CATALOG_FALLBACK_SLUG = "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+# Graine de compatibilité utilisée seulement si published-versions.json n’existe pas encore.
+# Publier un jeu doit passer par publish_variant.py, jamais par l’édition de build.py.
+ROOT_CATALOG_BOOTSTRAP = [
     ("miweb-objectifs-2030-v1", "Version 1 - Juin 2026"),
     ("miweb-objectifs-2030-v2", "Version 2 - Juin 2026"),
     ("miweb-objectifs-2030-v3", "Version 3 - Juin 2026"),
@@ -53,7 +57,25 @@ VERSION_METADATA = {
     },
 }
 
-VERSION_INFO = VERSION_METADATA[VERSION_SLUG]
+DEFAULT_VERSION_INFO = {
+    "site_title": VERSION_SLUG.replace("-", " ").title(),
+    "baseline": "Jeu de slides généré",
+    "version_label": VERSION_SLUG,
+    "diaporama_title": f"Présentation - {VERSION_SLUG.replace('-', ' ').title()}",
+    "site_description": "Version web accessible d’un jeu de slides.",
+    "source_label": "Sources du jeu de slides",
+}
+
+
+def load_version_info() -> dict[str, str]:
+    metadata = dict(DEFAULT_VERSION_INFO)
+    metadata.update(VERSION_METADATA.get(VERSION_SLUG, {}))
+    if VARIANT_METADATA_PATH.is_file():
+        metadata.update(json.loads(VARIANT_METADATA_PATH.read_text(encoding="utf-8")))
+    return metadata
+
+
+VERSION_INFO = load_version_info()
 
 SITE_TITLE = VERSION_INFO["site_title"]
 BASELINE = VERSION_INFO["baseline"]
@@ -647,7 +669,8 @@ def slide_id(slide: dict) -> str:
 
 
 def load_slides() -> list[dict]:
-    slides = json.loads(SLIDES_PATH.read_text(encoding="utf-8"))
+    slides_path = SLIDES_PATH if SLIDES_PATH.is_file() else SLIDES_EXAMPLE_PATH
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
     if not slides:
         raise ValueError("slides.json doit contenir au moins une slide.")
     required = {"numero", "titre", "image", "alt", "description", "textes_visibles", "message"}
@@ -675,8 +698,9 @@ def dsfr_scripts(extra_script: str = "") -> str:
     return script
 
 
-def favicon_href(version_context: bool) -> str:
-    return FAVICON_REL_PATH if version_context else f"{ROOT.name}/{FAVICON_REL_PATH}"
+def favicon_href(version_context: bool, root_latest_slug: str | None = None) -> str:
+    latest_slug = root_latest_slug or ROOT_CATALOG_FALLBACK_SLUG
+    return FAVICON_REL_PATH if version_context else f"{latest_slug}/{FAVICON_REL_PATH}"
 
 
 def skiplinks(links: list[tuple[str, str]]) -> str:
@@ -757,14 +781,20 @@ def header(home_href: str, version_context: bool, slideshow_context: bool = Fals
   </header>"""
 
 
-def footer(version_context: bool) -> str:
+def footer(
+    version_context: bool,
+    root_latest_slug: str | None = None,
+    root_latest_zip_name: str | None = None,
+) -> str:
     footer_title = SITE_TITLE if version_context else ROOT_SITE_TITLE
     footer_baseline = BASELINE if version_context else ROOT_BASELINE
+    latest_slug = root_latest_slug or ROOT_CATALOG_FALLBACK_SLUG
+    latest_zip_name = root_latest_zip_name or f"{latest_slug}-slides.zip"
     links = {
-        "Présentation plein écran": "./?projection=1#slide-01" if version_context else f"{LATEST_VERSION_SLUG}/?projection=1#slide-01",
-        "Afficher toutes les slides": "./?slides=all#diaporama" if version_context else f"{LATEST_VERSION_SLUG}/?slides=all#diaporama",
-        "Alternatives textuelles": "alternatives.html" if version_context else f"{LATEST_VERSION_SLUG}/alternatives.html",
-        "Télécharger les slides": f"assets/downloads/{ZIP_NAME}" if version_context else f"{LATEST_VERSION_SLUG}/assets/downloads/{ZIP_NAME}",
+        "Présentation plein écran": "./?projection=1#slide-01" if version_context else f"{latest_slug}/?projection=1#slide-01",
+        "Afficher toutes les slides": "./?slides=all#diaporama" if version_context else f"{latest_slug}/?slides=all#diaporama",
+        "Alternatives textuelles": "alternatives.html" if version_context else f"{latest_slug}/alternatives.html",
+        "Télécharger les slides": f"assets/downloads/{ZIP_NAME}" if version_context else f"{latest_slug}/assets/downloads/{latest_zip_name}",
     }
     items = "\n".join(
         (
@@ -811,6 +841,8 @@ def page(
     version_context: bool,
     extra_script: str = "",
     slideshow_context: bool = False,
+    root_latest_slug: str | None = None,
+    root_latest_zip_name: str | None = None,
 ) -> str:
     home_href = "./" if version_context else "./"
     page_site_title = SITE_TITLE if version_context else ROOT_SITE_TITLE
@@ -823,7 +855,7 @@ def page(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="{html.escape(content_security_policy(extra_script), quote=False)}">
   <meta name="description" content="{esc(page_description)}">
-  <link rel="icon" href="{esc(favicon_href(version_context))}" type="{FAVICON_TYPE}">
+  <link rel="icon" href="{esc(favicon_href(version_context, root_latest_slug))}" type="{FAVICON_TYPE}">
   <title>{esc(full_title)}</title>
   {dsfr_assets()}
   <style nonce="{SCRIPT_NONCE}">{CUSTOM_CSS}</style>
@@ -832,24 +864,35 @@ def page(
   {skiplinks(skip_links)}
   {header(home_href, version_context, slideshow_context)}
   {body}
-  {footer(version_context)}
+  {footer(version_context, root_latest_slug, root_latest_zip_name)}
   {dsfr_scripts(extra_script)}
 </body>
 </html>
 """
 
 
-def render_root() -> str:
+def normalized_published_versions(
+    published_versions: list[dict[str, str]] | None = None,
+) -> list[dict[str, str]]:
+    if published_versions is None:
+        return [{"slug": slug, "label": label} for slug, label in ROOT_CATALOG_BOOTSTRAP]
+    return published_versions
+
+
+def render_root(published_versions: list[dict[str, str]] | None = None) -> str:
+    versions = normalized_published_versions(published_versions)
+    latest_slug = versions[-1]["slug"] if versions else ROOT_CATALOG_FALLBACK_SLUG
+    latest_zip_name = f"{latest_slug}-slides.zip"
     version_tiles = "\n".join(
         f"""        <div class="fr-col-12 fr-col-md-6">
           <div class="fr-tile fr-enlarge-link">
             <div class="fr-tile__body">
-              <h3 class="fr-tile__title"><a href="{esc(slug)}/">{esc(label)}</a></h3>
+              <h3 class="fr-tile__title"><a href="{esc(version['slug'])}/">{esc(version['label'])}</a></h3>
               <p class="fr-tile__desc">Slides accessibles au format web.</p>
             </div>
           </div>
         </div>"""
-        for slug, label in PUBLISHED_VERSIONS
+        for version in versions
     )
     body = f"""<main id="contenu" class="fr-container fr-py-6w">
     <div class="miweb-page-header">
@@ -864,7 +907,14 @@ def render_root() -> str:
       <p class="fr-mt-3w">D’autres versions pourront être ajoutées ultérieurement.</p>
     </section>
   </main>"""
-    return page(ROOT_SITE_TITLE, body, [("Accéder au contenu", "#contenu"), ("Accéder au pied de page", "#footer")], False)
+    return page(
+        ROOT_SITE_TITLE,
+        body,
+        [("Accéder au contenu", "#contenu"), ("Accéder au pied de page", "#footer")],
+        False,
+        root_latest_slug=latest_slug,
+        root_latest_zip_name=latest_zip_name,
+    )
 
 
 def render_summary(slides: list[dict]) -> str:
@@ -1066,7 +1116,6 @@ def main() -> None:
         if not image_path.is_file():
             raise FileNotFoundError(image_path)
 
-    (REPO_ROOT / "index.html").write_text(render_root(), encoding="utf-8")
     (ROOT / "index.html").write_text(render_v1_index(slides), encoding="utf-8")
     (ROOT / "alternatives.html").write_text(render_alternatives(slides), encoding="utf-8")
     (ROOT / "accessibilite.html").write_text(render_accessibility(), encoding="utf-8")

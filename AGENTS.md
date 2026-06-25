@@ -4,7 +4,7 @@
 
 Toujours répondre et documenter en français.
 
-Ce dépôt publie des variantes web statiques des slides MiWeb « Objectifs 2030 - accessibilité numérique ». Le but n’est pas de créer un nouveau site éditorial, mais de rendre comparables des variantes visuelles en conservant la traçabilité des sources.
+Ce dépôt publie des variantes web statiques des slides MiWeb « Objectifs 2030 - accessibilité numérique » et des supports thématiques produits avec le même modèle. Le but n’est pas de créer un nouveau site éditorial, mais de rendre comparables des jeux de slides visuels en conservant la traçabilité des sources.
 
 ## Pourquoi
 
@@ -32,40 +32,50 @@ Concrètement :
 ## Structure à préserver
 
 - `index.html` : accueil des versions publiées.
-- `miweb-objectifs-2030-vN/` : une version autonome du diaporama.
-- `miweb-objectifs-2030-vN/assets/slides/` : les images publiées de la variante.
-- `miweb-objectifs-2030-vN/source/` : storyboard et sources utiles de la variante.
-- `miweb-objectifs-2030-vN/slides.json` : source canonique des titres, alternatives, descriptions et messages.
-- `miweb-objectifs-2030-vN/build.py` : générateur de la version.
+- `miweb-objectifs-2030-vN/` : une version autonome du diaporama Objectifs 2030.
+- `miweb-offre-mutualisee-listes-diffusion-2026-condensee/` : support thématique condensé.
+- `miweb-offre-mutualisee-listes-diffusion-2026-longue/` : support thématique long et dernière version publiée.
+- `<dossier-jeu>/assets/slides/` : les images publiées de la variante.
+- `<dossier-jeu>/source/` : storyboard et sources utiles de la variante.
+- `<dossier-jeu>/slides.json` : source canonique des titres, alternatives, descriptions et messages.
+- `<dossier-jeu>/build.py` : générateur autonome de la variante ; il ne doit générer que le dossier du jeu.
+- `matrice-slide-ai/` : matrice canonique pour créer et publier séparément les futurs jeux.
+- `published-versions.json` : catalogue racine, créé au premier publish ou mis à jour par `publish_variant.py`.
 - `DEMARCHE-VERSIONS.md` : procédure de publication des variantes suivantes.
 
 ## Règles de variante
 
-- Créer une nouvelle variante dans un nouveau dossier `miweb-objectifs-2030-vN`.
+- Créer une nouvelle variante ou un nouveau support dans un nouveau dossier autonome avec `matrice-slide-ai/create_variant.py`.
 - Ne pas modifier les images ou alternatives d’une version déjà publiée pour fabriquer la suivante.
 - Copier le storyboard source dans `source/`.
 - Mettre à jour `slides.json` avant de générer les pages.
-- Si `build.py` d’une ancienne version est lancé, relancer ensuite le build de la dernière version pour restaurer l’accueil racine.
+- Lancer `python3 <dossier-jeu>/build.py` pour générer seulement le jeu.
+- Publier sur l’accueil racine uniquement avec `python3 matrice-slide-ai/publish_variant.py --slug <dossier-jeu>`.
+- Ne pas modifier `PUBLISHED_VERSIONS`, `LATEST_VERSION_SLUG` ou `ROOT_CATALOG_BOOTSTRAP` dans un `build.py` de variante pour publier l’accueil.
+- Ne pas faire dépendre un jeu publié de `matrice-slide-ai/` à l’exécution.
 - Ne pas publier d’image sans alternative textuelle.
 - Ne pas inventer de chiffre, seuil, engagement, audit ou conformité absents de la note source.
 
 ## Vérifications attendues
 
-Pour la version modifiée :
+Pour le jeu modifié :
 
 ```bash
-python3 -m unittest discover -s miweb-objectifs-2030-vN/tests
-npx --yes html-validate miweb-objectifs-2030-vN/index.html miweb-objectifs-2030-vN/alternatives.html miweb-objectifs-2030-vN/accessibilite.html index.html
-npx --yes vnu-jar --errors-only miweb-objectifs-2030-vN/index.html miweb-objectifs-2030-vN/alternatives.html miweb-objectifs-2030-vN/accessibilite.html index.html
+python3 -m unittest discover -s <dossier-jeu>/tests
+npx --yes html-validate <dossier-jeu>/index.html <dossier-jeu>/alternatives.html <dossier-jeu>/accessibilite.html index.html
+npx --yes vnu-jar --errors-only <dossier-jeu>/index.html <dossier-jeu>/alternatives.html <dossier-jeu>/accessibilite.html index.html
 ```
 
 Pour une modification commune :
 
 ```bash
+python3 -m unittest discover -s matrice-slide-ai/tests
 python3 -m unittest discover -s miweb-objectifs-2030-v1/tests
 python3 -m unittest discover -s miweb-objectifs-2030-v2/tests
 python3 -m unittest discover -s miweb-objectifs-2030-v3/tests
 python3 -m unittest discover -s miweb-objectifs-2030-v4/tests
+python3 -m unittest discover -s miweb-offre-mutualisee-listes-diffusion-2026-condensee/tests
+python3 -m unittest discover -s miweb-offre-mutualisee-listes-diffusion-2026-longue/tests
 ```
 
 Tester aussi en local :
@@ -80,6 +90,7 @@ Avant push :
 
 - vérifier `git status --short` ;
 - ne pas ajouter `.DS_Store`, caches, `test-results/` ou artefacts locaux ignorés ;
+- vérifier que `published-versions.json` et `index.html` racine ne changent qu’après `publish_variant.py` ;
 - vérifier que l’accueil racine pointe bien vers la dernière version publiée ;
 - vérifier que le ZIP de la dernière version existe dans `assets/downloads/`.
 

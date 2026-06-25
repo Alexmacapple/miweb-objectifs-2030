@@ -1,5 +1,21 @@
 # Prompt site DSFR GitHub Pages pour les slides accessibles
 
+## Statut actuel - 2026-06-25
+
+Ce prompt est l’archive de création de la V1. Il ne décrit plus l’architecture complète du dépôt.
+
+État courant :
+
+- dépôt actif : `/Users/alex/Claude/projets-heberges/miweb-objectifs-2030` ;
+- accueil racine : `index.html` ;
+- variantes publiées : `miweb-objectifs-2030-v1/` à `miweb-objectifs-2030-v4/` ;
+- supports thématiques publiés : versions condensée et longue de l’offre mutualisée de listes de diffusion ;
+- matrice active : `matrice-slide-ai/` ;
+- création d’un nouveau jeu : `python3 matrice-slide-ai/create_variant.py ...` ;
+- publication racine : `python3 matrice-slide-ai/publish_variant.py --slug <dossier-jeu>`.
+
+Conserver le reste du document comme prompt historique V1, pas comme procédure actuelle.
+
 Tu dois créer un site statique GitHub Pages DSFR accessible pour héberger les slides « Objectifs 2030 - Accessibilité numérique ».
 
 ## Pourquoi / finalité

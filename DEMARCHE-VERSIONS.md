@@ -12,22 +12,46 @@ Les variantes déjà publiées `miweb-objectifs-2030-v1` à `miweb-objectifs-203
 
 ## Étapes
 
-1. Créer le dossier de variante à partir de la dernière version publiée, ou initialiser un dossier thématique nommé en réutilisant le même modèle de site.
-2. Copier les images validées `slide-01.png` à `slide-NN.png` dans `assets/slides/`, selon le nombre réel de slides de la variante.
-3. Copier le storyboard de génération dans `source/`, avec un nom explicite pour la variante.
+1. Préparer les images validées `slide-01.png` à `slide-NN.png` et le storyboard source.
+2. Créer le dossier de variante avec `matrice-slide-ai/create_variant.py`.
+3. Vérifier que les images et le storyboard ont bien été copiés dans le dossier généré.
 4. Mettre à jour `slides.json` : titre, alternative courte, description, textes visibles et message.
-5. Adapter `build.py` si la nouvelle variante n’est pas encore listée dans `PUBLISHED_VERSIONS` ou si son libellé public ne suit pas le format `Version N`.
-6. Lancer `python3 <dossier-variante>/build.py`.
-7. Vérifier :
+5. Lancer `python3 <dossier-variante>/build.py` pour générer seulement le dossier de variante.
+6. Vérifier :
    - `python3 -m unittest discover -s <dossier-variante>/tests` ;
    - `npx --yes html-validate <dossier-variante>/index.html <dossier-variante>/alternatives.html <dossier-variante>/accessibilite.html index.html` ;
    - `npx --yes vnu-jar --errors-only <dossier-variante>/index.html <dossier-variante>/alternatives.html <dossier-variante>/accessibilite.html index.html`.
-8. Inspecter localement au navigateur :
+7. Inspecter localement au navigateur :
    - `<dossier-variante>/#slide-01` ;
    - `<dossier-variante>/?projection=1#slide-01` ;
    - `<dossier-variante>/alternatives.html`.
-9. Vérifier que la navigation par swipe horizontal est conservée dans le diaporama, dans les pages générées et dans les tests de contrat.
-10. Mettre à jour le README racine et pousser sur GitHub Pages.
+8. Vérifier que la navigation par swipe horizontal est conservée dans le diaporama, dans les pages générées et dans les tests de contrat.
+9. Publier explicitement avec `python3 matrice-slide-ai/publish_variant.py --slug <dossier-variante>`.
+10. Mettre à jour le README racine si le nouveau jeu doit être documenté comme support public, puis pousser sur GitHub Pages.
+
+## Création avec la matrice
+
+La matrice est le chemin recommandé pour tout nouveau jeu :
+
+```bash
+python3 matrice-slide-ai/create_variant.py \
+  --slug <dossier-variante> \
+  --title "Titre public" \
+  --storyboard chemin/storyboard.md \
+  --slides-dir chemin/assets/slides
+```
+
+Cette commande crée un dossier autonome et ne publie jamais. Elle ne modifie ni `index.html` racine ni `published-versions.json`.
+
+## Publication séparée
+
+Publier seulement après génération et vérifications :
+
+```bash
+python3 matrice-slide-ai/publish_variant.py --slug <dossier-variante>
+```
+
+`publish_variant.py` est la seule commande autorisée à modifier `published-versions.json` et `index.html` racine. Elle refuse un jeu dont les pages générées, le ZIP ou les tests sont absents ou en échec.
 
 ## Variantes thématiques nommées
 
@@ -39,7 +63,7 @@ Pour une variante thématique :
 - conserver les images validées dans `assets/slides/` ;
 - renseigner `slides.json` comme source canonique des transcriptions : `alt`, `description`, `textes_visibles` et `message` ;
 - vérifier que les transcriptions apparaissent à la fois dans les accordéons de la présentation, dans `alternatives.html` et dans `alternatives.md` ;
-- lister la variante dans l’accueil racine seulement après génération et vérification ;
+- lister la variante dans l’accueil racine seulement avec `publish_variant.py`, après génération et vérification ;
 - ne pas renommer, déplacer ni modifier `miweb-objectifs-2030-v1`, `miweb-objectifs-2030-v2`, `miweb-objectifs-2030-v3` ou `miweb-objectifs-2030-v4`.
 
 ## Variantes publiées

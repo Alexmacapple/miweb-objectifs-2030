@@ -1,4 +1,6 @@
 import sys
+import json
+import shutil
 import unittest
 from pathlib import Path
 from subprocess import PIPE, run
@@ -93,6 +95,10 @@ class MatrixWorkflowTest(unittest.TestCase):
 
             self.assertTrue((target / "build.py").is_file())
             self.assertTrue((target / "slides.json").is_file())
+            self.assertIn(
+                "Jeu test",
+                (target / "variant.json").read_text(encoding="utf-8"),
+            )
             self.assertTrue((target / "source" / "storyboard.md").is_file())
             source_slide_names = sorted(
                 path.name for path in source_slides_dir.glob("slide-*.png")
@@ -124,6 +130,60 @@ class MatrixWorkflowTest(unittest.TestCase):
                     )
             self.assert_generated_files_are_autonomous(target)
 
+            build_result = run(
+                [sys.executable, str(target / "build.py")],
+                cwd=target,
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+            self.assertEqual(
+                0,
+                build_result.returncode,
+                msg=(
+                    "Le build du jeu généré a échoué.\n"
+                    f"stdout:\n{build_result.stdout}\n"
+                    f"stderr:\n{build_result.stderr}"
+                ),
+            )
+            self.assertFalse(
+                (target.parent / "index.html").exists(),
+                msg="Le build ordinaire du jeu ne doit pas écrire l’accueil parent.",
+            )
+            self.assertIn(
+                "Jeu test",
+                (target / "index.html").read_text(encoding="utf-8"),
+            )
+            self.assertEqual(
+                root_files_before,
+                self.read_sensitive_root_files(repo),
+                msg="Le build du jeu temporaire ne doit pas modifier les fichiers racine.",
+            )
+
+            tests_result = run(
+                [
+                    sys.executable,
+                    "-m",
+                    "unittest",
+                    "discover",
+                    "-s",
+                    str(target / "tests"),
+                ],
+                cwd=target,
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+            self.assertEqual(
+                0,
+                tests_result.returncode,
+                msg=(
+                    "Les tests du jeu généré ont échoué.\n"
+                    f"stdout:\n{tests_result.stdout}\n"
+                    f"stderr:\n{tests_result.stderr}"
+                ),
+            )
+
     def test_publish_variant_requires_generated_outputs(self):
         repo = Path(__file__).resolve().parents[2]
 
@@ -147,6 +207,99 @@ class MatrixWorkflowTest(unittest.TestCase):
             msg="Une publication invalide ne doit pas modifier les fichiers racine.",
         )
         self.assertIn("jeu non vérifiable", result.stderr)
+
+    def test_publish_variant_updates_catalog_and_root_after_build(self):
+        repo = Path(__file__).resolve().parents[2]
+
+        with TemporaryDirectory() as tmp_dir:
+            temp_repo = Path(tmp_dir) / "repo"
+            temp_repo.mkdir()
+            shutil.copytree(
+                repo / "matrice-slide-ai",
+                temp_repo / "matrice-slide-ai",
+                ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+            )
+            (temp_repo / "published-versions.json").write_text(
+                "[]\n",
+                encoding="utf-8",
+            )
+
+            create_result = run(
+                [
+                    sys.executable,
+                    str(temp_repo / "matrice-slide-ai" / "create_variant.py"),
+                    "--slug",
+                    "jeu-test",
+                    "--title",
+                    "Jeu test",
+                    "--storyboard",
+                    str(
+                        repo
+                        / "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+                        / "source"
+                        / "storyboard.md"
+                    ),
+                    "--slides-dir",
+                    str(
+                        repo
+                        / "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+                        / "assets"
+                        / "slides"
+                    ),
+                ],
+                cwd=temp_repo,
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+            self.assertEqual(0, create_result.returncode, create_result.stderr)
+
+            build_result = run(
+                [sys.executable, str(temp_repo / "jeu-test" / "build.py")],
+                cwd=temp_repo / "jeu-test",
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+            self.assertEqual(0, build_result.returncode, build_result.stderr)
+
+            publish_result = run(
+                [
+                    sys.executable,
+                    str(temp_repo / "matrice-slide-ai" / "publish_variant.py"),
+                    "--slug",
+                    "jeu-test",
+                ],
+                cwd=temp_repo,
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+            self.assertEqual(
+                0,
+                publish_result.returncode,
+                msg=(
+                    "publish_variant.py a échoué.\n"
+                    f"stdout:\n{publish_result.stdout}\n"
+                    f"stderr:\n{publish_result.stderr}"
+                ),
+            )
+
+            catalog = json.loads(
+                (temp_repo / "published-versions.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                [{"slug": "jeu-test", "label": "Jeu test"}],
+                catalog,
+            )
+            root_html = (temp_repo / "index.html").read_text(encoding="utf-8")
+            self.assertIn('href="jeu-test/"', root_html)
+            self.assertIn("Jeu test", root_html)
+            self.assertIn(
+                "jeu-test/assets/downloads/jeu-test-slides.zip",
+                root_html,
+            )
+            self.assertNotIn("matrice-slide-ai", root_html)
 
 
 if __name__ == "__main__":
