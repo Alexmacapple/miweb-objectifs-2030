@@ -39,6 +39,7 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 - `miweb-offre-mutualisee-listes-diffusion-2026-condensee/` : support thématique condensé, alternatives, page accessibilité et sources.
 - `miweb-offre-mutualisee-listes-diffusion-2026-longue/` : support thématique long, alternatives, page accessibilité et sources.
 - `matrice-slide-ai/` : matrice de création des futurs jeux autonomes.
+- `skills/progressive-disclosure-slides/` : skill agnostique pour générer des slides PDS indépendamment d'un moteur image.
 - `miweb-objectifs-2030-v1/source/storyboard-slides-accessibilite-2030.md` : storyboard source V1.
 - `miweb-objectifs-2030-v2/source/storyboard-v2.md` : storyboard source V2.
 - `miweb-objectifs-2030-v3/source/storyboard-v3.md` : storyboard source V3.
