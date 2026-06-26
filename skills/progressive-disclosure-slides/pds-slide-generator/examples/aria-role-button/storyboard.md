@@ -22,7 +22,7 @@ Transformation visible : annoncé -> bloqué à gauche ; natif -> activé à dro
 
 Texte exact : titre « ARIA annonce, HTML agit » ; labels « Annonce », « Entrée », « HTML natif », « Action » ; callout « Le rôle ne crée pas le comportement ».
 
-Masque commun : format 16:9, titre haut gauche, scène centrale en deux panneaux, badges courts en bas, callout bas droit, fond clair, bleu pour le chemin correct, rouge pour le blocage.
+Masque commun : format 16:9, titre haut gauche, scène centrale en deux panneaux, badges courts en bas, callout bas droit, fond blanc dominant, bleu nuit pour le chemin correct, rouge seulement pour le blocage.
 
 Ce que l'image seule doit faire comprendre : un rôle ARIA peut tromper si le comportement clavier n'est pas implémenté ; le HTML natif fournit déjà ce comportement.
 

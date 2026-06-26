@@ -14,6 +14,7 @@ Mission : préserver la narration PDS tout en rendant le moteur de rendu interch
 - Partir d'une scène, jamais d'un concept nu.
 - Produire une fiche PDS avant tout rendu.
 - Séparer moteur de raisonnement, prompt et moteur de rendu.
+- Appliquer le style institutionnel français par défaut, sauf style utilisateur explicite.
 - Ne jamais déclarer une image produite sans fichier, URL ou statut de rendu vérifiable.
 - Marquer `NOT VERIFIED` quand le rendu, le fichier, le ratio ou l'inspection manque.
 - Garder le rouge pour alerte, risque ou décision critique.
@@ -22,6 +23,7 @@ Mission : préserver la narration PDS tout en rendant le moteur de rendu interch
 ## Ressources
 
 - Lire `references/pds-method.md` pour la doctrine PDS complète, surtout si la série dépasse 3 slides.
+- Lire `references/style-institutionnel-fr.md` pour le profil visuel par défaut, toute série complète ou tout contrôle de cohérence de style.
 - Lire `references/renderer-contract.md` avant d'appeler ou de définir un moteur de rendu.
 - Lire `references/text-model-role.md` si Albert ou un autre modèle texte est envisagé.
 
@@ -30,7 +32,7 @@ Mission : préserver la narration PDS tout en rendant le moteur de rendu interch
 1. **Cadrer la demande** : identifier source, public, objectif, nombre de slides et livrable attendu. Par défaut, produire 5 slides pour une source longue structurée.
 2. **Construire la colonne vertébrale** : définir 3 à 6 étapes maximum. Chaque étape doit porter une transformation visible.
 3. **Créer les fiches PDS** : pour chaque slide, renseigner rôle, idée, scène, objet, transformation, texte exact, masque commun, compréhension en 3 secondes, continuité et risque.
-4. **Rédiger les prompts de rendu** : transformer chaque fiche PDS en prompt complet pour un adaptateur image, sans dépendre d'un fournisseur précis.
+4. **Rédiger les prompts de rendu** : transformer chaque fiche PDS en prompt complet pour un adaptateur image, avec la capsule de style institutionnel par défaut si aucun autre style n'est fourni.
 5. **Appeler ou simuler le rendu selon contexte** : si un moteur est disponible, utiliser son adaptateur ; sinon produire les prompts et statuts `ready` sans inventer d'image.
 6. **Contrôler les sorties** : appliquer le contrat de rendu, inspecter lisibilité, ratio, progression, stabilité du masque et texte parasite.
 7. **Livrer un reçu** : fournir storyboard, prompts, statut de rendu, chemins ou absence de chemins, défauts et contrôles effectués.
@@ -76,6 +78,7 @@ Sortie attendue :
 
 - **Promesse fausse** : présenter un modèle texte comme moteur image. Correction : lire `references/text-model-role.md` et déclarer le rendu séparément.
 - **Abstraction froide** : produire un schéma sans scène. Correction : revenir à la fiche PDS et nommer l'objet concret.
+- **Style dilué** : garder seulement "fond clair, bleu, rouge". Correction : réinjecter la capsule de `references/style-institutionnel-fr.md`.
 - **Succès simulé** : livrer un chemin absent ou une image non inspectée. Correction : statut `NOT VERIFIED`.
 - **Studio prématuré** : ajouter projets, comptes, backend ou historique. Correction : garder seulement le flux Source -> PDS -> Prompts -> Rendu -> Contrôle.
 
@@ -83,7 +86,7 @@ Sortie attendue :
 
 - [ ] La colonne vertébrale contient 3 à 6 étapes.
 - [ ] Chaque slide a une fiche PDS complète.
-- [ ] Chaque prompt mentionne format 16:9, scène, texte exact et interdits.
+- [ ] Chaque prompt mentionne format 16:9, scène, texte exact, capsule de style et interdits.
 - [ ] Le moteur de rendu est nommé ou déclaré absent.
 - [ ] Le reçu utilise seulement les états autorisés.
 - [ ] Toute absence de fichier ou d'inspection est marquée `NOT VERIFIED`.

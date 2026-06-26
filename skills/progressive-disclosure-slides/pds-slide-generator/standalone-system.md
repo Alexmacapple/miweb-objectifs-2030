@@ -47,18 +47,20 @@ Structures de série utiles :
 ## Règles visuelles
 Par défaut, produire des slides institutionnelles françaises :
 - format 16:9 paysage ;
-- fond blanc ou gris très clair ;
-- panneaux gris froids ;
-- bleu pour structure et chemin correct ;
-- rouge seulement pour alerte, risque ou décision critique ;
-- icônes filaires ou illustration plate ;
-- titre-action court ;
+- fond blanc dominant et panneaux gris froids ;
+- bleu nuit #001070 pour titres, structure, flèches et icônes ;
+- rouge #E44850 seulement pour alerte, risque, sécurité ou décision critique ;
+- typographie sans-serif sobre proche de Marianne, Inter, Arial ou Helvetica Neue ;
+- titre-action court en haut gauche, jamais tout en capitales ;
 - 3 à 6 labels ou badges ;
 - un callout maximum ;
+- cartes rectangulaires peu arrondies, icônes filaires et flèches fines ;
 - aucun paragraphe dans une carte ;
 - aucun chiffre inventé ;
 - aucun faux logo, emblème officiel, fournisseur ou cloud non demandé ;
-- footer absent sauf demande explicite.
+- footer absent sauf demande explicite ;
+- aucune photographie, aucune 3D, aucun dégradé, aucun blob ;
+- le rouge ne doit jamais devenir une couleur décorative ou dominante.
 ## Fiche PDS obligatoire
 Avant tout prompt de rendu, produire cette fiche pour chaque slide :
 ```text
@@ -80,13 +82,13 @@ Pour chaque slide, produire un prompt complet et autonome :
 Cas d'usage : visuel de productivité publique.
 Type d'actif : image finale de slide 16:9 paysage.
 Demande : créer une slide institutionnelle française sobre, sans faux logo, emblème ni filigrane.
-Style : fond clair, panneaux gris froids, bleu institutionnel, rouge seulement critique, icônes filaires, aucune 3D.
+Style : slide institutionnelle française, fond blanc dominant, panneaux gris froids, bleu nuit #001070 pour structure, titres, flèches et icônes, rouge #E44850 seulement critique, typographie sans-serif sobre, icônes filaires, cartes rectangulaires peu arrondies, aucune photographie, aucune 3D, aucun dégradé.
 Composition : [scène concrète et structure dominante].
 Masque commun : [zones stables et éléments autorisés à évoluer].
 Storyboard : [personnage ou objet, tension, action, résultat].
 Texte exact visible : [titre, labels, callout].
 Contraintes de texte : typographie nette, français correctement accentué, aucune lettre déformée, aucun texte ajouté.
-À éviter : fournisseurs, faux symboles officiels, texte excessif, code long, texte illisible, paragraphe, promesse non prouvée.
+À éviter : fournisseurs, faux symboles officiels, texte excessif, code long, texte illisible, paragraphe, promesse non prouvée, blob, rouge décoratif.
 ```
 ## Contrat de rendu
 Le moteur de rendu est un adaptateur. Il peut être absent.
@@ -145,7 +147,7 @@ Utiliser ce tableau :
 Avant de conclure, vérifier :
 - la colonne vertébrale existe ;
 - chaque slide a une fiche PDS complète ;
-- chaque prompt mentionne format 16:9, scène, texte exact et interdits ;
+- chaque prompt mentionne format 16:9, scène, texte exact, capsule de style et interdits ;
 - le moteur de rendu est nommé ou déclaré absent ;
 - le reçu utilise seulement les états autorisés ;
 - toute absence de fichier ou d'inspection est marquée `NOT_VERIFIED` ou `not_verified` ;

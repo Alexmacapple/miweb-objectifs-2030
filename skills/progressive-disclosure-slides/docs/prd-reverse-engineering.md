@@ -2,7 +2,7 @@
 
 **Statut** : Brouillon de reverse engineering
 **Date** : 2026-06-25
-**Source** : `pds-slide-generator-standalone-system.md`, tests PDS, wiki Karpathy
+**Source** : `pds-slide-generator/standalone-system.md`, tests PDS, wiki Karpathy
 **Décision proposée** : documenter le prompt système comme artefact Software 3.0 autonome
 
 ---
@@ -11,12 +11,13 @@
 
 Le prompt système PDS doit être traité comme un programme exécutable par LLM, pas comme une simple consigne de style. Son rôle est de transformer une source en storyboard, fiches PDS, prompts de rendu et reçu de statut, tout en empêchant les réussites simulées.
 
-Le mécanisme fonctionne parce qu'il combine quatre couches :
+Le mécanisme fonctionne parce qu'il combine cinq couches :
 
 1. **Distillation** : extraire le noyau invariant du skill image IA sans garder la dépendance à un moteur.
 2. **Programmation par prompt** : encoder les règles sous forme de contrat système stable.
 3. **Progressive disclosure** : révéler successivement hypothèses, colonne vertébrale, fiches, prompts, reçu et limites.
-4. **Vérification** : forcer les statuts `ready`, `rendered`, `failed` ou `not_verified` selon les preuves disponibles.
+4. **Style portable** : conserver une capsule visuelle institutionnelle sans dépendre d'un guide local.
+5. **Vérification** : forcer les statuts `ready`, `rendered`, `failed` ou `not_verified` selon les preuves disponibles.
 
 Le pourquoi Karpathy : en Software 3.0, le prompt est le programme, le LLM est l'interpréteur, le concept peut être le livrable principal, et les critères vérifiables remplacent les instructions vagues.
 
@@ -45,7 +46,7 @@ La version mono-fichier répond à une contrainte forte : certains générateurs
 
 ## Problème
 
-Une distillation trop agressive risque de supprimer ce qui faisait la qualité du skill source : scène concrète, transformation visible, masque commun, preuve de rendu, inspection, refus des images faibles et contrôle de série.
+Une distillation trop agressive risque de supprimer ce qui faisait la qualité du skill source : scène concrète, transformation visible, masque commun, style institutionnel, preuve de rendu, inspection, refus des images faibles et contrôle de série.
 
 Une distillation trop faible garde au contraire trop de dépendances locales : chemins, outil image, cache, harnais agentique ou fournisseur implicite.
 
@@ -57,6 +58,7 @@ Le prompt doit imposer :
 
 - une sortie en six sections : hypothèses, colonne vertébrale, fiches PDS, prompts de rendu, reçu, contrôles ;
 - une fiche PDS avant tout prompt de rendu ;
+- une capsule de style institutionnel française, sauf style utilisateur explicite ;
 - des prompts 16:9 avec scène, texte exact et interdits ;
 - un contrat de rendu où l'image n'existe que si un artefact exploitable existe ;
 - `not_verified` si ratio, texte, chemin, inspection ou qualité sont insuffisants ;
@@ -72,6 +74,7 @@ Mission : générer des briefs de slides PDS en circuit fermé.
 Entrées : source, nombre de slides, public, style, moteur, image rendue.
 Règles : scène avant concept, une transformation par slide, masque commun, texte limité.
 Fiche : rôle, idée, scène, objet, transformation, texte exact, masque, compréhension, continuité, risque.
+Style : fond blanc, gris froids, bleu nuit, rouge critique, typographie sobre, composants filaires.
 Rendu : adaptateur optionnel, statut strict, artefact requis pour `rendered`.
 Contrôle : refus ou `not_verified` si slide faible ; contact sheet ou inspection groupée pour une série.
 Sortie : hypothèses, colonne vertébrale, fiches, prompts, reçu, limites.
@@ -99,7 +102,7 @@ Ce bloc est la distillation opératoire. Le fichier complet ajoute les formats, 
 - Moins de fichiers à maintenir.
 
 **Inconvénients** :
-- Mélange produit, prototype et reverse engineering.
+- Mélange produit, package publié et reverse engineering.
 - Rend moins visible le raisonnement Software 3.0.
 - Risque de noyer la méthode de distillation.
 
@@ -122,7 +125,7 @@ Ce bloc est la distillation opératoire. Le fichier complet ajoute les formats, 
 
 **Inconvénients** :
 - Plus lourd que le besoin actuel.
-- Moins adapté à un artefact expérimental sous `outputs/skill/`.
+- Moins adapté à un package publié sous `skills/progressive-disclosure-slides/`.
 
 ## Décision
 
@@ -132,6 +135,7 @@ Retenir l'option B : créer un PRD dédié de reverse engineering sous `skills/p
 
 - Le prompt standalone tient dans un seul fichier Markdown.
 - Le prompt ne contient aucune dépendance obligatoire à un fournisseur, outil local ou chemin absolu.
+- Le prompt standalone contient une capsule de style suffisante pour éviter un rendu générique.
 - Les deux garde-fous sont présents : refus des slides faibles et inspection groupée des séries.
 - Une source longue produit 3 à 6 slides avec fiches PDS complètes.
 - Une source courte peut produire une slide unique sans changer de format de sortie.
@@ -150,6 +154,7 @@ Retenir l'option B : créer un PRD dédié de reverse engineering sous `skills/p
 
 - Le prompt système MUST rester autonome.
 - Le prompt système MUST conserver la sortie en six sections.
+- Le prompt système MUST conserver la capsule de style par défaut.
 - Le prompt système MUST conserver les statuts stricts.
 - Le prompt système MUST refuser ou marquer `not_verified` toute slide faible.
 - Le prompt système MUST exiger une inspection groupée pour les séries rendues.
@@ -160,7 +165,8 @@ Retenir l'option B : créer un PRD dédié de reverse engineering sous `skills/p
 
 | Affirmation | Source | Verdict | Impact |
 |---|---|---|---|
-| Le prompt standalone encode les six sections | `pds-slide-generator-standalone-system.md` | Confirmé | Contrat de sortie stable |
+| Le prompt standalone encode les six sections | `pds-slide-generator/standalone-system.md` | Confirmé | Contrat de sortie stable |
+| Le prompt standalone doit rester utilisable sans guide local | `pds-slide-generator/standalone-system.md` | Confirmé | La capsule de style doit être embarquée |
 | Le prompt comme programme est cohérent avec Karpathy | `wiki/knowledge/karpathy/trois-eres-logiciel.md` | Confirmé | Justifie le traitement du prompt comme artefact |
 | Le concept peut être le livrable principal | `wiki/knowledge/karpathy/livrable-concept.md` | Confirmé | Justifie le PRD reverse engineering |
 | Les tests critériés guident mieux l'agent | `wiki/knowledge/karpathy/execution-guidee-objectif-criteres-reussite.md` | Confirmé | Justifie le reçu et les statuts |
@@ -180,12 +186,12 @@ Inconnus connus : le terme « auto-réparation » peut créer une promesse exces
 
 Inconnus inconnus : tolérance des moteurs image au français accentué, aux labels courts et aux contraintes négatives.
 
-Mauvais chemin d'implémentation : copier le prompt complet dans chaque PRD ou mélanger produit, prompt et prototype dans un seul document.
+Mauvais chemin d'implémentation : copier le prompt complet dans chaque PRD ou mélanger produit, prompt et package dans un seul document.
 
 Garde-fou ajouté : PRD dédié, source canonique du prompt conservée séparément.
 
-Comportement à préserver : autonomie mono-fichier, statut honnête, distillation PDS, indépendance fournisseur.
+Comportement à préserver : autonomie mono-fichier, statut honnête, distillation PDS, capsule de style, indépendance fournisseur.
 
-Raccourcis interdits : déclarer `rendered` sans artefact, supprimer le reçu, supprimer l'inspection groupée, transformer le PRD en documentation marketing.
+Raccourcis interdits : déclarer `rendered` sans artefact, supprimer le reçu, supprimer l'inspection groupée, supprimer la capsule de style, transformer le PRD en documentation marketing.
 
 Preuve de régression requise : refaire un test source courte et source longue, puis vérifier accents, statuts et présence des deux garde-fous.

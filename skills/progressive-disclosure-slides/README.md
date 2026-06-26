@@ -12,6 +12,7 @@ Ce package conserve le noyau utile du workflow d'origine :
 
 - colonne vertébrale narrative ;
 - fiche PDS avant tout rendu ;
+- profil de style institutionnel français portable ;
 - prompt de rendu indépendant du fournisseur ;
 - reçu de statut ;
 - refus des slides faibles ;
@@ -27,6 +28,7 @@ skills/progressive-disclosure-slides/
     standalone-system.md
     references/
       pds-method.md
+      style-institutionnel-fr.md
       renderer-contract.md
       text-model-role.md
     examples/
@@ -60,6 +62,12 @@ Pour un outil qui accepte un seul fichier Markdown comme prompt système, utilis
 pds-slide-generator/standalone-system.md
 ```
 
+Le prompt standalone embarque une capsule de style suffisante pour fonctionner seul. Le skill agentique dispose en plus du profil complet :
+
+```text
+pds-slide-generator/references/style-institutionnel-fr.md
+```
+
 Dans les deux cas, le flux attendu est :
 
 ```text
@@ -81,6 +89,7 @@ Le moteur image est optionnel et interchangeable. Un rendu peut seulement être 
 
 - Ne pas partir d'un concept nu : partir d'une scène.
 - Ne pas déclarer une image produite sans artefact.
+- Ne pas réduire le style à "fond clair, bleu, rouge" : conserver la capsule institutionnelle.
 - Marquer `not_verified` si le ratio, le texte, le chemin ou l'inspection manque.
 - Refuser ou régénérer une slide illisible, trop dense ou incohérente.
 - Pour une série rendue, exiger une contact sheet, une grille d'aperçu ou une inspection groupée équivalente.

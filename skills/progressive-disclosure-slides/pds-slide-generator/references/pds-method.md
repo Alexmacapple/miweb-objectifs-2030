@@ -37,6 +37,18 @@ Stabiliser :
 - bleu pour structure ;
 - rouge seulement pour alerte, risque ou décision critique.
 
+## Style par défaut
+
+Le profil visuel canonique est `references/style-institutionnel-fr.md`. Le résumé ci-dessous doit rester dans chaque prompt si l'utilisateur ne fournit pas de style concurrent :
+
+- slide institutionnelle française 16:9 ;
+- fond blanc dominant et panneaux gris froids ;
+- bleu nuit `#001070` pour titres, structure, flèches et icônes ;
+- rouge `#E44850` uniquement pour alerte, risque, sécurité ou décision critique ;
+- typographie sans-serif sobre, titre-action haut gauche, labels courts ;
+- cartes rectangulaires peu arrondies, icônes filaires, flèches fines ;
+- aucune photographie, aucune 3D, aucun dégradé, aucun blob, aucun faux logo.
+
 ## Règles éditoriales
 
 - Titre-action court.
@@ -70,10 +82,10 @@ Si une ligne est floue, ne pas générer encore.
 Cas d'usage : visuel de productivité publique.
 Type d'actif : image finale de slide 16:9 paysage.
 Demande : créer une slide institutionnelle française sobre, sans faux logo, emblème ni filigrane.
-Style : fond clair, panneaux gris froids, bleu institutionnel, rouge seulement critique, icônes filaires, aucune 3D.
+Style : slide institutionnelle française, fond blanc dominant, panneaux gris froids, bleu nuit #001070 pour structure, titres, flèches et icônes, rouge #E44850 seulement critique, typographie sans-serif sobre, icônes filaires, cartes rectangulaires peu arrondies, aucune photographie, aucune 3D, aucun dégradé.
 Composition : [scène concrète et structure dominante].
 Masque commun : [zones stables et éléments autorisés à évoluer].
 Storyboard : [personnage ou objet, tension, action, résultat].
 Texte exact : [titre, labels, callout].
-À éviter : fournisseurs, faux symboles officiels, texte excessif, code, texte illisible, paragraphe.
+À éviter : fournisseurs, faux symboles officiels, texte excessif, code, texte illisible, paragraphe, blob, rouge décoratif.
 ```
