@@ -1,0 +1,88 @@
+[
+  {
+    "numero": 1,
+    "titre": "L’obligation légale",
+    "image": "assets/slides/slide-01.png",
+    "alt": "Risque de sanction pour un site non accessible.",
+    "description": "La slide montre un écran représentant un site non accessible qui conduit vers un document de sanction. La notification d’amende est le seul élément rouge, avec un badge signalant le montant maximal de 25 000 euros.",
+    "textes_visibles": [
+      "1/5",
+      "L’obligation légale",
+      "Site non accessible",
+      "Sanction",
+      "Risque : jusqu’à 25 000€ d’amende par infraction",
+      "25 000€"
+    ],
+    "message": "L’accessibilité numérique est une obligation légale et une non-conformité peut être sanctionnée financièrement."
+  },
+  {
+    "numero": 2,
+    "titre": "Le SPAN : Le cap stratégique",
+    "image": "assets/slides/slide-02.png",
+    "alt": "Le SPAN structure le cap sur trois ans.",
+    "description": "La slide présente une feuille de route horizontale en trois segments, soutenue par quatre piliers. Elle matérialise le SPAN comme une fondation stratégique organisée autour de la stratégie, de l’organisation, des ressources et des compétences.",
+    "textes_visibles": [
+      "2/5",
+      "Le SPAN : Le cap stratégique",
+      "Cycle de 3 ans maximum",
+      "Stratégie",
+      "Organisation",
+      "Ressources",
+      "Compétences"
+    ],
+    "message": "Le SPAN fixe le cap stratégique de l’accessibilité numérique sur un cycle de trois ans maximum."
+  },
+  {
+    "numero": 3,
+    "titre": "Le PAN : Le pilotage annuel",
+    "image": "assets/slides/slide-03.png",
+    "alt": "Le PAN transforme le SPAN en actions annuelles.",
+    "description": "La slide montre un bloc SPAN qui bascule vers un tableau de bord annuel. Les actions sont réparties en trois statuts : à commencer, en cours et réalisé, ce qui rend visible la déclinaison opérationnelle du schéma.",
+    "textes_visibles": [
+      "3/5",
+      "Le PAN : Le pilotage annuel",
+      "SPAN",
+      "Déclinaison opérationnelle",
+      "À commencer",
+      "En cours",
+      "Réalisé",
+      "Année en cours"
+    ],
+    "message": "Le PAN décline le SPAN en actions concrètes à suivre pendant l’année en cours."
+  },
+  {
+    "numero": 4,
+    "titre": "Transparence et bilan",
+    "image": "assets/slides/slide-04.png",
+    "alt": "Un bilan public assume les reports.",
+    "description": "La slide illustre le passage d’un tableau interne vers un document public de bilan. Une loupe met en évidence un élément reporté, présenté comme un point de pilotage à assumer plutôt que comme une faute.",
+    "textes_visibles": [
+      "4/5",
+      "Transparence et bilan",
+      "Mise à jour régulière",
+      "Assumer les reports",
+      "Adapter la suite",
+      "Reporté"
+    ],
+    "message": "Un plan non terminé doit être mis à jour, publié et ajusté avec transparence."
+  },
+  {
+    "numero": 5,
+    "titre": "Amélioration continue",
+    "image": "assets/slides/slide-05.png",
+    "alt": "Le bilan alimente le cycle suivant.",
+    "description": "La slide représente une boucle de pilotage : le bilan publié alimente le PAN suivant, puis conduit à un SPAN ajusté. Les étapes mesurer, prioriser et corriger encadrent cette logique d’amélioration continue.",
+    "textes_visibles": [
+      "5/5",
+      "Amélioration continue",
+      "Bilan publié",
+      "PAN suivant",
+      "SPAN ajusté",
+      "Mesurer",
+      "Prioriser",
+      "Corriger",
+      "Le pilotage progresse à chaque cycle"
+    ],
+    "message": "Le bilan n’est pas une fin : il nourrit le PAN suivant et ajuste progressivement la stratégie d’accessibilité."
+  }
+]

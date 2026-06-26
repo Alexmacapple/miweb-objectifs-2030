@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'nonce-miweb-static' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'nonce-miweb-static' 'sha256-k3BHgAgO/fV88g5vmVLwj4YYTF3a4hr8P/daaO0j2xk='; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net data:; connect-src 'self' https://cdn.jsdelivr.net; form-action 'self'; upgrade-insecure-requests">
-  <meta name="description" content="Site public des variantes web DSFR et accessibles des slides MiWeb.">
-  <link rel="icon" href="span-pan/assets/favicons/favicon.ico" type="image/vnd.microsoft.icon">
-  <title>Objectifs 2030 - accessibilité numérique</title>
+  <meta name="description" content="Version web accessible du jeu de slides « SPAN / PAN - accessibilité numérique ».">
+  <link rel="icon" href="assets/favicons/favicon.ico" type="image/vnd.microsoft.icon">
+  <title>Accessibilité - SPAN / PAN - accessibilité numérique</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr/dsfr.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/utility/utility.min.css">
   <style nonce="miweb-static">
@@ -204,88 +204,63 @@
               <div class="fr-header__logo">
                 <p class="fr-logo">République<br>Française</p>
               </div>
-
+              <div class="fr-header__navbar">
+                <button data-fr-opened="false" aria-controls="modal-menu" title="Menu" type="button" id="button-menu" class="fr-btn--menu fr-btn">Menu</button>
+              </div>
             </div>
             <div class="fr-header__service">
-              <a href="./" title="Accueil - Objectifs 2030 - accessibilité numérique">
-                <p class="fr-header__service-title">Objectifs 2030 - accessibilité numérique</p>
+              <a href="./" title="Accueil - SPAN / PAN - accessibilité numérique">
+                <p class="fr-header__service-title">SPAN / PAN - accessibilité numérique</p>
               </a>
-              <p class="fr-header__service-tagline">MiWeb - Juin 2026</p>
+              <p class="fr-header__service-tagline">Jeu de slides généré</p>
             </div>
           </div>
-
+          <div class="fr-header__tools">
+            <div class="fr-header__tools-links">
+              <ul class="fr-btns-group">
+                <li>
+                  <a href="./?projection=1#slide-01" class="fr-btn fr-icon-expand-left-right-line fr-btn--icon-left">Présentation plein écran</a>
+                </li>
+                <li>
+                  <a href="alternatives.html" class="fr-btn fr-icon-accessibility-line fr-btn--icon-left">Alternatives textuelles</a>
+                </li>
+                <li>
+                  <a href="assets/downloads/span-pan-slides.zip" class="fr-btn fr-icon-download-line fr-btn--icon-left" download>Télécharger les slides</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
+    <div class="fr-header__menu fr-modal" id="modal-menu">
+      <div class="fr-container">
+        <button aria-controls="modal-menu" title="Fermer" type="button" class="fr-btn--close fr-btn">Fermer</button>
+        <div class="fr-header__menu-links"></div>
+      </div>
+    </div>
   </header>
-  <main id="contenu" class="fr-container fr-py-6w">
-    <div class="miweb-page-header">
-      <h1>Objectifs 2030 - accessibilité numérique</h1>
-      <p class="fr-text--lead">MiWeb - Juin 2026</p>
+  <main id="contenu" class="fr-container fr-py-4w miweb-text-page">
+    <nav class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb">
+      <ol class="fr-breadcrumb__list">
+        <li><a class="fr-breadcrumb__link" href="../">Versions</a></li>
+        <li><a class="fr-breadcrumb__link" href="./">SPAN / PAN - accessibilité numérique</a></li>
+        <li><a class="fr-breadcrumb__link" aria-current="page">Accessibilité</a></li>
+      </ol>
     </div>
-    <section aria-labelledby="versions-title">
-      <h2 id="versions-title">Versions disponibles</h2>
-      <div class="fr-grid-row fr-grid-row--gutters">
-        <div class="fr-col-12 fr-col-md-6">
-          <div class="fr-tile fr-enlarge-link">
-            <div class="fr-tile__body">
-              <h3 class="fr-tile__title"><a href="miweb-objectifs-2030-v1/">Version 1 - Juin 2026</a></h3>
-              <p class="fr-tile__desc">Slides accessibles au format web.</p>
-            </div>
-          </div>
-        </div>
-        <div class="fr-col-12 fr-col-md-6">
-          <div class="fr-tile fr-enlarge-link">
-            <div class="fr-tile__body">
-              <h3 class="fr-tile__title"><a href="miweb-objectifs-2030-v2/">Version 2 - Juin 2026</a></h3>
-              <p class="fr-tile__desc">Slides accessibles au format web.</p>
-            </div>
-          </div>
-        </div>
-        <div class="fr-col-12 fr-col-md-6">
-          <div class="fr-tile fr-enlarge-link">
-            <div class="fr-tile__body">
-              <h3 class="fr-tile__title"><a href="miweb-objectifs-2030-v3/">Version 3 - Juin 2026</a></h3>
-              <p class="fr-tile__desc">Slides accessibles au format web.</p>
-            </div>
-          </div>
-        </div>
-        <div class="fr-col-12 fr-col-md-6">
-          <div class="fr-tile fr-enlarge-link">
-            <div class="fr-tile__body">
-              <h3 class="fr-tile__title"><a href="miweb-objectifs-2030-v4/">Version 4 - Juin 2026</a></h3>
-              <p class="fr-tile__desc">Slides accessibles au format web.</p>
-            </div>
-          </div>
-        </div>
-        <div class="fr-col-12 fr-col-md-6">
-          <div class="fr-tile fr-enlarge-link">
-            <div class="fr-tile__body">
-              <h3 class="fr-tile__title"><a href="miweb-offre-mutualisee-listes-diffusion-2026-condensee/">Offre mutualisée listes de diffusion - version condensée</a></h3>
-              <p class="fr-tile__desc">Slides accessibles au format web.</p>
-            </div>
-          </div>
-        </div>
-        <div class="fr-col-12 fr-col-md-6">
-          <div class="fr-tile fr-enlarge-link">
-            <div class="fr-tile__body">
-              <h3 class="fr-tile__title"><a href="miweb-offre-mutualisee-listes-diffusion-2026-longue/">Offre mutualisée listes de diffusion - version longue</a></h3>
-              <p class="fr-tile__desc">Slides accessibles au format web.</p>
-            </div>
-          </div>
-        </div>
-        <div class="fr-col-12 fr-col-md-6">
-          <div class="fr-tile fr-enlarge-link">
-            <div class="fr-tile__body">
-              <h3 class="fr-tile__title"><a href="span-pan/">SPAN / PAN - accessibilité numérique</a></h3>
-              <p class="fr-tile__desc">Slides accessibles au format web.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="fr-mt-3w">D’autres versions pourront être ajoutées ultérieurement.</p>
-    </section>
+  </nav>
+    <h1>Accessibilité</h1>
+    <p class="fr-badge fr-badge--warning">Accessibilité : non auditée</p>
+    <dl>
+      <dt>Date</dt>
+      <dd>Juin 2026</dd>
+      <dt>Périmètre</dt>
+      <dd>span-pan</dd>
+    </dl>
+    <p>Ce site vise une conception accessible, mais aucun audit RGAA complet n’a encore été réalisé.</p>
+    <p><a class="fr-link" href="./">Retour vers la présentation</a></p>
   </main>
   <footer role="contentinfo" class="fr-footer" id="footer">
     <div class="fr-container">
@@ -294,12 +269,12 @@
           <p class="fr-logo">République<br>Française</p>
         </div>
         <div class="fr-footer__content">
-          <p class="fr-footer__content-desc">Objectifs 2030 - accessibilité numérique - MiWeb - Juin 2026.</p>
+          <p class="fr-footer__content-desc">SPAN / PAN - accessibilité numérique - Jeu de slides généré.</p>
           <ul class="fr-footer__content-list">
-              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="span-pan/?projection=1#slide-01">Présentation plein écran</a></li>
-              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="span-pan/?slides=all#diaporama">Afficher toutes les slides</a></li>
-              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="span-pan/alternatives.html">Alternatives textuelles</a></li>
-              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="span-pan/assets/downloads/span-pan-slides.zip">Télécharger les slides</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="./?projection=1#slide-01" data-projection-link>Présentation plein écran</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="./?slides=all#diaporama" data-show-all-link>Afficher toutes les slides</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="alternatives.html">Alternatives textuelles</a></li>
+              <li class="fr-footer__content-item"><a class="fr-footer__content-link" href="assets/downloads/span-pan-slides.zip">Télécharger les slides</a></li>
           </ul>
         </div>
       </div>
