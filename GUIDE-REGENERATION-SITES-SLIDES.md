@@ -10,7 +10,7 @@ Il doit être utilisé pour les prochaines variantes thématiques ou versions no
 
 Utiliser ce guide quand il faut publier un nouveau site GitHub Pages à partir :
 
-- d’un dossier contenant des images `slide-01.png`, `slide-02.png`, etc. ;
+- d’un dossier contenant des images `slide-01.png`, `slide-02.png`, etc., ou des images préfixées comme `checklist-span-slide-01.png` ;
 - d’un storyboard ou d’une note source ;
 - d’une demande de publication avec alternatives textuelles ;
 - d’une variante thématique qui ne remplace pas V1, V2, V3 ou V4.
@@ -76,7 +76,20 @@ python3 matrice-slide-ai/create_variant.py \
   --slides-dir /chemin/vers/images
 ```
 
-La commande copie `build.py`, les tests, le favicon, le storyboard, `slides.json` et les images `slide-*.png`. Elle ne modifie ni `index.html` racine ni `published-versions.json`.
+La commande copie `build.py`, les tests, le favicon, le storyboard, `slides.json` et les images `slide-*.png`. Elle ne change ni `index.html` racine ni `published-versions.json`.
+
+Si les images source sont préfixées, déclarer ce préfixe au lieu de renommer à la main :
+
+```bash
+python3 matrice-slide-ai/create_variant.py \
+  --slug <dossier> \
+  --title "Titre public" \
+  --storyboard /chemin/vers/storyboard.md \
+  --slides-dir /chemin/vers/images \
+  --slide-prefix checklist-span-
+```
+
+La matrice copie alors `checklist-span-slide-01.png` vers `assets/slides/slide-01.png`.
 
 ## `slides.json`
 
@@ -133,6 +146,8 @@ Depuis la racine du dépôt :
 python3 <dossier>/build.py
 ```
 
+Optimiser les images avant cette étape. Si des PNG sont optimisés ou remplacés après génération, relancer `python3 <dossier>/build.py` pour reconstruire le ZIP.
+
 Le script doit générer :
 
 - `<dossier>/index.html` ;
@@ -166,10 +181,12 @@ find <dossier>/assets/slides -name 'slide-*.png' | sort | wc -l
 Tests de contrat :
 
 ```bash
-python3 -m unittest discover -s <dossier>/tests
+scripts/validate_variant.sh <dossier>
 ```
 
-Validation HTML :
+Ce script lance les tests de contrat, `html-validate` et `vnu-jar`. Dans un environnement sandboxé, les validateurs `npx` peuvent demander un accès réseau.
+
+Validation HTML directe si nécessaire :
 
 ```bash
 npx --yes html-validate <dossier>/index.html <dossier>/alternatives.html <dossier>/accessibilite.html index.html
@@ -200,7 +217,7 @@ bash /Users/alex/Claude/scripts/check-accents.sh <fichier.md>
 Démarrer un serveur local depuis la racine du dépôt :
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1
+scripts/serve-local.sh 8000
 ```
 
 Inspecter au navigateur :
@@ -355,6 +372,12 @@ https://alexmacapple.github.io/miweb-objectifs-2030/<dossier>/
 https://alexmacapple.github.io/miweb-objectifs-2030/<dossier>/alternatives.html
 ```
 
+Pour éviter un push silencieux bloqué par une invite Git, pousser avec :
+
+```bash
+scripts/push-pages.sh
+```
+
 ## Checklist finale
 
 - [ ] Le dossier de variante est autonome.
@@ -365,9 +388,7 @@ https://alexmacapple.github.io/miweb-objectifs-2030/<dossier>/alternatives.html
 - [ ] Le build ordinaire n’a pas publié l’accueil racine.
 - [ ] `alternatives.html` et `alternatives.md` existent.
 - [ ] Le ZIP contient les images et `alternatives.md`.
-- [ ] Les tests unitaires passent.
-- [ ] `html-validate` passe.
-- [ ] `vnu-jar` passe ou l’écart est documenté.
+- [ ] `scripts/validate_variant.sh <dossier>` passe, ou l’écart réseau sandbox est documenté.
 - [ ] `publish_variant.py` a été lancé après les vérifications.
 - [ ] `published-versions.json` contient la nouvelle variante.
 - [ ] L’accueil racine liste la nouvelle variante.

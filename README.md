@@ -60,20 +60,25 @@ python3 matrice-slide-ai/create_variant.py \
   --slides-dir chemin/assets/slides
 ```
 
+Si les images source sont préfixées, ajouter par exemple `--slide-prefix checklist-span-`.
+
 Ensuite :
 
 ```bash
 python3 nouveau-jeu/build.py
-python3 -m unittest discover -s nouveau-jeu/tests
+scripts/validate_variant.sh nouveau-jeu
 ```
 
 `build.py` génère seulement le dossier du jeu. La publication sur l’accueil racine est séparée :
 
 ```bash
 python3 matrice-slide-ai/publish_variant.py --slug nouveau-jeu
+scripts/validate_variant.sh nouveau-jeu
 ```
 
 Seul `publish_variant.py` est autorisé à modifier `published-versions.json` et `index.html` racine.
+
+Optimiser les images avant le build. Si les images changent après génération, relancer `build.py` pour reconstruire le ZIP. Pour pousser sans blocage silencieux sur une invite Git, utiliser `scripts/push-pages.sh`.
 
 ## État courant
 
@@ -91,7 +96,7 @@ python3 miweb-offre-mutualisee-listes-diffusion-2026-longue/build.py
 ## Tester localement
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1
+scripts/serve-local.sh 8000
 ```
 
 URL locale de la dernière variante publiée :
@@ -121,6 +126,12 @@ npx --yes html-validate miweb-offre-mutualisee-listes-diffusion-2026-condensee/i
 npx --yes vnu-jar --errors-only miweb-offre-mutualisee-listes-diffusion-2026-condensee/index.html miweb-offre-mutualisee-listes-diffusion-2026-condensee/alternatives.html miweb-offre-mutualisee-listes-diffusion-2026-condensee/accessibilite.html miweb-offre-mutualisee-listes-diffusion-2026-longue/index.html miweb-offre-mutualisee-listes-diffusion-2026-longue/alternatives.html miweb-offre-mutualisee-listes-diffusion-2026-longue/accessibilite.html index.html
 ```
 
+Pour un seul jeu, utiliser plutôt :
+
+```bash
+scripts/validate_variant.sh <dossier>
+```
+
 Pour une vérification complète après modification commune V1/V2/V3/V4 :
 
 ```bash
@@ -132,6 +143,8 @@ python3 -m unittest discover -s miweb-objectifs-2030-v4/tests
 npx --yes html-validate miweb-objectifs-2030-v1/index.html miweb-objectifs-2030-v1/alternatives.html miweb-objectifs-2030-v1/accessibilite.html miweb-objectifs-2030-v2/index.html miweb-objectifs-2030-v2/alternatives.html miweb-objectifs-2030-v2/accessibilite.html miweb-objectifs-2030-v3/index.html miweb-objectifs-2030-v3/alternatives.html miweb-objectifs-2030-v3/accessibilite.html miweb-objectifs-2030-v4/index.html miweb-objectifs-2030-v4/alternatives.html miweb-objectifs-2030-v4/accessibilite.html index.html
 npx --yes vnu-jar --errors-only miweb-objectifs-2030-v1/index.html miweb-objectifs-2030-v1/alternatives.html miweb-objectifs-2030-v1/accessibilite.html miweb-objectifs-2030-v2/index.html miweb-objectifs-2030-v2/alternatives.html miweb-objectifs-2030-v2/accessibilite.html miweb-objectifs-2030-v3/index.html miweb-objectifs-2030-v3/alternatives.html miweb-objectifs-2030-v3/accessibilite.html miweb-objectifs-2030-v4/index.html miweb-objectifs-2030-v4/alternatives.html miweb-objectifs-2030-v4/accessibilite.html index.html
 ```
+
+Dans un environnement sandboxé, les commandes `npx` peuvent demander un accès réseau.
 
 ## Limite
 

@@ -4,7 +4,7 @@
 
 Réunir :
 
-- un dossier contenant les images `slide-*.png` ;
+- un dossier contenant les images `slide-*.png`, ou des images préfixées comme `checklist-span-slide-01.png` ;
 - un storyboard source ;
 - le titre public du jeu ;
 - le slug public du dossier, en minuscules et sans espace.
@@ -19,7 +19,20 @@ python3 matrice-slide-ai/create_variant.py \
   --slides-dir chemin/assets/slides
 ```
 
-La commande doit créer un nouveau dossier. Elle refuse d’écraser un dossier existant et ne modifie ni `index.html` racine ni `published-versions.json`.
+La commande doit créer un nouveau dossier. Elle refuse d’écraser un dossier existant et ne change ni `index.html` racine ni `published-versions.json`.
+
+Si le lot source utilise un préfixe, le déclarer au lieu de renommer manuellement :
+
+```bash
+python3 matrice-slide-ai/create_variant.py \
+  --slug nouveau-jeu \
+  --title "Titre public" \
+  --storyboard chemin/storyboard.md \
+  --slides-dir chemin/assets/slides \
+  --slide-prefix checklist-span-
+```
+
+La matrice copie alors `checklist-span-slide-01.png` vers `assets/slides/slide-01.png`.
 
 ## Compléter les transcriptions
 
@@ -37,6 +50,8 @@ Ne pas publier d’image sans alternative textuelle et description.
 
 ## Générer
 
+Optimiser les images avant cette étape. Si les images sont remplacées ou optimisées après génération, relancer `python3 nouveau-jeu/build.py` pour reconstruire le ZIP.
+
 ```bash
 python3 nouveau-jeu/build.py
 ```
@@ -52,15 +67,15 @@ Sorties attendues :
 ## Vérifier
 
 ```bash
-python3 -m unittest discover -s nouveau-jeu/tests
-npx --yes html-validate nouveau-jeu/index.html nouveau-jeu/alternatives.html nouveau-jeu/accessibilite.html index.html
-npx --yes vnu-jar --errors-only nouveau-jeu/index.html nouveau-jeu/alternatives.html nouveau-jeu/accessibilite.html index.html
+scripts/validate_variant.sh nouveau-jeu
 ```
+
+Ce script lance les tests du jeu, `html-validate` et `vnu-jar`. Dans un environnement sandboxé, `npx` peut nécessiter une relance avec accès réseau.
 
 Inspecter aussi localement :
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1
+scripts/serve-local.sh 8000
 ```
 
 Pages à ouvrir :
@@ -78,9 +93,10 @@ Après validation :
 
 ```bash
 python3 matrice-slide-ai/publish_variant.py --slug nouveau-jeu
+scripts/validate_variant.sh nouveau-jeu
 ```
 
-Cette commande est la seule étape qui modifie `published-versions.json` et `index.html` racine. Elle vérifie les pages générées, le ZIP et les tests du jeu avant d’écrire.
+Cette commande est la seule étape qui change `published-versions.json` et `index.html` racine. Elle vérifie les pages générées, le ZIP et les tests du jeu avant d’écrire.
 
 ## Contrôler avant commit
 
@@ -91,3 +107,9 @@ git diff -- index.html published-versions.json nouveau-jeu/slides.json nouveau-j
 ```
 
 Ne pas ajouter les caches, `.DS_Store`, captures temporaires ou sorties locales non liées au jeu publié.
+
+Pour pousser sans blocage silencieux sur une invite Git, utiliser :
+
+```bash
+scripts/push-pages.sh
+```

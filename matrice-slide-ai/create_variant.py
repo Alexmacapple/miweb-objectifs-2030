@@ -34,6 +34,14 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help="Dossier contenant les images slide-*.png à copier.",
     )
+    parser.add_argument(
+        "--slide-prefix",
+        default="",
+        help=(
+            "Préfixe optionnel des images source, par exemple checklist-span- "
+            "pour copier checklist-span-slide-01.png vers slide-01.png."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -51,15 +59,19 @@ def copy_file(source: Path, target: Path) -> None:
     shutil.copy2(source, target)
 
 
-def copy_slides(slides_dir: Path, target_slides_dir: Path) -> None:
+def copy_slides(slides_dir: Path, target_slides_dir: Path, slide_prefix: str = "") -> None:
     if not slides_dir.is_dir():
         raise NotADirectoryError(slides_dir)
-    slide_paths = sorted(slides_dir.glob("slide-*.png"))
+    slide_pattern = f"{slide_prefix}slide-*.png"
+    slide_paths = sorted(slides_dir.glob(slide_pattern))
     if not slide_paths:
-        raise FileNotFoundError(f"Aucune image slide-*.png dans {slides_dir}")
+        raise FileNotFoundError(f"Aucune image {slide_pattern} dans {slides_dir}")
     target_slides_dir.mkdir(parents=True, exist_ok=True)
     for slide_path in slide_paths:
-        copy_file(slide_path, target_slides_dir / slide_path.name)
+        target_name = slide_path.name
+        if slide_prefix:
+            target_name = target_name.removeprefix(slide_prefix)
+        copy_file(slide_path, target_slides_dir / target_name)
 
 
 def write_variant_metadata(target: Path, slug: str, title: str) -> None:
@@ -110,7 +122,7 @@ def create_variant(args: argparse.Namespace) -> Path:
         copy_file(source_markdown, target / "source" / "source.md")
 
     if args.slides_dir is not None:
-        copy_slides(args.slides_dir, target / "assets" / "slides")
+        copy_slides(args.slides_dir, target / "assets" / "slides", args.slide_prefix)
 
     write_variant_metadata(target, args.slug, args.title)
     return target

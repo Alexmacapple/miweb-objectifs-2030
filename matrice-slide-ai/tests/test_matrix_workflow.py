@@ -184,6 +184,62 @@ class MatrixWorkflowTest(unittest.TestCase):
                 ),
             )
 
+    def test_create_variant_accepts_prefixed_slide_sources(self):
+        repo = Path(__file__).resolve().parents[2]
+
+        with TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            source_slides_dir = tmp_path / "source-slides"
+            source_slides_dir.mkdir()
+            for index in range(1, 4):
+                source = (
+                    repo
+                    / "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+                    / "assets"
+                    / "slides"
+                    / f"slide-{index:02}.png"
+                )
+                shutil.copy2(
+                    source,
+                    source_slides_dir / f"checklist-span-slide-{index:02}.png",
+                )
+
+            result = run(
+                [
+                    sys.executable,
+                    str(repo / "matrice-slide-ai" / "create_variant.py"),
+                    "--slug",
+                    "jeu-prefixe",
+                    "--title",
+                    "Jeu préfixé",
+                    "--storyboard",
+                    str(
+                        repo
+                        / "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+                        / "source"
+                        / "storyboard.md"
+                    ),
+                    "--slides-dir",
+                    str(source_slides_dir),
+                    "--slide-prefix",
+                    "checklist-span-",
+                ],
+                cwd=tmp_path,
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+
+            self.assertEqual(0, result.returncode, result.stderr)
+            copied_names = sorted(
+                path.name
+                for path in (tmp_path / "jeu-prefixe" / "assets" / "slides").glob("*.png")
+            )
+            self.assertEqual(
+                ["slide-01.png", "slide-02.png", "slide-03.png"],
+                copied_names,
+            )
+
     def test_publish_variant_requires_generated_outputs(self):
         repo = Path(__file__).resolve().parents[2]
 

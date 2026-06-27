@@ -12,22 +12,20 @@ Les variantes déjà publiées `miweb-objectifs-2030-v1` à `miweb-objectifs-203
 
 ## Étapes
 
-1. Préparer les images validées `slide-01.png` à `slide-NN.png` et le storyboard source.
+1. Préparer les images validées `slide-01.png` à `slide-NN.png`, ou noter leur préfixe si elles sont nommées autrement, et le storyboard source.
 2. Créer le dossier de variante avec `matrice-slide-ai/create_variant.py`.
 3. Vérifier que les images et le storyboard ont bien été copiés dans le dossier généré.
 4. Mettre à jour `slides.json` : titre, alternative courte, description, textes visibles et message.
 5. Lancer `python3 <dossier-variante>/build.py` pour générer seulement le dossier de variante.
 6. Vérifier :
-   - `python3 -m unittest discover -s <dossier-variante>/tests` ;
-   - `npx --yes html-validate <dossier-variante>/index.html <dossier-variante>/alternatives.html <dossier-variante>/accessibilite.html index.html` ;
-   - `npx --yes vnu-jar --errors-only <dossier-variante>/index.html <dossier-variante>/alternatives.html <dossier-variante>/accessibilite.html index.html`.
+   - `scripts/validate_variant.sh <dossier-variante>`.
 7. Inspecter localement au navigateur :
    - `<dossier-variante>/#slide-01` ;
    - `<dossier-variante>/?projection=1#slide-01` ;
    - `<dossier-variante>/alternatives.html`.
 8. Vérifier que la navigation par swipe horizontal est conservée dans le diaporama, dans les pages générées et dans les tests de contrat.
 9. Publier explicitement avec `python3 matrice-slide-ai/publish_variant.py --slug <dossier-variante>`.
-10. Mettre à jour le README racine si le nouveau jeu doit être documenté comme support public, puis pousser sur GitHub Pages.
+10. Mettre à jour le README racine si le nouveau jeu doit être documenté comme support public, puis pousser sur GitHub Pages avec `scripts/push-pages.sh`.
 
 ## Création avec la matrice
 
@@ -41,7 +39,19 @@ python3 matrice-slide-ai/create_variant.py \
   --slides-dir chemin/assets/slides
 ```
 
-Cette commande crée un dossier autonome et ne publie jamais. Elle ne modifie ni `index.html` racine ni `published-versions.json`.
+Cette commande crée un dossier autonome et ne publie jamais. Elle ne change ni `index.html` racine ni `published-versions.json`.
+
+Si le lot source utilise des noms préfixés, par exemple `checklist-span-slide-01.png`, ajouter :
+
+```bash
+--slide-prefix checklist-span-
+```
+
+La matrice copie alors les images en `assets/slides/slide-*.png`.
+
+Optimiser les images avant le build. Si des PNG sont optimisés ou remplacés après génération, relancer `python3 <dossier-variante>/build.py` pour reconstruire le ZIP.
+
+Dans un environnement sandboxé, les validateurs `npx` peuvent demander un accès réseau, et le serveur local peut demander une autorisation d’ouverture de port. Ces frictions sont attendues : utiliser les scripts projet pour obtenir une commande unique et une erreur explicite.
 
 ## Publication séparée
 
@@ -49,6 +59,7 @@ Publier seulement après génération et vérifications :
 
 ```bash
 python3 matrice-slide-ai/publish_variant.py --slug <dossier-variante>
+scripts/validate_variant.sh <dossier-variante>
 ```
 
 `publish_variant.py` est la seule commande autorisée à modifier `published-versions.json` et `index.html` racine. Elle refuse un jeu dont les pages générées, le ZIP ou les tests sont absents ou en échec.

@@ -41,7 +41,13 @@ class SiteContractsTest(unittest.TestCase):
         cls.alternatives_md = cls.build.render_markdown(cls.slides)
 
     def test_slides_json_matches_images(self):
-        self.assertEqual(7, len(self.slides))
+        slide_paths = sorted((ROOT / "assets" / "slides").glob("slide-*.png"))
+        if slide_paths:
+            self.assertEqual(
+                len(slide_paths),
+                len(self.slides),
+                msg="slides.json doit contenir une entrée par image slide-*.png.",
+            )
         requires_local_images = (ROOT / "slides.json").is_file()
         for slide in self.slides:
             image_path = ROOT / slide["image"]
@@ -52,6 +58,25 @@ class SiteContractsTest(unittest.TestCase):
             self.assertTrue(slide["description"])
             self.assertTrue(slide["textes_visibles"])
             self.assertTrue(slide["message"])
+
+    def test_download_zip_matches_current_slides(self):
+        import zipfile
+
+        zip_path = ROOT / "assets" / "downloads" / f"{ROOT.name}-slides.zip"
+        if not zip_path.is_file():
+            self.skipTest("ZIP non généré.")
+        slide_paths = sorted((ROOT / "assets" / "slides").glob("slide-*.png"))
+        with zipfile.ZipFile(zip_path) as archive:
+            for slide_path in slide_paths:
+                with self.subTest(slide=slide_path.name):
+                    self.assertEqual(
+                        slide_path.read_bytes(),
+                        archive.read(slide_path.name),
+                        msg=(
+                            "Le ZIP doit être régénéré après optimisation "
+                            f"ou remplacement de {slide_path.name}."
+                        ),
+                    )
 
     def test_variant_pages_expose_transcriptions(self):
         self.assertIn("Alternatives textuelles", self.index_html)

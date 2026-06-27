@@ -26,16 +26,31 @@ python3 matrice-slide-ai/create_variant.py \
 
 La commande crée `nouveau-jeu/`, copie les images `slide-*.png`, le storyboard, `slides.json`, `build.py`, les tests et les assets nécessaires.
 
+Si les images source portent un préfixe, le normaliser à la création :
+
+```bash
+python3 matrice-slide-ai/create_variant.py \
+  --slug checklist-span-operationnel \
+  --title "Checklist SPAN opérationnel" \
+  --storyboard chemin/storyboard.md \
+  --slides-dir chemin/assets/slides \
+  --slide-prefix checklist-span-
+```
+
+Dans ce cas, `checklist-span-slide-01.png` est copié comme `slide-01.png`.
+
 ## Génération
 
 Après avoir vérifié ou complété `slides.json` :
 
 ```bash
 python3 nouveau-jeu/build.py
-python3 -m unittest discover -s nouveau-jeu/tests
+scripts/validate_variant.sh nouveau-jeu
 ```
 
 Le build produit `index.html`, `alternatives.html`, `accessibilite.html`, `alternatives.md`, `README.md` et le ZIP dans `assets/downloads/`.
+
+Les tests de contrat déduisent le nombre de slides depuis `assets/slides/slide-*.png`. Ils vérifient aussi que le ZIP contient les images courantes, ce qui détecte les ZIP périmés après optimisation des PNG.
 
 ## Publication
 
@@ -43,6 +58,7 @@ Publier seulement après génération et vérifications :
 
 ```bash
 python3 matrice-slide-ai/publish_variant.py --slug nouveau-jeu
+scripts/validate_variant.sh nouveau-jeu
 ```
 
 La publication refuse un jeu non vérifiable. Si le jeu est valide, elle met à jour le catalogue racine `published-versions.json` puis régénère uniquement `index.html` à la racine.
