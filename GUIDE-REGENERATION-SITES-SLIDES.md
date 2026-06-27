@@ -6,6 +6,16 @@ Ce document est le mode opératoire réutilisable pour publier un nouveau site s
 
 Il doit être utilisé pour les prochaines variantes thématiques ou versions nommées du dépôt, sans modifier les variantes déjà publiées `miweb-objectifs-2030-v1` à `miweb-objectifs-2030-v4`.
 
+## Positionnement
+
+Ce guide est volontairement plus détaillé que le README racine et que `DEMARCHE-VERSIONS.md`.
+
+- `README.md` donne l’entrée courte et les commandes principales.
+- `DEMARCHE-VERSIONS.md` donne la procédure opérationnelle.
+- Ce guide détaille les entrées, les fichiers attendus, les vérifications, l’inspection locale, la prévisualisation et le push.
+- `matrice-slide-ai/README.md` décrit la matrice qui crée les dossiers autonomes.
+- `docs/prd/`, `docs/prompts/`, `docs/goals/` conservent les cadrages et objectifs historiques sans encombrer la racine.
+
 ## Déclencheur
 
 Utiliser ce guide quand il faut publier un nouveau site GitHub Pages à partir :
@@ -44,6 +54,25 @@ La variante doit être listée sur l’accueil racine seulement après générat
 - Ne jamais livrer uniquement les images : `alternatives.html` et `alternatives.md` sont obligatoires.
 - Ne jamais hand-edit `index.html`, `alternatives.html`, `alternatives.md`, `accessibilite.html` ou le ZIP après génération ; modifier la source puis relancer `build.py`.
 - Ne pas ajouter de framework, de route, de page ou de composant décoratif hors besoin de publication.
+
+## Parcours court
+
+Pour un cas standard, le parcours attendu est :
+
+```bash
+python3 matrice-slide-ai/create_variant.py \
+  --slug <dossier> \
+  --title "Titre public" \
+  --storyboard /chemin/vers/storyboard.md \
+  --slides-dir /chemin/vers/images
+python3 <dossier>/build.py
+scripts/validate_variant.sh <dossier>
+python3 matrice-slide-ai/publish_variant.py --slug <dossier>
+scripts/validate_variant.sh <dossier>
+scripts/push-pages.sh
+```
+
+Si les images source sont préfixées, ajouter `--slide-prefix <prefixe>` à la commande de création.
 
 ## Entrées attendues
 
@@ -165,9 +194,18 @@ Après génération, tests et validation HTML :
 
 ```bash
 python3 matrice-slide-ai/publish_variant.py --slug <dossier>
+scripts/validate_variant.sh <dossier>
 ```
 
-La commande vérifie le jeu, met à jour `published-versions.json`, puis régénère uniquement `index.html` racine.
+La commande vérifie le jeu, met à jour `published-versions.json`, puis régénère uniquement `index.html` racine. Le second passage de `validate_variant.sh` vérifie le jeu après changement du catalogue racine.
+
+Après publication racine, contrôler que le diff correspond au périmètre attendu :
+
+```bash
+git status --short
+git diff --stat
+git diff -- README.md DEMARCHE-VERSIONS.md GUIDE-REGENERATION-SITES-SLIDES.md index.html published-versions.json <dossier>
+```
 
 ## Vérifications obligatoires
 
@@ -315,17 +353,17 @@ Le tunnel affiche une URL publique de type :
 https://<nom-temporaire>.loca.lt
 ```
 
-Tester systématiquement les deux pages avant de communiquer l’URL :
+Tester systématiquement les pages utiles avant de communiquer l’URL :
 
 ```bash
-curl -L --max-time 30 -s -o /tmp/preview-condensee.html -w '%{http_code} %{size_download}\n' \
-  https://<nom-temporaire>.loca.lt/miweb-offre-mutualisee-listes-diffusion-2026-condensee/
+curl -L --max-time 30 -s -o /tmp/preview-index.html -w '%{http_code} %{size_download}\n' \
+  https://<nom-temporaire>.loca.lt/<dossier>/
 
-curl -L --max-time 30 -s -o /tmp/preview-longue.html -w '%{http_code} %{size_download}\n' \
-  https://<nom-temporaire>.loca.lt/miweb-offre-mutualisee-listes-diffusion-2026-longue/
+curl -L --max-time 30 -s -o /tmp/preview-alternatives.html -w '%{http_code} %{size_download}\n' \
+  https://<nom-temporaire>.loca.lt/<dossier>/alternatives.html
 ```
 
-Les deux commandes doivent répondre `200` avec une taille non nulle. Vérifier aussi que le serveur Python local reçoit les requêtes.
+Les commandes doivent répondre `200` avec une taille non nulle. Vérifier aussi que le serveur Python local reçoit les requêtes.
 
 Exemple historique de tunnel temporaire utilisé pour la prévisualisation du 24 juin 2026 :
 
@@ -378,6 +416,8 @@ Pour éviter un push silencieux bloqué par une invite Git, pousser avec :
 scripts/push-pages.sh
 ```
 
+Ne pas considérer le push comme preuve suffisante. Après GitHub Pages, ouvrir ou vérifier les URL publiques du jeu et de ses alternatives.
+
 ## Checklist finale
 
 - [ ] Le dossier de variante est autonome.
@@ -392,5 +432,7 @@ scripts/push-pages.sh
 - [ ] `publish_variant.py` a été lancé après les vérifications.
 - [ ] `published-versions.json` contient la nouvelle variante.
 - [ ] L’accueil racine liste la nouvelle variante.
+- [ ] Le README racine liste le jeu si c’est un support public durable.
 - [ ] V1, V2, V3 et V4 n’ont pas été modifiées.
 - [ ] Les Markdown modifiés passent `check-accents.sh`.
+- [ ] Les URL GitHub Pages du jeu et des alternatives ont été vérifiées après push.

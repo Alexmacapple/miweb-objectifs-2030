@@ -4,6 +4,13 @@
 
 Elle n’est pas une variante publiée. Elle sert à copier le modèle de génération, les tests de contrat, le favicon et les exemples de sources dans un nouveau dossier de jeu.
 
+## Positionnement documentaire
+
+- `README.md` explique le rôle de la matrice et ses invariants.
+- `MODE-OPERATOIRE.md` donne la procédure complète de création, génération, vérification et publication.
+- Les documents racine gardent l’autorité en cas de tension : `AGENTS.md`, puis `README.md`, `DEMARCHE-VERSIONS.md` et `GUIDE-REGENERATION-SITES-SLIDES.md`.
+- Les PRD, prompts et goals dans `docs/` sont du contexte historique, pas la procédure active.
+
 ## Règles
 
 - `create_variant.py` crée un dossier autonome, mais ne publie jamais.
@@ -65,8 +72,11 @@ La publication refuse un jeu non vérifiable. Si le jeu est valide, elle met à 
 
 Dans `build.py`, `ROOT_CATALOG_BOOTSTRAP` sert seulement de graine de compatibilité si `published-versions.json` n’existe pas encore. Cette constante ne doit pas être modifiée pour publier un jeu.
 
+Avant push, inspecter le diff des documents racine, du catalogue, de l’accueil et du dossier de jeu concerné.
+
 ## Fichiers de référence
 
+- `MODE-OPERATOIRE.md` : procédure détaillée de publication avec la matrice.
 - `slides.example.json` : schéma complet de `slides.json`.
 - `source/storyboard.example.md` : exemple de storyboard.
 - `published-versions.example.json` : exemple de catalogue racine.

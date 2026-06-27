@@ -18,7 +18,7 @@ Conserver la suite comme historique de cadrage V1, pas comme consigne opération
 Contexte : cwd `/Users/alex/miweb-objectifs-2030`, branche `main` à vérifier.
 Périmètre : modifier uniquement `/Users/alex/miweb-objectifs-2030` | Interdit : modifier `/Users/alex/Claude`, copier la contact sheet ou des essais, créer un backend, utiliser Git HTTPS.
 
-Objectif : implémenter, tester, committer et pousser le site statique GitHub Pages v1 conforme à `/Users/alex/miweb-objectifs-2030/prompt-site-dsfr-github-pages.md`, y compris le mode plein écran accessible du diaporama.
+Objectif : implémenter, tester, committer et pousser le site statique GitHub Pages v1 conforme à `/Users/alex/Claude/miweb-objectifs-2030/docs/prompts/prompt-site-dsfr-github-pages.md`, y compris le mode plein écran accessible du diaporama.
 
 Étapes :
 1. Pré-vol : exécuter `git -C /Users/alex/miweb-objectifs-2030 rev-parse --show-toplevel`, `git -C /Users/alex/miweb-objectifs-2030 status --short`, `git -C /Users/alex/miweb-objectifs-2030 remote -v`, `ssh-add -l`, `python3 --version`; vérifier prompt, storyboard et 10 PNG `slide-01.png` à `slide-10.png` dans `/Users/alex/Claude/projets-actifs/ay11-snum-schema/projet-note-accessibilite-2030/outputs/ia-slides/2026-06-19-objectifs-2030-miweb-accessibilite-relu-sm/`.

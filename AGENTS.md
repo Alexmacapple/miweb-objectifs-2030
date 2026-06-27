@@ -26,7 +26,7 @@ Concrètement :
 - pas de fonctionnalité ajoutée sans usage réel ;
 - pas de nouveau framework ;
 - pas de composant décoratif ;
-- pas de page supplémentaire si le contenu tient dans le README, `slides.json` ou `DEMARCHE-VERSIONS.md` ;
+- pas de page supplémentaire si le contenu tient dans le README, `slides.json`, `DEMARCHE-VERSIONS.md` ou `GUIDE-REGENERATION-SITES-SLIDES.md` ;
 - pas de duplication de texte long entre versions hors alternatives nécessaires.
 
 ## Structure à préserver
@@ -45,9 +45,23 @@ Concrètement :
 - `matrice-slide-ai/` : matrice canonique pour créer et publier séparément les futurs jeux.
 - `published-versions.json` : catalogue racine, créé au premier publish ou mis à jour par `publish_variant.py`.
 - `DEMARCHE-VERSIONS.md` : procédure de publication des variantes suivantes.
+- `GUIDE-REGENERATION-SITES-SLIDES.md` : mode opératoire complet pour créer, vérifier, prévisualiser et publier un jeu.
+- `docs/prd/` : cadrages fonctionnels historiques.
+- `docs/prompts/` : prompts de génération et de correction conservés pour référence.
+- `docs/goals/` : objectifs de chantier historiques.
 - `scripts/validate_variant.sh` : vérification standard d’un jeu.
 - `scripts/serve-local.sh` : serveur local standard.
 - `scripts/push-pages.sh` : push non interactif vers GitHub Pages.
+
+## Hiérarchie documentaire
+
+Pour un agent ou un LLM qui reprend le dépôt :
+
+- `AGENTS.md` fixe les règles de conduite et les interdits.
+- `README.md` donne l’entrée courte et le chemin standard.
+- `DEMARCHE-VERSIONS.md` détaille la procédure opérationnelle.
+- `GUIDE-REGENERATION-SITES-SLIDES.md` sert de mode opératoire complet quand il faut inspecter, prévisualiser ou prouver.
+- `docs/prd/`, `docs/prompts/` et `docs/goals/` sont des archives de cadrage ; ne pas les traiter comme procédure active si un document racine plus récent dit autre chose.
 
 ## Règles de variante
 
@@ -101,6 +115,7 @@ Avant push :
 
 - vérifier `git status --short` ;
 - ne pas ajouter `.DS_Store`, caches, `test-results/` ou artefacts locaux ignorés ;
+- vérifier le diff des fichiers racine, du catalogue et du dossier de jeu concerné ;
 - vérifier que `published-versions.json` et `index.html` racine ne changent qu’après `publish_variant.py` ;
 - vérifier que l’accueil racine pointe bien vers la dernière version publiée ;
 - vérifier que le ZIP de la dernière version existe dans `assets/downloads/`.

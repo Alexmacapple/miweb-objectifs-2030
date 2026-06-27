@@ -1,5 +1,7 @@
 # Mode opératoire - créer et publier un jeu de slides
 
+Ce document détaille la procédure propre à `matrice-slide-ai/`. En cas de tension avec les documents racine, suivre d’abord `AGENTS.md`, puis le README racine, `DEMARCHE-VERSIONS.md` et `GUIDE-REGENERATION-SITES-SLIDES.md`.
+
 ## Préparer
 
 Réunir :
@@ -103,7 +105,7 @@ Cette commande est la seule étape qui change `published-versions.json` et `inde
 ```bash
 git status --short
 git diff --stat
-git diff -- index.html published-versions.json nouveau-jeu/slides.json nouveau-jeu/build.py
+git diff -- README.md DEMARCHE-VERSIONS.md GUIDE-REGENERATION-SITES-SLIDES.md index.html published-versions.json nouveau-jeu
 ```
 
 Ne pas ajouter les caches, `.DS_Store`, captures temporaires ou sorties locales non liées au jeu publié.

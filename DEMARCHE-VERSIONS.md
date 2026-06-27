@@ -1,14 +1,44 @@
 # Démarche de publication des variantes
 
-Cette procédure sert à publier une nouvelle variante `miweb-objectifs-2030-vN` ou une variante thématique nommée, en conservant le fonctionnement des versions déjà publiées. Par défaut, seules les images de slides, les alternatives textuelles et les sources de la variante changent.
+Cette procédure est le chemin court pour publier une nouvelle variante `miweb-objectifs-2030-vN` ou une variante thématique nommée. Elle complète le README racine et renvoie au guide long quand il faut détailler les contrôles, l’inspection locale ou la publication GitHub Pages.
+
+Par défaut, seules les images de slides, les alternatives textuelles et les sources de la variante changent. La génération du dossier de jeu et la publication sur l’accueil racine restent deux actions séparées.
 
 Les variantes déjà publiées `miweb-objectifs-2030-v1` à `miweb-objectifs-2030-v4` sont des références stables : ne pas les modifier pour publier une nouvelle variante.
+
+## Positionnement documentaire
+
+- `README.md` : entrée courte et commandes principales.
+- `DEMARCHE-VERSIONS.md` : procédure opérationnelle de publication.
+- `GUIDE-REGENERATION-SITES-SLIDES.md` : mode opératoire complet pour les cas longs, l’inspection locale et les preuves.
+- `matrice-slide-ai/README.md` : fonctionnement de la matrice.
+- `docs/prd/`, `docs/prompts/`, `docs/goals/` : cadrages et objectifs historiques, conservés hors racine.
 
 ## Sources
 
 - Images validées : dossier `outputs/ia-slides/...` du projet actif.
-- Site publié : `/Users/alex/Claude/projets-heberges/miweb-objectifs-2030`.
+- Dépôt de publication : `/Users/alex/Claude/miweb-objectifs-2030`.
+- Site public : <https://alexmacapple.github.io/miweb-objectifs-2030/>.
 - Source éditoriale : note validée utilisée pour produire le storyboard de la variante.
+
+## Chemin heureux
+
+```bash
+python3 matrice-slide-ai/create_variant.py \
+  --slug <dossier-variante> \
+  --title "Titre public" \
+  --storyboard chemin/storyboard.md \
+  --slides-dir chemin/assets/slides
+python3 <dossier-variante>/build.py
+scripts/validate_variant.sh <dossier-variante>
+python3 matrice-slide-ai/publish_variant.py --slug <dossier-variante>
+scripts/validate_variant.sh <dossier-variante>
+git status --short
+git diff -- README.md DEMARCHE-VERSIONS.md GUIDE-REGENERATION-SITES-SLIDES.md index.html published-versions.json <dossier-variante>
+scripts/push-pages.sh
+```
+
+Si les images source sont préfixées, ajouter `--slide-prefix <prefixe>` à la commande de création. Si le jeu devient un support public durable, mettre à jour le README racine avant le diff et le push.
 
 ## Étapes
 
@@ -25,7 +55,9 @@ Les variantes déjà publiées `miweb-objectifs-2030-v1` à `miweb-objectifs-203
    - `<dossier-variante>/alternatives.html`.
 8. Vérifier que la navigation par swipe horizontal est conservée dans le diaporama, dans les pages générées et dans les tests de contrat.
 9. Publier explicitement avec `python3 matrice-slide-ai/publish_variant.py --slug <dossier-variante>`.
-10. Mettre à jour le README racine si le nouveau jeu doit être documenté comme support public, puis pousser sur GitHub Pages avec `scripts/push-pages.sh`.
+10. Vérifier que `published-versions.json` et `index.html` racine ont changé uniquement après cette publication.
+11. Mettre à jour le README racine si le nouveau jeu doit être documenté comme support public.
+12. Pousser sur GitHub Pages avec `scripts/push-pages.sh`.
 
 ## Création avec la matrice
 
@@ -63,6 +95,13 @@ scripts/validate_variant.sh <dossier-variante>
 ```
 
 `publish_variant.py` est la seule commande autorisée à modifier `published-versions.json` et `index.html` racine. Elle refuse un jeu dont les pages générées, le ZIP ou les tests sont absents ou en échec.
+
+Après publication racine, inspecter le diff avant tout push :
+
+```bash
+git status --short
+git diff -- README.md DEMARCHE-VERSIONS.md GUIDE-REGENERATION-SITES-SLIDES.md index.html published-versions.json <dossier-variante>
+```
 
 ## Variantes thématiques nommées
 
@@ -109,3 +148,4 @@ Validation réalisée avant publication des jeux 5 et 6 : test iPhone hors rése
 - Ne pas inventer de chiffre, de seuil ou d’engagement absent de la note source.
 - Ne pas présenter la variante comme auditée RGAA sans audit dédié.
 - Garder l’accueil racine cohérent avec la dernière version publiée.
+- Ne pas pousser avant d’avoir vérifié le diff et l’URL publique attendue après publication.

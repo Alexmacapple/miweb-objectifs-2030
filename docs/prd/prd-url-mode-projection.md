@@ -43,7 +43,7 @@ Si le navigateur refuse le plein écran ou si la Fullscreen API est indisponible
 
 ## Contexte
 
-Le PRD `prd-mode-projection-plein-ecran.md` cadre déjà le comportement du mode projection une fois le plein écran activé. La nouvelle demande porte sur l’entrée dans ce mode depuis une URL.
+Le PRD `docs/prd/prd-mode-projection-plein-ecran.md` cadre déjà le comportement du mode projection une fois le plein écran activé. La nouvelle demande porte sur l’entrée dans ce mode depuis une URL.
 
 Le site dispose déjà d’une navigation par hash `#slide-01` à `#slide-10`. Cette base est saine : elle rend les slides partageables, fonctionne sans JavaScript et reste compatible avec le sommaire.
 
@@ -191,7 +191,7 @@ const projectionRequested = ["1", "true"].includes(params.get("projection"));
 
 Le déclenchement automatique de `requestFullscreen()` au chargement est interdit. La fonction `toggleFullscreen()` existante reste appelée uniquement depuis une action utilisateur.
 
-La fonction de mise à jour d’URL doit préserver `window.location.search` quand elle modifie le hash. Un appel de type `window.history[method](null, "", hash)` peut être insuffisant si une future évolution reconstruit l’URL ; le contrat à préserver est `pathname + search + hash`.
+La fonction de mise à jour d’URL doit préserver `window.location.search` quand le hash est modifié. Un appel de type `window.history[method](null, "", hash)` peut être insuffisant si une future évolution reconstruit l’URL ; le contrat à préserver est `pathname + search + hash`.
 
 Le test navigateur doit vérifier que `document.fullscreenElement` est `null` après chargement de `?projection=1#slide-05`, avant activation utilisateur.
 

@@ -65,7 +65,7 @@ Si `{autorisation_usage_marianne}` vaut `oui`, effectue la modification techniqu
 
    Le projet semble générer ses fichiers HTML via `build.py`.
 
-   Ne modifie pas seulement les fichiers HTML générés si la source de génération doit aussi être mise à jour.
+   Ne te limite pas aux fichiers HTML générés si la source de génération doit aussi être mise à jour.
 
    Mets à jour la source canonique de la favicon dans `build.py` afin que les prochaines générations conservent la bonne favicon.
 
