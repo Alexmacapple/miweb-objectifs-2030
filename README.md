@@ -21,13 +21,16 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 
 - Jeu 5 - Offre mutualisée de listes de diffusion, version condensée : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-condensee/>
 - Jeu 6 - Offre mutualisée de listes de diffusion, version longue : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/>
+- SPAN / PAN - accessibilité numérique : <https://alexmacapple.github.io/miweb-objectifs-2030/span-pan/>
+- Mise en gouvernance du SPAN : <https://alexmacapple.github.io/miweb-objectifs-2030/mise-en-gouvernance-du-span/>
+- Checklist SPAN opérationnel : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/>
 
 ## Accès directs dernière version publiée
 
-- Présentation plein écran : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/?projection=1#slide-01>
-- Toutes les slides : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/?slides=all#diaporama>
-- Alternatives textuelles : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/alternatives.html>
-- Page accessibilité : <https://alexmacapple.github.io/miweb-objectifs-2030/miweb-offre-mutualisee-listes-diffusion-2026-longue/accessibilite.html>
+- Présentation plein écran : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/?projection=1#slide-01>
+- Toutes les slides : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/?slides=all#diaporama>
+- Alternatives textuelles : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/alternatives.html>
+- Page accessibilité : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/accessibilite.html>
 
 ## Organisation
 
@@ -38,6 +41,9 @@ Le principe Saint-Exupéry s’applique ici : ne garder que ce qui sert la lectu
 - `miweb-objectifs-2030-v4/` : diaporama V4, alternatives, page accessibilité et sources.
 - `miweb-offre-mutualisee-listes-diffusion-2026-condensee/` : support thématique condensé, alternatives, page accessibilité et sources.
 - `miweb-offre-mutualisee-listes-diffusion-2026-longue/` : support thématique long, alternatives, page accessibilité et sources.
+- `span-pan/` : support thématique SPAN / PAN, alternatives, page accessibilité et sources.
+- `mise-en-gouvernance-du-span/` : support thématique sur la gouvernance du SPAN, alternatives, page accessibilité et sources.
+- `checklist-span-operationnel/` : support thématique checklist SPAN opérationnel, alternatives, page accessibilité et sources.
 - `matrice-slide-ai/` : matrice de création des futurs jeux autonomes.
 - `skills/progressive-disclosure-slides/` : skill agnostique pour générer des slides PDS indépendamment d'un moteur image.
 - `miweb-objectifs-2030-v1/source/storyboard-slides-accessibilite-2030.md` : storyboard source V1.
@@ -82,7 +88,7 @@ Optimiser les images avant le build. Si les images changent après génération,
 
 ## État courant
 
-- Dernière version publiée : `miweb-offre-mutualisee-listes-diffusion-2026-longue/`.
+- Dernière version publiée : `checklist-span-operationnel/`.
 - Matrice active : `matrice-slide-ai/`.
 - Publication racine : `publish_variant.py` écrit `published-versions.json` puis `index.html`.
 - `build.py` d’un jeu ne doit générer que le dossier du jeu.
@@ -90,7 +96,7 @@ Optimiser les images avant le build. Si les images changent après génération,
 ## Régénérer la dernière version publiée
 
 ```bash
-python3 miweb-offre-mutualisee-listes-diffusion-2026-longue/build.py
+python3 checklist-span-operationnel/build.py
 ```
 
 ## Tester localement
@@ -102,7 +108,7 @@ scripts/serve-local.sh 8000
 URL locale de la dernière variante publiée :
 
 ```text
-http://127.0.0.1:8000/miweb-offre-mutualisee-listes-diffusion-2026-longue/
+http://127.0.0.1:8000/checklist-span-operationnel/
 ```
 
 ## Navigation tactile commune
