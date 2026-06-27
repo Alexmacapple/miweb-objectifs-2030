@@ -34,7 +34,10 @@ Concrètement :
 - `index.html` : accueil des versions publiées.
 - `miweb-objectifs-2030-vN/` : une version autonome du diaporama Objectifs 2030.
 - `miweb-offre-mutualisee-listes-diffusion-2026-condensee/` : support thématique condensé.
-- `miweb-offre-mutualisee-listes-diffusion-2026-longue/` : support thématique long et dernière version publiée.
+- `miweb-offre-mutualisee-listes-diffusion-2026-longue/` : support thématique long.
+- `span-pan/` : support thématique SPAN / PAN.
+- `mise-en-gouvernance-du-span/` : support thématique sur la gouvernance du SPAN.
+- `checklist-span-operationnel/` : support thématique checklist SPAN opérationnel et dernière version publiée.
 - `<dossier-jeu>/assets/slides/` : les images publiées de la variante.
 - `<dossier-jeu>/source/` : storyboard et sources utiles de la variante.
 - `<dossier-jeu>/slides.json` : source canonique des titres, alternatives, descriptions et messages.
@@ -42,13 +45,18 @@ Concrètement :
 - `matrice-slide-ai/` : matrice canonique pour créer et publier séparément les futurs jeux.
 - `published-versions.json` : catalogue racine, créé au premier publish ou mis à jour par `publish_variant.py`.
 - `DEMARCHE-VERSIONS.md` : procédure de publication des variantes suivantes.
+- `scripts/validate_variant.sh` : vérification standard d’un jeu.
+- `scripts/serve-local.sh` : serveur local standard.
+- `scripts/push-pages.sh` : push non interactif vers GitHub Pages.
 
 ## Règles de variante
 
 - Créer une nouvelle variante ou un nouveau support dans un nouveau dossier autonome avec `matrice-slide-ai/create_variant.py`.
+- Si les images source sont préfixées, utiliser `--slide-prefix <prefixe>` au lieu de les renommer manuellement.
 - Ne pas modifier les images ou alternatives d’une version déjà publiée pour fabriquer la suivante.
 - Copier le storyboard source dans `source/`.
 - Mettre à jour `slides.json` avant de générer les pages.
+- Optimiser les images avant `build.py`. Si les images changent ensuite, relancer `build.py` pour reconstruire le ZIP.
 - Lancer `python3 <dossier-jeu>/build.py` pour générer seulement le jeu.
 - Publier sur l’accueil racine uniquement avec `python3 matrice-slide-ai/publish_variant.py --slug <dossier-jeu>`.
 - Ne pas modifier `PUBLISHED_VERSIONS`, `LATEST_VERSION_SLUG` ou `ROOT_CATALOG_BOOTSTRAP` dans un `build.py` de variante pour publier l’accueil.
@@ -61,10 +69,10 @@ Concrètement :
 Pour le jeu modifié :
 
 ```bash
-python3 -m unittest discover -s <dossier-jeu>/tests
-npx --yes html-validate <dossier-jeu>/index.html <dossier-jeu>/alternatives.html <dossier-jeu>/accessibilite.html index.html
-npx --yes vnu-jar --errors-only <dossier-jeu>/index.html <dossier-jeu>/alternatives.html <dossier-jeu>/accessibilite.html index.html
+scripts/validate_variant.sh <dossier-jeu>
 ```
+
+Dans un environnement sandboxé, les validateurs `npx` peuvent demander un accès réseau. Le script reste la commande canonique ; relancer avec autorisation réseau si nécessaire.
 
 Pour une modification commune :
 
@@ -76,12 +84,15 @@ python3 -m unittest discover -s miweb-objectifs-2030-v3/tests
 python3 -m unittest discover -s miweb-objectifs-2030-v4/tests
 python3 -m unittest discover -s miweb-offre-mutualisee-listes-diffusion-2026-condensee/tests
 python3 -m unittest discover -s miweb-offre-mutualisee-listes-diffusion-2026-longue/tests
+python3 -m unittest discover -s span-pan/tests
+python3 -m unittest discover -s mise-en-gouvernance-du-span/tests
+python3 -m unittest discover -s checklist-span-operationnel/tests
 ```
 
 Tester aussi en local :
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1
+scripts/serve-local.sh 8000
 ```
 
 ## Publication
@@ -93,5 +104,6 @@ Avant push :
 - vérifier que `published-versions.json` et `index.html` racine ne changent qu’après `publish_variant.py` ;
 - vérifier que l’accueil racine pointe bien vers la dernière version publiée ;
 - vérifier que le ZIP de la dernière version existe dans `assets/downloads/`.
+- pousser avec `scripts/push-pages.sh` pour éviter un blocage silencieux sur une invite Git.
 
 GitHub Pages publie depuis la branche du dépôt. Après push, vérifier l’URL publique de la version concernée.

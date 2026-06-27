@@ -85,10 +85,13 @@ Pour une variante thématique :
 - V4 : variante de 8 slides centrée sur la chaîne de preuve de l’accès réel, avec cadrage, contrôles croisés, run, mutualisation, arbitrages et indicateurs consolidables.
 - Jeu 5 : support thématique « Offre mutualisée de listes de diffusion », version condensée.
 - Jeu 6 : support thématique « Offre mutualisée de listes de diffusion », version longue.
+- Jeu 7 : support thématique « SPAN / PAN - accessibilité numérique ».
+- Jeu 8 : support thématique « Mise en gouvernance du SPAN ».
+- Jeu 9 : support thématique « Checklist SPAN opérationnel », dernière version publiée.
 
 ## Comportement tactile commun
 
-Les variantes 1 à 4 et les jeux 5 et 6 partagent une navigation par swipe horizontal dans le diaporama. Toute future variante ou tout futur jeu de slides doit conserver ce comportement dans son `build.py`, ses pages générées et ses tests de contrat :
+Les variantes 1 à 4 et les jeux 5 à 9 partagent une navigation par swipe horizontal dans le diaporama. Toute future variante ou tout futur jeu de slides doit conserver ce comportement dans son `build.py`, ses pages générées et ses tests de contrat :
 
 - swipe vers la gauche : slide suivante ;
 - swipe vers la droite : slide précédente ;
