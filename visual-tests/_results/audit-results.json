@@ -1,0 +1,473 @@
+{
+  "repo": "miweb-objectifs-2030",
+  "timestamp": "2026-06-29T13:45:00Z",
+  "mode": "quick",
+  "prompt_hash": "codex-shipguard-quick-report-only-20260629",
+  "rounds": 1,
+  "agents": 5,
+  "scope_info": {
+    "mode": "all",
+    "base_ref": null,
+    "base_sha": null,
+    "diff_files": 0,
+    "importer_files": 0,
+    "total_in_scope": 125
+  },
+  "summary": {
+    "total_bugs": 19,
+    "by_severity": {
+      "critical": 0,
+      "high": 4,
+      "medium": 11,
+      "low": 4
+    },
+    "by_category": {
+      "security": 4,
+      "race-condition": 0,
+      "silent-exception": 0,
+      "api-guard": 0,
+      "resource-leak": 0,
+      "type-mismatch": 1,
+      "dead-code": 0,
+      "infra": 1,
+      "ssr-hydration": 0,
+      "input-validation": 0,
+      "error-handling": 0,
+      "performance": 0,
+      "accessibility": 0,
+      "logic-error": 9,
+      "other": 4
+    },
+    "files_audited": 125,
+    "files_modified": 0,
+    "duration_ms": 0,
+    "risk_score": 63,
+    "lifecycle": {
+      "new": 19,
+      "persistent": 0,
+      "fixed": 0,
+      "not_rechecked": 0,
+      "compared_to": null
+    }
+  },
+  "impacted_ui_routes": [
+    {
+      "route": "/",
+      "reason": "Générateurs de variantes et publication racine peuvent réécrire un accueil obsolète.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v1/",
+      "reason": "État URL du mode toutes slides et génération racine locale.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v2/",
+      "reason": "État URL du mode toutes slides et génération racine locale.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v3/",
+      "reason": "État URL du mode toutes slides et génération racine locale.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v4/",
+      "reason": "État URL du mode toutes slides et génération racine locale.",
+      "severity": "high"
+    },
+    {
+      "route": "/span-pan/assets/downloads/span-pan-slides.zip",
+      "reason": "Archive ZIP publiée non fidèle aux images courantes.",
+      "severity": "medium"
+    },
+    {
+      "route": "/mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip",
+      "reason": "Archive ZIP publiée non fidèle aux images courantes.",
+      "severity": "medium"
+    },
+    {
+      "route": "/review.html",
+      "reason": "Interface ShipGuard : routes impactées, état zéro bug et serveur local.",
+      "severity": "medium"
+    }
+  ],
+  "impacted_routes": [
+    {
+      "route": "/",
+      "reason": "Générateurs de variantes et publication racine peuvent réécrire un accueil obsolète.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v1/",
+      "reason": "État URL du mode toutes slides et génération racine locale.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v2/",
+      "reason": "État URL du mode toutes slides et génération racine locale.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v3/",
+      "reason": "État URL du mode toutes slides et génération racine locale.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v4/",
+      "reason": "État URL du mode toutes slides et génération racine locale.",
+      "severity": "high"
+    },
+    {
+      "route": "/span-pan/assets/downloads/span-pan-slides.zip",
+      "reason": "Archive ZIP publiée non fidèle aux images courantes.",
+      "severity": "medium"
+    },
+    {
+      "route": "/mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip",
+      "reason": "Archive ZIP publiée non fidèle aux images courantes.",
+      "severity": "medium"
+    },
+    {
+      "route": "/review.html",
+      "reason": "Interface ShipGuard : routes impactées, état zéro bug et serveur local.",
+      "severity": "medium"
+    }
+  ],
+  "impacted_backend": [
+    {
+      "endpoint": "outillage_validation_publication",
+      "reason": "Validation de publication via npx non verrouillé.",
+      "severity": "medium"
+    },
+    {
+      "endpoint": "matrice-slide-ai/build.py",
+      "reason": "Contrat slides, chemins d'images et ZIP.",
+      "severity": "medium"
+    },
+    {
+      "endpoint": "matrice-slide-ai/publish_variant.py",
+      "reason": "Publication possible de sorties générées périmées.",
+      "severity": "high"
+    },
+    {
+      "endpoint": "build-review.mjs --serve",
+      "reason": "Serveur de revue local, endpoints POST et fichiers statiques.",
+      "severity": "high"
+    },
+    {
+      "endpoint": "_shipguard_static_run.py agent-browser runner",
+      "reason": "Contrôles visuels et robustesse des erreurs.",
+      "severity": "medium"
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "confirmed": 0,
+    "uncertain": 0,
+    "rejected": 0,
+    "skipped": 4
+  },
+  "bugs": [
+    {
+      "id": "SG-Z1-001",
+      "severity": "medium",
+      "category": "security",
+      "subcategory": "supply-chain-unpinned-npx",
+      "file": "scripts/validate_variant.sh",
+      "line": 16,
+      "title": "Validation de publication exécutée via paquets npm non verrouillés",
+      "description": "La commande canonique de validation exécute html-validate et vnu-jar avec npx --yes, sans package.json ni lockfile dans le dépôt. Chaque validation peut télécharger et exécuter la dernière version publiée sur npm.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z2-001",
+      "severity": "high",
+      "category": "logic-error",
+      "subcategory": "stale-generated-output",
+      "file": "matrice-slide-ai/publish_variant.py",
+      "line": 98,
+      "title": "publish_variant peut publier une variante dont les pages générées sont périmées",
+      "description": "verify_variant vérifie seulement la présence des pages puis lance des tests qui rendent les pages en mémoire depuis build.py et slides.json. Si slides.json ou build.py change après le dernier build, la publication racine peut pointer vers des fichiers HTML déjà périmés.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z2-002",
+      "severity": "medium",
+      "category": "security",
+      "subcategory": "path-traversal",
+      "file": "matrice-slide-ai/build.py",
+      "line": 1115,
+      "title": "slides.json peut référencer des fichiers hors assets/slides",
+      "description": "Le champ image est joint directement à ROOT sans normalisation ni vérification de confinement. Un chemin relatif sortant peut être accepté si le fichier existe, puis utilisé dans le HTML et copié dans le ZIP.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z2-003",
+      "severity": "medium",
+      "category": "type-mismatch",
+      "subcategory": "json-contract",
+      "file": "matrice-slide-ai/build.py",
+      "line": 677,
+      "title": "Le contrat slides.json ne valide pas les types des champs",
+      "description": "load_slides vérifie surtout la présence des clés. textes_visibles peut être une chaîne non vide, ce qui fait itérer le rendu caractère par caractère et peut générer des alternatives corrompues.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z2-004",
+      "severity": "low",
+      "category": "infra",
+      "subcategory": "zip-idempotence",
+      "file": "matrice-slide-ai/build.py",
+      "line": 1105,
+      "title": "Le ZIP généré n'est pas déterministe entre deux builds sans changement de contenu",
+      "description": "zipfile.ZipFile.write reprend les métadonnées de fichiers. Comme alternatives.md est réécrit avant d'être ajouté au ZIP, deux builds sans changement fonctionnel peuvent produire un binaire différent.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "medium",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z3-001",
+      "severity": "high",
+      "category": "logic-error",
+      "subcategory": "generation-accueil-racine",
+      "file": "miweb-objectifs-2030-v1/build.py",
+      "line": 1011,
+      "title": "Les générateurs Objectifs 2030 réécrivent l'accueil racine avec un catalogue local obsolète",
+      "description": "Les build.py de v1 à v4 écrivent ../index.html depuis un render_root local au lieu de laisser publish_variant.py gérer la publication. Relancer un build v1-v4 peut supprimer de l'accueil des supports publiés ensuite.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.98,
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z3-002",
+      "severity": "low",
+      "category": "logic-error",
+      "subcategory": "etat-url-all-slides",
+      "file": "miweb-objectifs-2030-v1/build.py",
+      "line": 402,
+      "title": "La sortie du mode toutes slides conserve le paramètre slides=all",
+      "description": "setUrl reconstruit l'URL avec window.location.search. Après ouverture de ?slides=all#diaporama, revenir au mode diaporama conserve ?slides=all dans l'URL et un rechargement rouvre toutes les slides.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.82,
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z4-001",
+      "severity": "high",
+      "category": "logic-error",
+      "subcategory": "root-catalog-overwrite",
+      "file": "miweb-offre-mutualisee-listes-diffusion-2026-longue/build.py",
+      "line": 1069,
+      "title": "Le générateur d'une variante thématique réécrit encore l'accueil racine avec un catalogue figé",
+      "description": "Les build.py des variantes offre mutualisée condensée et longue écrivent REPO_ROOT/index.html depuis render_root. Le catalogue codé en dur ne contient que 6 entrées alors que published-versions.json en contient 9.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z4-002",
+      "severity": "medium",
+      "category": "logic-error",
+      "subcategory": "broken-root-download-link",
+      "file": "miweb-offre-mutualisee-listes-diffusion-2026-condensee/build.py",
+      "line": 767,
+      "title": "Le footer racine généré par la variante condensée pointe vers un ZIP inexistant",
+      "description": "En contexte racine, la variante condensée combine le slug de la variante longue avec le ZIP de la variante condensée, ce qui produit un lien de téléchargement inexistant.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z4-003",
+      "severity": "medium",
+      "category": "logic-error",
+      "subcategory": "stale-archive",
+      "file": "span-pan/assets/downloads/span-pan-slides.zip",
+      "line": 1,
+      "title": "Le ZIP publié pour span-pan ne correspond pas aux images courantes",
+      "description": "Les entrées slide-01.png à slide-05.png du ZIP ont des SHA-256 et tailles différents des fichiers assets/slides actuellement publiés.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z4-004",
+      "severity": "medium",
+      "category": "logic-error",
+      "subcategory": "stale-archive",
+      "file": "mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip",
+      "line": 1,
+      "title": "Le ZIP publié pour mise-en-gouvernance-du-span ne correspond pas aux images courantes",
+      "description": "Les entrées slide-01.png à slide-07.png du ZIP ont des SHA-256 et tailles différents des fichiers assets/slides actuellement publiés.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z4-005",
+      "severity": "low",
+      "category": "other",
+      "subcategory": "source-traceability",
+      "file": "checklist-span-operationnel/build.py",
+      "line": 1091,
+      "title": "Le README généré référence source/source.md pour des supports qui n'ont pas ce fichier",
+      "description": "Le modèle de README généré annonce source/source.md, mais plusieurs supports ont des sources nommées Checklist-SPAN.md, SPAN-diff-PAN.md ou matrice.md.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": "high",
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z5-001",
+      "severity": "high",
+      "category": "security",
+      "subcategory": "serveur-local",
+      "file": "visual-tests/build-review.mjs",
+      "line": 1139,
+      "title": "Le serveur de revue écoute sans bind explicite sur 127.0.0.1",
+      "description": "server.listen(PORT) omet l'hôte et peut écouter sur l'adresse non spécifiée. Avec CORS wildcard et des endpoints POST qui écrivent des fichiers, une page web ou une machine du LAN peut interagir avec le serveur si le port est exposé.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.94,
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z5-002",
+      "severity": "medium",
+      "category": "security",
+      "subcategory": "path-traversal",
+      "file": "visual-tests/build-review.mjs",
+      "line": 1131,
+      "title": "Le garde anti-traversée utilise un préfixe chaîne contournable",
+      "description": "Le contrôle filePath.startsWith(RESULTS_DIR) accepte les chemins normalisés dont le nom commence par le même préfixe, par exemple un dossier frère _results-old.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.82,
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z5-003",
+      "severity": "medium",
+      "category": "other",
+      "subcategory": "schema-shipguard",
+      "file": "visual-tests/_review-template.html",
+      "line": 2104,
+      "title": "L'onglet Routes ignore impacted_ui_routes produit par sg-code-audit",
+      "description": "Le schéma ShipGuard agrégé expose impacted_ui_routes, mais le template lit seulement data.impacted_routes. Les routes impactées ne sont donc pas affichées sans alias.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.95,
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z5-004",
+      "severity": "medium",
+      "category": "other",
+      "subcategory": "audit-zero-bug",
+      "file": "visual-tests/_review-template.html",
+      "line": 1662,
+      "title": "Un audit valide avec zéro bug est affiché comme absent",
+      "description": "loadAuditData ne rend l'audit complet que si data.bugs.length > 0. Un audit réussi avec bugs: [] bascule vers l'état vide No audit data found.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.93,
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z5-005",
+      "severity": "medium",
+      "category": "logic-error",
+      "subcategory": "faux-positif",
+      "file": "visual-tests/_shipguard_static_run.py",
+      "line": 169,
+      "title": "Le runner peut marquer PASS une page HTTP d'erreur non blanche",
+      "description": "La vérification matérialise llm-check par une capture non blanche et un préfixe d'URL, sans contrôler le statut HTTP ni un sélecteur de contenu attendu.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.86,
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z5-006",
+      "severity": "medium",
+      "category": "logic-error",
+      "subcategory": "sandbox-erreurs",
+      "file": "visual-tests/_shipguard_static_run.py",
+      "line": 265,
+      "title": "La planche-contact plante si une erreur survient avant la capture",
+      "description": "Après une erreur agent-browser, le résultat est marqué ERROR, mais write_contact_sheet ouvre quand même le fichier de capture attendu. Sur un run frais sans capture, l'audit plante et masque le rapport.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.9,
+      "verification_score": null,
+      "verified": null
+    },
+    {
+      "id": "SG-Z5-007",
+      "severity": "low",
+      "category": "other",
+      "subcategory": "rapport-markdown",
+      "file": "visual-tests/build-review.mjs",
+      "line": 158,
+      "title": "Le parser de synthèse ne comprend pas le rapport Markdown francisé",
+      "description": "parseReport cherche le format anglais Tests: n run et le titre Visual Report, alors que le runner écrit un rapport français. Les statuts de table sont récupérés, mais la synthèse est ignorée.",
+      "fix_applied": false,
+      "fix_commit": "",
+      "confidence": 0.88,
+      "verification_score": null,
+      "verified": null
+    }
+  ],
+  "unverified_bugs": [],
+  "accepted_bugs": [],
+  "fixed_since_last_run": [],
+  "skipped": [
+    "Audit report-only : aucune correction appliquée et aucun commit effectué.",
+    "Assets binaires non audités visuellement, sauf cohérence ZIP signalée par les agents.",
+    "Validateurs npx non relancés pendant l'audit code pour éviter les téléchargements réseau.",
+    "Certains constats ont été produits par inspection statique et restent à confirmer par tests dédiés avant correction."
+  ],
+  "uncovered": [
+    "Aucune correction automatique sg-visual-fix exécutée, conformément à la consigne de ne rien modifier hors artefacts de test.",
+    "Pas de vérification dynamique des ZIP par téléchargement navigateur.",
+    "Pas d'audit RGAA complet dans ce run ShipGuard.",
+    "Pas d'appel GitHub pour sg-scout en mode publication."
+  ]
+}

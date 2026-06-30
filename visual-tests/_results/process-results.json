@@ -1,0 +1,220 @@
+{
+  "repo": "miweb-objectifs-2030",
+  "timestamp": "2026-06-29T13:50:00Z",
+  "mode": "reason",
+  "base_ref": "no-application-diff",
+  "head_ref": "working-tree-report-only",
+  "summary": {
+    "units_checked": 5,
+    "behavior_changes": 0,
+    "new_errors": 0,
+    "surprises": 0,
+    "evidence_mix": {
+      "reasoned": 5,
+      "measured": 0
+    },
+    "by_verdict": {
+      "unchanged": 5,
+      "behavior-changed": 0,
+      "new-error": 0
+    }
+  },
+  "units": [
+    {
+      "id": "pc-01",
+      "kind": "pipeline-stage",
+      "ref": "scripts/validate_variant.sh",
+      "file": "scripts/validate_variant.sh",
+      "verdict": "unchanged",
+      "impacted_backend": "outillage_validation_publication",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "Validation canonique d'une variante publiée",
+          "evidence": "reasoned",
+          "confidence": "high",
+          "assumptions": [
+            "npx résout les paquets depuis le registre npm au moment du run",
+            "aucun package-lock local ne verrouille html-validate ou vnu-jar"
+          ],
+          "before": {
+            "outcome": "ok-or-network-error",
+            "output": "validation dépendante des versions npm disponibles",
+            "effects": "téléchargement ou exécution de binaires npm tiers"
+          },
+          "after": {
+            "outcome": "identical",
+            "output": "aucune correction appliquée dans ce run report-only",
+            "effects": "identiques"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le risque est opérationnel et reproductibilité/supply-chain ; aucune mesure n'a été faite pendant process-check."
+        }
+      ]
+    },
+    {
+      "id": "pc-02",
+      "kind": "pipeline-stage",
+      "ref": "matrice-slide-ai/publish_variant.py",
+      "file": "matrice-slide-ai/publish_variant.py",
+      "verdict": "unchanged",
+      "impacted_backend": "matrice-slide-ai/publish_variant.py",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "Publication d'un slug après modification de slides.json sans rebuild",
+          "evidence": "reasoned",
+          "confidence": "high",
+          "assumptions": [
+            "verify_variant rend les pages depuis les sources Python/JSON",
+            "les fichiers HTML existants peuvent être plus anciens que les sources"
+          ],
+          "before": {
+            "outcome": "ok",
+            "output": "catalogue racine mis à jour même si les HTML servis sont périmés",
+            "effects": "index.html racine et published-versions.json peuvent changer"
+          },
+          "after": {
+            "outcome": "identical",
+            "output": "aucune correction appliquée dans ce run report-only",
+            "effects": "identiques"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le comportement prédit est une publication incohérente entre sources validées et artefacts servis."
+        }
+      ]
+    },
+    {
+      "id": "pc-03",
+      "kind": "pipeline-stage",
+      "ref": "matrice-slide-ai/build.py",
+      "file": "matrice-slide-ai/build.py",
+      "verdict": "unchanged",
+      "impacted_backend": "matrice-slide-ai/build.py",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "slides.json avec image relative sortant du dossier assets/slides",
+          "evidence": "reasoned",
+          "confidence": "medium",
+          "assumptions": [
+            "le fichier cible existe sur disque",
+            "aucune validation de suffixe image ou de confinement n'intercepte la valeur"
+          ],
+          "before": {
+            "outcome": "ok",
+            "output": "HTML et ZIP peuvent référencer ou embarquer un fichier non slide",
+            "effects": "publication d'un artefact local inattendu"
+          },
+          "after": {
+            "outcome": "identical",
+            "output": "aucune correction appliquée dans ce run report-only",
+            "effects": "identiques"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le comportement reste à mesurer avec un fixture contrôlé avant correction."
+        }
+      ]
+    },
+    {
+      "id": "pc-04",
+      "kind": "service",
+      "ref": "visual-tests/build-review.mjs --serve",
+      "file": "visual-tests/build-review.mjs",
+      "verdict": "unchanged",
+      "impacted_backend": "build-review.mjs --serve",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "Serveur de revue lancé sur le port 8888",
+          "evidence": "reasoned",
+          "confidence": "high",
+          "assumptions": [
+            "Node écoute sur l'adresse non spécifiée quand aucun host n'est passé à server.listen",
+            "CORS wildcard reste actif"
+          ],
+          "before": {
+            "outcome": "ok",
+            "output": "review.html, audit-results.json et endpoints POST accessibles sur le port local",
+            "effects": "POST /save-manifest écrit fix-manifest.json"
+          },
+          "after": {
+            "outcome": "identical",
+            "output": "aucune correction appliquée dans ce run report-only",
+            "effects": "identiques"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le POST /save-manifest a été testé séparément et fonctionne avec autorisation sandbox."
+        }
+      ]
+    },
+    {
+      "id": "pc-05",
+      "kind": "test-runner",
+      "ref": "visual-tests/_shipguard_static_run.py",
+      "file": "visual-tests/_shipguard_static_run.py",
+      "verdict": "unchanged",
+      "impacted_backend": "_shipguard_static_run.py agent-browser runner",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "Route HTTP non blanche mais en erreur",
+          "evidence": "reasoned",
+          "confidence": "medium",
+          "assumptions": [
+            "agent-browser capture une page 404 ou erreur serveur avec texte visible",
+            "le runner ne vérifie pas explicitement le statut HTTP"
+          ],
+          "before": {
+            "outcome": "ok",
+            "output": "la page peut être marquée PASS si elle n'est pas blanche",
+            "effects": "faux positif visuel possible"
+          },
+          "after": {
+            "outcome": "identical",
+            "output": "aucune correction appliquée dans ce run report-only",
+            "effects": "identiques"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Aucun test 404 volontaire n'a été injecté pour éviter de polluer les manifests de recette."
+        }
+      ]
+    }
+  ],
+  "impacted_backend": [
+    "outillage_validation_publication",
+    "matrice-slide-ai/publish_variant.py",
+    "matrice-slide-ai/build.py",
+    "build-review.mjs --serve",
+    "_shipguard_static_run.py agent-browser runner"
+  ],
+  "impacted_ui_routes": [
+    {
+      "route": "/",
+      "reason": "Publication racine et catalogue de variantes",
+      "severity": "high"
+    },
+    {
+      "route": "/review.html",
+      "reason": "Interface ShipGuard et serveur de revue",
+      "severity": "medium"
+    }
+  ],
+  "skipped": [
+    {
+      "file": "working tree",
+      "reason": "Aucune correction source à comparer ; mode report-only."
+    }
+  ],
+  "uncovered": [
+    "Pas de mesure before/after réelle.",
+    "Pas de worktree baseline.",
+    "Pas de fixture path traversal exécuté.",
+    "Pas de test volontaire de route 404 dans le runner visuel."
+  ]
+}

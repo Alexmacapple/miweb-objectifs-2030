@@ -1,0 +1,18 @@
+{
+  "action": "validate-and-fix",
+  "timestamp": "2026-06-30T06:45:00Z",
+  "tests": [
+    {
+      "test": "pages/root-index",
+      "annotations": [
+        {
+          "x1": 0.1,
+          "y1": 0.1,
+          "x2": 0.2,
+          "y2": 0.2,
+          "note": "recette 2.3.5"
+        }
+      ]
+    }
+  ]
+}

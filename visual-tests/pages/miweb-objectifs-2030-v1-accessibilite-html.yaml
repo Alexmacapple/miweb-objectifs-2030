@@ -1,0 +1,15 @@
+name: "Accessibilité - Objectifs 2030 - accessibilité numérique"
+description: "Auto-generated ShipGuard static HTML route for miweb-objectifs-2030-v1/accessibilite.html"
+priority: medium
+requires_auth: false
+timeout: 30s
+tags: [auto-generated, static-html, miweb]
+
+steps:
+  - action: open
+    url: "{base_url}/miweb-objectifs-2030-v1/accessibilite.html"
+  - action: llm-check
+    description: "Page loads and renders content"
+    criteria: "Page content is visible, no blank screen, no browser error, no broken primary layout, no visibly missing slide image where one is expected."
+    severity: critical
+    screenshot: "miweb-objectifs-2030-v1-accessibilite-html.png"

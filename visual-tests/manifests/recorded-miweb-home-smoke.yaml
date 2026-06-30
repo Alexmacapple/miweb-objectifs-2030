@@ -1,0 +1,19 @@
+name: "miweb-home-smoke"
+description: "Recorded smoke manifest for ShipGuard recipe on the MiWeb home page."
+priority: medium
+requires_auth: false
+timeout: 60s
+tags: [recorded, smoke, miweb]
+source: recorded
+recorded_at: "2026-06-29T13:40:00Z"
+
+steps:
+  - action: open
+    url: "{base_url}/"
+
+  - action: assert_text
+    expected: "Objectifs 2030"
+    screenshot: "recorded-miweb-home-smoke-check-1.png"
+
+  - action: screenshot
+    path: "recorded-miweb-home-smoke-check-1.png"

@@ -1,0 +1,296 @@
+{
+  "schema_version": "1.0",
+  "timestamp": "2026-06-30T06:57:47.637Z",
+  "base_url": "http://127.0.0.1:8001",
+  "summary": {
+    "total": 28,
+    "pass": 28,
+    "fail": 0,
+    "error": 0,
+    "stale": 0,
+    "skipped": 0,
+    "duration_ms": null
+  },
+  "tests": [
+    {
+      "id": "pages/checklist-span-operationnel-accessibilite-html",
+      "manifest": "pages/checklist-span-operationnel-accessibilite-html.yaml",
+      "name": "Accessibilité - Checklist SPAN opérationnel",
+      "url": "http://127.0.0.1:8001/checklist-span-operationnel/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/checklist-span-operationnel-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/checklist-span-operationnel-alternatives-html",
+      "manifest": "pages/checklist-span-operationnel-alternatives-html.yaml",
+      "name": "Alternatives textuelles - Checklist SPAN opérationnel",
+      "url": "http://127.0.0.1:8001/checklist-span-operationnel/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/checklist-span-operationnel-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/checklist-span-operationnel",
+      "manifest": "pages/checklist-span-operationnel.yaml",
+      "name": "Checklist SPAN opérationnel",
+      "url": "http://127.0.0.1:8001/checklist-span-operationnel/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/checklist-span-operationnel.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/mise-en-gouvernance-du-span-accessibilite-html",
+      "manifest": "pages/mise-en-gouvernance-du-span-accessibilite-html.yaml",
+      "name": "Accessibilité - Mise en gouvernance du SPAN",
+      "url": "http://127.0.0.1:8001/mise-en-gouvernance-du-span/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/mise-en-gouvernance-du-span-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/mise-en-gouvernance-du-span-alternatives-html",
+      "manifest": "pages/mise-en-gouvernance-du-span-alternatives-html.yaml",
+      "name": "Alternatives textuelles - Mise en gouvernance du SPAN",
+      "url": "http://127.0.0.1:8001/mise-en-gouvernance-du-span/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/mise-en-gouvernance-du-span-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/mise-en-gouvernance-du-span",
+      "manifest": "pages/mise-en-gouvernance-du-span.yaml",
+      "name": "Mise en gouvernance du SPAN",
+      "url": "http://127.0.0.1:8001/mise-en-gouvernance-du-span/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/mise-en-gouvernance-du-span.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v1-accessibilite-html",
+      "manifest": "pages/miweb-objectifs-2030-v1-accessibilite-html.yaml",
+      "name": "Accessibilité - Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v1/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v1-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v1-alternatives-html",
+      "manifest": "pages/miweb-objectifs-2030-v1-alternatives-html.yaml",
+      "name": "Alternatives textuelles - Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v1/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v1-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v1",
+      "manifest": "pages/miweb-objectifs-2030-v1.yaml",
+      "name": "Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v1/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v1.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v2-accessibilite-html",
+      "manifest": "pages/miweb-objectifs-2030-v2-accessibilite-html.yaml",
+      "name": "Accessibilité - Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v2/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v2-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v2-alternatives-html",
+      "manifest": "pages/miweb-objectifs-2030-v2-alternatives-html.yaml",
+      "name": "Alternatives textuelles - Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v2/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v2-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v2",
+      "manifest": "pages/miweb-objectifs-2030-v2.yaml",
+      "name": "Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v2/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v2.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v3-accessibilite-html",
+      "manifest": "pages/miweb-objectifs-2030-v3-accessibilite-html.yaml",
+      "name": "Accessibilité - Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v3/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v3-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v3-alternatives-html",
+      "manifest": "pages/miweb-objectifs-2030-v3-alternatives-html.yaml",
+      "name": "Alternatives textuelles - Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v3/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v3-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v3",
+      "manifest": "pages/miweb-objectifs-2030-v3.yaml",
+      "name": "Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v3/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v3.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v4-accessibilite-html",
+      "manifest": "pages/miweb-objectifs-2030-v4-accessibilite-html.yaml",
+      "name": "Accessibilité - Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v4/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v4-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v4-alternatives-html",
+      "manifest": "pages/miweb-objectifs-2030-v4-alternatives-html.yaml",
+      "name": "Alternatives textuelles - Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v4/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v4-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-objectifs-2030-v4",
+      "manifest": "pages/miweb-objectifs-2030-v4.yaml",
+      "name": "Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/miweb-objectifs-2030-v4/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-objectifs-2030-v4.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-offre-mutualisee-listes-diffusion-2026-condensee-accessibilite-html",
+      "manifest": "pages/miweb-offre-mutualisee-listes-diffusion-2026-condensee-accessibilite-html.yaml",
+      "name": "Accessibilité - Offre mutualisée de listes de diffusion",
+      "url": "http://127.0.0.1:8001/miweb-offre-mutualisee-listes-diffusion-2026-condensee/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-offre-mutualisee-listes-diffusion-2026-condensee-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-offre-mutualisee-listes-diffusion-2026-condensee-alternatives-html",
+      "manifest": "pages/miweb-offre-mutualisee-listes-diffusion-2026-condensee-alternatives-html.yaml",
+      "name": "Alternatives textuelles - Offre mutualisée de listes de diffusion",
+      "url": "http://127.0.0.1:8001/miweb-offre-mutualisee-listes-diffusion-2026-condensee/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-offre-mutualisee-listes-diffusion-2026-condensee-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-offre-mutualisee-listes-diffusion-2026-condensee",
+      "manifest": "pages/miweb-offre-mutualisee-listes-diffusion-2026-condensee.yaml",
+      "name": "Offre mutualisée de listes de diffusion",
+      "url": "http://127.0.0.1:8001/miweb-offre-mutualisee-listes-diffusion-2026-condensee/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-offre-mutualisee-listes-diffusion-2026-condensee.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-offre-mutualisee-listes-diffusion-2026-longue-accessibilite-html",
+      "manifest": "pages/miweb-offre-mutualisee-listes-diffusion-2026-longue-accessibilite-html.yaml",
+      "name": "Accessibilité - Offre mutualisée de listes de diffusion",
+      "url": "http://127.0.0.1:8001/miweb-offre-mutualisee-listes-diffusion-2026-longue/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-offre-mutualisee-listes-diffusion-2026-longue-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-offre-mutualisee-listes-diffusion-2026-longue-alternatives-html",
+      "manifest": "pages/miweb-offre-mutualisee-listes-diffusion-2026-longue-alternatives-html.yaml",
+      "name": "Alternatives textuelles - Offre mutualisée de listes de diffusion",
+      "url": "http://127.0.0.1:8001/miweb-offre-mutualisee-listes-diffusion-2026-longue/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-offre-mutualisee-listes-diffusion-2026-longue-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/miweb-offre-mutualisee-listes-diffusion-2026-longue",
+      "manifest": "pages/miweb-offre-mutualisee-listes-diffusion-2026-longue.yaml",
+      "name": "Offre mutualisée de listes de diffusion",
+      "url": "http://127.0.0.1:8001/miweb-offre-mutualisee-listes-diffusion-2026-longue/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/miweb-offre-mutualisee-listes-diffusion-2026-longue.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/root-index",
+      "manifest": "pages/root-index.yaml",
+      "name": "Objectifs 2030 - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/root-index.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/span-pan-accessibilite-html",
+      "manifest": "pages/span-pan-accessibilite-html.yaml",
+      "name": "Accessibilité - SPAN / PAN - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/span-pan/accessibilite.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/span-pan-accessibilite-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/span-pan-alternatives-html",
+      "manifest": "pages/span-pan-alternatives-html.yaml",
+      "name": "Alternatives textuelles - SPAN / PAN - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/span-pan/alternatives.html",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/span-pan-alternatives-html.png",
+      "failure_reason": null
+    },
+    {
+      "id": "pages/span-pan",
+      "manifest": "pages/span-pan.yaml",
+      "name": "SPAN / PAN - accessibilité numérique",
+      "url": "http://127.0.0.1:8001/span-pan/",
+      "status": "PASS",
+      "duration_ms": null,
+      "screenshot": "screenshots/span-pan.png",
+      "failure_reason": null
+    }
+  ]
+}

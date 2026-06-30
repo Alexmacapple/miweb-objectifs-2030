@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-06-30T06:55:00Z",
+  "mode": "recette-2.3.5",
+  "zones": [
+    {
+      "zone_id": "z1",
+      "paths": [
+        "visual-tests"
+      ],
+      "file_count": 1
+    }
+  ],
+  "agents": {
+    "r1:z1": {
+      "zone_id": "z1",
+      "status": "pending",
+      "paths": [
+        "visual-tests"
+      ],
+      "file_count": 1
+    },
+    "z1": {
+      "agent_id": "z1",
+      "status": "completed",
+      "bugs_found": 0,
+      "tokens": 10
+    }
+  },
+  "status": "completed",
+  "started_at": "2026-06-30T06:55:00Z",
+  "completed_at": "2026-06-30T06:56:00Z"
+}

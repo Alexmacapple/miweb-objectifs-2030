@@ -1,0 +1,128 @@
+{
+  "schema_version": "shipguard.client-validation-trace.v1",
+  "status": "prepared",
+  "generated_at": "2026-06-30T06:57:47.642Z",
+  "reference": "SHIPGUARD-MIWEB-2026-06-29",
+  "report": {
+    "id": "shipguard-recette-miweb",
+    "title": "Recette ShipGuard sur MiWeb Objectifs 2030",
+    "summary": "Rapport de validation du workflow ShipGuard sur un site statique MiWeb : audit code, tests visuels, interface de revue et manifests enregistrés.",
+    "route": "/",
+    "review_target": "http://localhost:8888/persona-reports/shipguard-recette-miweb/client.html"
+  },
+  "client": {
+    "name": "Équipe MiWeb",
+    "contact": "validation-locale@example.invalid"
+  },
+  "validation": {
+    "reference": "SHIPGUARD-MIWEB-2026-06-29",
+    "reviewUrl": "http://localhost:8888/persona-reports/shipguard-recette-miweb/client.html",
+    "replyTo": "validation-locale@example.invalid",
+    "deadline": "2026-06-30",
+    "senderName": "",
+    "senderCompany": ""
+  },
+  "changes": [
+    {
+      "id": "visual-suite",
+      "title": "Suite visuelle complète générée et exécutée",
+      "summary": "",
+      "problem": "Le dépôt n'avait pas encore d'artefacts ShipGuard explicites pour distinguer le test visuel du contrôle accessibilité.",
+      "proposed_decision": "Créer une suite locale ShipGuard avec 28 routes, captures, rapport et planche-contact.",
+      "expected_impact": "Le site peut être revu dans une interface unique avec preuves visuelles et statuts PASS.",
+      "choices": [],
+      "residual_risk": "Le runner local reste un adaptateur de recette et doit être durci avant réutilisation durable.",
+      "tests": [
+        "pages/root-index",
+        "pages/*"
+      ],
+      "files": [
+        "visual-tests/_shipguard_static_run.py",
+        "visual-tests/_results/report.md"
+      ],
+      "tags": []
+    },
+    {
+      "id": "code-audit",
+      "title": "Audit code report-only affiché dans Mission Control",
+      "summary": "",
+      "problem": "L'onglet Code Audit était vide tant que audit-results.json n'existait pas.",
+      "proposed_decision": "Agréger 5 zones d'audit quick report-only au format ShipGuard.",
+      "expected_impact": "L'interface affiche 19 constats, 4 high, 11 medium, 4 low, et 8 routes impactées.",
+      "choices": [],
+      "residual_risk": "Les constats sont non corrigés et certains restent à confirmer par tests ciblés.",
+      "tests": [
+        "sg-code-audit quick --report-only"
+      ],
+      "files": [
+        "visual-tests/_results/audit-results.json",
+        "visual-tests/_results/audit-results.toon"
+      ],
+      "tags": []
+    },
+    {
+      "id": "home-page",
+      "title": "Accueil MiWeb disponible comme route de référence",
+      "summary": "",
+      "problem": "Le workflow avait besoin d'une route simple pour vérifier le serveur local et les manifests enregistrés.",
+      "proposed_decision": "Utiliser l'accueil racine comme route smoke test.",
+      "expected_impact": "Le manifest enregistré peut rejouer une ouverture et une assertion textuelle sur Objectifs 2030.",
+      "choices": [],
+      "residual_risk": "Le recorder interactif complet n'a pas été lancé jusqu'au clic Stop humain.",
+      "tests": [
+        "recorded-miweb-home-smoke"
+      ],
+      "files": [
+        "visual-tests/manifests/recorded-miweb-home-smoke.yaml"
+      ],
+      "tags": []
+    }
+  ],
+  "artifacts": [
+    {
+      "type": "audience_index",
+      "path": "index.html"
+    },
+    {
+      "type": "audience_html",
+      "audience": "client",
+      "path": "client.html"
+    },
+    {
+      "type": "audience_html",
+      "audience": "product",
+      "path": "product.html"
+    },
+    {
+      "type": "audience_html",
+      "audience": "design",
+      "path": "design.html"
+    },
+    {
+      "type": "audience_html",
+      "audience": "engineering",
+      "path": "engineering.html"
+    },
+    {
+      "type": "email_to_send",
+      "path": "client-invite-email.md"
+    },
+    {
+      "type": "client_reply_email",
+      "path": "client-response-email.md"
+    },
+    {
+      "type": "proposal_trace_markdown",
+      "path": "proposal-trace.md"
+    },
+    {
+      "type": "proposal_trace_json",
+      "path": "proposal-trace.json"
+    }
+  ],
+  "return_channel": {
+    "mode": "manual_email_or_json_export",
+    "client_reply_template": "client-response-email.md",
+    "browser_json_export": "shipguard-recette-miweb-client-review.json"
+  }
+}
