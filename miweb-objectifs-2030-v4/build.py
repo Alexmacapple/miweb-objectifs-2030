@@ -610,7 +610,7 @@ def content_security_policy(extra_script: str = "") -> str:
 
 
 def slide_id(slide: dict) -> str:
-    return f"slide-{int(slide['numero']):02d}"
+    return f"slide-{slide['numero']:02d}"
 
 
 def resolve_slide_image_path(image: str, require_exists: bool = True) -> Path:
@@ -640,20 +640,64 @@ def resolve_slide_image_path(image: str, require_exists: bool = True) -> Path:
     return candidate
 
 
+def require_non_empty_string(slide_number: object, field_name: str, value: object) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(
+            f"slides.json slide {slide_number} : champ {field_name} doit être une chaîne non vide."
+        )
+    return value
+
+
+def require_visible_texts(slide_number: object, value: object) -> list[str]:
+    if not isinstance(value, list) or not value:
+        raise ValueError(
+            f"slides.json slide {slide_number} : champ textes_visibles doit être une liste non vide."
+        )
+    for index, item in enumerate(value, start=1):
+        if not isinstance(item, str) or not item.strip():
+            raise ValueError(
+                "slides.json slide "
+                f"{slide_number} : textes_visibles[{index}] doit être une chaîne non vide."
+            )
+    return value
+
+
+def validate_slide_contract(slide: object, expected_numero: int) -> dict:
+    if not isinstance(slide, dict):
+        raise ValueError(f"slides.json slide {expected_numero} doit être un objet.")
+    required = {"numero", "titre", "image", "alt", "description", "textes_visibles", "message"}
+    missing = required - set(slide)
+    if missing:
+        raise ValueError(
+            f"slides.json slide {slide.get('numero', '?')} : champs manquants {sorted(missing)}."
+        )
+    if type(slide["numero"]) is not int:
+        raise ValueError(
+            f"slides.json slide {slide.get('numero', '?')} : champ numero doit être un entier."
+        )
+    if slide["numero"] != expected_numero:
+        raise ValueError(
+            "slides.json slide "
+            f"{slide['numero']} : champ numero inattendu, attendu {expected_numero}."
+        )
+    for field_name in ("titre", "image", "alt", "description", "message"):
+        require_non_empty_string(slide["numero"], field_name, slide[field_name])
+    require_visible_texts(slide["numero"], slide["textes_visibles"])
+    return slide
+
+
+def validate_slides_root(slides: object) -> list[dict]:
+    if not isinstance(slides, list) or not slides:
+        raise ValueError("slides.json doit contenir une liste non vide de slides.")
+    return slides
+
+
 def load_slides() -> list[dict]:
     slides = json.loads(SLIDES_PATH.read_text(encoding="utf-8"))
-    if not slides:
-        raise ValueError("slides.json doit contenir au moins une slide.")
-    required = {"numero", "titre", "image", "alt", "description", "textes_visibles", "message"}
+    slides = validate_slides_root(slides)
     for expected_numero, slide in enumerate(slides, start=1):
-        missing = required - set(slide)
-        if missing:
-            raise ValueError(f"Slide {slide.get('numero', '?')} incomplète : {sorted(missing)}")
+        slide = validate_slide_contract(slide, expected_numero)
         resolve_slide_image_path(slide["image"])
-        if int(slide["numero"]) != expected_numero:
-            raise ValueError(
-                f"Numéro de slide inattendu : {slide['numero']} au lieu de {expected_numero}."
-            )
     return slides
 
 
@@ -870,7 +914,7 @@ def render_summary(slides: list[dict]) -> str:
 
 
 def render_slide(slide: dict, total: int) -> str:
-    number = int(slide["numero"])
+    number = slide["numero"]
     sid = slide_id(slide)
     caption = f"Slide {number} sur {total}"
     alternative_label = f"Lire l’alternative textuelle de la slide {number} - {slide['titre']}"

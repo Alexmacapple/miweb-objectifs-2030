@@ -60,6 +60,31 @@ class MatrixWorkflowTest(unittest.TestCase):
         self.assertEqual(0, result.returncode, result.stderr)
         return temp_repo / "jeu-test"
 
+    def write_first_slide_override(self, target, override):
+        slides_path = target / "slides.json"
+        slides = json.loads(slides_path.read_text(encoding="utf-8"))
+        slides[0].update(override)
+        slides_path.write_text(
+            json.dumps(slides, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
+    def run_variant_build(self, target):
+        return run(
+            [sys.executable, str(target / "build.py")],
+            cwd=target,
+            stdout=PIPE,
+            stderr=PIPE,
+            text=True,
+        )
+
+    def run_build_with_first_slide_override(self, override):
+        repo = Path(__file__).resolve().parents[2]
+        with TemporaryDirectory() as tmp_dir:
+            target = self.create_temp_variant(repo, tmp_dir)
+            self.write_first_slide_override(target, override)
+            return self.run_variant_build(target)
+
     def test_validate_variant_uses_locked_local_npm_validators(self):
         repo = Path(__file__).resolve().parents[2]
         script = (repo / "scripts" / "validate_variant.sh").read_text(
@@ -137,6 +162,86 @@ class MatrixWorkflowTest(unittest.TestCase):
                 target / "assets" / "downloads" / "jeu-test-slides.zip"
             ) as archive:
                 self.assertIn("slide-01.png", archive.namelist())
+
+    def test_variant_build_rejects_invalid_slides_root_type(self):
+        repo = Path(__file__).resolve().parents[2]
+        with TemporaryDirectory() as tmp_dir:
+            target = self.create_temp_variant(repo, tmp_dir)
+            (target / "slides.json").write_text(
+                json.dumps({"numero": 1}, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            result = self.run_variant_build(target)
+
+            self.assertNotEqual(0, result.returncode)
+            self.assertIn("slides.json", result.stderr)
+            self.assertIn("liste", result.stderr)
+
+    def test_variant_build_rejects_invalid_slide_field_types(self):
+        invalid_cases = [
+            (None, "objet"),
+            ({"numero": "1"}, "numero"),
+            ({"numero": True}, "numero"),
+            ({"numero": 2}, "numero"),
+            ({"titre": ["Titre"]}, "titre"),
+            ({"titre": " "}, "titre"),
+            ({"image": 42}, "image"),
+            ({"image": " "}, "image"),
+            ({"alt": None}, "alt"),
+            ({"alt": " "}, "alt"),
+            ({"description": 42}, "description"),
+            ({"description": " "}, "description"),
+            ({"textes_visibles": "texte au lieu de liste"}, "textes_visibles"),
+            ({"textes_visibles": []}, "textes_visibles"),
+            ({"textes_visibles": [""]}, "textes_visibles"),
+            ({"message": {}}, "message"),
+            ({"message": " "}, "message"),
+        ]
+
+        for override, field_name in invalid_cases:
+            value = override if not isinstance(override, dict) else override[field_name]
+            with self.subTest(field=field_name, value=value):
+                if isinstance(override, dict):
+                    result = self.run_build_with_first_slide_override(override)
+                else:
+                    repo = Path(__file__).resolve().parents[2]
+                    with TemporaryDirectory() as tmp_dir:
+                        target = self.create_temp_variant(repo, tmp_dir)
+                        slides_path = target / "slides.json"
+                        slides = json.loads(slides_path.read_text(encoding="utf-8"))
+                        slides[0] = override
+                        slides_path.write_text(
+                            json.dumps(slides, ensure_ascii=False, indent=2) + "\n",
+                            encoding="utf-8",
+                        )
+                        result = self.run_variant_build(target)
+                self.assertNotEqual(0, result.returncode)
+                self.assertIn("slides.json", result.stderr)
+                self.assertIn(field_name, result.stderr)
+
+    def test_variant_build_accepts_valid_slide_field_types(self):
+        repo = Path(__file__).resolve().parents[2]
+        with TemporaryDirectory() as tmp_dir:
+            target = self.create_temp_variant(repo, tmp_dir)
+            self.write_first_slide_override(
+                target,
+                {
+                    "numero": 1,
+                    "titre": "Titre valide",
+                    "image": "assets/slides/slide-01.png",
+                    "alt": "Alternative valide.",
+                    "description": "Description valide.",
+                    "textes_visibles": ["Texte visible valide"],
+                    "message": "Message valide.",
+                },
+            )
+
+            result = self.run_variant_build(target)
+
+            self.assertEqual(0, result.returncode, result.stderr)
+            index_html = (target / "index.html").read_text(encoding="utf-8")
+            self.assertIn('src="assets/slides/slide-01.png"', index_html)
 
     def assert_generated_files_are_autonomous(self, target):
         forbidden_references = [

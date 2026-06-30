@@ -213,5 +213,6 @@ Le changement doit préserver l'autonomie des variantes : pas d'import commun ve
 
 | Date | Auteur | Changement |
 |------|--------|------------|
+| 2026-06-30 | Alex + Codex | Implémentation locale du PRD |
 | 2026-06-30 | Alex + Codex | Précision du contrat d'erreur pour `numero` hors ordre |
 | 2026-06-30 | Alex + Codex | Création du PRD |

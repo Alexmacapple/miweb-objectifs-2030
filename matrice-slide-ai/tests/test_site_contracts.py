@@ -50,6 +50,16 @@ class SiteContractsTest(unittest.TestCase):
             )
         requires_local_images = (ROOT / "slides.json").is_file()
         for slide in self.slides:
+            self.assertIsInstance(slide["numero"], int)
+            for field_name in ("titre", "image", "alt", "description", "message"):
+                with self.subTest(field=field_name, slide=slide["numero"]):
+                    self.assertIsInstance(slide[field_name], str)
+                    self.assertTrue(slide[field_name].strip())
+            self.assertIsInstance(slide["textes_visibles"], list)
+            self.assertTrue(slide["textes_visibles"])
+            for text in slide["textes_visibles"]:
+                self.assertIsInstance(text, str)
+                self.assertTrue(text.strip())
             image_path = ROOT / slide["image"]
             if requires_local_images:
                 self.assertTrue(image_path.is_file(), image_path)
