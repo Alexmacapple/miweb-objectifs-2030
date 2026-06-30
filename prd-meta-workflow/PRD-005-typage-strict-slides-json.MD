@@ -104,7 +104,8 @@ Risques :
 Ajouter un garde de contrat typé dans `load_slides()` :
 
 - `slides` doit être une liste non vide de dictionnaires ;
-- `numero` doit être un entier strict et correspondre à l'ordre attendu ;
+- `numero` doit être un entier strict et correspondre à l'ordre attendu ; en
+  Python, `bool` doit être refusé même si `bool` hérite de `int` ;
 - `titre`, `image`, `alt`, `description` et `message` doivent être des chaînes
   non vides ;
 - `textes_visibles` doit être une liste non vide de chaînes non vides ;
@@ -167,7 +168,10 @@ Le changement doit préserver l'autonomie des variantes : pas d'import commun ve
    - racine `slides.json` non liste ;
    - slide non objet ;
    - `numero` non entier ;
+   - `numero` booléen ;
    - `titre`, `image`, `alt`, `description`, `message` non chaînes ;
+   - `titre`, `image`, `alt`, `description`, `message` chaînes vides ou
+     seulement composées d'espaces ;
    - `textes_visibles` non liste ;
    - `textes_visibles` liste vide ou contenant une chaîne vide.
 3. Ajouter un test positif avec tous les champs au bon type.
@@ -189,6 +193,8 @@ Le changement doit préserver l'autonomie des variantes : pas d'import commun ve
 ## Métriques de succès
 
 - Les tests couvrent les mauvais types listés dans le plan d'implémentation.
+- Les tests couvrent aussi `numero: true` et les chaînes vides ou composées
+  d'espaces pour les champs textuels.
 - Chaque build invalide échoue avec une erreur contenant `slides.json` et le
   champ fautif.
 - Le cas positif avec types valides réussit et produit un HTML contenant

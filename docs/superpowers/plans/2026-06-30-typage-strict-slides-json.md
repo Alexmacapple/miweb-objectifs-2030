@@ -21,8 +21,8 @@
 ## Règles à figer
 
 - `slides` doit être une liste non vide de dictionnaires.
-- `numero` doit être un entier strict, pas une chaîne convertible.
-- `titre`, `image`, `alt`, `description` et `message` doivent être des chaînes non vides.
+- `numero` doit être un entier strict, pas une chaîne convertible, et pas un booléen.
+- `titre`, `image`, `alt`, `description` et `message` doivent être des chaînes non vides, après suppression des espaces de bord.
 - `textes_visibles` doit être une liste non vide de chaînes non vides.
 - Les erreurs doivent être des `ValueError` contenant `slides.json` et le nom du champ fautif.
 - Le garde de chemin image existant sous `assets/slides/` reste séparé et réutilisé.
@@ -87,13 +87,20 @@ Add this test in `MatrixWorkflowTest`:
         invalid_cases = [
             (None, "objet"),
             ({"numero": "1"}, "numero"),
+            ({"numero": True}, "numero"),
             ({"titre": ["Titre"]}, "titre"),
+            ({"titre": " "}, "titre"),
             ({"image": 42}, "image"),
+            ({"image": " "}, "image"),
             ({"alt": None}, "alt"),
+            ({"alt": " "}, "alt"),
             ({"description": 42}, "description"),
+            ({"description": " "}, "description"),
             ({"textes_visibles": "texte au lieu de liste"}, "textes_visibles"),
+            ({"textes_visibles": []}, "textes_visibles"),
             ({"textes_visibles": [""]}, "textes_visibles"),
             ({"message": {}}, "message"),
+            ({"message": " "}, "message"),
         ]
 
         for override, field_name in invalid_cases:
@@ -202,8 +209,10 @@ def validate_slide_contract(slide: object, expected_numero: int) -> dict:
     required = {"numero", "titre", "image", "alt", "description", "textes_visibles", "message"}
     missing = required - set(slide)
     if missing:
-        raise ValueError(f"Slide {slide.get('numero', '?')} incomplète : {sorted(missing)}")
-    if not isinstance(slide["numero"], int):
+        raise ValueError(
+            f"slides.json slide {slide.get('numero', '?')} : champs manquants {sorted(missing)}."
+        )
+    if type(slide["numero"]) is not int:
         raise ValueError(
             f"slides.json slide {slide.get('numero', '?')} : champ numero doit être un entier."
         )
