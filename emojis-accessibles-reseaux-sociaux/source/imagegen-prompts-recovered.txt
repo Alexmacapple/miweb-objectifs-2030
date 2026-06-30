@@ -1,0 +1,141 @@
+===== slide-01 ig_0c59fcc6f4b2b974016a44449efac481918f5d71af38ad7be7 =====
+Timestamp : 2026-06-30T22:36:04.215Z
+Saved path : /Users/alex/.codex/generated_images/019f1aa6-3652-7e31-bae6-5a88c97320be/ig_0c59fcc6f4b2b974016a44449efac481918f5d71af38ad7be7.png
+Status : generating
+Source JSONL : /Users/alex/.codex/sessions/2026/07/01/rollout-2026-07-01T00-28-48-019f1aa6-3652-7e31-bae6-5a88c97320be.jsonl
+
+Cas d’usage : productivity-visual, slide de formation institutionnelle française.
+Type d’actif : image finale de slide 16:9 paysage, environ 1600x900.
+Demande : créer une slide image-based sobre et lisible pour une formation à l’accessibilité numérique sur les émojis accessibles. Style illustration plate institutionnelle, fond blanc ou gris très clair, bleu institutionnel #001070 dominant, gris froid, rouge #E44850 uniquement pour alerte ou erreur. Icônes filaires, personnages plats sobres, aucune photographie, aucun dégradé, aucune 3D.
+
+Composition : titre large en haut gauche, sous-titre court juste dessous. Grande scène centrale en trois zones reliées par flèches : à gauche une personne chargée de communication prépare une publication visuelle ; au centre le même contenu devient un message clair ; à droite une personne écoute au lecteur d’écran et voit le contenu repris sur un canal accessible générique. Callout court en bas dans un fin encadré.
+
+Masque commun : aucune numérotation visible, aucun repère de progression, pas de `1/6`, pas de `2/6`, pas de pastille d’étape, pas de numéro de slide. Pas de footer.
+
+Texte exact à afficher, sans ajout :
+Titre : `Communiquer sans exclure`
+Sous-titre : `Le message reste prioritaire sur l’effet visuel.`
+Labels : `Publication`, `Message clair`, `Lecteur d’écran`, `Canal accessible`
+Callout bas : `L’apparence ne doit jamais porter seule l’information.`
+
+Storyboard : publication décorative -> message clair -> accès par canal accessible. Le même message doit atteindre plusieurs publics quand il reste textuel et clair.
+
+Contraintes critiques : conserver le texte français exact avec accents ; ne pas ajouter de texte parasite ; aucun logo de réseau social, aucun emblème officiel, aucune marque ; ne pas suggérer que les émojis sont interdits ; rouge seulement pour le pictogramme d’alerte du callout si nécessaire ; garder les textes grands et lisibles.
+
+===== slide-02 ig_0b5a322d8f9386df016a444528bd188191ace24f238dda75de =====
+Timestamp : 2026-06-30T22:38:32.057Z
+Saved path : /Users/alex/.codex/generated_images/019f1aa6-3652-7e31-bae6-5a88c97320be/ig_0b5a322d8f9386df016a444528bd188191ace24f238dda75de.png
+Status : generating
+Source JSONL : /Users/alex/.codex/sessions/2026/07/01/rollout-2026-07-01T00-28-48-019f1aa6-3652-7e31-bae6-5a88c97320be.jsonl
+
+Cas d’usage : productivity-visual, slide de formation institutionnelle française.
+Type d’actif : image finale de slide 16:9 paysage, environ 1600x900.
+Demande : créer une slide image-based sobre et lisible pour une formation à l’accessibilité numérique sur les émojis accessibles. Style illustration plate institutionnelle, fond blanc ou gris très clair, bleu institutionnel #001070 dominant, gris froid, rouge #E44850 uniquement pour alerte ou erreur. Icônes filaires, personnages plats sobres, aucune photographie, aucun dégradé, aucune 3D.
+
+Composition : titre large en haut gauche, sous-titre court juste dessous. Grande scène centrale en trois étapes reliées par flèches : à gauche une carte de publication générique avec un petit pictogramme décoratif et le label `Émoji`, plus une zone de lignes grises sous le label `Texte utile` ; au centre un lecteur d’écran stylisé représenté seulement par un écran et une icône audio, sans label supplémentaire ; à droite une bulle audio allongée avec le label `Vocalisation` au-dessus et le label `Mots parasites` sous une accolade. Dans la bulle audio, utiliser uniquement des traits gris, points et pastilles sans mots lisibles, pour montrer que l’écoute s’allonge. Callout court en bas dans un fin encadré.
+
+Masque commun : aucune numérotation visible, aucun repère de progression, pas de `1/6`, pas de `2/6`, pas de pastille d’étape, pas de numéro de slide. Pas de footer.
+
+Texte exact à afficher, sans ajout :
+Titre : `Un émoji est aussi vocalisé`
+Sous-titre : `La synthèse vocale lit son équivalent textuel.`
+Labels : `Émoji`, `Texte utile`, `Vocalisation`, `Mots parasites`
+Callout bas : `Ce qui amuse à l’écran peut encombrer l’écoute.`
+
+Contraintes critiques : afficher uniquement les textes listés ci-dessus, aucun autre mot ; ne pas écrire de mots dans la bulle audio ; conserver les accents ; aucun code ; aucun logo de réseau social ; garder les textes grands et lisibles.
+
+===== slide-03 ig_0eccc3d65a214941016a44458bfc8c8191b1223f7a8a6f0669 =====
+Timestamp : 2026-06-30T22:39:58.104Z
+Saved path : /Users/alex/.codex/generated_images/019f1aa6-3652-7e31-bae6-5a88c97320be/ig_0eccc3d65a214941016a44458bfc8c8191b1223f7a8a6f0669.png
+Status : generating
+Source JSONL : /Users/alex/.codex/sessions/2026/07/01/rollout-2026-07-01T00-28-48-019f1aa6-3652-7e31-bae6-5a88c97320be.jsonl
+
+Cas d’usage : productivity-visual, slide de formation institutionnelle française.
+Type d’actif : image finale de slide 16:9 paysage, environ 1600x900.
+Demande : créer une slide image-based sobre et lisible pour une formation à l’accessibilité numérique sur les émojis accessibles. Style illustration plate institutionnelle, fond blanc ou gris très clair, bleu institutionnel #001070 dominant, gris froid, rouge #E44850 uniquement pour alerte ou erreur. Icônes filaires, personnages plats sobres, aucune photographie, aucun dégradé, aucune 3D.
+
+Composition : titre large en haut gauche, sous-titre court juste dessous. Scène centrale en comparaison gauche-droite : à gauche une carte de publication générique entourée de plusieurs petits signes d’alerte rouges, avec une zone visuellement bruyante ; à droite une carte de publication plus calme avec un seul symbole d’avertissement discret et du texte gris simulé. Une flèche bleue va de la version bruyante vers la version lisible. Callout court en bas dans un fin encadré.
+
+Masque commun : aucune numérotation visible, aucun repère de progression, pas de `1/6`, pas de `2/6`, pas de `3/6`, pas de pastille d’étape, pas de numéro de slide. Pas de footer.
+
+Texte exact à afficher, sans ajout :
+Titre : `Un seul émoji suffit`
+Sous-titre : `La répétition allonge la vocalisation.`
+Labels : `À éviter`, `Répétition`, `À privilégier`, `Signal unique`
+Callout bas : `L’attention vient du message, pas de l’empilement.`
+
+Storyboard : bruit visuel -> signal unique -> message lisible. L’image doit montrer que la version simple garde le sens.
+
+Contraintes critiques : afficher uniquement les textes listés ci-dessus, aucun autre mot lisible ; conserver les accents ; rouge seulement pour l’alerte et la version à éviter ; aucun logo de réseau social ; aucun bouton d’urgence réel ; garder les textes grands et lisibles.
+
+===== slide-04 ig_0912805288f8d543016a4445d0a1408191aee3ed733ef0e01f =====
+Timestamp : 2026-06-30T22:41:24.343Z
+Saved path : /Users/alex/.codex/generated_images/019f1aa6-3652-7e31-bae6-5a88c97320be/ig_0912805288f8d543016a4445d0a1408191aee3ed733ef0e01f.png
+Status : generating
+Source JSONL : /Users/alex/.codex/sessions/2026/07/01/rollout-2026-07-01T00-28-48-019f1aa6-3652-7e31-bae6-5a88c97320be.jsonl
+
+Cas d’usage : productivity-visual, slide de formation institutionnelle française.
+Type d’actif : image finale de slide 16:9 paysage, environ 1600x900.
+Demande : créer une slide image-based sobre et lisible pour une formation à l’accessibilité numérique sur les émojis accessibles. Style illustration plate institutionnelle, fond blanc ou gris très clair, bleu institutionnel #001070 dominant, gris froid, rouge #E44850 uniquement pour alerte ou erreur. Icônes filaires, personnages plats sobres, aucune photographie, aucun dégradé, aucune 3D.
+
+Composition : titre large en haut gauche, sous-titre court juste dessous. Scène centrale en transformation : à gauche une carte statistique ambiguë avec deux symboles décoratifs représentant chacun le chiffre 4, marquée comme erreur ; au centre une flèche de correction et un petit lecteur d’écran stylisé qui montre l’ambiguïté ; à droite une carte propre avec `44 %` écrit grand et lisible comme texte réel. Callout court en bas dans un fin encadré.
+
+Masque commun : aucune numérotation visible, aucun repère de progression, pas de `1/6`, pas de `2/6`, pas de `3/6`, pas de `4/6`, pas de pastille d’étape, pas de numéro de slide. Pas de footer.
+
+Texte exact à afficher, sans ajout :
+Titre : `Garder les mots et chiffres en texte`
+Sous-titre : `Un émoji ne remplace pas une information.`
+Labels : `Ambigu`, `44 %`, `Texte réel`, `Compréhensible`
+Callout bas : `Les chiffres et les mots essentiels doivent rester écrits.`
+
+Storyboard : symbole ambigu -> contresens -> texte fiable. L’image doit montrer que remplacer un chiffre par un pictogramme casse la donnée.
+
+Contraintes critiques : afficher `44 %` exactement une seule fois dans la version correcte ; ne pas inventer d’autre nombre ou statistique ; afficher uniquement les textes listés ci-dessus, aucun autre mot lisible ; conserver les accents ; rouge seulement sur l’erreur ; aucun logo de réseau social ; garder les textes grands et lisibles.
+
+===== slide-05 ig_0730a8651602457b016a44462f8fb0819189439b43bd3d14f2 =====
+Timestamp : 2026-06-30T22:42:45.801Z
+Saved path : /Users/alex/.codex/generated_images/019f1aa6-3652-7e31-bae6-5a88c97320be/ig_0730a8651602457b016a44462f8fb0819189439b43bd3d14f2.png
+Status : generating
+Source JSONL : /Users/alex/.codex/sessions/2026/07/01/rollout-2026-07-01T00-28-48-019f1aa6-3652-7e31-bae6-5a88c97320be.jsonl
+
+Cas d’usage : productivity-visual, slide de formation institutionnelle française.
+Type d’actif : image finale de slide 16:9 paysage, environ 1600x900.
+Demande : créer une slide image-based sobre et lisible pour une formation à l’accessibilité numérique sur les émojis accessibles. Style illustration plate institutionnelle, fond blanc ou gris très clair, bleu institutionnel #001070 dominant, gris froid, rouge #E44850 uniquement pour alerte ou erreur. Icônes filaires, personnages plats sobres, aucune photographie, aucun dégradé, aucune 3D.
+
+Composition : titre large en haut gauche, sous-titre court juste dessous. Scène centrale en deux lignes de lecture superposées : en haut, une ligne commence par des signes décoratifs rouges avant les traits de texte, avec un petit obstacle en début de chronologie ; en bas, une ligne commence directement par des traits de texte puis place un petit signe discret à la fin, avec une coche bleue. À droite, une personne écoute au lecteur d’écran stylisé, avec une ligne fluide. Callout court en bas dans un fin encadré.
+
+Masque commun : aucune numérotation visible, aucun repère de progression, pas de `1/6`, pas de `2/6`, pas de `3/6`, pas de `4/6`, pas de `5/6`, pas de pastille d’étape, pas de numéro de slide. Pas de footer.
+
+Texte exact à afficher, sans ajout :
+Titre : `Placer l’émoji après le message`
+Sous-titre : `L’information passe d’abord.`
+Labels : `Début`, `Milieu`, `Fin`, `Lecture fluide`
+Callout bas : `Laissez le lecteur d’écran annoncer le message avant l’ornement.`
+
+Storyboard : obstacle avant le texte -> lecture directe -> ornement final. L’image doit faire comprendre que l’ordre de lecture change l’effort.
+
+Contraintes critiques : afficher uniquement les textes listés ci-dessus, aucun autre mot lisible ; conserver les accents ; très peu de signes décoratifs ; aucun logo de réseau social ; aucun numéro de progression ; garder les textes grands et lisibles.
+
+===== slide-06 ig_0f92afe396c3b3b8016a4446739f2081919e05ff480f634d2b =====
+Timestamp : 2026-06-30T22:43:58.516Z
+Saved path : /Users/alex/.codex/generated_images/019f1aa6-3652-7e31-bae6-5a88c97320be/ig_0f92afe396c3b3b8016a4446739f2081919e05ff480f634d2b.png
+Status : generating
+Source JSONL : /Users/alex/.codex/sessions/2026/07/01/rollout-2026-07-01T00-28-48-019f1aa6-3652-7e31-bae6-5a88c97320be.jsonl
+
+Cas d’usage : productivity-visual, slide de formation institutionnelle française.
+Type d’actif : image finale de slide 16:9 paysage, environ 1600x900.
+Demande : créer une slide image-based sobre et lisible pour une formation à l’accessibilité numérique sur les émojis accessibles. Style illustration plate institutionnelle, fond blanc ou gris très clair, bleu institutionnel #001070 dominant, gris froid, rouge #E44850 uniquement pour alerte ou erreur. Icônes filaires, personnages plats sobres, aucune photographie, aucun dégradé, aucune 3D.
+
+Composition : titre large en haut gauche, sous-titre court juste dessous. Grande scène centrale : à gauche un poste de contrôle éditorial avec une personne qui relit une publication ; au centre une checklist courte cochée et une charte posée sur le bureau ; à droite trois canaux génériques sans logo partent de la publication validée : une carte de réseau social générique, une page de site accessible générique, un panneau d’affichage. Callout court en bas dans un fin encadré.
+
+Masque commun : aucune numérotation visible, aucun repère de progression, pas de `1/6`, pas de `2/6`, pas de `3/6`, pas de `4/6`, pas de `5/6`, pas de `6/6`, pas de pastille d’étape, pas de numéro de slide. Pas de footer.
+
+Texte exact à afficher, sans ajout :
+Titre : `Relire avant de publier`
+Sous-titre : `Une charte simple sécurise les publications.`
+Labels : `Sens`, `Nombre`, `Position`, `Texte réel`, `Canal accessible`
+Callout bas : `La publication accessible se relit avant diffusion.`
+
+Storyboard : publication prête -> contrôle -> diffusion accessible. L’image doit faire comprendre que publier accessible demande une vérification courte mais systématique.
+
+Contraintes critiques : checklist limitée aux cinq labels listés ; afficher uniquement les textes listés ci-dessus, aucun autre mot lisible ; conserver les accents ; aucun logo, aucun emblème officiel, aucune marque ; ne pas promettre une conformité automatique ; aucun numéro de progression ; garder les textes grands et lisibles.

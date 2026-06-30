@@ -108,15 +108,16 @@ Le HTML généré, le Markdown généré et le ZIP ne se corrigent pas à la mai
 - SPAN / PAN - accessibilité numérique : <https://alexmacapple.github.io/miweb-objectifs-2030/span-pan/>
 - Mise en gouvernance du SPAN : <https://alexmacapple.github.io/miweb-objectifs-2030/mise-en-gouvernance-du-span/>
 - Checklist SPAN opérationnel : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/>
+- Émojis accessibles - réseaux sociaux : <https://alexmacapple.github.io/miweb-objectifs-2030/emojis-accessibles-reseaux-sociaux/>
 
-Dernière version publiée : `checklist-span-operationnel/`.
+Dernière version publiée : `emojis-accessibles-reseaux-sociaux/`.
 
 Accès directs :
 
-- présentation plein écran : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/?projection=1#slide-01>
-- toutes les slides : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/?slides=all#diaporama>
-- alternatives textuelles : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/alternatives.html>
-- page accessibilité : <https://alexmacapple.github.io/miweb-objectifs-2030/checklist-span-operationnel/accessibilite.html>
+- présentation plein écran : <https://alexmacapple.github.io/miweb-objectifs-2030/emojis-accessibles-reseaux-sociaux/?projection=1#slide-01>
+- toutes les slides : <https://alexmacapple.github.io/miweb-objectifs-2030/emojis-accessibles-reseaux-sociaux/?slides=all#diaporama>
+- alternatives textuelles : <https://alexmacapple.github.io/miweb-objectifs-2030/emojis-accessibles-reseaux-sociaux/alternatives.html>
+- page accessibilité : <https://alexmacapple.github.io/miweb-objectifs-2030/emojis-accessibles-reseaux-sociaux/accessibilite.html>
 
 ## Documents utiles
 
@@ -136,13 +137,13 @@ En cas de tension, suivre d’abord les documents racine dans cet ordre : `AGENT
 Régénérer la dernière version publiée :
 
 ```bash
-python3 checklist-span-operationnel/build.py
+python3 emojis-accessibles-reseaux-sociaux/build.py
 ```
 
 Tester un jeu :
 
 ```bash
-scripts/validate_variant.sh checklist-span-operationnel
+scripts/validate_variant.sh emojis-accessibles-reseaux-sociaux
 ```
 
 Servir le site localement :
@@ -154,7 +155,7 @@ scripts/serve-local.sh 8000
 URL locale :
 
 ```text
-http://127.0.0.1:8000/checklist-span-operationnel/
+http://127.0.0.1:8000/emojis-accessibles-reseaux-sociaux/
 ```
 
 Le script utilise les validateurs npm verrouillés à la racine. Si les dépendances ne sont pas installées, lancer `npm ci` depuis la racine du dépôt, puis relancer la validation.
