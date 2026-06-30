@@ -357,6 +357,95 @@ class MatrixWorkflowTest(unittest.TestCase):
             )
             self.assertNotIn("matrice-slide-ai", root_html)
 
+    def test_publish_variant_rejects_stale_generated_pages(self):
+        repo = Path(__file__).resolve().parents[2]
+
+        with TemporaryDirectory() as tmp_dir:
+            temp_repo = Path(tmp_dir) / "repo"
+            temp_repo.mkdir()
+            shutil.copytree(
+                repo / "matrice-slide-ai",
+                temp_repo / "matrice-slide-ai",
+                ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+            )
+            (temp_repo / "published-versions.json").write_text(
+                "[]\n",
+                encoding="utf-8",
+            )
+            (temp_repo / "index.html").write_text(
+                "<!doctype html><title>Racine intacte</title>\n",
+                encoding="utf-8",
+            )
+
+            create_result = run(
+                [
+                    sys.executable,
+                    str(temp_repo / "matrice-slide-ai" / "create_variant.py"),
+                    "--slug",
+                    "jeu-test",
+                    "--title",
+                    "Jeu test",
+                    "--storyboard",
+                    str(
+                        repo
+                        / "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+                        / "source"
+                        / "storyboard.md"
+                    ),
+                    "--slides-dir",
+                    str(
+                        repo
+                        / "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+                        / "assets"
+                        / "slides"
+                    ),
+                ],
+                cwd=temp_repo,
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+            self.assertEqual(0, create_result.returncode, create_result.stderr)
+
+            build_result = run(
+                [sys.executable, str(temp_repo / "jeu-test" / "build.py")],
+                cwd=temp_repo / "jeu-test",
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+            self.assertEqual(0, build_result.returncode, build_result.stderr)
+
+            root_files_before = self.read_sensitive_root_files(temp_repo)
+            slides_path = temp_repo / "jeu-test" / "slides.json"
+            slides = json.loads(slides_path.read_text(encoding="utf-8"))
+            slides[0]["titre"] = "Titre modifié après génération"
+            slides_path.write_text(
+                json.dumps(slides, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            publish_result = run(
+                [
+                    sys.executable,
+                    str(temp_repo / "matrice-slide-ai" / "publish_variant.py"),
+                    "--slug",
+                    "jeu-test",
+                ],
+                cwd=temp_repo,
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+
+            self.assertNotEqual(0, publish_result.returncode)
+            self.assertEqual(
+                root_files_before,
+                self.read_sensitive_root_files(temp_repo),
+                msg="Une variante périmée ne doit pas modifier les fichiers racine.",
+            )
+            self.assertIn("artefacts générés périmés", publish_result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()

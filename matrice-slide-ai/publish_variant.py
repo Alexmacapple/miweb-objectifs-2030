@@ -20,6 +20,14 @@ REQUIRED_OUTPUTS = [
     "accessibilite.html",
     "slides.json",
 ]
+REQUIRED_RENDERERS = {
+    "index.html": ("render_v1_index", True),
+    "alternatives.html": ("render_alternatives", True),
+    "accessibilite.html": ("render_accessibility", False),
+}
+OPTIONAL_RENDERERS = {
+    "alternatives.md": ("render_markdown", True),
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -41,6 +49,19 @@ def load_build_module():
     spec = importlib.util.spec_from_file_location("matrix_build", ROOT / "build.py")
     if spec is None or spec.loader is None:
         raise RuntimeError("Impossible de charger matrice-slide-ai/build.py.")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_variant_build_module(target: Path):
+    build_path = target / "build.py"
+    if not build_path.is_file():
+        raise ValueError(f"jeu non vérifiable : fichier absent {build_path}")
+    module_name = f"variant_build_{target.name.replace('-', '_')}"
+    spec = importlib.util.spec_from_file_location(module_name, build_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Impossible de charger {build_path}.")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -90,6 +111,55 @@ def assert_file_exists(path: Path) -> None:
         raise ValueError(f"jeu non vérifiable : fichier absent {path}")
 
 
+def render_expected_output(
+    build_module,
+    renderer_name: str,
+    slides: list[dict],
+    with_slides: bool,
+) -> str:
+    renderer = getattr(build_module, renderer_name, None)
+    if not callable(renderer):
+        raise ValueError(
+            "jeu non vérifiable : générateur incomplet, "
+            f"fonction absente {renderer_name}"
+        )
+    if with_slides:
+        return renderer(slides)
+    return renderer()
+
+
+def assert_generated_outputs_fresh(target: Path) -> None:
+    build_module = load_variant_build_module(target)
+    load_slides = getattr(build_module, "load_slides", None)
+    if not callable(load_slides):
+        raise ValueError(
+            "jeu non vérifiable : générateur incomplet, fonction absente load_slides"
+        )
+
+    slides = load_slides()
+    stale_outputs = []
+    renderers = dict(REQUIRED_RENDERERS)
+    for relative_path, renderer in OPTIONAL_RENDERERS.items():
+        if (target / relative_path).is_file():
+            renderers[relative_path] = renderer
+
+    for relative_path, (renderer_name, with_slides) in renderers.items():
+        output_path = target / relative_path
+        assert_file_exists(output_path)
+        expected = render_expected_output(build_module, renderer_name, slides, with_slides)
+        actual = output_path.read_text(encoding="utf-8")
+        if actual != expected:
+            stale_outputs.append(relative_path)
+
+    if stale_outputs:
+        stale_list = "\n".join(f"- {path}" for path in stale_outputs)
+        raise ValueError(
+            f"jeu non vérifiable : artefacts générés périmés pour {target.name} :\n"
+            f"{stale_list}\n"
+            f"Relancer python3 {target.name}/build.py avant publication."
+        )
+
+
 def verify_variant(slug: str) -> Path:
     target = REPO_ROOT / slug
     if not target.is_dir():
@@ -116,6 +186,7 @@ def verify_variant(slug: str) -> Path:
             f"stdout:\n{result.stdout}\n"
             f"stderr:\n{result.stderr}"
         )
+    assert_generated_outputs_fresh(target)
     return target
 
 
