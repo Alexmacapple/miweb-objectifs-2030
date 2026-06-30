@@ -1,0 +1,44 @@
+name: "retest-check-stop-authorized-20260630"
+description: "Recorded session for retest-check-stop-authorized-20260630"
+priority: medium
+requires_auth: false
+timeout: 60s
+tags: [recorded]
+source: recorded
+recorded_at: "2026-06-30T18:51:05.822Z"
+
+steps:
+  - action: click
+    target: "Accéder au contenu\n        Accéder au pied de page\n      \n    \n  \n  \n    \n      "
+  - action: click
+    target: "Version 2 - Juin 2026"
+  - action: click
+    target: "Lire l’alternative textuelle de la slide 1 - Tenir l’accès réel au service publi"
+  - action: click
+    target: "Accéder au contenu\n        Accéder au sommaire\n        Accéder au diaporama\n    "
+  - action: click
+    target: "Accéder au contenu\n        Accéder au sommaire\n        Accéder au diaporama\n    "
+  - action: click
+    target: "Accéder au contenu\n        Accéder au sommaire\n        Accéder au diaporama\n    "
+  - action: click
+    target: "Accéder au contenu\n        Accéder au sommaire\n        Accéder au diaporama\n    "
+  - action: click
+    target: "Activer le plein écran"
+  - action: click
+    target: "Quitter le plein écran"
+  - action: open
+    url: "{base_url}/miweb-objectifs-2030-v2/#slide-02"
+  - action: click
+    target: "Présentation plein écran"
+  - action: open
+    url: "{base_url}/miweb-objectifs-2030-v2/#slide-03"
+  - action: open
+    url: "{base_url}/miweb-objectifs-2030-v2/#slide-04"
+  - action: open
+    url: "{base_url}/miweb-objectifs-2030-v2/#slide-05"
+  - action: open
+    url: "{base_url}/miweb-objectifs-2030-v2/#slide-06"
+  - action: click
+    target: "Quitter le plein écran"
+  - action: screenshot
+    filename: "final.png"

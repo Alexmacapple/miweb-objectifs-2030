@@ -1,8 +1,8 @@
 {
   "repo": "miweb-objectifs-2030",
-  "timestamp": "2026-06-29T13:45:00Z",
-  "mode": "quick",
-  "prompt_hash": "codex-shipguard-quick-report-only-20260629",
+  "timestamp": "2026-06-30T20:19:02Z",
+  "mode": "full-local-reconciled-codex-review",
+  "prompt_hash": "codex-local-reconciled-audit-20260630",
   "rounds": 1,
   "agents": 5,
   "scope_info": {
@@ -14,15 +14,15 @@
     "total_in_scope": 125
   },
   "summary": {
-    "total_bugs": 19,
+    "total_bugs": 15,
     "by_severity": {
       "critical": 0,
-      "high": 4,
+      "high": 0,
       "medium": 11,
       "low": 4
     },
     "by_category": {
-      "security": 4,
+      "security": 3,
       "race-condition": 0,
       "silent-exception": 0,
       "api-guard": 0,
@@ -35,47 +35,22 @@
       "error-handling": 0,
       "performance": 0,
       "accessibility": 0,
-      "logic-error": 9,
+      "logic-error": 6,
       "other": 4
     },
     "files_audited": 125,
     "files_modified": 0,
     "duration_ms": 0,
-    "risk_score": 63,
+    "risk_score": 35,
     "lifecycle": {
-      "new": 19,
-      "persistent": 0,
-      "fixed": 0,
-      "not_rechecked": 0,
-      "compared_to": null
+      "new": 0,
+      "persistent": 15,
+      "fixed": 4,
+      "not_rechecked": 15,
+      "compared_to": "codex-shipguard-quick-report-only-20260629"
     }
   },
   "impacted_ui_routes": [
-    {
-      "route": "/",
-      "reason": "Générateurs de variantes et publication racine peuvent réécrire un accueil obsolète.",
-      "severity": "high"
-    },
-    {
-      "route": "/miweb-objectifs-2030-v1/",
-      "reason": "État URL du mode toutes slides et génération racine locale.",
-      "severity": "high"
-    },
-    {
-      "route": "/miweb-objectifs-2030-v2/",
-      "reason": "État URL du mode toutes slides et génération racine locale.",
-      "severity": "high"
-    },
-    {
-      "route": "/miweb-objectifs-2030-v3/",
-      "reason": "État URL du mode toutes slides et génération racine locale.",
-      "severity": "high"
-    },
-    {
-      "route": "/miweb-objectifs-2030-v4/",
-      "reason": "État URL du mode toutes slides et génération racine locale.",
-      "severity": "high"
-    },
     {
       "route": "/span-pan/assets/downloads/span-pan-slides.zip",
       "reason": "Archive ZIP publiée non fidèle aux images courantes.",
@@ -93,31 +68,6 @@
     }
   ],
   "impacted_routes": [
-    {
-      "route": "/",
-      "reason": "Générateurs de variantes et publication racine peuvent réécrire un accueil obsolète.",
-      "severity": "high"
-    },
-    {
-      "route": "/miweb-objectifs-2030-v1/",
-      "reason": "État URL du mode toutes slides et génération racine locale.",
-      "severity": "high"
-    },
-    {
-      "route": "/miweb-objectifs-2030-v2/",
-      "reason": "État URL du mode toutes slides et génération racine locale.",
-      "severity": "high"
-    },
-    {
-      "route": "/miweb-objectifs-2030-v3/",
-      "reason": "État URL du mode toutes slides et génération racine locale.",
-      "severity": "high"
-    },
-    {
-      "route": "/miweb-objectifs-2030-v4/",
-      "reason": "État URL du mode toutes slides et génération racine locale.",
-      "severity": "high"
-    },
     {
       "route": "/span-pan/assets/downloads/span-pan-slides.zip",
       "reason": "Archive ZIP publiée non fidèle aux images courantes.",
@@ -146,14 +96,9 @@
       "severity": "medium"
     },
     {
-      "endpoint": "matrice-slide-ai/publish_variant.py",
-      "reason": "Publication possible de sorties générées périmées.",
-      "severity": "high"
-    },
-    {
       "endpoint": "build-review.mjs --serve",
-      "reason": "Serveur de revue local, endpoints POST et fichiers statiques.",
-      "severity": "high"
+      "reason": "Serveur de revue local et garde de chemins à surveiller.",
+      "severity": "medium"
     },
     {
       "endpoint": "_shipguard_static_run.py agent-browser runner",
@@ -162,11 +107,11 @@
     }
   ],
   "verification": {
-    "checked": 0,
-    "confirmed": 0,
+    "checked": 4,
+    "confirmed": 4,
     "uncertain": 0,
     "rejected": 0,
-    "skipped": 4
+    "skipped": 15
   },
   "bugs": [
     {
@@ -178,21 +123,6 @@
       "line": 16,
       "title": "Validation de publication exécutée via paquets npm non verrouillés",
       "description": "La commande canonique de validation exécute html-validate et vnu-jar avec npx --yes, sans package.json ni lockfile dans le dépôt. Chaque validation peut télécharger et exécuter la dernière version publiée sur npm.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z2-001",
-      "severity": "high",
-      "category": "logic-error",
-      "subcategory": "stale-generated-output",
-      "file": "matrice-slide-ai/publish_variant.py",
-      "line": 98,
-      "title": "publish_variant peut publier une variante dont les pages générées sont périmées",
-      "description": "verify_variant vérifie seulement la présence des pages puis lance des tests qui rendent les pages en mémoire depuis build.py et slides.json. Si slides.json ou build.py change après le dernier build, la publication racine peut pointer vers des fichiers HTML déjà périmés.",
       "fix_applied": false,
       "fix_commit": "",
       "confidence": "high",
@@ -245,21 +175,6 @@
       "verified": null
     },
     {
-      "id": "SG-Z3-001",
-      "severity": "high",
-      "category": "logic-error",
-      "subcategory": "generation-accueil-racine",
-      "file": "miweb-objectifs-2030-v1/build.py",
-      "line": 1011,
-      "title": "Les générateurs Objectifs 2030 réécrivent l'accueil racine avec un catalogue local obsolète",
-      "description": "Les build.py de v1 à v4 écrivent ../index.html depuis un render_root local au lieu de laisser publish_variant.py gérer la publication. Relancer un build v1-v4 peut supprimer de l'accueil des supports publiés ensuite.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.98,
-      "verification_score": null,
-      "verified": null
-    },
-    {
       "id": "SG-Z3-002",
       "severity": "low",
       "category": "logic-error",
@@ -271,21 +186,6 @@
       "fix_applied": false,
       "fix_commit": "",
       "confidence": 0.82,
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z4-001",
-      "severity": "high",
-      "category": "logic-error",
-      "subcategory": "root-catalog-overwrite",
-      "file": "miweb-offre-mutualisee-listes-diffusion-2026-longue/build.py",
-      "line": 1069,
-      "title": "Le générateur d'une variante thématique réécrit encore l'accueil racine avec un catalogue figé",
-      "description": "Les build.py des variantes offre mutualisée condensée et longue écrivent REPO_ROOT/index.html depuis render_root. Le catalogue codé en dur ne contient que 6 entrées alors que published-versions.json en contient 9.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
       "verification_score": null,
       "verified": null
     },
@@ -346,21 +246,6 @@
       "fix_applied": false,
       "fix_commit": "",
       "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z5-001",
-      "severity": "high",
-      "category": "security",
-      "subcategory": "serveur-local",
-      "file": "visual-tests/build-review.mjs",
-      "line": 1139,
-      "title": "Le serveur de revue écoute sans bind explicite sur 127.0.0.1",
-      "description": "server.listen(PORT) omet l'hôte et peut écouter sur l'adresse non spécifiée. Avec CORS wildcard et des endpoints POST qui écrivent des fichiers, une page web ou une machine du LAN peut interagir avec le serveur si le port est exposé.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.94,
       "verification_score": null,
       "verified": null
     },
@@ -469,5 +354,49 @@
     "Pas de vérification dynamique des ZIP par téléchargement navigateur.",
     "Pas d'audit RGAA complet dans ce run ShipGuard.",
     "Pas d'appel GitHub pour sg-scout en mode publication."
-  ]
+  ],
+  "regeneration_provenance": {
+    "kind": "full_local_reconciliation_after_committed_fixes_and_codex_review",
+    "not_native_shipguard_rerun": true,
+    "removed_active_findings": [
+      "SG-Z2-001",
+      "SG-Z3-001",
+      "SG-Z4-001",
+      "SG-Z5-001"
+    ],
+    "proof_commits": [
+      {
+        "commit": "0ff5f6c",
+        "fixes": [
+          "SG-Z2-001"
+        ]
+      },
+      {
+        "commit": "fe27e72",
+        "fixes": [
+          "SG-Z3-001"
+        ]
+      },
+      {
+        "commit": "35d6853",
+        "fixes": [
+          "SG-Z4-001"
+        ]
+      }
+    ],
+    "current_code_proof": [
+      {
+        "finding": "SG-Z5-001",
+        "proof": [
+          "visual-tests/build-review.mjs defines HOST default '127.0.0.1'",
+          "visual-tests/build-review.mjs calls server.listen(PORT, HOST)",
+          "visual-tests/build-review.mjs warns on --host=0.0.0.0"
+        ]
+      }
+    ],
+    "codex_review": {
+      "command": "codex review --uncommitted",
+      "note": "Used as complementary review; ShipGuard native /sg-code-audit is not available in Codex-only runtime."
+    }
+  }
 }

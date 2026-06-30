@@ -1,7 +1,7 @@
 {
   "schema_version": "shipguard.client-validation-trace.v1",
   "status": "prepared",
-  "generated_at": "2026-06-30T18:34:45.631Z",
+  "generated_at": "2026-06-30T20:20:30.658Z",
   "reference": "SHIPGUARD-MIWEB-2026-06-29",
   "report": {
     "id": "shipguard-recette-miweb",
