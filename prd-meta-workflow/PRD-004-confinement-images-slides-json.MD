@@ -1,6 +1,6 @@
 # PRD-004 : Confinement des images `slides.json`
 
-**Statut** : Brouillon
+**Statut** : Implémenté localement
 **Date** : 2026-06-30
 **Auteur** : Alex
 **Source** : recette ShipGuard 2.3.7, bug `SG-Z2-002`, lecture de `matrice-slide-ai/build.py` et des `build.py` autonomes existants
@@ -129,10 +129,15 @@ Comme les variantes sont autonomes, le garde doit être copié dans chaque
 `build.py` concerné. Il ne faut pas introduire de dépendance d'exécution des
 variantes vers `matrice-slide-ai/`.
 
+Exception contrôlée : quand la matrice lit `slides.example.json`, elle vérifie
+le confinement du chemin mais pas l'existence du fichier, car la matrice source
+n'embarque pas les images publiques. Tout vrai `slides.json` de variante exige
+en revanche que le fichier existe sous `assets/slides/`.
+
 Contrat d'implémentation attendu pour éviter les vérifications fragiles :
 
 ```python
-def resolve_slide_image_path(image: str) -> Path:
+def resolve_slide_image_path(image: str, require_exists: bool = True) -> Path:
     relative_path = Path(image)
     if relative_path.is_absolute():
         raise ValueError(...)
@@ -141,7 +146,7 @@ def resolve_slide_image_path(image: str) -> Path:
     candidate = (ROOT / relative_path).resolve()
     slides_root = SLIDES_DIR.resolve()
     candidate.relative_to(slides_root)
-    if not candidate.is_file():
+    if require_exists and not candidate.is_file():
         raise FileNotFoundError(candidate)
     return candidate
 ```
@@ -256,6 +261,7 @@ import commun vers la matrice.
 
 | Date | Auteur | Changement |
 |------|--------|------------|
+| 2026-06-30 | Alex + Codex | Implémentation locale du PRD |
 | 2026-06-30 | Alex + Codex | Ajout explicite du test positif de chemin valide |
 | 2026-06-30 | Alex + Codex | Élargissement explicite aux variantes autonomes existantes |
 | 2026-06-30 | Alex + Codex | Réduction des ambiguïtés d'implémentation |

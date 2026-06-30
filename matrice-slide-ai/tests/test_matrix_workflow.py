@@ -3,6 +3,7 @@ import json
 import re
 import shutil
 import unittest
+import zipfile
 from pathlib import Path
 from subprocess import PIPE, run
 from tempfile import TemporaryDirectory
@@ -20,6 +21,45 @@ class MatrixWorkflowTest(unittest.TestCase):
             if path.exists()
         }
 
+    def create_temp_variant(self, repo, tmp_dir):
+        temp_repo = Path(tmp_dir) / "repo"
+        temp_repo.mkdir()
+        shutil.copytree(
+            repo / "matrice-slide-ai",
+            temp_repo / "matrice-slide-ai",
+            ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+        )
+        result = run(
+            [
+                sys.executable,
+                str(temp_repo / "matrice-slide-ai" / "create_variant.py"),
+                "--slug",
+                "jeu-test",
+                "--title",
+                "Jeu test",
+                "--storyboard",
+                str(
+                    repo
+                    / "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+                    / "source"
+                    / "storyboard.md"
+                ),
+                "--slides-dir",
+                str(
+                    repo
+                    / "miweb-offre-mutualisee-listes-diffusion-2026-longue"
+                    / "assets"
+                    / "slides"
+                ),
+            ],
+            cwd=temp_repo,
+            stdout=PIPE,
+            stderr=PIPE,
+            text=True,
+        )
+        self.assertEqual(0, result.returncode, result.stderr)
+        return temp_repo / "jeu-test"
+
     def test_validate_variant_uses_locked_local_npm_validators(self):
         repo = Path(__file__).resolve().parents[2]
         script = (repo / "scripts" / "validate_variant.sh").read_text(
@@ -36,6 +76,67 @@ class MatrixWorkflowTest(unittest.TestCase):
         self.assertIn("node_modules/.bin/html-validate", script)
         self.assertIn("node_modules/.bin/vnu", script)
         self.assertIn("npm ci", script)
+
+    def test_variant_build_rejects_slide_images_outside_assets_slides(self):
+        repo = Path(__file__).resolve().parents[2]
+        invalid_cases = [
+            ("../secret.png", "secret.png"),
+            ("source/image-interne.png", "jeu-test/source/image-interne.png"),
+        ]
+
+        for image_value, file_to_create in invalid_cases:
+            with self.subTest(image=image_value), TemporaryDirectory() as tmp_dir:
+                target = self.create_temp_variant(repo, tmp_dir)
+                temp_repo = target.parent
+                (temp_repo / file_to_create).parent.mkdir(parents=True, exist_ok=True)
+                (temp_repo / file_to_create).write_bytes(b"not a public slide")
+                slides_path = target / "slides.json"
+                slides = json.loads(slides_path.read_text(encoding="utf-8"))
+                slides[0]["image"] = image_value
+                slides_path.write_text(
+                    json.dumps(slides, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                )
+
+                result = run(
+                    [sys.executable, str(target / "build.py")],
+                    cwd=target,
+                    stdout=PIPE,
+                    stderr=PIPE,
+                    text=True,
+                )
+
+                self.assertNotEqual(0, result.returncode)
+                self.assertIn("assets/slides", result.stderr)
+
+    def test_variant_build_accepts_valid_slide_images_and_keeps_public_src(self):
+        repo = Path(__file__).resolve().parents[2]
+
+        with TemporaryDirectory() as tmp_dir:
+            target = self.create_temp_variant(repo, tmp_dir)
+            slides_path = target / "slides.json"
+            slides = json.loads(slides_path.read_text(encoding="utf-8"))
+            slides[0]["image"] = "assets/slides/slide-01.png"
+            slides_path.write_text(
+                json.dumps(slides, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            result = run(
+                [sys.executable, str(target / "build.py")],
+                cwd=target,
+                stdout=PIPE,
+                stderr=PIPE,
+                text=True,
+            )
+
+            self.assertEqual(0, result.returncode, result.stderr)
+            index_html = (target / "index.html").read_text(encoding="utf-8")
+            self.assertIn('src="assets/slides/slide-01.png"', index_html)
+            with zipfile.ZipFile(
+                target / "assets" / "downloads" / "jeu-test-slides.zip"
+            ) as archive:
+                self.assertIn("slide-01.png", archive.namelist())
 
     def assert_generated_files_are_autonomous(self, target):
         forbidden_references = [

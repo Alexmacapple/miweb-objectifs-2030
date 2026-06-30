@@ -611,6 +611,33 @@ def slide_id(slide: dict) -> str:
     return f"slide-{int(slide['numero']):02d}"
 
 
+def resolve_slide_image_path(image: str, require_exists: bool = True) -> Path:
+    if not isinstance(image, str):
+        raise ValueError("slides.json ne peut référencer que des images sous assets/slides/.")
+    relative_path = Path(image)
+    if (
+        relative_path.is_absolute()
+        or relative_path.parts[:2] != ("assets", "slides")
+        or ".." in relative_path.parts
+    ):
+        raise ValueError(
+            "slides.json ne peut référencer que des images sous assets/slides/ : "
+            f"{image}"
+        )
+    candidate = (ROOT / relative_path).resolve()
+    slides_root = SLIDES_DIR.resolve()
+    try:
+        candidate.relative_to(slides_root)
+    except ValueError as exc:
+        raise ValueError(
+            "slides.json ne peut référencer que des images sous assets/slides/ : "
+            f"{image}"
+        ) from exc
+    if require_exists and not candidate.is_file():
+        raise FileNotFoundError(candidate)
+    return candidate
+
+
 def load_slides() -> list[dict]:
     slides = json.loads(SLIDES_PATH.read_text(encoding="utf-8"))
     if len(slides) != 10:
@@ -620,6 +647,7 @@ def load_slides() -> list[dict]:
         missing = required - set(slide)
         if missing:
             raise ValueError(f"Slide {slide.get('numero', '?')} incomplète : {sorted(missing)}")
+        resolve_slide_image_path(slide["image"])
     return slides
 
 
@@ -1008,17 +1036,13 @@ def write_zip(slides: list[dict]) -> None:
     DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(ZIP_PATH, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for slide in slides:
-            image_path = ROOT / slide["image"]
+            image_path = resolve_slide_image_path(slide["image"])
             archive.write(image_path, image_path.name)
         archive.write(ROOT / "alternatives.md", "alternatives.md")
 
 
 def main() -> None:
     slides = load_slides()
-    for slide in slides:
-        image_path = ROOT / slide["image"]
-        if not image_path.is_file():
-            raise FileNotFoundError(image_path)
 
     (ROOT / "index.html").write_text(render_v1_index(slides), encoding="utf-8")
     (ROOT / "alternatives.html").write_text(render_alternatives(slides), encoding="utf-8")
