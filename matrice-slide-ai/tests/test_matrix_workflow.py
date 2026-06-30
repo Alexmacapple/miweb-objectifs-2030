@@ -446,41 +446,53 @@ class MatrixWorkflowTest(unittest.TestCase):
             )
             self.assertIn("artefacts générés périmés", publish_result.stderr)
 
-    def test_objectifs_2030_build_does_not_publish_root_index(self):
+    def test_variant_build_does_not_publish_root_index(self):
         repo = Path(__file__).resolve().parents[2]
+        variant_slugs = [
+            "miweb-objectifs-2030-v1",
+            "miweb-objectifs-2030-v2",
+            "miweb-objectifs-2030-v3",
+            "miweb-objectifs-2030-v4",
+            "miweb-offre-mutualisee-listes-diffusion-2026-condensee",
+            "miweb-offre-mutualisee-listes-diffusion-2026-longue",
+        ]
 
-        with TemporaryDirectory() as tmp_dir:
-            temp_repo = Path(tmp_dir) / "repo"
-            temp_repo.mkdir()
-            root_index = temp_repo / "index.html"
-            root_index.write_text(
-                "<!doctype html><title>Accueil racine intact</title>\n",
-                encoding="utf-8",
-            )
-            shutil.copytree(
-                repo / "miweb-objectifs-2030-v1",
-                temp_repo / "miweb-objectifs-2030-v1",
-                ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
-            )
+        for slug in variant_slugs:
+            with self.subTest(slug=slug), TemporaryDirectory() as tmp_dir:
+                temp_repo = Path(tmp_dir) / "repo"
+                temp_repo.mkdir()
+                root_index = temp_repo / "index.html"
+                root_index.write_text(
+                    "<!doctype html><title>Accueil racine intact</title>\n",
+                    encoding="utf-8",
+                )
+                shutil.copytree(
+                    repo / slug,
+                    temp_repo / slug,
+                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+                )
 
-            root_before = root_index.read_text(encoding="utf-8")
-            build_result = run(
-                [
-                    sys.executable,
-                    str(temp_repo / "miweb-objectifs-2030-v1" / "build.py"),
-                ],
-                cwd=temp_repo / "miweb-objectifs-2030-v1",
-                stdout=PIPE,
-                stderr=PIPE,
-                text=True,
-            )
+                root_before = root_index.read_text(encoding="utf-8")
+                build_result = run(
+                    [
+                        sys.executable,
+                        str(temp_repo / slug / "build.py"),
+                    ],
+                    cwd=temp_repo / slug,
+                    stdout=PIPE,
+                    stderr=PIPE,
+                    text=True,
+                )
 
-            self.assertEqual(0, build_result.returncode, build_result.stderr)
-            self.assertEqual(
-                root_before,
-                root_index.read_text(encoding="utf-8"),
-                msg="Le build d'une variante ne doit pas publier l'accueil racine.",
-            )
+                self.assertEqual(0, build_result.returncode, build_result.stderr)
+                self.assertEqual(
+                    root_before,
+                    root_index.read_text(encoding="utf-8"),
+                    msg=(
+                        "Le build d'une variante ne doit pas publier "
+                        f"l'accueil racine : {slug}"
+                    ),
+                )
 
 
 if __name__ == "__main__":
