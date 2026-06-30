@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-01
+
+- Création du `PRD-007` sur le nettoyage du paramètre `slides=all` à la sortie du mode toutes slides.
+
 ## 2026-06-30
 
 - Implémentation locale du `PRD-006` : ZIPs déterministes et liens de téléchargement vérifiés.
