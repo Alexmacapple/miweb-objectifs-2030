@@ -1008,7 +1008,6 @@ def main() -> None:
         if not image_path.is_file():
             raise FileNotFoundError(image_path)
 
-    (REPO_ROOT / "index.html").write_text(render_root(), encoding="utf-8")
     (ROOT / "index.html").write_text(render_v1_index(slides), encoding="utf-8")
     (ROOT / "alternatives.html").write_text(render_alternatives(slides), encoding="utf-8")
     (ROOT / "accessibilite.html").write_text(render_accessibility(), encoding="utf-8")
