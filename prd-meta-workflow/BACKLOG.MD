@@ -8,5 +8,5 @@
 | PRD-005 | Implémenté localement | Typage strict de `slides.json` | ShipGuard `SG-Z2-003` | Faire valider localement par Alex avant push |
 | PRD-004 | Implémenté localement | Confinement des images `slides.json` | ShipGuard `SG-Z2-002` | Faire valider localement par Alex avant push |
 | PRD-003 | Implémenté localement | Validation npm verrouillée des variantes | ShipGuard `SG-Z1-001` | Faire valider localement par Alex avant push |
-| PRD-002 | Brouillon | Publication centralisée de l'accueil racine | ShipGuard `SG-Z3-001` | Valider le contrat puis écrire le test de non-régression |
-| PRD-001 | Brouillon | Garde de publication des artefacts générés | ShipGuard `SG-Z2-001` | Valider le contrat d'implémentation puis écrire le test de non-régression |
+| PRD-002 | Implémenté localement | Publication centralisée de l'accueil racine | ShipGuard `SG-Z3-001` | Faire valider localement par Alex avant push |
+| PRD-001 | Implémenté localement | Garde de publication des artefacts générés | ShipGuard `SG-Z2-001` | Faire valider localement par Alex avant push |

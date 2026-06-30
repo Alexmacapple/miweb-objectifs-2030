@@ -2,7 +2,7 @@
 
 ## 2026-07-01
 
-- Alignement documentaire local : `PRD-003`, `PRD-005`, `PRD-006`, `PRD-007` et `PRD-008` marqués selon leur état d'implémentation locale.
+- Alignement documentaire local : `PRD-001` à `PRD-008` marqués selon leur état d'implémentation locale.
 - Implémentation locale du `PRD-008` : fallback Markdown visuel compatible avec le rapport francisé.
 - Création du `PRD-008` sur le fallback Markdown du rapport visuel francisé.
 - Correction locale de `SG-Z4-005` : les README générés listent seulement les fichiers réellement présents dans `source/`.

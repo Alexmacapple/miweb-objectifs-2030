@@ -1,6 +1,6 @@
 # PRD-002 : Publication centralisée de l'accueil racine
 
-**Statut** : Brouillon
+**Statut** : Implémenté localement
 **Date** : 2026-06-30
 **Auteur** : Alex
 **Source** : recette ShipGuard 2.3.7, bug `SG-Z3-001`, lecture des `build.py` Objectifs 2030 et de `matrice-slide-ai/publish_variant.py`
@@ -173,4 +173,5 @@ les écritures globales.
 
 | Date | Auteur | Changement |
 |------|--------|------------|
+| 2026-07-01 | Alex + Codex | Alignement documentaire avec l'implémentation locale |
 | 2026-06-30 | Alex + Codex | Création du PRD |

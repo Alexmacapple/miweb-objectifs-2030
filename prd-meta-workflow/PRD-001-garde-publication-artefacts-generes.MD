@@ -1,6 +1,6 @@
 # PRD-001 : Garde de publication des artefacts générés
 
-**Statut** : Brouillon
+**Statut** : Implémenté localement
 **Date** : 2026-06-30
 **Auteur** : Alex
 **Source** : recette ShipGuard 2.3.7, bug `SG-Z2-001`, lecture de `matrice-slide-ai/publish_variant.py` et des tests de contrat
@@ -246,5 +246,6 @@ jeu.
 
 | Date | Auteur | Changement |
 |------|--------|------------|
+| 2026-07-01 | Alex + Codex | Alignement documentaire avec l'implémentation locale |
 | 2026-06-30 | Alex + Codex | Ajout du contrat d'implémentation détaillé |
 | 2026-06-30 | Alex + Codex | Création du PRD |
