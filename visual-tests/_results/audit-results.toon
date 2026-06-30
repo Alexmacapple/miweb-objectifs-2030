@@ -1,0 +1,25 @@
+# audit-results.toon
+# repo: miweb-objectifs-2030
+# timestamp: 2026-06-29T13:45:00Z
+# mode: quick report-only
+# summary: total=19 critical=0 high=4 medium=11 low=4 risk=63 files_audited=125
+# bugs[19]{id,severity,category,file,line,title,fix_applied}:
+SG-Z1-001,medium,security,scripts/validate_variant.sh,16,Validation via paquets npm non verrouillés,false
+SG-Z2-001,high,logic-error,matrice-slide-ai/publish_variant.py,98,publish_variant peut publier des pages générées périmées,false
+SG-Z2-002,medium,security,matrice-slide-ai/build.py,1115,slides.json peut référencer des fichiers hors assets/slides,false
+SG-Z2-003,medium,type-mismatch,matrice-slide-ai/build.py,677,Le contrat slides.json ne valide pas les types des champs,false
+SG-Z2-004,low,infra,matrice-slide-ai/build.py,1105,Le ZIP généré n'est pas déterministe,false
+SG-Z3-001,high,logic-error,miweb-objectifs-2030-v1/build.py,1011,Les générateurs Objectifs 2030 réécrivent l'accueil racine,false
+SG-Z3-002,low,logic-error,miweb-objectifs-2030-v1/build.py,402,La sortie du mode toutes slides conserve slides=all,false
+SG-Z4-001,high,logic-error,miweb-offre-mutualisee-listes-diffusion-2026-longue/build.py,1069,Une variante thématique réécrit l'accueil racine avec catalogue figé,false
+SG-Z4-002,medium,logic-error,miweb-offre-mutualisee-listes-diffusion-2026-condensee/build.py,767,Le footer racine pointe vers un ZIP inexistant,false
+SG-Z4-003,medium,logic-error,span-pan/assets/downloads/span-pan-slides.zip,1,ZIP span-pan obsolète,false
+SG-Z4-004,medium,logic-error,mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip,1,ZIP gouvernance SPAN obsolète,false
+SG-Z4-005,low,other,checklist-span-operationnel/build.py,1091,README généré référence source/source.md absent,false
+SG-Z5-001,high,security,visual-tests/build-review.mjs,1139,Serveur de revue sans bind 127.0.0.1,false
+SG-Z5-002,medium,security,visual-tests/build-review.mjs,1131,Garde anti-traversée par préfixe chaîne,false
+SG-Z5-003,medium,other,visual-tests/_review-template.html,2104,Onglet Routes ignore impacted_ui_routes,false
+SG-Z5-004,medium,other,visual-tests/_review-template.html,1662,Audit zéro bug affiché comme absent,false
+SG-Z5-005,medium,logic-error,visual-tests/_shipguard_static_run.py,169,Runner peut marquer PASS une erreur HTTP non blanche,false
+SG-Z5-006,medium,logic-error,visual-tests/_shipguard_static_run.py,265,Planche-contact plante si capture manquante,false
+SG-Z5-007,low,other,visual-tests/build-review.mjs,158,Parser de synthèse ignore rapport Markdown francisé,false

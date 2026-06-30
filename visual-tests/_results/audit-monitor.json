@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-06-30T18:01:00.000Z",
+  "mode": "recette-2.3.7-live",
+  "zones": [
+    {
+      "zone_id": "z1",
+      "paths": [
+        "visual-tests"
+      ],
+      "file_count": 1
+    },
+    {
+      "zone_id": "z2",
+      "paths": [
+        "visual-tests/_results"
+      ],
+      "file_count": 1
+    }
+  ],
+  "agents": {
+    "r1:z1": {
+      "zone_id": "z1",
+      "status": "pending",
+      "paths": [
+        "visual-tests"
+      ],
+      "file_count": 1
+    },
+    "r1:z2": {
+      "zone_id": "z2",
+      "status": "pending",
+      "paths": [
+        "visual-tests/_results"
+      ],
+      "file_count": 1
+    },
+    "z1": {
+      "agent_id": "z1",
+      "status": "completed",
+      "bugs_found": 1,
+      "duration_s": 3
+    },
+    "undefined": {
+      "id": "z2",
+      "status": "completed",
+      "bugs_found": 0,
+      "duration_s": 4
+    }
+  },
+  "status": "completed",
+  "started_at": "2026-06-30T18:01:00.000Z",
+  "completed_at": "2026-06-30T18:02:00.000Z"
+}

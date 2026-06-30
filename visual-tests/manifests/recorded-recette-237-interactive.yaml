@@ -1,0 +1,42 @@
+name: "recette-237-interactive"
+description: "Recorded session for recette-237-interactive"
+priority: medium
+requires_auth: false
+timeout: 60s
+tags: [recorded]
+source: recorded
+recorded_at: "2026-06-30T17:53:00.139Z"
+
+steps:
+  - action: click
+    target: "Version 1 - Juin 2026"
+  - action: click
+    target: "Slide 1 sur 10"
+  - action: click
+    target: "Slide 1 sur 10"
+  - action: click
+    target: "Accéder au contenu\n        Accéder au sommaire\n        Accéder au diaporama\n    "
+  - action: click
+    target: "Lire l’alternative textuelle de la slide 1 - Faire de l’accessibilité une qualit"
+  - action: click
+    target: "Suivante"
+  - action: open
+    url: "{base_url}/miweb-objectifs-2030-v1/#slide-02"
+  - action: click
+    target: "Suivante"
+  - action: open
+    url: "{base_url}/miweb-objectifs-2030-v1/#slide-03"
+  - action: click
+    target: "Activer le plein écran"
+  - action: click
+    target: "Quitter le plein écran"
+  - action: click
+    target: "Alternatives textuelles"
+  - action: click
+    target: "Télécharger les slides"
+  - action: click
+    target: "Présentation plein écran"
+  - action: click
+    target: "Accéder au contenu\n        Accéder au sommaire\n        Accéder au diaporama\n    "
+  - action: screenshot
+    filename: "final.png"

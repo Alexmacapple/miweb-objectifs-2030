@@ -1,0 +1,218 @@
+{
+  "repo": "miweb-objectifs-2030",
+  "timestamp": "2026-06-30T17:54:30Z",
+  "mode": "hybrid",
+  "base_ref": "audit-results.json",
+  "head_ref": "working-tree",
+  "summary": {
+    "units_checked": 4,
+    "behavior_changes": 0,
+    "new_errors": 0,
+    "surprises": 0,
+    "evidence_mix": {
+      "reasoned": 2,
+      "measured": 3
+    },
+    "by_verdict": {
+      "unchanged": 4,
+      "behavior-changed": 0,
+      "new-error": 0
+    }
+  },
+  "units": [
+    {
+      "id": "hy-01",
+      "kind": "service",
+      "ref": "visual-tests/build-review.mjs --serve",
+      "file": "visual-tests/build-review.mjs",
+      "verdict": "unchanged",
+      "impacted_backend": "build-review.mjs --serve",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "GET / sur le serveur de revue actif",
+          "evidence": "measured",
+          "confidence": "high",
+          "assumptions": [
+            "le serveur de revue déjà actif sur 127.0.0.1:8888 correspond au harnais courant",
+            "aucune baseline avant n'est construite en mode hybrid"
+          ],
+          "before": {
+            "outcome": "not-measured",
+            "output": "précondition raisonnée : review.html doit être servi depuis visual-tests/_results",
+            "effects": "aucun effet attendu"
+          },
+          "after": {
+            "outcome": "ok",
+            "output": "HTTP 200, 156443 bytes, 0.008063 s",
+            "effects": "lecture HTTP seule"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le serveur de revue actif sert bien la page reconstruite."
+        },
+        {
+          "seed": 2,
+          "input_summary": "GET /visual-results.json sur le serveur de revue actif",
+          "evidence": "measured",
+          "confidence": "high",
+          "assumptions": [
+            "visual-results.json est l'artefact canonique consommé par la review",
+            "la mesure ne teste pas les endpoints POST"
+          ],
+          "before": {
+            "outcome": "not-measured",
+            "output": "précondition raisonnée : le JSON doit rester disponible après rebuild",
+            "effects": "aucun effet attendu"
+          },
+          "after": {
+            "outcome": "ok",
+            "output": "HTTP 200, 13061 bytes, 0.006733 s",
+            "effects": "lecture HTTP seule"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le JSON visuel reste servi après l'ajout du manifest enregistré."
+        }
+      ]
+    },
+    {
+      "id": "hy-02",
+      "kind": "service",
+      "ref": "scripts/serve-local.sh 8001",
+      "file": "scripts/serve-local.sh",
+      "verdict": "unchanged",
+      "impacted_backend": "serveur statique local",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "GET / sur le serveur statique MiWeb actif",
+          "evidence": "measured",
+          "confidence": "high",
+          "assumptions": [
+            "le serveur Python attaché à la session d'outil sert la racine du dépôt",
+            "la mesure ne valide pas toutes les routes publiées"
+          ],
+          "before": {
+            "outcome": "not-measured",
+            "output": "précondition raisonnée : la racine doit servir index.html",
+            "effects": "aucun effet attendu"
+          },
+          "after": {
+            "outcome": "ok",
+            "output": "HTTP 200, 10800 bytes, 0.014038 s",
+            "effects": "lecture HTTP seule"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le serveur statique 8001 est disponible pour les ponts visuels."
+        }
+      ]
+    },
+    {
+      "id": "hy-03",
+      "kind": "pipeline-stage",
+      "ref": "matrice-slide-ai/publish_variant.py",
+      "file": "matrice-slide-ai/publish_variant.py",
+      "verdict": "unchanged",
+      "impacted_backend": "matrice-slide-ai/publish_variant.py",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "Publication d'un slug après modification de slides.json sans rebuild",
+          "evidence": "reasoned",
+          "confidence": "high",
+          "assumptions": [
+            "verify_variant rend les pages depuis les sources Python/JSON",
+            "les fichiers HTML existants peuvent être plus anciens que les sources",
+            "aucune publication réelle n'est lancée pendant cette recette"
+          ],
+          "before": {
+            "outcome": "ok",
+            "output": "catalogue racine mis à jour même si les HTML servis sont périmés",
+            "effects": "index.html racine et published-versions.json peuvent changer"
+          },
+          "after": {
+            "outcome": "identical",
+            "output": "aucune correction appliquée dans ce run hybrid",
+            "effects": "identiques"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le comportement reste raisonné ; le mesurer impliquerait une publication locale contrôlée."
+        }
+      ]
+    },
+    {
+      "id": "hy-04",
+      "kind": "pipeline-stage",
+      "ref": "matrice-slide-ai/build.py",
+      "file": "matrice-slide-ai/build.py",
+      "verdict": "unchanged",
+      "impacted_backend": "matrice-slide-ai/build.py",
+      "actions": [
+        {
+          "seed": 1,
+          "input_summary": "slides.json avec image relative sortant du dossier assets/slides",
+          "evidence": "reasoned",
+          "confidence": "medium",
+          "assumptions": [
+            "le fichier cible existe sur disque",
+            "aucune validation de suffixe image ou de confinement n'intercepte la valeur",
+            "aucun fixture path traversal n'est écrit pendant cette recette"
+          ],
+          "before": {
+            "outcome": "ok",
+            "output": "HTML et ZIP peuvent référencer ou embarquer un fichier non slide",
+            "effects": "publication d'un artefact local inattendu"
+          },
+          "after": {
+            "outcome": "identical",
+            "output": "aucune correction appliquée dans ce run hybrid",
+            "effects": "identiques"
+          },
+          "delta": "identical",
+          "surprise": false,
+          "observation": "Le comportement reste à mesurer avec un fixture contrôlé avant correction."
+        }
+      ]
+    }
+  ],
+  "impacted_backend": [
+    "build-review.mjs --serve",
+    "serveur statique local",
+    "matrice-slide-ai/publish_variant.py",
+    "matrice-slide-ai/build.py"
+  ],
+  "impacted_ui_routes": [
+    {
+      "route": "/",
+      "reason": "Accueil racine mesuré en HTTP 200 et cité par audit-results.",
+      "severity": "high"
+    },
+    {
+      "route": "/miweb-objectifs-2030-v1/",
+      "reason": "Parcours recorder réel enregistré sur cette variante.",
+      "severity": "high"
+    },
+    {
+      "route": "/review.html",
+      "reason": "Serveur de revue et visual-results mesurés en HTTP 200.",
+      "severity": "medium"
+    }
+  ],
+  "skipped": [
+    {
+      "file": "scripts/validate_variant.sh",
+      "reason": "non mesuré en hybrid pour éviter téléchargement npx/réseau et exécution de paquets non verrouillés"
+    },
+    {
+      "file": "visual-tests/_shipguard_static_run.py",
+      "reason": "non relancé dans cet item pour éviter un run navigateur complet hors pont visual-run dédié"
+    }
+  ],
+  "uncovered": [
+    "Aucune baseline before réelle n'a été construite ; le mode execute est requis pour un before/after entièrement mesuré.",
+    "Les endpoints POST du monitor et de save-manifest ne sont pas couverts par cet item hybrid."
+  ]
+}

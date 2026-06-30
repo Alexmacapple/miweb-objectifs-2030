@@ -1,0 +1,62 @@
+{
+  "id": "shipguard-recette-miweb",
+  "title": "Recette ShipGuard sur MiWeb Objectifs 2030",
+  "summary": "Rapport de validation du workflow ShipGuard sur un site statique MiWeb : audit code, tests visuels, interface de revue et manifests enregistrés.",
+  "route": "/",
+  "status": "ready-for-review",
+  "audiences": ["client", "product", "design", "engineering"],
+  "client": {
+    "name": "Équipe MiWeb",
+    "contact": "validation-locale@example.invalid"
+  },
+  "validation": {
+    "reference": "SHIPGUARD-MIWEB-2026-06-29",
+    "review_url": "http://localhost:8888/persona-reports/shipguard-recette-miweb/client.html",
+    "reply_to": "validation-locale@example.invalid",
+    "deadline": "2026-06-30"
+  },
+  "changes": [
+    {
+      "id": "visual-suite",
+      "title": "Suite visuelle complète générée et exécutée",
+      "problem": "Le dépôt n'avait pas encore d'artefacts ShipGuard explicites pour distinguer le test visuel du contrôle accessibilité.",
+      "decision": "Créer une suite locale ShipGuard avec 28 routes, captures, rapport et planche-contact.",
+      "impact": "Le site peut être revu dans une interface unique avec preuves visuelles et statuts PASS.",
+      "risk": "Le runner local reste un adaptateur de recette et doit être durci avant réutilisation durable.",
+      "tests": ["pages/root-index", "pages/*"],
+      "files": ["visual-tests/_shipguard_static_run.py", "visual-tests/_results/report.md"],
+      "after": {
+        "src": "screenshots/visual-tests-after.png",
+        "caption": "Onglet Visual Tests avec 28 cartes PASS."
+      }
+    },
+    {
+      "id": "code-audit",
+      "title": "Audit code report-only affiché dans Mission Control",
+      "problem": "L'onglet Code Audit était vide tant que audit-results.json n'existait pas.",
+      "decision": "Agréger 5 zones d'audit quick report-only au format ShipGuard.",
+      "impact": "L'interface affiche 19 constats, 4 high, 11 medium, 4 low, et 8 routes impactées.",
+      "risk": "Les constats sont non corrigés et certains restent à confirmer par tests ciblés.",
+      "tests": ["sg-code-audit quick --report-only"],
+      "files": ["visual-tests/_results/audit-results.json", "visual-tests/_results/audit-results.toon"],
+      "after": {
+        "src": "screenshots/code-audit-after.png",
+        "caption": "Onglet Code Audit alimenté avec les résultats report-only."
+      }
+    },
+    {
+      "id": "home-page",
+      "title": "Accueil MiWeb disponible comme route de référence",
+      "problem": "Le workflow avait besoin d'une route simple pour vérifier le serveur local et les manifests enregistrés.",
+      "decision": "Utiliser l'accueil racine comme route smoke test.",
+      "impact": "Le manifest enregistré peut rejouer une ouverture et une assertion textuelle sur Objectifs 2030.",
+      "risk": "Le recorder interactif complet n'a pas été lancé jusqu'au clic Stop humain.",
+      "tests": ["recorded-miweb-home-smoke"],
+      "files": ["visual-tests/manifests/recorded-miweb-home-smoke.yaml"],
+      "after": {
+        "src": "screenshots/root-index-after.png",
+        "caption": "Accueil racine capturé par ShipGuard."
+      }
+    }
+  ]
+}

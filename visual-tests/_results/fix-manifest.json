@@ -1,0 +1,35 @@
+{
+  "action": "validate-and-fix",
+  "timestamp": "2026-06-30T17:39:17.215Z",
+  "tests": [
+    {
+      "test": "pages/checklist-span-operationnel-accessibilite-html",
+      "annotations": [
+        {
+          "note": "Recette 2.3.7 - annotation UI test",
+          "severity": "high",
+          "x1": 0.2916666666666667,
+          "y1": 0.3649455337690632,
+          "x2": 0.39166666666666666,
+          "y2": 0.46494553376906317
+        }
+      ],
+      "name": "Accessibilité - Checklist SPAN opérationnel",
+      "url": "http://127.0.0.1:8001/checklist-span-operationnel/accessibilite.html",
+      "screenshot": "screenshots/checklist-span-operationnel-accessibilite-html.png",
+      "steps": [
+        {
+          "action": "open",
+          "url": "{base_url}/checklist-span-operationnel/accessibilite.html"
+        },
+        {
+          "action": "llm-check",
+          "description": "Page loads and renders content",
+          "criteria": "Page content is visible, no blank screen, no browser error, no broken primary layout, no visibly missing slide image where one is expected.",
+          "severity": "critical",
+          "screenshot": "checklist-span-operationnel-accessibilite-html.png"
+        }
+      ]
+    }
+  ]
+}

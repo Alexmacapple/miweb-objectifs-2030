@@ -1,0 +1,23 @@
+{
+  "repos": [
+    {
+      "full_name": "bacoco/ShipGuard",
+      "url": "https://github.com/bacoco/ShipGuard",
+      "readme": "ShipGuard combines code audit, process checking, visual E2E review, recorder, scout, and improve skills. The 2.3.4 cycle adds canonical visual-results.json, dashboard smoke tests, monitor smoke tests, dry-run documentation, sandbox guidance, and stronger review contracts.",
+      "files": [
+        {
+          "path": "plugins/shipguard/skills/sg-visual-review/review-smoke-test.mjs",
+          "content": "Starts an isolated review fixture, builds review.html, starts a local server, checks audit-results.json, visual-results.json, persona reports, POST /save-manifest, and encoded path traversal rejection."
+        },
+        {
+          "path": "plugins/shipguard/skills/sg-visual-review/monitor-smoke-test.mjs",
+          "content": "Starts an isolated review server and exercises audit monitor endpoints: audit-start, agent-update, status, audit-complete, and persisted audit-monitor.json."
+        },
+        {
+          "path": "plugins/shipguard/docs/sandbox.md",
+          "content": "Documents sandbox constraints for local servers, browser automation, GitHub/network calls, and write paths."
+        }
+      ]
+    }
+  ]
+}
