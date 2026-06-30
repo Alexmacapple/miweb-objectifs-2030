@@ -2,6 +2,7 @@
 
 ## 2026-06-30
 
+- Création du `PRD-006` sur les ZIPs déterministes et les liens de téléchargement.
 - Implémentation locale du `PRD-005` : typage strict de `slides.json`.
 - Précision du `PRD-005` sur le contrat d'erreur `slides.json` pour `numero`.
 - Création du `PRD-005` sur le typage strict de `slides.json`.
