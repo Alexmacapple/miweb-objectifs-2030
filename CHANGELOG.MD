@@ -2,6 +2,7 @@
 
 ## 2026-07-01
 
+- Correction locale de `SG-Z4-005` : les README générés listent seulement les fichiers réellement présents dans `source/`.
 - Implémentation locale du `PRD-007` : nettoyage de `slides=all` à la sortie du mode toutes slides.
 - Création du `PRD-007` sur le nettoyage du paramètre `slides=all` à la sortie du mode toutes slides.
 

@@ -19,8 +19,11 @@ Le script lit `slides.json` et génère `index.html`, `alternatives.html`, `acce
 
 ## Sources du jeu de slides
 
+- `source/Checklist-SPAN.md` : source conservée pour traçabilité.
+- `source/contact-sheet.png` : source conservée pour traçabilité.
+- `source/imagegen-prompts-recovered.jsonl` : source conservée pour traçabilité.
+- `source/imagegen-receipt.tsv` : source conservée pour traçabilité.
 - `source/storyboard.md` : storyboard utilisé pour générer la variante.
-- `source/source.md` : source éditoriale utilisée pour produire les slides.
 - `slides.json` : titres, alternatives textuelles, descriptions et messages associés aux images publiées.
 
 ## Vérifications attendues

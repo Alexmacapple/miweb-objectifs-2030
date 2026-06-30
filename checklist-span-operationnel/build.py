@@ -15,6 +15,7 @@ REPO_ROOT = ROOT.parent
 SLIDES_PATH = ROOT / "slides.json"
 SLIDES_EXAMPLE_PATH = ROOT / "slides.example.json"
 SLIDES_DIR = ROOT / "assets" / "slides"
+SOURCE_DIR = ROOT / "source"
 DOWNLOADS_DIR = ROOT / "assets" / "downloads"
 VARIANT_METADATA_PATH = ROOT / "variant.json"
 VERSION_SLUG = ROOT.name
@@ -1152,6 +1153,28 @@ def render_markdown(slides: list[dict]) -> str:
     return "\n".join(parts)
 
 
+SOURCE_DESCRIPTIONS = {
+    "storyboard.md": "storyboard utilisé pour générer la variante.",
+    "storyboard.example.md": "exemple de storyboard utilisé pour créer une variante.",
+    "source.md": "source éditoriale utilisée pour produire les slides.",
+}
+
+
+def describe_source_file(path: Path) -> str:
+    return SOURCE_DESCRIPTIONS.get(path.name, "source conservée pour traçabilité.")
+
+
+def render_source_entries() -> str:
+    if not SOURCE_DIR.is_dir():
+        return "- Aucun fichier source local n’est présent."
+    source_files = sorted(path for path in SOURCE_DIR.iterdir() if path.is_file())
+    if not source_files:
+        return "- Aucun fichier source local n’est présent."
+    return "\n".join(
+        f"- `source/{path.name}` : {describe_source_file(path)}" for path in source_files
+    )
+
+
 def render_readme() -> str:
     return f"""# {VERSION_SLUG}
 
@@ -1174,8 +1197,7 @@ Le script lit `slides.json` et génère `index.html`, `alternatives.html`, `acce
 
 ## {SOURCE_LABEL}
 
-- `source/storyboard.md` : storyboard utilisé pour générer la variante.
-- `source/source.md` : source éditoriale utilisée pour produire les slides.
+{render_source_entries()}
 - `slides.json` : titres, alternatives textuelles, descriptions et messages associés aux images publiées.
 
 ## Vérifications attendues

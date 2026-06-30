@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import html
+import re
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
@@ -39,6 +40,7 @@ class SiteContractsTest(unittest.TestCase):
         cls.alternatives_html = cls.build.render_alternatives(cls.slides)
         cls.accessibilite_html = cls.build.render_accessibility()
         cls.alternatives_md = cls.build.render_markdown(cls.slides)
+        cls.readme = cls.build.render_readme()
 
     def test_slides_json_matches_images(self):
         slide_paths = sorted((ROOT / "assets" / "slides").glob("slide-*.png"))
@@ -93,6 +95,13 @@ class SiteContractsTest(unittest.TestCase):
             self.assertIn(escaped_title, self.alternatives_html)
             self.assertIn(escaped_description, self.alternatives_html)
             self.assertIn(slide["message"], self.alternatives_md)
+
+    def test_readme_source_entries_match_existing_files(self):
+        source_refs = re.findall(r"`source/([^`]+)`", self.readme)
+        self.assertTrue(source_refs, "Le README doit lister les fichiers source traçables.")
+        for source_name in source_refs:
+            with self.subTest(source=source_name):
+                self.assertTrue((ROOT / "source" / source_name).is_file())
 
     def test_slideshow_keeps_projection_and_all_slides_controls(self):
         self.assertIn(self.build.DIAPORAMA_TITLE, self.index_html)

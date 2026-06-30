@@ -19,8 +19,9 @@ Le script lit `slides.json` et génère `index.html`, `alternatives.html`, `acce
 
 ## Sources de la version condensée
 
-- `source/storyboard.md` : storyboard utilisé pour générer la variante.
+- `source/contact-sheet.png` : source conservée pour traçabilité.
 - `source/source.md` : source éditoriale utilisée pour produire les slides.
+- `source/storyboard.md` : storyboard utilisé pour générer la variante.
 - `slides.json` : titres, alternatives textuelles, descriptions et messages associés aux images publiées.
 
 ## Vérifications attendues
