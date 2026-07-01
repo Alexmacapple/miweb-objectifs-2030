@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0",
-  "timestamp": "2026-06-30T23:18:35.268Z",
+  "timestamp": "2026-06-30T22:56:27.555Z",
   "base_url": "http://127.0.0.1:8001",
   "summary": {
-    "total": 31,
-    "pass": 31,
+    "total": 28,
+    "pass": 28,
     "fail": 0,
     "error": 0,
     "stale": 0,
     "skipped": 0,
-    "duration_ms": 40300
+    "duration_ms": null
   },
   "tests": [
     {
@@ -40,36 +40,6 @@
       "status": "PASS",
       "duration_ms": null,
       "screenshot": "screenshots/checklist-span-operationnel.png",
-      "failure_reason": null
-    },
-    {
-      "id": "pages/emojis-accessibles-reseaux-sociaux-accessibilite-html",
-      "manifest": "pages/emojis-accessibles-reseaux-sociaux-accessibilite-html.yaml",
-      "name": "Accessibilité - Émojis accessibles - réseaux sociaux",
-      "url": "http://127.0.0.1:8001/emojis-accessibles-reseaux-sociaux/accessibilite.html",
-      "status": "PASS",
-      "duration_ms": null,
-      "screenshot": "screenshots/emojis-accessibles-reseaux-sociaux-accessibilite-html.png",
-      "failure_reason": null
-    },
-    {
-      "id": "pages/emojis-accessibles-reseaux-sociaux-alternatives-html",
-      "manifest": "pages/emojis-accessibles-reseaux-sociaux-alternatives-html.yaml",
-      "name": "Alternatives textuelles - Émojis accessibles - réseaux sociaux",
-      "url": "http://127.0.0.1:8001/emojis-accessibles-reseaux-sociaux/alternatives.html",
-      "status": "PASS",
-      "duration_ms": null,
-      "screenshot": "screenshots/emojis-accessibles-reseaux-sociaux-alternatives-html.png",
-      "failure_reason": null
-    },
-    {
-      "id": "pages/emojis-accessibles-reseaux-sociaux",
-      "manifest": "pages/emojis-accessibles-reseaux-sociaux.yaml",
-      "name": "Émojis accessibles - réseaux sociaux",
-      "url": "http://127.0.0.1:8001/emojis-accessibles-reseaux-sociaux/",
-      "status": "PASS",
-      "duration_ms": null,
-      "screenshot": "screenshots/emojis-accessibles-reseaux-sociaux.png",
       "failure_reason": null
     },
     {

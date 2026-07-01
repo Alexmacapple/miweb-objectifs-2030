@@ -1,14 +1,14 @@
-# Rapport visuel ShipGuard - 2026-06-30 20:49:05
+# Rapport visuel ShipGuard - 2026-07-01 01:16:42
 
 > Tests générés et exécutés selon les runbooks ShipGuard `sg-visual-discover` et `sg-visual-run`.
 > Les assertions `llm-check` ont été matérialisées par captures plein écran et inspection visuelle de la planche-contact.
 
 ## Synthèse
-- Tests : 28 exécutés, 28 réussis, 0 échecs, 0 obsolète, 0 erreurs, 0 ignoré
-- Durée : 35.8s
+- Tests : 31 exécutés, 31 réussis, 0 échecs, 0 obsolète, 0 erreurs, 0 ignoré
+- Durée : 40.3s
 - Régressions corrigées : 0
 - Nouveaux échecs : 0
-- Tests générés : 28
+- Tests générés : 31
 - Base URL : http://127.0.0.1:8001
 
 ## Échecs
@@ -23,7 +23,10 @@ Aucun échec détecté.
 |---|---:|---:|---|---|
 | pages/checklist-span-operationnel-accessibilite-html | PASS | 2.5s | Accessibilité - Checklist SPAN opérationnel - page accessibilité | capture disponible |
 | pages/checklist-span-operationnel-alternatives-html | PASS | 1.3s | Alternatives textuelles - Checklist SPAN opérationnel - alternatives textuelles | capture disponible |
-| pages/checklist-span-operationnel | PASS | 1.3s | Checklist SPAN opérationnel - présentation | capture disponible |
+| pages/checklist-span-operationnel | PASS | 1.4s | Checklist SPAN opérationnel - présentation | capture disponible |
+| pages/emojis-accessibles-reseaux-sociaux-accessibilite-html | PASS | 1.1s | Accessibilité - Émojis accessibles - réseaux sociaux - page accessibilité | capture disponible |
+| pages/emojis-accessibles-reseaux-sociaux-alternatives-html | PASS | 1.2s | Alternatives textuelles - Émojis accessibles - réseaux sociaux - alternatives textuelles | capture disponible |
+| pages/emojis-accessibles-reseaux-sociaux | PASS | 1.3s | Émojis accessibles - réseaux sociaux - présentation | capture disponible |
 | pages/root-index | PASS | 1.1s | Objectifs 2030 - accessibilité numérique - présentation | capture disponible |
 | pages/mise-en-gouvernance-du-span-accessibilite-html | PASS | 1.1s | Accessibilité - Mise en gouvernance du SPAN - page accessibilité | capture disponible |
 | pages/mise-en-gouvernance-du-span-alternatives-html | PASS | 1.3s | Alternatives textuelles - Mise en gouvernance du SPAN - alternatives textuelles | capture disponible |
@@ -34,8 +37,8 @@ Aucun échec détecté.
 | pages/miweb-objectifs-2030-v2-accessibilite-html | PASS | 1.1s | Accessibilité - Objectifs 2030 - accessibilité numérique - page accessibilité | capture disponible |
 | pages/miweb-objectifs-2030-v2-alternatives-html | PASS | 1.3s | Alternatives textuelles - Objectifs 2030 - accessibilité numérique - alternatives textuelles | capture disponible |
 | pages/miweb-objectifs-2030-v2 | PASS | 1.3s | Objectifs 2030 - accessibilité numérique - présentation | capture disponible |
-| pages/miweb-objectifs-2030-v3-accessibilite-html | PASS | 1.1s | Accessibilité - Objectifs 2030 - accessibilité numérique - page accessibilité | capture disponible |
-| pages/miweb-objectifs-2030-v3-alternatives-html | PASS | 1.2s | Alternatives textuelles - Objectifs 2030 - accessibilité numérique - alternatives textuelles | capture disponible |
+| pages/miweb-objectifs-2030-v3-accessibilite-html | PASS | 1.2s | Accessibilité - Objectifs 2030 - accessibilité numérique - page accessibilité | capture disponible |
+| pages/miweb-objectifs-2030-v3-alternatives-html | PASS | 1.3s | Alternatives textuelles - Objectifs 2030 - accessibilité numérique - alternatives textuelles | capture disponible |
 | pages/miweb-objectifs-2030-v3 | PASS | 1.3s | Objectifs 2030 - accessibilité numérique - présentation | capture disponible |
 | pages/miweb-objectifs-2030-v4-accessibilite-html | PASS | 1.1s | Accessibilité - Objectifs 2030 - accessibilité numérique - page accessibilité | capture disponible |
 | pages/miweb-objectifs-2030-v4-alternatives-html | PASS | 1.3s | Alternatives textuelles - Objectifs 2030 - accessibilité numérique - alternatives textuelles | capture disponible |

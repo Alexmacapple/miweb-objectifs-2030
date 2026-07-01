@@ -1,7 +1,7 @@
 # Proposal Trace - Recette ShipGuard sur MiWeb Objectifs 2030
 
 Status: prepared
-Generated at: 2026-06-30T22:56:27.559Z
+Generated at: 2026-06-30T23:18:35.273Z
 Référence: SHIPGUARD-MIWEB-2026-06-29
 Client: Équipe MiWeb
 Client contact: validation-locale@example.invalid

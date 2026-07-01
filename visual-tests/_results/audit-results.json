@@ -1,402 +1,184 @@
 {
   "repo": "miweb-objectifs-2030",
-  "timestamp": "2026-06-30T20:19:02Z",
-  "mode": "full-local-reconciled-codex-review",
-  "prompt_hash": "codex-local-reconciled-audit-20260630",
+  "timestamp": "2026-06-30T23:17:41.412Z",
+  "mode": "full-local-reconciled-report-only",
+  "prompt_hash": "3acfbfe59d3707337c500b2e",
   "rounds": 1,
-  "agents": 5,
+  "agents": [
+    {
+      "id": "local-code-validation",
+      "label": "Local code and publication validation",
+      "status": "completed",
+      "files_audited": 251,
+      "bugs_found": 0,
+      "duration_ms": null,
+      "paths": [
+        "matrice-slide-ai/tests",
+        "*/tests",
+        "scripts/validate_variant.sh",
+        "visual-tests/report-parser-smoke-test.mjs",
+        "visual-tests/review-smoke-test.mjs"
+      ]
+    },
+    {
+      "id": "visual-static-run",
+      "label": "ShipGuard static visual run",
+      "status": "completed",
+      "files_audited": 31,
+      "bugs_found": 0,
+      "duration_ms": null,
+      "paths": [
+        "visual-tests/pages/*.yaml",
+        "visual-tests/_results/report.md"
+      ]
+    }
+  ],
   "scope_info": {
-    "mode": "all",
+    "mode": "all-local-reconciled",
     "base_ref": null,
     "base_sha": null,
     "diff_files": 0,
     "importer_files": 0,
-    "total_in_scope": 125
+    "total_in_scope": 251
   },
   "summary": {
-    "total_bugs": 15,
+    "total_bugs": 0,
     "by_severity": {
       "critical": 0,
       "high": 0,
-      "medium": 11,
-      "low": 4
+      "medium": 0,
+      "low": 0
     },
-    "by_category": {
-      "security": 3,
-      "race-condition": 0,
-      "silent-exception": 0,
-      "api-guard": 0,
-      "resource-leak": 0,
-      "type-mismatch": 1,
-      "dead-code": 0,
-      "infra": 1,
-      "ssr-hydration": 0,
-      "input-validation": 0,
-      "error-handling": 0,
-      "performance": 0,
-      "accessibility": 0,
-      "logic-error": 6,
-      "other": 4
-    },
-    "files_audited": 125,
+    "by_category": {},
+    "files_audited": 251,
     "files_modified": 0,
     "duration_ms": 0,
-    "risk_score": 35,
+    "risk_score": 0,
     "lifecycle": {
       "new": 0,
-      "persistent": 15,
-      "fixed": 4,
-      "not_rechecked": 15,
-      "compared_to": "codex-shipguard-quick-report-only-20260629"
+      "persistent": 0,
+      "fixed": 15,
+      "not_rechecked": 0,
+      "compared_to": "2026-06-30T20:19:02Z"
     }
   },
-  "impacted_ui_routes": [
-    {
-      "route": "/span-pan/assets/downloads/span-pan-slides.zip",
-      "reason": "Archive ZIP publiée non fidèle aux images courantes.",
-      "severity": "medium"
-    },
-    {
-      "route": "/mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip",
-      "reason": "Archive ZIP publiée non fidèle aux images courantes.",
-      "severity": "medium"
-    },
-    {
-      "route": "/review.html",
-      "reason": "Interface ShipGuard : routes impactées, état zéro bug et serveur local.",
-      "severity": "medium"
-    }
-  ],
-  "impacted_routes": [
-    {
-      "route": "/span-pan/assets/downloads/span-pan-slides.zip",
-      "reason": "Archive ZIP publiée non fidèle aux images courantes.",
-      "severity": "medium"
-    },
-    {
-      "route": "/mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip",
-      "reason": "Archive ZIP publiée non fidèle aux images courantes.",
-      "severity": "medium"
-    },
-    {
-      "route": "/review.html",
-      "reason": "Interface ShipGuard : routes impactées, état zéro bug et serveur local.",
-      "severity": "medium"
-    }
-  ],
-  "impacted_backend": [
-    {
-      "endpoint": "outillage_validation_publication",
-      "reason": "Validation de publication via npx non verrouillé.",
-      "severity": "medium"
-    },
-    {
-      "endpoint": "matrice-slide-ai/build.py",
-      "reason": "Contrat slides, chemins d'images et ZIP.",
-      "severity": "medium"
-    },
-    {
-      "endpoint": "build-review.mjs --serve",
-      "reason": "Serveur de revue local et garde de chemins à surveiller.",
-      "severity": "medium"
-    },
-    {
-      "endpoint": "_shipguard_static_run.py agent-browser runner",
-      "reason": "Contrôles visuels et robustesse des erreurs.",
-      "severity": "medium"
-    }
-  ],
+  "impacted_ui_routes": [],
+  "impacted_routes": [],
+  "impacted_backend": [],
   "verification": {
-    "checked": 4,
-    "confirmed": 4,
+    "checked": 5,
+    "confirmed": 5,
     "uncertain": 0,
     "rejected": 0,
-    "skipped": 15
+    "skipped": 0,
+    "commands": [
+      "python3 -m unittest discover -s matrice-slide-ai/tests",
+      "scripts/validate_variant.sh <10 variantes>",
+      "python3 visual-tests/_shipguard_static_run.py --run",
+      "node visual-tests/report-parser-smoke-test.mjs",
+      "node visual-tests/review-smoke-test.mjs --port=23152 --debug"
+    ]
   },
-  "bugs": [
-    {
-      "id": "SG-Z1-001",
-      "severity": "medium",
-      "category": "security",
-      "subcategory": "supply-chain-unpinned-npx",
-      "file": "scripts/validate_variant.sh",
-      "line": 16,
-      "title": "Validation de publication exécutée via paquets npm non verrouillés",
-      "description": "La commande canonique de validation exécute html-validate et vnu-jar avec npx --yes, sans package.json ni lockfile dans le dépôt. Chaque validation peut télécharger et exécuter la dernière version publiée sur npm.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z2-002",
-      "severity": "medium",
-      "category": "security",
-      "subcategory": "path-traversal",
-      "file": "matrice-slide-ai/build.py",
-      "line": 1115,
-      "title": "slides.json peut référencer des fichiers hors assets/slides",
-      "description": "Le champ image est joint directement à ROOT sans normalisation ni vérification de confinement. Un chemin relatif sortant peut être accepté si le fichier existe, puis utilisé dans le HTML et copié dans le ZIP.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z2-003",
-      "severity": "medium",
-      "category": "type-mismatch",
-      "subcategory": "json-contract",
-      "file": "matrice-slide-ai/build.py",
-      "line": 677,
-      "title": "Le contrat slides.json ne valide pas les types des champs",
-      "description": "load_slides vérifie surtout la présence des clés. textes_visibles peut être une chaîne non vide, ce qui fait itérer le rendu caractère par caractère et peut générer des alternatives corrompues.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z2-004",
-      "severity": "low",
-      "category": "infra",
-      "subcategory": "zip-idempotence",
-      "file": "matrice-slide-ai/build.py",
-      "line": 1105,
-      "title": "Le ZIP généré n'est pas déterministe entre deux builds sans changement de contenu",
-      "description": "zipfile.ZipFile.write reprend les métadonnées de fichiers. Comme alternatives.md est réécrit avant d'être ajouté au ZIP, deux builds sans changement fonctionnel peuvent produire un binaire différent.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "medium",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z3-002",
-      "severity": "low",
-      "category": "logic-error",
-      "subcategory": "etat-url-all-slides",
-      "file": "miweb-objectifs-2030-v1/build.py",
-      "line": 402,
-      "title": "La sortie du mode toutes slides conserve le paramètre slides=all",
-      "description": "setUrl reconstruit l'URL avec window.location.search. Après ouverture de ?slides=all#diaporama, revenir au mode diaporama conserve ?slides=all dans l'URL et un rechargement rouvre toutes les slides.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.82,
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z4-002",
-      "severity": "medium",
-      "category": "logic-error",
-      "subcategory": "broken-root-download-link",
-      "file": "miweb-offre-mutualisee-listes-diffusion-2026-condensee/build.py",
-      "line": 767,
-      "title": "Le footer racine généré par la variante condensée pointe vers un ZIP inexistant",
-      "description": "En contexte racine, la variante condensée combine le slug de la variante longue avec le ZIP de la variante condensée, ce qui produit un lien de téléchargement inexistant.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z4-003",
-      "severity": "medium",
-      "category": "logic-error",
-      "subcategory": "stale-archive",
-      "file": "span-pan/assets/downloads/span-pan-slides.zip",
-      "line": 1,
-      "title": "Le ZIP publié pour span-pan ne correspond pas aux images courantes",
-      "description": "Les entrées slide-01.png à slide-05.png du ZIP ont des SHA-256 et tailles différents des fichiers assets/slides actuellement publiés.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z4-004",
-      "severity": "medium",
-      "category": "logic-error",
-      "subcategory": "stale-archive",
-      "file": "mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip",
-      "line": 1,
-      "title": "Le ZIP publié pour mise-en-gouvernance-du-span ne correspond pas aux images courantes",
-      "description": "Les entrées slide-01.png à slide-07.png du ZIP ont des SHA-256 et tailles différents des fichiers assets/slides actuellement publiés.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z4-005",
-      "severity": "low",
-      "category": "other",
-      "subcategory": "source-traceability",
-      "file": "checklist-span-operationnel/build.py",
-      "line": 1091,
-      "title": "Le README généré référence source/source.md pour des supports qui n'ont pas ce fichier",
-      "description": "Le modèle de README généré annonce source/source.md, mais plusieurs supports ont des sources nommées Checklist-SPAN.md, SPAN-diff-PAN.md ou matrice.md.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": "high",
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z5-002",
-      "severity": "medium",
-      "category": "security",
-      "subcategory": "path-traversal",
-      "file": "visual-tests/build-review.mjs",
-      "line": 1131,
-      "title": "Le garde anti-traversée utilise un préfixe chaîne contournable",
-      "description": "Le contrôle filePath.startsWith(RESULTS_DIR) accepte les chemins normalisés dont le nom commence par le même préfixe, par exemple un dossier frère _results-old.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.82,
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z5-003",
-      "severity": "medium",
-      "category": "other",
-      "subcategory": "schema-shipguard",
-      "file": "visual-tests/_review-template.html",
-      "line": 2104,
-      "title": "L'onglet Routes ignore impacted_ui_routes produit par sg-code-audit",
-      "description": "Le schéma ShipGuard agrégé expose impacted_ui_routes, mais le template lit seulement data.impacted_routes. Les routes impactées ne sont donc pas affichées sans alias.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.95,
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z5-004",
-      "severity": "medium",
-      "category": "other",
-      "subcategory": "audit-zero-bug",
-      "file": "visual-tests/_review-template.html",
-      "line": 1662,
-      "title": "Un audit valide avec zéro bug est affiché comme absent",
-      "description": "loadAuditData ne rend l'audit complet que si data.bugs.length > 0. Un audit réussi avec bugs: [] bascule vers l'état vide No audit data found.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.93,
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z5-005",
-      "severity": "medium",
-      "category": "logic-error",
-      "subcategory": "faux-positif",
-      "file": "visual-tests/_shipguard_static_run.py",
-      "line": 169,
-      "title": "Le runner peut marquer PASS une page HTTP d'erreur non blanche",
-      "description": "La vérification matérialise llm-check par une capture non blanche et un préfixe d'URL, sans contrôler le statut HTTP ni un sélecteur de contenu attendu.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.86,
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z5-006",
-      "severity": "medium",
-      "category": "logic-error",
-      "subcategory": "sandbox-erreurs",
-      "file": "visual-tests/_shipguard_static_run.py",
-      "line": 265,
-      "title": "La planche-contact plante si une erreur survient avant la capture",
-      "description": "Après une erreur agent-browser, le résultat est marqué ERROR, mais write_contact_sheet ouvre quand même le fichier de capture attendu. Sur un run frais sans capture, l'audit plante et masque le rapport.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.9,
-      "verification_score": null,
-      "verified": null
-    },
-    {
-      "id": "SG-Z5-007",
-      "severity": "low",
-      "category": "other",
-      "subcategory": "rapport-markdown",
-      "file": "visual-tests/build-review.mjs",
-      "line": 158,
-      "title": "Le parser de synthèse ne comprend pas le rapport Markdown francisé",
-      "description": "parseReport cherche le format anglais Tests: n run et le titre Visual Report, alors que le runner écrit un rapport français. Les statuts de table sont récupérés, mais la synthèse est ignorée.",
-      "fix_applied": false,
-      "fix_commit": "",
-      "confidence": 0.88,
-      "verification_score": null,
-      "verified": null
-    }
-  ],
+  "bugs": [],
   "unverified_bugs": [],
   "accepted_bugs": [],
-  "fixed_since_last_run": [],
-  "skipped": [
-    "Audit report-only : aucune correction appliquée et aucun commit effectué.",
-    "Assets binaires non audités visuellement, sauf cohérence ZIP signalée par les agents.",
-    "Validateurs npx non relancés pendant l'audit code pour éviter les téléchargements réseau.",
-    "Certains constats ont été produits par inspection statique et restent à confirmer par tests dédiés avant correction."
-  ],
-  "uncovered": [
-    "Aucune correction automatique sg-visual-fix exécutée, conformément à la consigne de ne rien modifier hors artefacts de test.",
-    "Pas de vérification dynamique des ZIP par téléchargement navigateur.",
-    "Pas d'audit RGAA complet dans ce run ShipGuard.",
-    "Pas d'appel GitHub pour sg-scout en mode publication."
-  ],
-  "regeneration_provenance": {
-    "kind": "full_local_reconciliation_after_committed_fixes_and_codex_review",
-    "not_native_shipguard_rerun": true,
-    "removed_active_findings": [
-      "SG-Z2-001",
-      "SG-Z3-001",
-      "SG-Z4-001",
-      "SG-Z5-001"
-    ],
-    "proof_commits": [
-      {
-        "commit": "0ff5f6c",
-        "fixes": [
-          "SG-Z2-001"
-        ]
-      },
-      {
-        "commit": "fe27e72",
-        "fixes": [
-          "SG-Z3-001"
-        ]
-      },
-      {
-        "commit": "35d6853",
-        "fixes": [
-          "SG-Z4-001"
-        ]
-      }
-    ],
-    "current_code_proof": [
-      {
-        "finding": "SG-Z5-001",
-        "proof": [
-          "visual-tests/build-review.mjs defines HOST default '127.0.0.1'",
-          "visual-tests/build-review.mjs calls server.listen(PORT, HOST)",
-          "visual-tests/build-review.mjs warns on --host=0.0.0.0"
-        ]
-      }
-    ],
-    "codex_review": {
-      "command": "codex review --uncommitted",
-      "note": "Used as complementary review; ShipGuard native /sg-code-audit is not available in Codex-only runtime."
+  "fixed_since_last_run": [
+    {
+      "file": "scripts/validate_variant.sh",
+      "title": "Validation de publication exécutée via paquets npm non verrouillés",
+      "severity": "medium"
+    },
+    {
+      "file": "matrice-slide-ai/build.py",
+      "title": "slides.json peut référencer des fichiers hors assets/slides",
+      "severity": "medium"
+    },
+    {
+      "file": "matrice-slide-ai/build.py",
+      "title": "Le contrat slides.json ne valide pas les types des champs",
+      "severity": "medium"
+    },
+    {
+      "file": "matrice-slide-ai/build.py",
+      "title": "Le ZIP généré n'est pas déterministe entre deux builds sans changement de contenu",
+      "severity": "low"
+    },
+    {
+      "file": "miweb-objectifs-2030-v1/build.py",
+      "title": "La sortie du mode toutes slides conserve le paramètre slides=all",
+      "severity": "low"
+    },
+    {
+      "file": "miweb-offre-mutualisee-listes-diffusion-2026-condensee/build.py",
+      "title": "Le footer racine généré par la variante condensée pointe vers un ZIP inexistant",
+      "severity": "medium"
+    },
+    {
+      "file": "span-pan/assets/downloads/span-pan-slides.zip",
+      "title": "Le ZIP publié pour span-pan ne correspond pas aux images courantes",
+      "severity": "medium"
+    },
+    {
+      "file": "mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip",
+      "title": "Le ZIP publié pour mise-en-gouvernance-du-span ne correspond pas aux images courantes",
+      "severity": "medium"
+    },
+    {
+      "file": "checklist-span-operationnel/build.py",
+      "title": "Le README généré référence source/source.md pour des supports qui n'ont pas ce fichier",
+      "severity": "low"
+    },
+    {
+      "file": "visual-tests/build-review.mjs",
+      "title": "Le garde anti-traversée utilise un préfixe chaîne contournable",
+      "severity": "medium"
+    },
+    {
+      "file": "visual-tests/_review-template.html",
+      "title": "L'onglet Routes ignore impacted_ui_routes produit par sg-code-audit",
+      "severity": "medium"
+    },
+    {
+      "file": "visual-tests/_review-template.html",
+      "title": "Un audit valide avec zéro bug est affiché comme absent",
+      "severity": "medium"
+    },
+    {
+      "file": "visual-tests/_shipguard_static_run.py",
+      "title": "Le runner peut marquer PASS une page HTTP d'erreur non blanche",
+      "severity": "medium"
+    },
+    {
+      "file": "visual-tests/_shipguard_static_run.py",
+      "title": "La planche-contact plante si une erreur survient avant la capture",
+      "severity": "medium"
+    },
+    {
+      "file": "visual-tests/build-review.mjs",
+      "title": "Le parser de synthèse ne comprend pas le rapport Markdown francisé",
+      "severity": "low"
     }
+  ],
+  "skipped": [],
+  "uncovered": [],
+  "regeneration_provenance": {
+    "generated_by": "Codex local ShipGuard rerun",
+    "native_sg_code_audit_available": false,
+    "native_sg_code_audit_probe": [
+      {
+        "cmd": "sg-code-audit",
+        "available": false
+      },
+      {
+        "cmd": "shipguard",
+        "available": false
+      },
+      {
+        "cmd": "sg-visual-run",
+        "available": false
+      }
+    ],
+    "basis": "Local report-only reconciliation from current tests, validations, and ShipGuard static visual run.",
+    "limitation": "No parallel ShipGuard agent dispatch was available from PATH in this Codex terminal."
   }
 }

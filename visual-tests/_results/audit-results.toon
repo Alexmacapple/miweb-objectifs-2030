@@ -1,22 +1,7 @@
-# audit-results.toon
-# repo: miweb-objectifs-2030
-# timestamp: 2026-06-30T20:19:02Z
-# mode: full-local-reconciled-codex-review
-# summary: total=15 critical=0 high=0 medium=11 low=4 risk=35 files_audited=125
-# removed_active_findings: SG-Z2-001,SG-Z3-001,SG-Z4-001,SG-Z5-001
-# bugs[15]{id,severity,category,file,line,title,fix_applied}:
-SG-Z1-001,medium,security,scripts/validate_variant.sh,16,Validation de publication exécutée via paquets npm non verrouillés,false
-SG-Z2-002,medium,security,matrice-slide-ai/build.py,1115,slides.json peut référencer des fichiers hors assets/slides,false
-SG-Z2-003,medium,type-mismatch,matrice-slide-ai/build.py,677,Le contrat slides.json ne valide pas les types des champs,false
-SG-Z2-004,low,infra,matrice-slide-ai/build.py,1105,Le ZIP généré n'est pas déterministe entre deux builds sans changement de contenu,false
-SG-Z3-002,low,logic-error,miweb-objectifs-2030-v1/build.py,402,La sortie du mode toutes slides conserve le paramètre slides=all,false
-SG-Z4-002,medium,logic-error,miweb-offre-mutualisee-listes-diffusion-2026-condensee/build.py,767,Le footer racine généré par la variante condensée pointe vers un ZIP inexistant,false
-SG-Z4-003,medium,logic-error,span-pan/assets/downloads/span-pan-slides.zip,1,Le ZIP publié pour span-pan ne correspond pas aux images courantes,false
-SG-Z4-004,medium,logic-error,mise-en-gouvernance-du-span/assets/downloads/mise-en-gouvernance-du-span-slides.zip,1,Le ZIP publié pour mise-en-gouvernance-du-span ne correspond pas aux images courantes,false
-SG-Z4-005,low,other,checklist-span-operationnel/build.py,1091,Le README généré référence source/source.md pour des supports qui n'ont pas ce fichier,false
-SG-Z5-002,medium,security,visual-tests/build-review.mjs,1131,Le garde anti-traversée utilise un préfixe chaîne contournable,false
-SG-Z5-003,medium,other,visual-tests/_review-template.html,2104,L'onglet Routes ignore impacted_ui_routes produit par sg-code-audit,false
-SG-Z5-004,medium,other,visual-tests/_review-template.html,1662,Un audit valide avec zéro bug est affiché comme absent,false
-SG-Z5-005,medium,logic-error,visual-tests/_shipguard_static_run.py,169,Le runner peut marquer PASS une page HTTP d'erreur non blanche,false
-SG-Z5-006,medium,logic-error,visual-tests/_shipguard_static_run.py,265,La planche-contact plante si une erreur survient avant la capture,false
-SG-Z5-007,low,other,visual-tests/build-review.mjs,158,Le parser de synthèse ne comprend pas le rapport Markdown francisé,false
+# audit-results.toon generated 2026-06-30T23:17:41.412Z
+# summary: total=0 critical=0 high=0 medium=0 low=0 risk=0
+# mode: full-local-reconciled-report-only
+# prompt_hash: 3acfbfe59d3707337c500b2e
+# compared_to: 2026-06-30T20:19:02Z
+# fixed_since_last_run: 15
+# bugs[0]{id,severity,category,file,line,title,verified,score}:
